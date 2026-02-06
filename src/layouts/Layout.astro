@@ -123,10 +123,32 @@ const alternateLang = lang === 'en' ? 'es' : 'en';
     document.getElementById('contactForm')?.addEventListener('submit', async e => {
       e.preventDefault();
       const btn = document.getElementById('formSubmit') as HTMLButtonElement;
-      btn.textContent = '✓';
-      btn.style.background = 'var(--accent)';
-      btn.style.color = 'white';
-      setTimeout(() => { btn.textContent = btn.dataset.label || 'Send'; btn.style.background = ''; btn.style.color = ''; (e.target as HTMLFormElement).reset(); }, 3000);
+      const form = e.target as HTMLFormElement;
+      const data = Object.fromEntries(new FormData(form));
+      btn.disabled = true;
+      btn.textContent = '...';
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (res.ok) {
+          btn.textContent = '✓';
+          btn.style.background = 'var(--accent)';
+          btn.style.color = 'white';
+          form.reset();
+        } else {
+          btn.textContent = 'Error';
+          btn.style.background = '#c33';
+          btn.style.color = 'white';
+        }
+      } catch(err) {
+        btn.textContent = 'Error';
+        btn.style.background = '#c33';
+        btn.style.color = 'white';
+      }
+      setTimeout(() => { btn.textContent = btn.dataset.label || 'Send'; btn.style.background = ''; btn.style.color = ''; btn.disabled = false; }, 3000);
     });
   </script>
 </body>
