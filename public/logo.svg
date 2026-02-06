@@ -1,0 +1,23 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" width="512" height="512">
+  <!-- Clicroot — Centered Root Icon (no cursor) -->
+  <rect x="4" y="4" width="192" height="192" rx="44" fill="#1A1A1A"/>
+  <!-- Origin point -->
+  <circle cx="100" cy="52" r="5" fill="#84BD00"/>
+  <!-- Main stem -->
+  <line x1="100" y1="57" x2="100" y2="162" stroke="#84BD00" stroke-width="7" stroke-linecap="round"/>
+  <!-- Primary branches -->
+  <line x1="100" y1="95" x2="152" y2="140" stroke="#84BD00" stroke-width="5.5" stroke-linecap="round"/>
+  <line x1="100" y1="95" x2="48" y2="140" stroke="#84BD00" stroke-width="5.5" stroke-linecap="round"/>
+  <!-- Secondary branches -->
+  <line x1="100" y1="74" x2="136" y2="104" stroke="#84BD00" stroke-width="3.5" stroke-linecap="round" opacity="0.55"/>
+  <line x1="100" y1="74" x2="64" y2="104" stroke="#84BD00" stroke-width="3.5" stroke-linecap="round" opacity="0.55"/>
+  <!-- Tertiary branches -->
+  <line x1="130" y1="121" x2="156" y2="118" stroke="#84BD00" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+  <line x1="70" y1="121" x2="44" y2="118" stroke="#84BD00" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+  <!-- Terminal nodes -->
+  <circle cx="152" cy="140" r="3.5" fill="#84BD00" opacity="0.5"/>
+  <circle cx="48" cy="140" r="3.5" fill="#84BD00" opacity="0.5"/>
+  <circle cx="100" cy="162" r="4" fill="#84BD00" opacity="0.6"/>
+  <circle cx="136" cy="104" r="2.5" fill="#84BD00" opacity="0.35"/>
+  <circle cx="64" cy="104" r="2.5" fill="#84BD00" opacity="0.35"/>
+</svg>

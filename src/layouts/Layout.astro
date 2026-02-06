@@ -11,18 +11,21 @@ const alternateLang = lang === 'en' ? 'es' : 'en';
 ---
 
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={lang} data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
   <!-- SEO -->
   <link rel="canonical" href={Astro.url.href}>
   {alternateUrl && <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />}
   <link rel="alternate" hreflang={lang} href={Astro.url.href} />
-  <link rel="alternate" hreflang="x-default" href={Astro.url.href.replace(`/${lang}/`, '/en/')} />
+  <link rel="alternate" hreflang="x-default" href={Astro.url.href.replace(`/${lang}/`, '/es/')} />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -33,13 +36,13 @@ const alternateLang = lang === 'en' ? 'es' : 'en';
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Nexo",
+    "name": "Clic Root",
     "description": description,
     "url": Astro.url.href,
     "serviceType": "SEO Consulting",
@@ -50,66 +53,81 @@ const alternateLang = lang === 'en' ? 'es' : 'en';
 <body>
   <slot />
 
-  <!-- Scroll Reveal & Counter Animations -->
   <script>
-    const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, observerOptions);
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Dark mode
+    const html = document.documentElement;
+    const stored = localStorage.getItem('theme');
+    if (stored) html.setAttribute('data-theme', stored);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
 
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counter = entry.target as HTMLElement;
-          const target = parseInt(counter.getAttribute('data-target') || '0');
-          const duration = 2000;
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Counter animation
+    const cobs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const c = e.target as HTMLElement;
+          const target = parseInt(c.dataset.target || '0');
           const start = performance.now();
           function update(now: number) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            counter.textContent = Math.floor(eased * target).toString();
-            if (progress < 1) requestAnimationFrame(update);
-            else counter.textContent = target.toString();
+            const p = Math.min((now - start) / 2000, 1);
+            c.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * target).toString();
+            if (p < 1) requestAnimationFrame(update);
+            else c.textContent = target.toString();
           }
           requestAnimationFrame(update);
-          counterObserver.unobserve(counter);
+          cobs.unobserve(c);
         }
       });
     }, { threshold: 0.5 });
-    document.querySelectorAll('.counter').forEach(c => counterObserver.observe(c));
+    document.querySelectorAll('.counter').forEach(c => cobs.observe(c));
 
     // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
         e.preventDefault();
         const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
         if (href) {
-          const target = document.querySelector(href);
-          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const t = document.querySelector(href);
+          if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
 
-    // Nav scroll effect
+    // Nav scroll
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav?.classList.toggle('scrolled', window.scrollY > 60);
-    });
+    window.addEventListener('scroll', () => nav?.classList.toggle('scrolled', window.scrollY > 40));
 
     // Mobile menu
     document.getElementById('hamburger')?.addEventListener('click', () => {
       document.getElementById('mobileMenu')?.classList.add('open');
       document.body.style.overflow = 'hidden';
     });
-    window.closeMobile = () => {
+    (window as any).closeMobile = () => {
       document.getElementById('mobileMenu')?.classList.remove('open');
       document.body.style.overflow = '';
     };
-    document.getElementById('mobileClose')?.addEventListener('click', window.closeMobile);
+    document.getElementById('mobileClose')?.addEventListener('click', (window as any).closeMobile);
+
+    // Form
+    document.getElementById('contactForm')?.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('formSubmit') as HTMLButtonElement;
+      btn.textContent = '✓';
+      btn.style.background = 'var(--accent)';
+      btn.style.color = 'white';
+      setTimeout(() => { btn.textContent = btn.dataset.label || 'Send'; btn.style.background = ''; btn.style.color = ''; (e.target as HTMLFormElement).reset(); }, 3000);
+    });
   </script>
 </body>
 </html>

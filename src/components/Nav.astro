@@ -1,32 +1,53 @@
 ---
 interface Props {
   lang: string;
-  t: any;
+  t: (key: string) => any;
 }
 const { lang, t } = Astro.props;
-const altLang = lang === 'en' ? 'es' : 'en';
-const altUrl = `/${altLang}/`;
+const otherLang = lang === 'es' ? 'en' : 'es';
 ---
+
+<!-- SVG Sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21L16.65 16.65"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></symbol>
+  <symbol id="i-trending" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 1012 0V2z"/></symbol>
+  <symbol id="i-dollar" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-star-fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-bar-chart" viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></symbol>
+</svg>
 
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href={`/${lang}/`} class="nav-logo">
-      <span class="dot"></span>
-      nexo
+      <span class="nav-logo-mark"><img src="/logo.svg" alt="Clic Root" width="28" height="28" /></span>
+      Clic Root
     </a>
     <ul class="nav-links">
       <li><a href="#services">{t('nav.services')}</a></li>
       <li><a href="#results">{t('nav.results')}</a></li>
       <li><a href="#cases">{t('nav.cases')}</a></li>
       <li><a href="#blog">{t('nav.blog')}</a></li>
-      <li>
-        <div class="lang-toggle">
-          <a class:list={["lang-btn", { active: lang === 'en' }]} href="/en/">EN</a>
-          <a class:list={["lang-btn", { active: lang === 'es' }]} href="/es/">ES</a>
-        </div>
-      </li>
     </ul>
-    <div class="nav-cta-wrap">
+    <div class="nav-right">
+      <div class="theme-toggle" id="themeToggle" role="button" aria-label="Toggle dark mode">
+        <span class="theme-toggle-icons">
+          <svg><use href="#i-sun"/></svg>
+          <svg><use href="#i-moon"/></svg>
+        </span>
+      </div>
+      <div class="lang-toggle">
+        <a class={`lang-btn ${lang === 'en' ? 'active' : ''}`} href={`/en/`}>EN</a>
+        <a class={`lang-btn ${lang === 'es' ? 'active' : ''}`} href={`/es/`}>ES</a>
+      </div>
       <a href="#contact" class="nav-cta">{t('nav.cta')}</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -42,161 +63,4 @@ const altUrl = `/${altLang}/`;
   <a href="#cases" onclick="closeMobile()">{t('nav.cases')}</a>
   <a href="#blog" onclick="closeMobile()">{t('nav.blog')}</a>
   <a href="#contact" onclick="closeMobile()">{t('nav.contact')}</a>
-  <div class="lang-toggle" style="margin-top:16px;">
-    <a class:list={["lang-btn", { active: lang === 'en' }]} href="/en/">EN</a>
-    <a class:list={["lang-btn", { active: lang === 'es' }]} href="/es/">ES</a>
-  </div>
 </div>
-
-<style>
-  .nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    padding: 16px 0;
-    transition: var(--transition);
-  }
-  .nav.scrolled {
-    background: rgba(10, 14, 26, 0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 12px 0;
-  }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  .nav-logo {
-    font-size: 1.5rem;
-    font-weight: 900;
-    letter-spacing: -0.03em;
-    text-decoration: none;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .nav-logo .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 12px var(--accent-glow);
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: var(--transition);
-    position: relative;
-  }
-  .nav-links a:hover { color: var(--text-primary); }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; left: 0;
-    width: 0; height: 2px;
-    background: var(--accent);
-    transition: var(--transition);
-  }
-  .nav-links a:hover::after { width: 100%; }
-  .lang-toggle {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 4px;
-  }
-  .lang-btn {
-    padding: 6px 14px;
-    border-radius: 100px;
-    background: transparent;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: var(--transition);
-    letter-spacing: 1px;
-  }
-  .lang-btn.active {
-    background: var(--accent);
-    color: var(--bg-primary);
-  }
-  .nav-cta {
-    padding: 10px 24px;
-    background: var(--accent);
-    color: var(--bg-primary);
-    border: none;
-    border-radius: 100px;
-    font-family: var(--font-display);
-    font-size: 0.875rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    text-decoration: none;
-  }
-  .nav-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--glow);
-  }
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-  }
-  .nav-hamburger span {
-    width: 24px; height: 2px;
-    background: var(--text-primary);
-    transition: var(--transition);
-    border-radius: 2px;
-  }
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(10, 14, 26, 0.98);
-    z-index: 999;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a {
-    text-decoration: none;
-    color: var(--text-primary);
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  .mobile-close {
-    position: absolute;
-    top: 20px; right: 24px;
-    background: none;
-    border: none;
-    color: var(--text-primary);
-    font-size: 2rem;
-    cursor: pointer;
-  }
-  @media (max-width: 768px) {
-    .nav-links, .nav-cta-wrap { display: none; }
-    .nav-hamburger { display: flex; }
-  }
-</style>

@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://nexo.com',
+  site: 'https://clicroot.com',
   i18n: {
     defaultLocale: 'es',
-    locales: ['en', 'es'],
+    locales: ['es', 'en'],
     routing: {
       prefixDefaultLocale: true,
       redirectToDefaultLocale: true

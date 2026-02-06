@@ -2,13 +2,13 @@ backend:
   name: github
   repo: buraye94/nexo-site
   branch: main
-  base_url: https://nexo-site.pages.dev
+  base_url: https://clicroot.com
   auth_endpoint: /auth
 
 media_folder: public/images
 public_folder: /images
 
-site_url: https://nexo-site.pages.dev
+site_url: https://clicroot.com
 
 collections:
   - name: blog-en
@@ -22,7 +22,6 @@ collections:
       - { label: Description, name: description, widget: text }
       - { label: Date, name: date, widget: datetime }
       - { label: Language, name: lang, widget: hidden, default: "en" }
-      - { label: Emoji, name: emoji, widget: string, default: "📊" }
       - { label: Tags, name: tags, widget: list, allow_add: true, default: [] }
       - { label: Draft, name: draft, widget: boolean, default: false }
       - { label: Body, name: body, widget: markdown }
@@ -38,7 +37,6 @@ collections:
       - { label: Descripción, name: description, widget: text }
       - { label: Fecha, name: date, widget: datetime }
       - { label: Idioma, name: lang, widget: hidden, default: "es" }
-      - { label: Emoji, name: emoji, widget: string, default: "📊" }
       - { label: Tags, name: tags, widget: list, allow_add: true, default: [] }
       - { label: Borrador, name: draft, widget: boolean, default: false }
       - { label: Contenido, name: body, widget: markdown }

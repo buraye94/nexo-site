@@ -7,7 +7,6 @@ import { getCollection } from 'astro:content';
 const lang = 'es';
 const tf = (key: string) => translate(lang, key);
 
-// Content collections
 const allTestimonials = await getCollection('testimonials');
 const testimonials = allTestimonials.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 
@@ -20,13 +19,18 @@ const blogPosts = allBlog
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 
-const services = tf('services.items');
-const stats = tf('results.stats');
-const steps = tf('process.steps');
+const services = tf('services.items') as any[];
+const stats = tf('results.stats') as any[];
+const steps = tf('process.steps') as any[];
+
+const iconMap: Record<string, string> = {
+  search: '#i-search', link: '#i-link', pen: '#i-pen', globe: '#i-globe'
+};
+const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
 ---
 
 <Layout
-  title="Nexo — Consultoría SEO"
+  title="Clic Root — Consultoría SEO"
   description={tf('hero.description')}
   lang={lang}
   alternateUrl="/en/"
@@ -35,46 +39,74 @@ const steps = tf('process.steps');
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-bg">
-      <div class="hero-gradient-1"></div>
-      <div class="hero-gradient-2"></div>
-      <div class="hero-grid"></div>
-    </div>
-    <div class="container" style="position:relative; z-index:2;">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="pulse"></span>
-          {tf('hero.badge')}
-        </div>
-        <h1 class="hero-title">
-          <span class="line">{tf('hero.title1')}</span>
-          <span class="line accent-line">{tf('hero.title2')}</span>
-        </h1>
-        <p class="hero-description">{tf('hero.description')}</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn-primary">
-            {tf('hero.cta_primary')}
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="#cases" class="btn-secondary">{tf('hero.cta_secondary')}</a>
-        </div>
+    <div class="hero-left">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
+        {tf('hero.badge')}
+      </div>
+      <h1 class="hero-title">{tf('hero.title1')}<br>{tf('hero.title2')}</h1>
+      <p class="hero-description">{tf('hero.description')}</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-dark">{tf('hero.cta1')}</a>
+        <a href="#cases" class="btn-outline">{tf('hero.cta2')}</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-orb"></div>
-      <div class="hero-orb"></div>
-      <div class="hero-orb"></div>
-      <div class="hero-orb-center">SEO</div>
-      <div class="hero-floating-tag"><span class="tag-dot" style="background:#00e5bf;"></span>+284% Traffic</div>
-      <div class="hero-floating-tag"><span class="tag-dot" style="background:#6366f1;"></span>#1 Rankings</div>
-      <div class="hero-floating-tag"><span class="tag-dot" style="background:#fbbf24;"></span>ROI: 12x</div>
+    <div class="hero-right">
+      <div class="hero-noise"></div>
+      <div class="metric-cards">
+        <div class="metric-card mc-1">
+          <div class="mc-icon" style="background:var(--accent-subtle);">
+            <svg stroke="var(--accent)" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-trending"/></svg>
+          </div>
+          <div class="mc-value">+312%</div>
+          <div class="mc-label">{tf('metrics.traffic')}</div>
+          <div class="mc-trend">
+            <svg fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow-up"/></svg>
+            {tf('metrics.trafficTrend')}
+          </div>
+        </div>
+        <div class="metric-card mc-2">
+          <div class="mc-icon" style="background:rgba(212,168,83,0.1);">
+            <svg stroke="#D4A853" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-trophy"/></svg>
+          </div>
+          <div class="mc-value">#1</div>
+          <div class="mc-label">{tf('metrics.rankings')}</div>
+          <div class="mini-chart">
+            <div class="mini-chart-bar" style="height:30%"></div>
+            <div class="mini-chart-bar" style="height:42%"></div>
+            <div class="mini-chart-bar" style="height:55%"></div>
+            <div class="mini-chart-bar" style="height:48%"></div>
+            <div class="mini-chart-bar" style="height:68%"></div>
+            <div class="mini-chart-bar" style="height:82%"></div>
+            <div class="mini-chart-bar" style="height:100%"></div>
+          </div>
+        </div>
+        <div class="metric-card mc-3">
+          <div class="mc-icon" style="background:var(--accent-subtle);">
+            <svg stroke="var(--accent)" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-dollar"/></svg>
+          </div>
+          <div class="mc-value">12x</div>
+          <div class="mc-label">{tf('metrics.roi')}</div>
+          <div class="mc-trend">
+            <svg fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow-up"/></svg>
+            {tf('metrics.roiTrend')}
+          </div>
+        </div>
+        <div class="metric-card mc-4">
+          <div class="mc-icon" style="background:rgba(212,168,83,0.1);">
+            <svg stroke="#D4A853" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
+          </div>
+          <div class="mc-value">98%</div>
+          <div class="mc-label">{tf('metrics.retention')}</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- SOCIAL PROOF -->
   <section class="social-proof reveal">
     <div class="container">
-      <div class="social-proof-label">{tf('social_proof.label')}</div>
+      <div class="social-proof-label">{tf('social.label')}</div>
       <div class="logos-track">
         <span class="logo-item">TechCorp</span>
         <span class="logo-item">Leal.co</span>
@@ -87,19 +119,21 @@ const steps = tf('process.steps');
   </section>
 
   <!-- SERVICES -->
-  <section class="section" id="services">
+  <section class="section services-section" id="services">
     <div class="container">
       <div class="reveal">
         <div class="section-label">{tf('services.label')}</div>
-        <h2 class="section-title">{tf('services.title')}<br>{tf('services.title2')}</h2>
+        <h2 class="section-title">{tf('services.title')}</h2>
         <p class="section-subtitle">{tf('services.subtitle')}</p>
       </div>
       <div class="services-grid">
-        {services.map((s: any, i: number) => (
-          <div class={`service-card reveal reveal-delay-${i + 1}`}>
-            <div class={`service-icon ${s.color}`}>{s.icon}</div>
-            <h3>{s.title}</h3>
-            <p>{s.description}</p>
+        {services.map((svc: any, i: number) => (
+          <div class={`service-card reveal reveal-d${i + 1}`}>
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={iconMap[svc.icon] || '#i-search'}/></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
           </div>
         ))}
       </div>
@@ -107,43 +141,43 @@ const steps = tf('process.steps');
   </section>
 
   <!-- RESULTS -->
-  <section class="section results" id="results">
+  <section class="section results-section" id="results">
     <div class="container">
       <div class="reveal" style="text-align:center;">
-        <div class="section-label" style="justify-content:center;">{tf('results.label')}</div>
-        <h2 class="section-title">{tf('results.title')}<br><span class="gradient-text">{tf('results.title2')}</span></h2>
+        <div class="section-label">{tf('results.label')}</div>
+        <h2 class="section-title">{tf('results.title')}</h2>
       </div>
       <div class="stats-grid">
-        {stats.map((s: any, i: number) => (
-          <div class={`stat-card reveal reveal-delay-${i + 1}`}>
+        {stats.map((stat: any, i: number) => (
+          <div class={`stat-card reveal reveal-d${i + 1}`}>
             <div class="stat-number">
-              <span class="counter" data-target={s.value}>0</span>
-              <span class="stat-suffix">{s.suffix}</span>
+              <span class="counter" data-target={stat.value}>0</span>
+              <span class="stat-suffix">{stat.suffix}</span>
             </div>
-            <div class="stat-label">{s.label}</div>
+            <div class="stat-label">{stat.label}</div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CASE STUDIES -->
-  <section class="section" id="cases">
+  <!-- CASES -->
+  <section class="section cases-section" id="cases">
     <div class="container">
       <div class="reveal">
-        <div class="section-label">{tf('cases_section.label')}</div>
-        <h2 class="section-title">{tf('cases_section.title')}<br>{tf('cases_section.title2')}</h2>
+        <div class="section-label">{tf('cases.label')}</div>
+        <h2 class="section-title">{tf('cases.title')}</h2>
       </div>
       <div class="cases-grid">
         {cases.map((c, i) => (
-          <div class={`case-card reveal reveal-delay-${i + 1}`}>
+          <div class={`case-card reveal reveal-d${i + 1}`}>
             <div class="case-header">
               <span class="case-tag">{c.data.tag}</span>
               <h3>{c.data.title_es}</h3>
               <p class="case-desc">{c.data.description_es}</p>
             </div>
             <div class="case-metrics">
-              {c.data.metrics.map((m) => (
+              {(c.data.metrics as any[]).map((m: any) => (
                 <div class="case-metric">
                   <div class="case-metric-value">{m.value}</div>
                   <div class="case-metric-label">{m.label_es}</div>
@@ -157,16 +191,20 @@ const steps = tf('process.steps');
   </section>
 
   <!-- TESTIMONIALS -->
-  <section class="section testimonials" id="testimonials">
+  <section class="section testimonials-section" id="testimonials">
     <div class="container">
       <div class="reveal">
-        <div class="section-label">{tf('testimonials_section.label')}</div>
-        <h2 class="section-title">{tf('testimonials_section.title')}</h2>
+        <div class="section-label">{tf('testimonials.label')}</div>
+        <h2 class="section-title">{tf('testimonials.title')}</h2>
       </div>
       <div class="testimonials-track reveal">
-        {testimonials.map((t) => (
+        {testimonials.map(t => (
           <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-stars">
+              {[...Array(5)].map(() => (
+                <svg viewBox="0 0 24 24"><use href="#i-star-fill"/></svg>
+              ))}
+            </div>
             <p class="testimonial-text">"{t.data.text_es}"</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">{t.data.initials}</div>
@@ -182,18 +220,18 @@ const steps = tf('process.steps');
   </section>
 
   <!-- PROCESS -->
-  <section class="section" id="process">
+  <section class="section process-section" id="process">
     <div class="container">
       <div class="reveal" style="text-align:center;">
-        <div class="section-label" style="justify-content:center;">{tf('process.label')}</div>
-        <h2 class="section-title">{tf('process.title')}<br>{tf('process.title2')}</h2>
+        <div class="section-label">{tf('process.label')}</div>
+        <h2 class="section-title">{tf('process.title')}</h2>
       </div>
-      <div class="process-timeline">
-        {steps.map((s: any, i: number) => (
-          <div class={`process-step reveal reveal-delay-${i + 1}`}>
-            <div class="process-number">{s.number}</div>
-            <h3>{s.title}</h3>
-            <p>{s.description}</p>
+      <div class="process-grid">
+        {steps.map((step: any, i: number) => (
+          <div class={`process-step reveal reveal-d${i + 1}`}>
+            <div class="process-number">{step.num}</div>
+            <h3>{step.title}</h3>
+            <p>{step.desc}</p>
           </div>
         ))}
       </div>
@@ -201,21 +239,23 @@ const steps = tf('process.steps');
   </section>
 
   <!-- BLOG -->
-  <section class="section" id="blog" style="background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <section class="section blog-section" id="blog">
     <div class="container">
       <div class="reveal">
-        <div class="section-label">{tf('blog_section.label')}</div>
-        <h2 class="section-title">{tf('blog_section.title')}</h2>
+        <div class="section-label">{tf('blog.label')}</div>
+        <h2 class="section-title">{tf('blog.title')}</h2>
       </div>
       <div class="blog-grid">
         {blogPosts.map((post, i) => (
-          <a href={`/${lang}/blog/${post.slug.replace('en/', '').replace('es/', '')}/`} class={`blog-card reveal reveal-delay-${i + 1}`} style="text-decoration:none; color:inherit;">
-            <div class="blog-card-img">{post.data.emoji}</div>
+          <a href={`/${lang}/blog/${post.slug.replace('es/', '').replace('en/', '')}/`} class={`blog-card reveal reveal-d${i + 1}`}>
+            <div class="blog-card-img">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={blogIcons[i % 3]}/></svg>
+            </div>
             <div class="blog-card-body">
-              <div class="blog-date">{post.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }).toUpperCase()}</div>
+              <div class="blog-date">{post.data.date.toLocaleDateString('es', { month: 'short', year: 'numeric' }).toUpperCase()}</div>
               <h3>{post.data.title}</h3>
               <p>{post.data.description}</p>
-              <span class="blog-read-more">{tf('blog_section.read_more')}</span>
+              <span class="blog-read-more">{tf('blog.readMore')} <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow-right"/></svg></span>
             </div>
           </a>
         ))}
@@ -224,22 +264,22 @@ const steps = tf('process.steps');
   </section>
 
   <!-- CONTACT -->
-  <section class="section cta-section" id="contact">
+  <section class="section contact-section" id="contact">
     <div class="container">
-      <div class="cta-box reveal">
-        <div class="section-label" style="justify-content:center;">{tf('contact.label')}</div>
-        <h2 class="section-title" style="text-align:center;">
-          {tf('contact.title')}<br><span class="gradient-text">{tf('contact.title2')}</span>
-        </h2>
-        <p class="section-subtitle" style="text-align:center; margin: 0 auto;">{tf('contact.subtitle')}</p>
-        <form class="contact-form" data-lang={lang} id="contactForm">
+      <div class="contact-inner">
+        <div class="reveal">
+          <div class="section-label">{tf('contact.label')}</div>
+          <h2 class="section-title">{tf('contact.title')}</h2>
+          <p class="section-subtitle">{tf('contact.subtitle')}</p>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
           <div class="form-row">
-            <input type="text" class="form-input" placeholder={tf('contact.name_placeholder')} name="name" required>
-            <input type="email" class="form-input" placeholder={tf('contact.email_placeholder')} name="email" required>
+            <input type="text" class="form-input" placeholder={tf('contact.name')} name="name" required />
+            <input type="email" class="form-input" placeholder={tf('contact.email')} name="email" required />
           </div>
-          <input type="text" class="form-input" placeholder={tf('contact.website_placeholder')} name="website">
-          <textarea class="form-textarea" placeholder={tf('contact.message_placeholder')} name="message"></textarea>
-          <button type="submit" class="form-submit" id="formSubmit">{tf('contact.submit')}</button>
+          <input type="text" class="form-input" placeholder={tf('contact.website')} name="website" />
+          <textarea class="form-textarea" placeholder={tf('contact.message')} name="message"></textarea>
+          <button type="submit" class="form-submit" id="formSubmit" data-label={tf('contact.submit')}>{tf('contact.submit')}</button>
         </form>
       </div>
     </div>
@@ -250,187 +290,36 @@ const steps = tf('process.steps');
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <div class="footer-logo">nexo</div>
-          <p>{tf('footer.description')}</p>
+          <div class="footer-logo">
+            <span class="footer-logo-mark"><img src="/logo.svg" alt="Clic Root" width="22" height="22" /></span>
+            Clic Root
+          </div>
+          <p>{tf('footer.desc')}</p>
         </div>
         <div class="footer-col">
-          <h4>{tf('footer.nav_title')}</h4>
+          <h4>{tf('footer.navTitle')}</h4>
           <a href="#services">{tf('nav.services')}</a>
           <a href="#cases">{tf('nav.cases')}</a>
           <a href="#blog">{tf('nav.blog')}</a>
           <a href="#contact">{tf('nav.contact')}</a>
         </div>
         <div class="footer-col">
-          <h4>{tf('footer.services_title')}</h4>
-          <a href="#">{tf('footer.technical_seo')}</a>
-          <a href="#">{tf('footer.link_building')}</a>
-          <a href="#">{tf('footer.content_strategy')}</a>
-          <a href="#">{tf('footer.bilingual_seo')}</a>
+          <h4>{tf('footer.svcTitle')}</h4>
+          <a href="#services">{tf('footer.techSeo')}</a>
+          <a href="#services">{tf('footer.linkBuilding')}</a>
+          <a href="#services">{tf('footer.contentStrategy')}</a>
+          <a href="#services">{tf('footer.bilingualSeo')}</a>
         </div>
         <div class="footer-col">
-          <h4>{tf('footer.connect_title')}</h4>
-          <a href="mailto:hello@nexo.com">hello@nexo.com</a>
+          <h4>{tf('footer.connectTitle')}</h4>
+          <a href="mailto:hello@clicroot.com">hello@clicroot.com</a>
           <a href="#">LinkedIn</a>
           <a href="#">Twitter / X</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <span class="footer-copy">© 2026 Nexo. {tf('footer.copyright')}</span>
-        <div class="footer-socials">
-          <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="Twitter">𝕏</a>
-        </div>
+        <span class="footer-copy">{tf('footer.copy')}</span>
       </div>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = document.getElementById('formSubmit') as HTMLButtonElement;
-      const lang = (e.target as HTMLFormElement).getAttribute('data-lang');
-      btn.textContent = lang === 'es' ? '✓ Mensaje Enviado' : '✓ Message Sent';
-      btn.style.background = '#10b981';
-      setTimeout(() => {
-        btn.textContent = lang === 'es' ? 'Enviar Mensaje →' : 'Send Message →';
-        btn.style.background = '';
-        (e.target as HTMLFormElement).reset();
-      }, 3000);
-    });
-  </script>
 </Layout>
-
-<style>
-  /* Hero */
-  .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
-  .hero-bg { position: absolute; inset: 0; overflow: hidden; }
-  .hero-gradient-1 { position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,191,0.08) 0%, transparent 70%); top: -200px; right: -200px; animation: float 8s ease-in-out infinite; }
-  .hero-gradient-2 { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%); bottom: -100px; left: -100px; animation: float 10s ease-in-out infinite 2s; }
-  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 40%, transparent 100%); }
-  .hero-content { position: relative; z-index: 2; max-width: 720px; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--accent-dim); border: 1px solid rgba(0,229,191,0.2); border-radius: 100px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 1px; margin-bottom: 28px; animation: fadeInUp 0.8s ease; }
-  .hero-badge .pulse { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse-glow 2s infinite; }
-  .hero-title { font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px; animation: fadeInUp 0.8s ease 0.1s backwards; }
-  .hero-title .line { display: block; }
-  .hero-title .accent-line { background: linear-gradient(135deg, var(--accent) 0%, #6366f1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .hero-description { font-size: 1.2rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 40px; max-width: 520px; animation: fadeInUp 0.8s ease 0.2s backwards; }
-  .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.3s backwards; }
-  .hero-visual { position: absolute; right: -40px; top: 50%; transform: translateY(-50%); width: 480px; height: 480px; animation: fadeIn 1s ease 0.5s backwards; }
-  .hero-orb { position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--border); }
-  .hero-orb:nth-child(1) { animation: orbit 20s linear infinite; inset: 40px; }
-  .hero-orb:nth-child(2) { animation: orbit 30s linear infinite reverse; inset: 80px; }
-  .hero-orb:nth-child(3) { inset: 120px; border-color: rgba(0,229,191,0.15); }
-  .hero-orb-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, var(--accent-dim), transparent); border: 1px solid rgba(0,229,191,0.2); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 2px; }
-  .hero-floating-tag { position: absolute; padding: 10px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap; animation: float 6s ease-in-out infinite; }
-  .hero-floating-tag:nth-child(5) { top: 15%; right: 10%; }
-  .hero-floating-tag:nth-child(6) { top: 65%; right: 0%; animation-delay: 2s; }
-  .hero-floating-tag:nth-child(7) { bottom: 15%; right: 30%; animation-delay: 4s; }
-  .hero-floating-tag .tag-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 8px; }
-  @media (max-width: 1024px) { .hero-visual { display: none; } }
-
-  /* Social Proof */
-  .social-proof { padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .social-proof-label { text-align: center; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 32px; }
-  .logos-track { display: flex; align-items: center; justify-content: center; gap: 64px; flex-wrap: wrap; }
-  .logo-item { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--text-muted); opacity: 0.5; transition: var(--transition); cursor: default; }
-  .logo-item:hover { opacity: 1; color: var(--text-primary); }
-
-  /* Services */
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 56px; }
-  .service-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; transition: var(--transition); position: relative; overflow: hidden; }
-  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-secondary)); opacity: 0; transition: var(--transition); }
-  .service-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-  .service-card:hover::before { opacity: 1; }
-  .service-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.4rem; }
-  .service-icon.green { background: var(--accent-dim); }
-  .service-icon.purple { background: var(--accent-secondary-dim); }
-  .service-icon.blue { background: rgba(56,189,248,0.12); }
-  .service-icon.amber { background: rgba(245,158,11,0.12); }
-  .service-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
-  .service-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
-
-  /* Results */
-  .results { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 56px; }
-  @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
-  .stat-card { text-align: center; padding: 32px 16px; }
-  .stat-number { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px; }
-  .stat-suffix { color: var(--accent); }
-  .stat-label { font-size: 0.9rem; color: var(--text-secondary); font-weight: 500; }
-
-  /* Cases */
-  .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; margin-top: 56px; }
-  .case-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: var(--transition); }
-  .case-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-  .case-header { padding: 32px 32px 0; }
-  .case-tag { display: inline-block; padding: 4px 12px; background: var(--accent-dim); color: var(--accent); font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 1px; border-radius: 100px; margin-bottom: 16px; }
-  .case-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
-  .case-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 24px; }
-  .case-metrics { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); }
-  .case-metric { padding: 20px; text-align: center; border-right: 1px solid var(--border); }
-  .case-metric:last-child { border-right: none; }
-  .case-metric-value { font-size: 1.3rem; font-weight: 800; color: var(--accent); }
-  .case-metric-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-
-  /* Testimonials */
-  .testimonials { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .testimonials-track { display: flex; gap: 24px; margin-top: 56px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 16px; scrollbar-width: none; }
-  .testimonials-track::-webkit-scrollbar { display: none; }
-  .testimonial-card { min-width: 380px; max-width: 380px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; scroll-snap-align: start; flex-shrink: 0; transition: var(--transition); }
-  .testimonial-card:hover { border-color: var(--border-hover); }
-  .testimonial-stars { display: flex; gap: 4px; margin-bottom: 20px; color: #fbbf24; font-size: 0.9rem; }
-  .testimonial-text { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 28px; font-style: italic; }
-  .testimonial-author { display: flex; align-items: center; gap: 14px; }
-  .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-dim), var(--accent-secondary-dim)); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--accent); }
-  .testimonial-name { font-weight: 700; font-size: 0.95rem; }
-  .testimonial-role { font-size: 0.8rem; color: var(--text-muted); }
-  @media (max-width: 480px) { .testimonial-card { min-width: 300px; max-width: 300px; } }
-
-  /* Process */
-  .process-timeline { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
-  .process-timeline::before { content: ''; position: absolute; top: 36px; left: 10%; right: 10%; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-secondary), var(--accent)); opacity: 0.3; }
-  @media (max-width: 768px) { .process-timeline { grid-template-columns: 1fr; } .process-timeline::before { display: none; } }
-  .process-step { text-align: center; position: relative; }
-  .process-number { width: 72px; height: 72px; border-radius: 50%; background: var(--bg-card); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; color: var(--accent); position: relative; z-index: 2; }
-  .process-step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-  .process-step p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
-
-  /* Blog */
-  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 56px; }
-  .blog-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: var(--transition); }
-  .blog-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
-  .blog-card-img { height: 180px; background: linear-gradient(135deg, var(--bg-card-hover), var(--bg-secondary)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
-  .blog-card-body { padding: 28px; }
-  .blog-date { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 12px; }
-  .blog-card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
-  .blog-card-body p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
-  .blog-read-more { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-top: 16px; transition: var(--transition); }
-  .blog-read-more:hover { gap: 10px; }
-
-  /* Contact */
-  .cta-section { background: linear-gradient(135deg, rgba(0,229,191,0.04) 0%, rgba(99,102,241,0.04) 100%); border-top: 1px solid var(--border); }
-  .cta-box { max-width: 680px; margin: 0 auto; text-align: center; }
-  .contact-form { margin-top: 48px; display: flex; flex-direction: column; gap: 16px; max-width: 480px; margin-left: auto; margin-right: auto; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
-  .form-input, .form-textarea { width: 100%; padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text-primary); font-family: var(--font-display); font-size: 0.95rem; transition: var(--transition); outline: none; }
-  .form-input:focus, .form-textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
-  .form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
-  .form-textarea { min-height: 120px; resize: vertical; }
-  .form-submit { padding: 16px 32px; background: var(--accent); color: var(--bg-primary); border: none; border-radius: 100px; font-family: var(--font-display); font-size: 1rem; font-weight: 700; cursor: pointer; transition: var(--transition); margin-top: 8px; }
-  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,229,191,0.3); }
-
-  /* Footer */
-  .footer { padding: 60px 0 32px; border-top: 1px solid var(--border); }
-  .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; margin-bottom: 48px; }
-  .footer-brand .footer-logo { font-size: 1.3rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -0.03em; }
-  .footer-brand p { color: var(--text-muted); font-size: 0.85rem; max-width: 280px; line-height: 1.7; }
-  .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 16px; }
-  .footer-col a { display: block; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; padding: 6px 0; transition: var(--transition); }
-  .footer-col a:hover { color: var(--accent); }
-  .footer-bottom { padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-  .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
-  .footer-socials { display: flex; gap: 16px; }
-  .footer-socials a { color: var(--text-muted); text-decoration: none; font-size: 1rem; transition: var(--transition); }
-  .footer-socials a:hover { color: var(--accent); }
-</style>
