@@ -10,8 +10,9 @@
   "hero": {
     "badge": "4.9 en satisfacción de clientes",
     "title1": "Tráfico Orgánico.",
-    "title2": "Ingresos Reales.",
-    "description": "Consultoría SEO estratégica que convierte tráfico orgánico en crecimiento medible. Mercados en inglés y español con estrategias basadas en datos.",
+    "title2": "Visibilidad en IA.",
+    "title3": "Ingresos Reales.",
+    "description": "Consultoría SEO y optimización para modelos de IA. Posiciona tu marca en Google, ChatGPT, Perplexity y Claude. Mercados en inglés y español.",
     "cta1": "Agenda una Llamada",
     "cta2": "Ver Resultados"
   },
@@ -89,6 +90,6 @@
     "linkBuilding": "Link Building",
     "contentStrategy": "Estrategia de Contenido",
     "bilingualSeo": "SEO Bilingüe",
-    "copy": "© 2026 Clic Root. Todos los derechos reservados."
+    "copy": "© 2026 clicroot. Todos los derechos reservados."
   }
 }

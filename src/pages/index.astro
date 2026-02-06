@@ -1,3 +1,325 @@
 ---
-return Astro.redirect('/es/');
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import { t as translate } from '../i18n/utils';
+import { getCollection } from 'astro:content';
+
+const lang = 'es';
+const tf = (key: string) => translate(lang, key);
+
+const allTestimonials = await getCollection('testimonials');
+const testimonials = allTestimonials.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+const allCases = await getCollection('cases');
+const cases = allCases.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+const allBlog = await getCollection('blog');
+const blogPosts = allBlog
+  .filter(post => post.data.lang === lang && !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+const services = tf('services.items') as any[];
+const stats = tf('results.stats') as any[];
+const steps = tf('process.steps') as any[];
+
+const iconMap: Record<string, string> = {
+  search: '#i-search', link: '#i-link', pen: '#i-pen', globe: '#i-globe'
+};
+const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
 ---
+
+<Layout
+  title="clicroot — Consultoría SEO"
+  description={tf('hero.description')}
+  lang={lang}
+  alternateUrl="/en/"
+>
+  <Nav lang={lang} t={tf} />
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
+        {tf('hero.badge')}
+      </div>
+      <h1 class="hero-title">{tf('hero.title1')}<br>{tf('hero.title2')}<br>{tf('hero.title3')}</h1>
+      <p class="hero-description">{tf('hero.description')}</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-dark">{tf('hero.cta1')}</a>
+        <a href="#cases" class="btn-outline">{tf('hero.cta2')}</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-noise"></div>
+      <div class="metric-cards">
+        <div class="metric-card mc-1">
+          <div class="mc-icon" style="background:var(--accent-subtle);">
+            <svg stroke="var(--accent)" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-trending"/></svg>
+          </div>
+          <div class="mc-value">+312%</div>
+          <div class="mc-label">{tf('metrics.traffic')}</div>
+          <div class="mc-trend">
+            <svg fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow-up"/></svg>
+            {tf('metrics.trafficTrend')}
+          </div>
+        </div>
+        <div class="metric-card mc-2">
+          <div class="mc-icon" style="background:rgba(212,168,83,0.1);">
+            <svg stroke="#D4A853" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-trophy"/></svg>
+          </div>
+          <div class="mc-value">#1</div>
+          <div class="mc-label">{tf('metrics.rankings')}</div>
+          <div class="mini-chart">
+            <div class="mini-chart-bar" style="height:30%"></div>
+            <div class="mini-chart-bar" style="height:42%"></div>
+            <div class="mini-chart-bar" style="height:55%"></div>
+            <div class="mini-chart-bar" style="height:48%"></div>
+            <div class="mini-chart-bar" style="height:68%"></div>
+            <div class="mini-chart-bar" style="height:82%"></div>
+            <div class="mini-chart-bar" style="height:100%"></div>
+          </div>
+        </div>
+        <div class="metric-card mc-3">
+          <div class="mc-icon" style="background:var(--accent-subtle);">
+            <svg stroke="var(--accent)" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-dollar"/></svg>
+          </div>
+          <div class="mc-value">12x</div>
+          <div class="mc-label">{tf('metrics.roi')}</div>
+          <div class="mc-trend">
+            <svg fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow-up"/></svg>
+            {tf('metrics.roiTrend')}
+          </div>
+        </div>
+        <div class="metric-card mc-4">
+          <div class="mc-icon" style="background:rgba(212,168,83,0.1);">
+            <svg stroke="#D4A853" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
+          </div>
+          <div class="mc-value">98%</div>
+          <div class="mc-label">{tf('metrics.retention')}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="social-proof reveal">
+    <div class="container">
+      <div class="social-proof-label">{tf('social.label')}</div>
+      <div class="logos-track">
+        <span class="logo-item">TechCorp</span>
+        <span class="logo-item">Leal.co</span>
+        <span class="logo-item">Floowi</span>
+        <span class="logo-item">Haciendas</span>
+        <span class="logo-item">Cheaf</span>
+        <span class="logo-item">StartupMX</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">{tf('services.label')}</div>
+        <h2 class="section-title">{tf('services.title')}</h2>
+        <p class="section-subtitle">{tf('services.subtitle')}</p>
+      </div>
+      <div class="services-grid">
+        {services.map((svc: any, i: number) => (
+          <div class={`service-card reveal reveal-d${i + 1}`}>
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={iconMap[svc.icon] || '#i-search'}/></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section results-section" id="results">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <div class="section-label">{tf('results.label')}</div>
+        <h2 class="section-title">{tf('results.title')}</h2>
+      </div>
+      <div class="stats-grid">
+        {stats.map((stat: any, i: number) => (
+          <div class={`stat-card reveal reveal-d${i + 1}`}>
+            <div class="stat-number">
+              <span class="counter" data-target={stat.value}>0</span>
+              <span class="stat-suffix">{stat.suffix}</span>
+            </div>
+            <div class="stat-label">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="section cases-section" id="cases">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">{tf('cases.label')}</div>
+        <h2 class="section-title">{tf('cases.title')}</h2>
+      </div>
+      <div class="cases-grid">
+        {cases.map((c, i) => (
+          <div class={`case-card reveal reveal-d${i + 1}`}>
+            <div class="case-header">
+              <span class="case-tag">{c.data.tag}</span>
+              <h3>{c.data.title_es}</h3>
+              <p class="case-desc">{c.data.description_es}</p>
+            </div>
+            <div class="case-metrics">
+              {(c.data.metrics as any[]).map((m: any) => (
+                <div class="case-metric">
+                  <div class="case-metric-value">{m.value}</div>
+                  <div class="case-metric-label">{m.label_es}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">{tf('testimonials.label')}</div>
+        <h2 class="section-title">{tf('testimonials.title')}</h2>
+      </div>
+      <div class="testimonials-track reveal">
+        {testimonials.map(t => (
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              {[...Array(5)].map(() => (
+                <svg viewBox="0 0 24 24"><use href="#i-star-fill"/></svg>
+              ))}
+            </div>
+            <p class="testimonial-text">"{t.data.text_es}"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">{t.data.initials}</div>
+              <div>
+                <div class="testimonial-name">{t.data.name}</div>
+                <div class="testimonial-role">{t.data.role_es}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process-section" id="process">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <div class="section-label">{tf('process.label')}</div>
+        <h2 class="section-title">{tf('process.title')}</h2>
+      </div>
+      <div class="process-grid">
+        {steps.map((step: any, i: number) => (
+          <div class={`process-step reveal reveal-d${i + 1}`}>
+            <div class="process-number">{step.num}</div>
+            <h3>{step.title}</h3>
+            <p>{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="section blog-section" id="blog">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">{tf('blog.label')}</div>
+        <h2 class="section-title">{tf('blog.title')}</h2>
+      </div>
+      <div class="blog-grid">
+        {blogPosts.map((post, i) => (
+          <a href={`/${lang}/blog/${post.slug.replace('es/', '').replace('en/', '')}/`} class={`blog-card reveal reveal-d${i + 1}`}>
+            <div class="blog-card-img">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={blogIcons[i % 3]}/></svg>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-date">{post.data.date.toLocaleDateString('es', { month: 'short', year: 'numeric' }).toUpperCase()}</div>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+              <span class="blog-read-more">{tf('blog.readMore')} <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow-right"/></svg></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="reveal">
+          <div class="section-label">{tf('contact.label')}</div>
+          <h2 class="section-title">{tf('contact.title')}</h2>
+          <p class="section-subtitle">{tf('contact.subtitle')}</p>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-row">
+            <input type="text" class="form-input" placeholder={tf('contact.name')} name="name" required />
+            <input type="email" class="form-input" placeholder={tf('contact.email')} name="email" required />
+          </div>
+          <input type="text" class="form-input" placeholder={tf('contact.website')} name="website" />
+          <textarea class="form-textarea" placeholder={tf('contact.message')} name="message"></textarea>
+          <button type="submit" class="form-submit" id="formSubmit" data-label={tf('contact.submit')}>{tf('contact.submit')}</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="footer-logo-mark"><img src="/logo.svg" alt="clicroot" width="22" height="22" /></span>
+            clicroot
+          </div>
+          <p>{tf('footer.desc')}</p>
+        </div>
+        <div class="footer-col">
+          <h4>{tf('footer.navTitle')}</h4>
+          <a href="#services">{tf('nav.services')}</a>
+          <a href="#cases">{tf('nav.cases')}</a>
+          <a href="#blog">{tf('nav.blog')}</a>
+          <a href="#contact">{tf('nav.contact')}</a>
+        </div>
+        <div class="footer-col">
+          <h4>{tf('footer.svcTitle')}</h4>
+          <a href="#services">{tf('footer.techSeo')}</a>
+          <a href="#services">{tf('footer.linkBuilding')}</a>
+          <a href="#services">{tf('footer.contentStrategy')}</a>
+          <a href="#services">{tf('footer.bilingualSeo')}</a>
+        </div>
+        <div class="footer-col">
+          <h4>{tf('footer.connectTitle')}</h4>
+          <a href="mailto:hello@clicroot.com">hello@clicroot.com</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Twitter / X</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">{tf('footer.copy')}</span>
+      </div>
+    </div>
+  </footer>
+</Layout>

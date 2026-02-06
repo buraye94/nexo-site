@@ -10,8 +10,9 @@
   "hero": {
     "badge": "4.9 client satisfaction rating",
     "title1": "Organic Traffic.",
-    "title2": "Real Revenue.",
-    "description": "Strategic SEO consulting that turns organic traffic into measurable growth. English and Spanish markets with data-driven strategies.",
+    "title2": "AI Visibility.",
+    "title3": "Real Revenue.",
+    "description": "Strategic SEO consulting and AI model optimization. Position your brand on Google, ChatGPT, Perplexity, and Claude. English and Spanish markets.",
     "cta1": "Book a Call",
     "cta2": "See Results"
   },
@@ -89,6 +90,6 @@
     "linkBuilding": "Link Building",
     "contentStrategy": "Content Strategy",
     "bilingualSeo": "Bilingual SEO",
-    "copy": "© 2026 Clic Root. All rights reserved."
+    "copy": "© 2026 clicroot. All rights reserved."
   }
 }

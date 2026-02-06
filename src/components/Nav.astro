@@ -27,9 +27,9 @@ const otherLang = lang === 'es' ? 'en' : 'es';
 
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href={`/${lang}/`} class="nav-logo">
-      <span class="nav-logo-mark"><img src="/logo.svg" alt="Clic Root" width="28" height="28" /></span>
-      Clic Root
+    <a href={lang === 'es' ? '/' : `/${lang}/`} class="nav-logo">
+      <span class="nav-logo-mark"><img src="/logo.svg" alt="clicroot" width="28" height="28" /></span>
+      clicroot
     </a>
     <ul class="nav-links">
       <li><a href="#services">{t('nav.services')}</a></li>
@@ -46,7 +46,7 @@ const otherLang = lang === 'es' ? 'en' : 'es';
       </div>
       <div class="lang-toggle">
         <a class={`lang-btn ${lang === 'en' ? 'active' : ''}`} href={`/en/`}>EN</a>
-        <a class={`lang-btn ${lang === 'es' ? 'active' : ''}`} href={`/es/`}>ES</a>
+        <a class={`lang-btn ${lang === 'es' ? 'active' : ''}`} href={`/`}>ES</a>
       </div>
       <a href="#contact" class="nav-cta">{t('nav.cta')}</a>
     </div>
