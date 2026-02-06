@@ -120,7 +120,7 @@ const alternateLang = lang === 'en' ? 'es' : 'en';
     document.getElementById('mobileClose')?.addEventListener('click', (window as any).closeMobile);
 
     // Form
-    document.getElementById('contactForm')?.addEventListener('submit', e => {
+    document.getElementById('contactForm')?.addEventListener('submit', async e => {
       e.preventDefault();
       const btn = document.getElementById('formSubmit') as HTMLButtonElement;
       btn.textContent = '✓';
