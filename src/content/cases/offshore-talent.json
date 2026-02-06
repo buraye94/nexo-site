@@ -1,0 +1,13 @@
+{
+  "title_en": "Offshore Talent Platform",
+  "title_es": "Plataforma de Talento Offshore",
+  "tag": "TECH / HR",
+  "description_en": "From zero organic presence to dominating high-intent hiring keywords with bottom-of-funnel landing pages and strategic content.",
+  "description_es": "De cero presencia orgánica a dominar keywords de contratación con landing pages de fondo de embudo y contenido estratégico.",
+  "metrics": [
+    { "value": "0→5K", "label_en": "Monthly Visits", "label_es": "Visitas/Mes" },
+    { "value": "+34", "label_en": "Top 10 KWs", "label_es": "KWs Top 10" },
+    { "value": "4mo", "label_en": "Timeline", "label_es": "Tiempo" }
+  ],
+  "order": 3
+}

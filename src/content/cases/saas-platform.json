@@ -1,0 +1,13 @@
+{
+  "title_en": "SaaS Platform — Customer Engagement",
+  "title_es": "Plataforma SaaS — Engagement de Clientes",
+  "tag": "E-COMMERCE",
+  "description_en": "Comprehensive technical audit and content strategy that drove massive organic growth in the Colombian market within 6 months.",
+  "description_es": "Auditoría técnica integral y estrategia de contenido que impulsó un crecimiento orgánico masivo en el mercado colombiano en 6 meses.",
+  "metrics": [
+    { "value": "+312%", "label_en": "Traffic", "label_es": "Tráfico" },
+    { "value": "+89", "label_en": "Keywords", "label_es": "Keywords" },
+    { "value": "6mo", "label_en": "Timeline", "label_es": "Tiempo" }
+  ],
+  "order": 1
+}

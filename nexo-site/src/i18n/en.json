@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "services": "Services",
+    "results": "Results",
+    "cases": "Case Studies",
+    "blog": "Blog",
+    "contact": "Contact",
+    "cta": "Get Started"
+  },
+  "hero": {
+    "badge": "SEO CONSULTING — BILINGUAL EXPERTISE",
+    "title1": "Dominate Search.",
+    "title2": "Drive Revenue.",
+    "description": "Strategic SEO consulting that turns organic traffic into measurable business growth. Serving English and Spanish markets with data-driven strategies.",
+    "cta_primary": "Book a Strategy Call",
+    "cta_secondary": "See Results"
+  },
+  "social_proof": {
+    "label": "Trusted by growing businesses"
+  },
+  "services": {
+    "label": "What We Do",
+    "title": "SEO strategies that",
+    "title2": "move the needle.",
+    "subtitle": "No scattered tactics. Just 2–3 high-impact strategies executed with precision for measurable business growth.",
+    "items": [
+      {
+        "icon": "🔍",
+        "color": "green",
+        "title": "Technical SEO Audits",
+        "description": "Deep-dive site analysis identifying the critical fixes that unlock rankings. Crawlability, Core Web Vitals, structured data, and indexation."
+      },
+      {
+        "icon": "📈",
+        "color": "purple",
+        "title": "Strategic Link Building",
+        "description": "Quality over quantity. High-authority placements on relevant sites that build real domain authority and drive referral traffic."
+      },
+      {
+        "icon": "✍️",
+        "color": "blue",
+        "title": "Content Strategy",
+        "description": "Bottom-of-funnel landing pages and content that captures high-intent searches and converts visitors into customers."
+      },
+      {
+        "icon": "🌎",
+        "color": "amber",
+        "title": "Bilingual SEO",
+        "description": "Native-level optimization for English and Spanish markets. Hreflang, localized keyword research, and region-specific strategies."
+      }
+    ]
+  },
+  "results": {
+    "label": "Results",
+    "title": "Numbers that speak",
+    "title2": "louder than words.",
+    "stats": [
+      { "value": 284, "suffix": "%", "label": "Avg. Traffic Increase" },
+      { "value": 12, "suffix": "x", "label": "Average ROI" },
+      { "value": 47, "suffix": "+", "label": "Keywords in Top 3" },
+      { "value": 98, "suffix": "%", "label": "Client Retention" }
+    ]
+  },
+  "cases_section": {
+    "label": "Case Studies",
+    "title": "Real results for",
+    "title2": "real businesses."
+  },
+  "testimonials_section": {
+    "label": "Testimonials",
+    "title": "What our clients say."
+  },
+  "process": {
+    "label": "How We Work",
+    "title": "From audit to growth",
+    "title2": "in four steps.",
+    "steps": [
+      { "number": "01", "title": "Discovery", "description": "Deep-dive into your business, competitors, and market opportunities." },
+      { "number": "02", "title": "Strategy", "description": "Custom roadmap with 2–3 high-impact strategies tailored to your goals." },
+      { "number": "03", "title": "Execution", "description": "Hands-on implementation with detailed instructions and ongoing support." },
+      { "number": "04", "title": "Growth", "description": "Monthly reporting, optimization, and scaling what works." }
+    ]
+  },
+  "blog_section": {
+    "label": "From the Blog",
+    "title": "Insights & strategies.",
+    "read_more": "Read more →"
+  },
+  "contact": {
+    "label": "Get Started",
+    "title": "Ready to dominate",
+    "title2": "your market?",
+    "subtitle": "Book a free 30-minute strategy call. We'll analyze your current SEO and show you exactly where the opportunities are.",
+    "name_placeholder": "Name",
+    "email_placeholder": "Email",
+    "website_placeholder": "Website URL",
+    "message_placeholder": "Tell us about your business and SEO goals...",
+    "submit": "Send Message →",
+    "success": "✓ Message Sent"
+  },
+  "footer": {
+    "description": "Strategic SEO consulting for businesses ready to own their market. Bilingual expertise across English and Spanish markets.",
+    "nav_title": "Navigation",
+    "services_title": "Services",
+    "connect_title": "Connect",
+    "copyright": "All rights reserved.",
+    "technical_seo": "Technical SEO",
+    "link_building": "Link Building",
+    "content_strategy": "Content Strategy",
+    "bilingual_seo": "Bilingual SEO"
+  }
+}

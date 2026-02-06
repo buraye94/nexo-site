@@ -1,0 +1,13 @@
+{
+  "title_en": "Luxury Villa Rentals — Tourism",
+  "title_es": "Renta de Villas de Lujo — Turismo",
+  "tag": "HOSPITALITY",
+  "description_en": "Strategic link building and bilingual content optimization targeting high-value vacation rental keywords in competitive markets.",
+  "description_es": "Link building estratégico y optimización de contenido bilingüe para keywords de alto valor en mercados competitivos de turismo.",
+  "metrics": [
+    { "value": "+247%", "label_en": "Bookings", "label_es": "Reservas" },
+    { "value": "#1", "label_en": "Ranking", "label_es": "Ranking" },
+    { "value": "8mo", "label_en": "Timeline", "label_es": "Tiempo" }
+  ],
+  "order": 2
+}

@@ -1,0 +1,87 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/nexo-site  # ← CHANGE THIS
+  branch: main
+  base_url: https://api.netlify.com  # For OAuth - or use Cloudflare Access
+  auth_endpoint: auth
+
+media_folder: public/images
+public_folder: /images
+
+site_url: https://nexo.com  # ← CHANGE THIS
+
+collections:
+  # ===== BLOG POSTS (English) =====
+  - name: blog-en
+    label: "Blog (English)"
+    folder: src/content/blog/en
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Date, name: date, widget: datetime }
+      - { label: Language, name: lang, widget: hidden, default: "en" }
+      - { label: Emoji, name: emoji, widget: string, default: "📊" }
+      - { label: Tags, name: tags, widget: list, allow_add: true, default: [] }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - { label: Body, name: body, widget: markdown }
+
+  # ===== BLOG POSTS (Spanish) =====
+  - name: blog-es
+    label: "Blog (Español)"
+    folder: src/content/blog/es
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Descripción, name: description, widget: text }
+      - { label: Fecha, name: date, widget: datetime }
+      - { label: Idioma, name: lang, widget: hidden, default: "es" }
+      - { label: Emoji, name: emoji, widget: string, default: "📊" }
+      - { label: Tags, name: tags, widget: list, allow_add: true, default: [] }
+      - { label: Borrador, name: draft, widget: boolean, default: false }
+      - { label: Contenido, name: body, widget: markdown }
+
+  # ===== TESTIMONIALS =====
+  - name: testimonials
+    label: "Testimonials / Testimonios"
+    folder: src/content/testimonials
+    create: true
+    slug: "{{fields.name}}"
+    extension: json
+    format: json
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: "Role (English)", name: role, widget: string }
+      - { label: "Role (Spanish)", name: role_es, widget: string }
+      - { label: Initials, name: initials, widget: string }
+      - { label: "Testimonial (English)", name: text_en, widget: text }
+      - { label: "Testimonial (Spanish)", name: text_es, widget: text }
+      - { label: "Display Order", name: order, widget: number, default: 0 }
+
+  # ===== CASE STUDIES =====
+  - name: cases
+    label: "Case Studies / Casos"
+    folder: src/content/cases
+    create: true
+    slug: "{{slug}}"
+    extension: json
+    format: json
+    fields:
+      - { label: "Title (English)", name: title_en, widget: string }
+      - { label: "Title (Spanish)", name: title_es, widget: string }
+      - { label: "Tag / Category", name: tag, widget: string }
+      - { label: "Description (English)", name: description_en, widget: text }
+      - { label: "Description (Spanish)", name: description_es, widget: text }
+      - label: Metrics
+        name: metrics
+        widget: list
+        max: 3
+        fields:
+          - { label: Value, name: value, widget: string }
+          - { label: "Label (English)", name: label_en, widget: string }
+          - { label: "Label (Spanish)", name: label_es, widget: string }
+      - { label: "Display Order", name: order, widget: number, default: 0 }

@@ -1,0 +1,119 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  lang: string;
+  alternateUrl?: string;
+}
+
+const { title, description, lang, alternateUrl } = Astro.props;
+const alternateLang = lang === 'en' ? 'es' : 'en';
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+
+  <!-- SEO -->
+  <link rel="canonical" href={Astro.url.href}>
+  {alternateUrl && <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />}
+  <link rel="alternate" hreflang={lang} href={Astro.url.href} />
+  <link rel="alternate" hreflang="x-default" href={Astro.url.href.replace(`/${lang}/`, '/en/')} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'}>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Nexo",
+    "description": description,
+    "url": Astro.url.href,
+    "serviceType": "SEO Consulting",
+    "areaServed": ["US", "CO", "MX", "ES"],
+    "availableLanguage": ["English", "Spanish"]
+  })} />
+</head>
+<body>
+  <slot />
+
+  <!-- Scroll Reveal & Counter Animations -->
+  <script>
+    const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target as HTMLElement;
+          const target = parseInt(counter.getAttribute('data-target') || '0');
+          const duration = 2000;
+          const start = performance.now();
+          function update(now: number) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            counter.textContent = Math.floor(eased * target).toString();
+            if (progress < 1) requestAnimationFrame(update);
+            else counter.textContent = target.toString();
+          }
+          requestAnimationFrame(update);
+          counterObserver.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(c => counterObserver.observe(c));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+        if (href) {
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav?.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu
+    document.getElementById('hamburger')?.addEventListener('click', () => {
+      document.getElementById('mobileMenu')?.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    window.closeMobile = () => {
+      document.getElementById('mobileMenu')?.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+    document.getElementById('mobileClose')?.addEventListener('click', window.closeMobile);
+  </script>
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

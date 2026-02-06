@@ -1,0 +1,202 @@
+---
+interface Props {
+  lang: string;
+  t: any;
+}
+const { lang, t } = Astro.props;
+const altLang = lang === 'en' ? 'es' : 'en';
+const altUrl = `/${altLang}/`;
+---
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href={`/${lang}/`} class="nav-logo">
+      <span class="dot"></span>
+      nexo
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">{t('nav.services')}</a></li>
+      <li><a href="#results">{t('nav.results')}</a></li>
+      <li><a href="#cases">{t('nav.cases')}</a></li>
+      <li><a href="#blog">{t('nav.blog')}</a></li>
+      <li>
+        <div class="lang-toggle">
+          <a class:list={["lang-btn", { active: lang === 'en' }]} href="/en/">EN</a>
+          <a class:list={["lang-btn", { active: lang === 'es' }]} href="/es/">ES</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-cta-wrap">
+      <a href="#contact" class="nav-cta">{t('nav.cta')}</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">&times;</button>
+  <a href="#services" onclick="closeMobile()">{t('nav.services')}</a>
+  <a href="#results" onclick="closeMobile()">{t('nav.results')}</a>
+  <a href="#cases" onclick="closeMobile()">{t('nav.cases')}</a>
+  <a href="#blog" onclick="closeMobile()">{t('nav.blog')}</a>
+  <a href="#contact" onclick="closeMobile()">{t('nav.contact')}</a>
+  <div class="lang-toggle" style="margin-top:16px;">
+    <a class:list={["lang-btn", { active: lang === 'en' }]} href="/en/">EN</a>
+    <a class:list={["lang-btn", { active: lang === 'es' }]} href="/es/">ES</a>
+  </div>
+</div>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 16px 0;
+    transition: var(--transition);
+  }
+  .nav.scrolled {
+    background: rgba(10, 14, 26, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .nav-logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    text-decoration: none;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-logo .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: var(--transition);
+  }
+  .nav-links a:hover::after { width: 100%; }
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 4px;
+  }
+  .lang-btn {
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+    letter-spacing: 1px;
+  }
+  .lang-btn.active {
+    background: var(--accent);
+    color: var(--bg-primary);
+  }
+  .nav-cta {
+    padding: 10px 24px;
+    background: var(--accent);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: 100px;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+  }
+  .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow);
+  }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .nav-hamburger span {
+    width: 24px; height: 2px;
+    background: var(--text-primary);
+    transition: var(--transition);
+    border-radius: 2px;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10, 14, 26, 0.98);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .mobile-close {
+    position: absolute;
+    top: 20px; right: 24px;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta-wrap { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+</style>

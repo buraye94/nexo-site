@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "results": "Resultados",
+    "cases": "Casos de Éxito",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "cta": "Empezar"
+  },
+  "hero": {
+    "badge": "CONSULTORÍA SEO — EXPERIENCIA BILINGÜE",
+    "title1": "Domina las Búsquedas.",
+    "title2": "Genera Ingresos.",
+    "description": "Consultoría SEO estratégica que convierte tráfico orgánico en crecimiento medible. Mercados en inglés y español con estrategias basadas en datos.",
+    "cta_primary": "Agenda una Llamada",
+    "cta_secondary": "Ver Resultados"
+  },
+  "social_proof": {
+    "label": "Empresas que confían en nosotros"
+  },
+  "services": {
+    "label": "Nuestros Servicios",
+    "title": "Estrategias SEO que",
+    "title2": "generan resultados.",
+    "subtitle": "Sin tácticas dispersas. Solo 2–3 estrategias de alto impacto ejecutadas con precisión para crecimiento medible.",
+    "items": [
+      {
+        "icon": "🔍",
+        "color": "green",
+        "title": "Auditorías SEO Técnicas",
+        "description": "Análisis profundo del sitio identificando correcciones críticas. Rastreabilidad, Core Web Vitals, datos estructurados e indexación."
+      },
+      {
+        "icon": "📈",
+        "color": "purple",
+        "title": "Link Building Estratégico",
+        "description": "Calidad sobre cantidad. Colocaciones de alta autoridad en sitios relevantes que construyen autoridad real y tráfico de referencia."
+      },
+      {
+        "icon": "✍️",
+        "color": "blue",
+        "title": "Estrategia de Contenido",
+        "description": "Landing pages de fondo de embudo y contenido que captura búsquedas de alta intención y convierte visitantes en clientes."
+      },
+      {
+        "icon": "🌎",
+        "color": "amber",
+        "title": "SEO Bilingüe",
+        "description": "Optimización nativa para mercados en inglés y español. Hreflang, keyword research localizado y estrategias por región."
+      }
+    ]
+  },
+  "results": {
+    "label": "Resultados",
+    "title": "Números que hablan",
+    "title2": "más que las palabras.",
+    "stats": [
+      { "value": 284, "suffix": "%", "label": "Aumento Promedio de Tráfico" },
+      { "value": 12, "suffix": "x", "label": "ROI Promedio" },
+      { "value": 47, "suffix": "+", "label": "Keywords en Top 3" },
+      { "value": 98, "suffix": "%", "label": "Retención de Clientes" }
+    ]
+  },
+  "cases_section": {
+    "label": "Casos de Éxito",
+    "title": "Resultados reales para",
+    "title2": "negocios reales."
+  },
+  "testimonials_section": {
+    "label": "Testimonios",
+    "title": "Lo que dicen nuestros clientes."
+  },
+  "process": {
+    "label": "Cómo Trabajamos",
+    "title": "De auditoría a crecimiento",
+    "title2": "en cuatro pasos.",
+    "steps": [
+      { "number": "01", "title": "Descubrimiento", "description": "Análisis profundo de tu negocio, competidores y oportunidades de mercado." },
+      { "number": "02", "title": "Estrategia", "description": "Hoja de ruta personalizada con 2–3 estrategias de alto impacto." },
+      { "number": "03", "title": "Ejecución", "description": "Implementación práctica con instrucciones detalladas y soporte continuo." },
+      { "number": "04", "title": "Crecimiento", "description": "Reportes mensuales, optimización y escalar lo que funciona." }
+    ]
+  },
+  "blog_section": {
+    "label": "Del Blog",
+    "title": "Ideas y estrategias.",
+    "read_more": "Leer más →"
+  },
+  "contact": {
+    "label": "Empezar",
+    "title": "¿Listo para dominar",
+    "title2": "tu mercado?",
+    "subtitle": "Agenda una llamada estratégica gratuita de 30 minutos. Analizaremos tu SEO actual y te mostraremos exactamente dónde están las oportunidades.",
+    "name_placeholder": "Nombre",
+    "email_placeholder": "Email",
+    "website_placeholder": "URL del Sitio Web",
+    "message_placeholder": "Cuéntanos sobre tu negocio y objetivos SEO...",
+    "submit": "Enviar Mensaje →",
+    "success": "✓ Mensaje Enviado"
+  },
+  "footer": {
+    "description": "Consultoría SEO estratégica para negocios listos para dominar su mercado. Experiencia bilingüe en mercados de inglés y español.",
+    "nav_title": "Navegación",
+    "services_title": "Servicios",
+    "connect_title": "Conectar",
+    "copyright": "Todos los derechos reservados.",
+    "technical_seo": "SEO Técnico",
+    "link_building": "Link Building",
+    "content_strategy": "Estrategia de Contenido",
+    "bilingual_seo": "SEO Bilingüe"
+  }
+}
