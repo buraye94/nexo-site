@@ -22,7 +22,8 @@
     "rankings": "Rankings Alcanzados",
     "roi": "Retorno de Inversión",
     "roiTrend": "Promedio anual",
-    "retention": "Retención de Clientes"
+    "retention": "Retención de Clientes",
+    "telemetry": ["Optimizando visibilidad en IA...", "Indexando contenido estratégico...", "Analizando competencia SERP...", "Rastreando posiciones orgánicas..."]
   },
   "social": {
     "label": "Empresas que confían en nosotros"
@@ -41,6 +42,8 @@
   "results": {
     "label": "Resultados",
     "title": "Números que hablan más que las palabras.",
+    "manifesto1": "La mayoría optimiza para el algoritmo de hoy.",
+    "manifesto2": "Nosotros optimizamos para el futuro.",
     "stats": [
       { "value": 284, "suffix": "%", "label": "Aumento Promedio de Tráfico" },
       { "value": 12, "suffix": "x", "label": "ROI Promedio" },
@@ -90,6 +93,7 @@
     "linkBuilding": "Link Building",
     "contentStrategy": "Estrategia de Contenido",
     "bilingualSeo": "SEO Bilingüe",
-    "copy": "© 2026 clicroot. Todos los derechos reservados."
+    "copy": "© 2026 clicroot. Todos los derechos reservados.",
+    "status": "Sistema Operativo"
   }
 }

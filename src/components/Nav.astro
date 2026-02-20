@@ -38,15 +38,13 @@ const otherLang = lang === 'es' ? 'en' : 'es';
       <li><a href="#blog">{t('nav.blog')}</a></li>
     </ul>
     <div class="nav-right">
-      <div class="theme-toggle" id="themeToggle" role="button" aria-label="Toggle dark mode">
-        <span class="theme-toggle-icons">
-          <svg><use href="#i-sun"/></svg>
-          <svg><use href="#i-moon"/></svg>
-        </span>
-      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun"><use href="#i-sun"/></svg>
+        <svg class="icon-moon"><use href="#i-moon"/></svg>
+      </button>
       <div class="lang-toggle">
-        <a class={`lang-btn ${lang === 'en' ? 'active' : ''}`} href={`/en/`}>EN</a>
-        <a class={`lang-btn ${lang === 'es' ? 'active' : ''}`} href={`/`}>ES</a>
+        <a class={`lang-btn ${lang === 'en' ? 'active' : ''}`} href="/en/">EN</a>
+        <a class={`lang-btn ${lang === 'es' ? 'active' : ''}`} href="/">ES</a>
       </div>
       <a href="#contact" class="nav-cta">{t('nav.cta')}</a>
     </div>
@@ -63,4 +61,8 @@ const otherLang = lang === 'es' ? 'en' : 'es';
   <a href="#cases" onclick="closeMobile()">{t('nav.cases')}</a>
   <a href="#blog" onclick="closeMobile()">{t('nav.blog')}</a>
   <a href="#contact" onclick="closeMobile()">{t('nav.contact')}</a>
+  <div style="margin-top:20px; display:flex; gap:12px;">
+    <a href="/en/" style="font-size:0.9rem; opacity:0.5;">EN</a>
+    <a href="/" style="font-size:0.9rem; opacity:0.5;">ES</a>
+  </div>
 </div>

@@ -33,10 +33,10 @@ const alternateLang = lang === 'en' ? 'es' : 'en';
   <meta property="og:description" content={description}>
   <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'}>
 
-  <!-- Fonts -->
+  <!-- Fonts: Urbanist, Figtree, Cormorant Garamond, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -54,7 +54,7 @@ const alternateLang = lang === 'en' ? 'es' : 'en';
   <slot />
 
   <script>
-    // Dark mode
+    // Theme
     const html = document.documentElement;
     const stored = localStorage.getItem('theme');
     if (stored) html.setAttribute('data-theme', stored);
@@ -104,7 +104,7 @@ const alternateLang = lang === 'en' ? 'es' : 'en';
       });
     });
 
-    // Nav scroll
+    // Nav morph on scroll
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav?.classList.toggle('scrolled', window.scrollY > 40));
 
@@ -118,6 +118,28 @@ const alternateLang = lang === 'en' ? 'es' : 'en';
       document.body.style.overflow = '';
     };
     document.getElementById('mobileClose')?.addEventListener('click', (window as any).closeMobile);
+
+    // Telemetry typewriter
+    const telEl = document.getElementById('telemetryText');
+    if (telEl) {
+      const msgs = JSON.parse(telEl.dataset.messages || '[]');
+      let mi = 0, ci = 0, typing = true;
+      function tick() {
+        if (!msgs.length) return;
+        if (typing) {
+          telEl!.textContent = msgs[mi].slice(0, ci + 1);
+          ci++;
+          if (ci >= msgs[mi].length) { typing = false; setTimeout(tick, 2000); return; }
+          setTimeout(tick, 45);
+        } else {
+          telEl!.textContent = msgs[mi].slice(0, ci - 1);
+          ci--;
+          if (ci <= 0) { mi = (mi + 1) % msgs.length; typing = true; setTimeout(tick, 400); return; }
+          setTimeout(tick, 25);
+        }
+      }
+      tick();
+    }
 
     // Form
     document.getElementById('contactForm')?.addEventListener('submit', async e => {

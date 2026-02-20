@@ -22,7 +22,8 @@
     "rankings": "Rankings Achieved",
     "roi": "Return on Investment",
     "roiTrend": "Annual average",
-    "retention": "Client Retention"
+    "retention": "Client Retention",
+    "telemetry": ["Optimizing AI visibility...", "Indexing strategic content...", "Analyzing SERP competition...", "Tracking organic positions..."]
   },
   "social": {
     "label": "Trusted by leading companies"
@@ -41,6 +42,8 @@
   "results": {
     "label": "Results",
     "title": "Numbers that speak louder than words.",
+    "manifesto1": "Most optimize for today's algorithm.",
+    "manifesto2": "We optimize for the future.",
     "stats": [
       { "value": 284, "suffix": "%", "label": "Average Traffic Increase" },
       { "value": 12, "suffix": "x", "label": "Average ROI" },
@@ -90,6 +93,7 @@
     "linkBuilding": "Link Building",
     "contentStrategy": "Content Strategy",
     "bilingualSeo": "Bilingual SEO",
-    "copy": "© 2026 clicroot. All rights reserved."
+    "copy": "© 2026 clicroot. All rights reserved.",
+    "status": "System Operational"
   }
 }

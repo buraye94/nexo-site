@@ -22,11 +22,13 @@ const blogPosts = allBlog
 const services = tf('services.items') as any[];
 const stats = tf('results.stats') as any[];
 const steps = tf('process.steps') as any[];
+const telemetryMsgs = tf('metrics.telemetry') as string[];
 
 const iconMap: Record<string, string> = {
   search: '#i-search', link: '#i-link', pen: '#i-pen', globe: '#i-globe'
 };
 const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
+const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'];
 ---
 
 <Layout
@@ -40,15 +42,19 @@ const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
   <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-left">
-      <div class="hero-badge">
+      <div class="hero-badge reveal">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
         {tf('hero.badge')}
       </div>
-      <h1 class="hero-title">{tf('hero.title1')}<br>{tf('hero.title2')}<br>{tf('hero.title3')}</h1>
-      <p class="hero-description">{tf('hero.description')}</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-dark">{tf('hero.cta1')}</a>
-        <a href="#cases" class="btn-outline">{tf('hero.cta2')}</a>
+      <h1 class="hero-title reveal reveal-d1">
+        {tf('hero.title1')}
+        <span class="serif-line">{tf('hero.title2')}</span>
+        {tf('hero.title3')}
+      </h1>
+      <p class="hero-description reveal reveal-d2">{tf('hero.description')}</p>
+      <div class="hero-actions reveal reveal-d3">
+        <a href="#contact" class="btn-primary">{tf('hero.cta1')}</a>
+        <a href="#results" class="btn-outline">{tf('hero.cta2')}</a>
       </div>
     </div>
     <div class="hero-right">
@@ -71,14 +77,9 @@ const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
           </div>
           <div class="mc-value">#1</div>
           <div class="mc-label">{tf('metrics.rankings')}</div>
-          <div class="mini-chart">
-            <div class="mini-chart-bar" style="height:30%"></div>
-            <div class="mini-chart-bar" style="height:42%"></div>
-            <div class="mini-chart-bar" style="height:55%"></div>
-            <div class="mini-chart-bar" style="height:48%"></div>
-            <div class="mini-chart-bar" style="height:68%"></div>
-            <div class="mini-chart-bar" style="height:82%"></div>
-            <div class="mini-chart-bar" style="height:100%"></div>
+          <div class="telemetry-feed">
+            <span class="telemetry-dot"></span>
+            <span id="telemetryText" data-messages={JSON.stringify(telemetryMsgs)}></span><span class="telemetry-cursor"></span>
           </div>
         </div>
         <div class="metric-card mc-3">
@@ -107,13 +108,12 @@ const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
   <section class="social-proof reveal">
     <div class="container">
       <div class="social-proof-label">{tf('social.label')}</div>
-      <div class="logos-track">
-        <span class="logo-item">TechCorp</span>
-        <span class="logo-item">Leal.co</span>
-        <span class="logo-item">Floowi</span>
-        <span class="logo-item">Haciendas</span>
-        <span class="logo-item">Cheaf</span>
-        <span class="logo-item">StartupMX</span>
+      <div class="marquee-wrapper">
+        <div class="logos-track">
+          {[...logos, ...logos].map(name => (
+            <span class="logo-item">{name}</span>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -140,35 +140,40 @@ const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
     </div>
   </section>
 
-  <!-- RESULTS -->
+  <!-- RESULTS — MANIFESTO + DATA -->
   <section class="section results-section" id="results">
     <div class="container">
-      <div class="reveal" style="text-align:center;">
-        <div class="section-label">{tf('results.label')}</div>
-        <h2 class="section-title">{tf('results.title')}</h2>
-      </div>
-      <div class="stats-grid">
-        {stats.map((stat: any, i: number) => (
-          <div class={`stat-card reveal reveal-d${i + 1}`}>
-            <div class="stat-number">
-              <span class="counter" data-target={stat.value}>0</span>
-              <span class="stat-suffix">{stat.suffix}</span>
+      <div class="results-inner">
+        <div class="reveal">
+          <div class="section-label">{tf('results.label')}</div>
+          <p class="manifesto-text">
+            {tf('results.manifesto1')}
+            <span class="manifesto-highlight">{tf('results.manifesto2')}</span>
+          </p>
+        </div>
+        <div class="stats-grid">
+          {stats.map((stat: any, i: number) => (
+            <div class={`stat-card reveal reveal-d${i + 1}`}>
+              <div class="stat-number">
+                <span class="counter" data-target={stat.value}>0</span>
+                <span class="stat-suffix">{stat.suffix}</span>
+              </div>
+              <div class="stat-label">{stat.label}</div>
             </div>
-            <div class="stat-label">{stat.label}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CASES -->
+  <!-- CASES — STICKY STACKING -->
   <section class="section cases-section" id="cases">
     <div class="container">
       <div class="reveal">
         <div class="section-label">{tf('cases.label')}</div>
         <h2 class="section-title">{tf('cases.title')}</h2>
       </div>
-      <div class="cases-grid">
+      <div class="cases-stack">
         {cases.map((c, i) => (
           <div class={`case-card reveal reveal-d${i + 1}`}>
             <div class="case-header">
@@ -219,16 +224,17 @@ const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
     </div>
   </section>
 
-  <!-- PROCESS -->
+  <!-- PROCESS — VERTICAL TIMELINE -->
   <section class="section process-section" id="process">
     <div class="container">
-      <div class="reveal" style="text-align:center;">
+      <div class="reveal">
         <div class="section-label">{tf('process.label')}</div>
         <h2 class="section-title">{tf('process.title')}</h2>
       </div>
-      <div class="process-grid">
+      <div class="process-timeline">
         {steps.map((step: any, i: number) => (
           <div class={`process-step reveal reveal-d${i + 1}`}>
+            <div class="process-dot"></div>
             <div class="process-number">{step.num}</div>
             <h3>{step.title}</h3>
             <p>{step.desc}</p>
@@ -289,12 +295,12 @@ const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-brand">
+        <div>
           <div class="footer-logo">
             <span class="footer-logo-mark"><img src="/logo.svg" alt="clicroot" width="22" height="22" /></span>
             clicroot
           </div>
-          <p>{tf('footer.desc')}</p>
+          <p class="footer-desc">{tf('footer.desc')}</p>
         </div>
         <div class="footer-col">
           <h4>{tf('footer.navTitle')}</h4>
@@ -319,6 +325,10 @@ const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
       </div>
       <div class="footer-bottom">
         <span class="footer-copy">{tf('footer.copy')}</span>
+        <span class="footer-status">
+          <span class="status-dot"></span>
+          {tf('footer.status')}
+        </span>
       </div>
     </div>
   </footer>
