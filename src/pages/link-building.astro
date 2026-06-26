@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t as translate } from '../i18n/utils';
+
+const lang = 'es';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'Auditoría de tu perfil de enlaces', desc: 'Revisamos los backlinks que ya tienes, detectamos enlaces tóxicos heredados y medimos tu autoridad real frente a la de quien te gana en la SERP.' },
+  { icon: '#i-globe', title: 'Prospección por relevancia, no por volumen', desc: 'Buscamos sitios de tu sector y tu mercado, en Colombia y México, donde un enlace tenga sentido editorial. Diez enlaces que importan pesan más que cien que no.' },
+  { icon: '#i-pen', title: 'Contenido que merece el enlace', desc: 'Para conseguir enlaces editoriales hace falta algo que valga la pena enlazar: datos, guías, recursos. Lo creamos y luego lo difundimos.' },
+  { icon: '#i-link', title: 'Outreach con nombre y cara', desc: 'Escribimos a editores y autores reales, uno a uno. Sin redes de blogs, sin granjas de enlaces, sin esquemas que Google sanciona tarde o temprano.' },
+  { icon: '#i-trending', title: 'Menciones de marca para IA', desc: 'Las menciones, con enlace o sin él, alimentan tu autoridad de entidad. Es lo que ChatGPT, Perplexity y los AI Overviews leen para decidir a quién citar.' },
+  { icon: '#i-bar-chart', title: 'Reporte de enlaces ganados', desc: 'Te mostramos cada enlace conseguido, su sitio de origen y cómo se mueve tu autoridad de dominio. Nada de promesas vagas de "posicionamiento".' },
+];
+
+const faqs = [
+  { q: '¿Qué es el link building?', a: 'El link building es el proceso de conseguir que otros sitios web enlacen al tuyo. Cada enlace funciona como un voto de confianza: Google interpreta que, si páginas relevantes te enlazan, tu contenido merece aparecer más arriba. Hecho bien, construye autoridad de dominio de forma sostenible; hecho mal, con enlaces comprados o artificiales, expone tu sitio a una penalización.' },
+  { q: '¿Qué es la autoridad de dominio y por qué importa?', a: 'La autoridad de dominio es una estimación de cuánta credibilidad tiene tu sitio a ojos de los buscadores, basada en buena medida en la cantidad y calidad de los enlaces que apuntan hacia él. No es una métrica oficial de Google, pero sí un buen indicador comparativo. Cuanta más autoridad acumulas con enlaces legítimos, más fácil te resulta rankear términos competidos.' },
+  { q: '¿Usan PBN o compran backlinks?', a: 'No. No usamos redes privadas de blogs (PBN), no compramos paquetes de enlaces y no participamos en esquemas de intercambio masivo. Todo eso viola las directrices de Google y suele terminar en una caída de tráfico cuando el algoritmo lo detecta. Trabajamos solo con enlaces editoriales que un sitio decide darte porque tu contenido lo merece.' },
+  { q: '¿Cuántos backlinks necesito?', a: 'No existe un número mágico, y desconfía de quien te lo prometa. Lo que importa es la relevancia y la autoridad del sitio que enlaza, no la cantidad. Un enlace desde un medio de tu sector puede valer más que cincuenta enlaces de directorios irrelevantes. Definimos la meta según tu competencia real en la SERP que quieres ganar.' },
+  { q: '¿El link building sirve para que la IA me cite?', a: 'Sí, de forma indirecta. Los modelos de IA como ChatGPT o Perplexity se apoyan en la autoridad y en las menciones de una marca para decidir a quién recomendar. Una mención en una fuente que esos modelos consideran fiable aumenta la probabilidad de que tu marca aparezca en sus respuestas. Por eso trabajamos enlaces y menciones de marca a la vez.' },
+  { q: '¿En cuánto tiempo se ven resultados?', a: 'El efecto de un enlace no es inmediato. Google necesita rastrearlo, valorarlo y recalcular tu autoridad, y eso toma semanas. Una campaña de link building empieza a moverte posiciones a partir del segundo o tercer mes y compone con el tiempo. Te damos expectativas honestas desde la primera llamada, no atajos.' },
+];
+
+const pageTitle = 'Link building en Colombia y México | Clicroot';
+const pageDesc = 'Link building ético que construye autoridad de dominio real, sin PBN ni atajos que penalicen. Backlinks editoriales y menciones de marca para Colombia y México. Agenda una llamada.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://clicroot.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Link building', 'item': 'https://clicroot.com/link-building/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'Link building',
+      'name': 'Link building y autoridad de dominio',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': ['CO', 'MX'],
+      'availableLanguage': ['Spanish', 'English'],
+      'description': 'Link building ético para empresas en Colombia y México. Backlinks editoriales y menciones de marca que construyen autoridad de dominio sin esquemas que penalicen.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang}>
+  <Nav lang={lang} t={tf} anchorBase="/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Ruta de navegación">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span>Link building</span>
+      </nav>
+      <div class="lp-eyebrow">Link building · Colombia y México</div>
+      <h1 class="lp-title">Link building ético que construye autoridad real.</h1>
+      <p class="lp-lead">Conseguimos enlaces que un editor decide darte porque tu contenido los merece, no porque alguien los pagó. Sin PBN, sin granjas de enlaces, sin atajos que terminen en una penalización de Google. Autoridad de dominio que aguanta el siguiente update.</p>
+      <div class="lp-actions">
+        <a href="/#contact" class="btn-primary">Agenda una llamada</a>
+        <a href="#que-es" class="btn-outline">Cómo trabajamos</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definición</div>
+        <h2 class="section-title">¿Qué es el link building?</h2>
+      </div>
+      <p class="lp-def">El link building es el proceso de conseguir que otros sitios web enlacen al tuyo. Cada enlace de un sitio relevante funciona como un voto de confianza: le dice a Google que tu contenido es fiable y merece aparecer más arriba en los resultados. Hecho con criterio, es una de las palancas más fuertes para construir autoridad de dominio. Hecho con atajos, comprando enlaces o usando redes artificiales, es la forma más rápida de ganarte una penalización.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Cómo trabajamos</div>
+        <h2 class="section-title">Enlaces ganados, no comprados.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Por qué ético</div>
+          <h2 class="section-title">El atajo barato es el que sale caro.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>La industria está llena de paquetes de "500 backlinks por X pesos". Casi todos vienen de redes que Google ya conoce, y cuando el algoritmo los detecta, tu tráfico cae de un día para otro. Limpiar ese daño cuesta más que haberlo hecho bien desde el principio.</p>
+          <p>En Clicroot, <strong>Felipe Gallo</strong> y <strong>JC Espinosa</strong> trabajan cada campaña a mano: prospección por relevancia, contenido que merece el enlace y outreach uno a uno. Es más lento, y es el único método que sigue funcionando después del siguiente core update.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Autoridad para IA</span> Trabajamos enlaces y menciones de marca a la vez, porque la misma señal que te hace rankear en Google es la que hace que ChatGPT y Perplexity te citen.</p>
+          <a href="/#cases" class="lp-inline-link">Ver casos y resultados →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Preguntas frecuentes</div>
+        <h2 class="section-title">Lo que más nos preguntan.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Dónde encaja</div>
+          <h2 class="section-title">El link building no trabaja solo.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Los enlaces aceleran lo que ya está bien construido. Si tu sitio tiene problemas técnicos o tu contenido no responde la intención de búsqueda, ningún backlink lo arregla. Por eso el link building es una pieza dentro de una estrategia más amplia.</p>
+          <p>Forma parte de nuestra consultoría SEO y de nuestros servicios SEO completos, junto al SEO técnico, el contenido on-page y la visibilidad en IA. ¿No sabes por dónde empezar? Lo definimos en una llamada y te decimos qué mueve más la aguja primero.</p>
+          <a href="/consultoria-seo" class="lp-inline-link">Ver la consultoría SEO completa →</a>
+          <a href="/servicios-seo" class="lp-inline-link">Ver todos los servicios SEO →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">¿Construimos tu autoridad?</h2>
+        <p class="lp-cta-text">Una llamada de 30 minutos para revisar tu perfil de enlaces actual y ver dónde está la oportunidad. Sin compromiso.</p>
+        <a href="/#contact" class="btn-dark">Agenda una llamada</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

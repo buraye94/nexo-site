@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t as translate } from '../i18n/utils';
+
+const lang = 'es';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'SEO técnico', desc: 'Rastreo, indexación, velocidad y arquitectura. La base que Google y los crawlers de IA necesitan para entender tu sitio.' },
+  { icon: '#i-pen', title: 'Contenido y on-page', desc: 'Páginas pensadas para la intención real de quien busca en México, redactadas para que los modelos de IA puedan citarte.' },
+  { icon: '#i-link', title: 'Autoridad y link building', desc: 'Enlaces y menciones de calidad que construyen autoridad de dominio sin atajos que terminen en una penalización.' },
+  { icon: '#i-globe', title: 'SEO local', desc: 'Aparece en Google Maps y en las respuestas locales de IA en CDMX, Monterrey, Guadalajara y el resto del país.' },
+  { icon: '#i-trending', title: 'GEO: visibilidad en IA', desc: 'Optimizamos tu marca para que ChatGPT, Perplexity, Gemini y los AI Overviews de Google te recomienden cuando alguien pregunta por proveedores.' },
+  { icon: '#i-bar-chart', title: 'Medición y reporte', desc: 'Posiciones, tráfico orgánico e ingresos atribuibles. Reportamos lo que mueve el negocio, no métricas de vanidad.' },
+];
+
+const faqs = [
+  { q: '¿Qué hace una agencia SEO en México?', a: 'Una agencia SEO en México audita tu sitio, tu mercado y a tu competencia local, y ejecuta una estrategia para que tu negocio aparezca cuando la gente busca en Google desde el país. En Clicroot sumamos GEO: optimizamos también para que ChatGPT, Perplexity y los AI Overviews te citen, porque cada vez más clientes preguntan a la IA antes de buscar en Google.' },
+  { q: '¿Trabajan en todo México o solo en CDMX?', a: 'Trabajamos para todo el país. Atendemos negocios en Ciudad de México, Monterrey, Guadalajara y otras plazas, y diseñamos la estrategia local según dónde están tus clientes. El SEO se opera de forma remota, así que la ubicación de tu empresa no limita el alcance.' },
+  { q: '¿Qué es GEO y por qué lo incluyen?', a: 'GEO (generative engine optimization) es la práctica de optimizar tu marca para los buscadores de inteligencia artificial. Un comprador que le pregunta a ChatGPT "qué agencia me conviene" nunca ve un listado de Google: ve la respuesta de la IA. Trabajamos para que esa respuesta te incluya, además del SEO clásico.' },
+  { q: '¿Consultor SEO o agencia SEO: qué me conviene en México?', a: 'Una agencia grande tiene más manos para ejecución masiva; un consultor te da criterio senior y foco. En Clicroot trabajas directo con los consultores que diseñan la estrategia, sin un intermediario de cuenta de por medio. Es el equilibrio entre el músculo de una agencia y la cercanía de un consultor.' },
+  { q: '¿Cuánto cuesta el posicionamiento web en México?', a: 'Depende del alcance: una auditoría puntual, un acompañamiento mensual o un proyecto completo tienen precios distintos. Acordamos el alcance por adelantado, sin permanencias forzadas. Agenda una llamada y te damos un rango claro para tu caso.' },
+  { q: '¿En cuánto tiempo se ven resultados?', a: 'El SEO es acumulativo. Las correcciones técnicas y los quick wins pueden mover posiciones en semanas; rankear términos competidos en un mercado defendido como el mexicano toma de tres a seis meses o más. Te damos expectativas honestas desde la primera llamada.' },
+];
+
+const pageTitle = 'Agencia SEO en México + GEO | Clicroot';
+const pageDesc = 'Agencia SEO en México con consultores senior. Posicionamiento en Google y visibilidad en IA (GEO) para empresas en CDMX, Monterrey y Guadalajara. Agenda una llamada.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://clicroot.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Agencia SEO en México', 'item': 'https://clicroot.com/agencia-seo-mexico/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'Agencia SEO',
+      'name': 'Agencia SEO y GEO en México',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': 'México',
+      'availableLanguage': ['Spanish', 'English'],
+      'description': 'Agencia SEO en México con consultores senior. Posicionamiento en Google y visibilidad en buscadores de IA (GEO) para empresas en CDMX, Monterrey y Guadalajara.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang}>
+  <Nav lang={lang} t={tf} anchorBase="/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Ruta de navegación">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span>Agencia SEO en México</span>
+      </nav>
+      <div class="lp-eyebrow">Agencia SEO + GEO · México</div>
+      <h1 class="lp-title">Agencia SEO en México</h1>
+      <p class="lp-lead">El mercado mexicano está lleno de agencias que prometen el primer lugar en Google. Nosotros hacemos eso y algo más: posicionamos tu marca también en los buscadores de IA, ChatGPT, Perplexity, Gemini y los AI Overviews, con consultores senior que diseñan y ejecutan, no una caja negra.</p>
+      <div class="lp-actions">
+        <a href="/#contact" class="btn-primary">Agenda una llamada</a>
+        <a href="#que-es" class="btn-outline">Qué hacemos</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definición</div>
+        <h2 class="section-title">¿Qué es una agencia SEO en México?</h2>
+      </div>
+      <p class="lp-def">Una agencia SEO en México es la que audita tu sitio, tu mercado y a tu competencia local, y ejecuta una estrategia para que tu negocio aparezca cuando la gente busca en Google desde el país. Clicroot va un paso más allá: además del posicionamiento en Google, optimizamos tu marca para que la citen los buscadores de inteligencia artificial. Una decisión cada vez más frecuente empieza con una pregunta a ChatGPT, no con una búsqueda tradicional, y ahí también queremos que aparezcas.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Qué hacemos</div>
+        <h2 class="section-title">SEO y GEO, de la técnica a la IA.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Por qué Clicroot</div>
+          <h2 class="section-title">Consultores con nombre, no un ejecutivo de cuenta.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>El SEO en México es competido. Hay agencias con años en el mercado, y ganarles de frente toma criterio, no promesas. Clicroot la operan <strong>Felipe Gallo</strong> y <strong>JC Espinosa</strong>, consultores de SEO y visibilidad en IA con experiencia en México, Colombia y Estados Unidos. Cuando nos contratas hablas con ellos, no con un intermediario que reenvía correos.</p>
+          <p class="lp-note"><span class="lp-note-kicker">El diferencial</span> Mientras la mayoría compite solo por el primer lugar en Google, nosotros también te posicionamos en las respuestas de IA. Es el terreno que casi nadie en México está trabajando todavía.</p>
+          <a href="/#cases" class="lp-inline-link">Ver casos y resultados →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Preguntas frecuentes</div>
+        <h2 class="section-title">Lo que más nos preguntan en México.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Cobertura</div>
+          <h2 class="section-title">En todo el país.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Operamos para negocios en toda la República. Si tu mercado está en una plaza específica, tenemos páginas dedicadas para <a href="/agencia-seo-monterrey" class="lp-inline-link">SEO en Monterrey</a> y <a href="/agencia-seo-guadalajara" class="lp-inline-link">SEO en Guadalajara</a>, y atendemos CDMX y el resto del país desde la estrategia nacional.</p>
+          <p>¿Buscas el detalle de cómo trabajamos? Revisa nuestra <a href="/consultoria-seo" class="lp-inline-link">consultoría SEO</a> y cómo combinamos diagnóstico, ejecución y medición.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">¿Hablamos de tu proyecto?</h2>
+        <p class="lp-cta-text">Una llamada de 30 minutos para entender tu sitio, tu mercado en México y si encajamos. Sin compromiso.</p>
+        <a href="/#contact" class="btn-dark">Agenda una llamada</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

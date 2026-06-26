@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t as translate } from '../i18n/utils';
+
+const lang = 'es';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'Rastreo e indexación', desc: 'Revisamos qué puede ver Google y qué se queda fuera: robots.txt, sitemaps, canonicals, redirecciones y páginas huérfanas. Si no te rastrean, no existes.' },
+  { icon: '#i-trending', title: 'Core Web Vitals y velocidad', desc: 'LCP, INP y CLS son señales de ranking y de experiencia. Diagnosticamos qué frena tu sitio y priorizamos lo que de verdad mueve la métrica.' },
+  { icon: '#i-globe', title: 'Arquitectura del sitio', desc: 'Una estructura de URLs y enlaces internos clara reparte la autoridad y le dice a Google qué páginas importan. El orden no es estético, es ranking.' },
+  { icon: '#i-link', title: 'Datos estructurados', desc: 'Schema.org bien implementado le da contexto a tu contenido. Es lo que habilita los resultados enriquecidos y lo que la IA lee para entender de qué hablas.' },
+  { icon: '#i-pen', title: 'Acceso para bots de IA', desc: 'GPTBot, PerplexityBot y Google-Extended son los rastreadores que alimentan a ChatGPT, Perplexity y los AI Overviews. Si los bloqueas sin querer, te borras del mapa de la IA.' },
+  { icon: '#i-bar-chart', title: 'Indexabilidad y mantenimiento', desc: 'Errores 404, cadenas de redirecciones, contenido duplicado y problemas de renderizado JavaScript. Lo encontramos, lo priorizamos y lo dejamos cerrado.' },
+];
+
+const faqs = [
+  { q: '¿Qué es el SEO técnico?', a: 'El SEO técnico es el trabajo de optimizar la infraestructura de un sitio web para que los buscadores y los rastreadores de IA puedan acceder a él, entenderlo e indexarlo sin obstáculos. No tiene que ver con las palabras de tus páginas, sino con cómo está construido el sitio: velocidad, arquitectura, rastreo, indexación, datos estructurados y, hoy, acceso para los bots de IA. Es la base sobre la que el contenido y los enlaces pueden rendir; si está rota, lo demás importa poco.' },
+  { q: '¿Qué son los Core Web Vitals?', a: 'Los Core Web Vitals son un conjunto de métricas con las que Google mide la experiencia real de una página: LCP (cuánto tarda en cargar el contenido principal), INP (qué tan rápido responde a la interacción del usuario) y CLS (cuánto se mueve el diseño mientras carga). Son señales de ranking confirmadas y, más allá de Google, marcan si la gente se queda o se va. Optimizarlos suele rendir mucho para el esfuerzo que toma, una de las acciones más rentables del SEO técnico.' },
+  { q: '¿Qué es una auditoría técnica?', a: 'Una auditoría técnica es una revisión sistemática de todo lo que puede impedir que un sitio rankee por motivos de infraestructura: errores de rastreo e indexación, velocidad, arquitectura, datos estructurados, contenido duplicado, problemas de renderizado y, en nuestro caso, también el acceso de los bots de IA. El resultado no es una lista interminable, sino un diagnóstico priorizado por impacto: qué arreglar primero porque mueve la aguja, y qué puede esperar.' },
+  { q: '¿Por qué el SEO técnico afecta mi visibilidad en IA?', a: 'Los asistentes de IA como ChatGPT, Perplexity o los AI Overviews de Google no pueden citar lo que no pueden leer. Sus rastreadores (GPTBot, PerplexityBot, Google-Extended) necesitan acceso a tu sitio, y dependen de un HTML limpio y de datos estructurados para entender tu contenido. Un sitio con problemas técnicos (bots bloqueados en robots.txt, contenido que solo carga con JavaScript, schema ausente) puede ser invisible para la IA aunque rankee bien en la búsqueda clásica. El SEO técnico es la puerta de entrada a ambos.' },
+  { q: '¿Debo bloquear o permitir a los bots de IA?', a: 'Es una decisión estratégica, no técnica por defecto, y conviene tomarla a conciencia. Bloquear GPTBot o Google-Extended en tu robots.txt protege tu contenido de ser usado para entrenar modelos, pero también reduce tu probabilidad de ser citado en sus respuestas. Para la mayoría de las marcas que quieren visibilidad, ser citado es un canal nuevo de descubrimiento que vale más que el riesgo. Lo evaluamos contigo según tus objetivos, en vez de aplicar una regla genérica.' },
+  { q: '¿El SEO técnico se hace una vez o es continuo?', a: 'Hay una primera intervención fuerte (la auditoría y la corrección de lo crítico) y luego un mantenimiento. Los sitios cambian: se publican páginas, se migran plataformas, se actualiza el CMS, y cada cambio puede introducir un problema técnico nuevo. Lo ideal es dejar la base sólida y revisarla con regularidad, sobre todo después de cualquier cambio grande en el sitio. Un sitio técnicamente sano es un activo que hay que cuidar, no una casilla que se marca una vez.' },
+];
+
+const pageTitle = 'SEO técnico: rastreo, velocidad y arquitectura | Clicroot';
+const pageDesc = 'SEO técnico para que Google y los crawlers de IA (GPTBot, PerplexityBot, Google-Extended) puedan rastrear, entender e indexar tu sitio. Core Web Vitals, arquitectura y datos estructurados en Colombia y México.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://clicroot.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'SEO técnico', 'item': 'https://clicroot.com/seo-tecnico/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'SEO técnico',
+      'name': 'SEO técnico y auditoría técnica',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': ['CO', 'MX'],
+      'availableLanguage': ['Spanish', 'English'],
+      'description': 'SEO técnico para empresas en Colombia y México. Rastreo, indexación, Core Web Vitals, arquitectura, datos estructurados y acceso para los rastreadores de IA.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang}>
+  <Nav lang={lang} t={tf} anchorBase="/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Ruta de navegación">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span>SEO técnico</span>
+      </nav>
+      <div class="lp-eyebrow">SEO técnico · Colombia y México</div>
+      <h1 class="lp-title">SEO técnico: la base que tu sitio (y los crawlers de IA) necesitan.</h1>
+      <p class="lp-lead">Por bueno que sea tu contenido, no rankea si Google no puede rastrearlo, y la IA no te cita si sus bots no pueden leerte. El SEO técnico arregla esa base: rastreo, velocidad, arquitectura, datos estructurados y el acceso de rastreadores como GPTBot y Google-Extended. Lo que casi nadie revisa, y lo que define si existes en la búsqueda y en las respuestas de IA.</p>
+      <div class="lp-actions">
+        <a href="/#contact" class="btn-primary">Agenda una llamada</a>
+        <a href="#que-es" class="btn-outline">Qué revisamos</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definición</div>
+        <h2 class="section-title">¿Qué es el SEO técnico?</h2>
+      </div>
+      <p class="lp-def">El SEO técnico es el trabajo de optimizar la infraestructura de un sitio web para que los buscadores y los rastreadores de IA puedan acceder a él, entenderlo e indexarlo sin obstáculos. No se trata de las palabras de tus páginas, sino de cómo está construido el sitio: velocidad, arquitectura, rastreo, indexación, datos estructurados y el acceso de los bots que alimentan a la IA. Es la base sobre la que el contenido y los enlaces rinden. Si esa base está rota, lo demás casi no importa.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Qué revisamos</div>
+        <h2 class="section-title">De los Core Web Vitals al acceso de la IA.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">El ángulo que falta</div>
+          <h2 class="section-title">Casi nadie está optimizando para los bots de IA.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>La mayoría de las auditorías técnicas que vemos terminan en los Core Web Vitals y el sitemap. Útiles, pero incompletas. Falta la pregunta nueva: ¿pueden GPTBot, PerplexityBot y Google-Extended rastrear tu sitio, y entienden lo que encuentran?</p>
+          <p>Es un punto ciego enorme. Hemos visto sitios que, sin saberlo, bloquean a los rastreadores de IA en su robots.txt, o que esconden todo su contenido detrás de JavaScript que esos bots no ejecutan. El resultado: invisibles para ChatGPT y Perplexity justo cuando esos canales empiezan a traer clientes. <strong>Felipe Gallo</strong> y <strong>JC Espinosa</strong> tratan el acceso de la IA como parte del SEO técnico, no como un extra.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Schema</span> Los datos estructurados son la otra mitad: le dan a la IA el contexto para entender quién eres y de qué hablas, y casi ningún competidor los implementa bien.</p>
+          <a href="/#cases" class="lp-inline-link">Ver casos y resultados →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Preguntas frecuentes</div>
+        <h2 class="section-title">Lo que más nos preguntan.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Dónde encaja</div>
+          <h2 class="section-title">Empieza por saber qué está roto.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>El SEO técnico arranca con un diagnóstico. Por eso va de la mano de una auditoría: primero medimos qué frena tu sitio y qué bloquea a los bots, lo priorizamos por impacto, y luego corregimos. Es también parte de nuestra consultoría SEO y de nuestros servicios SEO completos.</p>
+          <a href="/auditoria-seo" class="lp-inline-link">Empezar por una auditoría SEO →</a>
+          <a href="/consultoria-seo" class="lp-inline-link">Ver la consultoría SEO completa →</a>
+          <a href="/servicios-seo" class="lp-inline-link">Ver todos los servicios SEO →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">¿Revisamos la base de tu sitio?</h2>
+        <p class="lp-cta-text">Una llamada de 30 minutos para entender tu sitio, tu plataforma y qué puede estar frenándote en Google y en la IA. Sin compromiso.</p>
+        <a href="/#contact" class="btn-dark">Agenda una llamada</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

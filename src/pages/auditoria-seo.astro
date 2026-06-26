@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t as translate } from '../i18n/utils';
+
+const lang = 'es';
+const tf = (key: string) => translate(lang, key);
+
+const checks = [
+  { icon: '#i-search', title: 'Técnico e indexación', desc: 'Rastreo, indexación, velocidad, Core Web Vitals, errores de servidor, canónicas y arquitectura del sitio. La base sin la cual nada más rankea.' },
+  { icon: '#i-pen', title: 'Contenido y on-page', desc: 'Si tus páginas responden la intención de búsqueda real, títulos y metadatos, canibalización entre URLs y huecos de contenido frente a quien ya rankea.' },
+  { icon: '#i-link', title: 'Enlaces y autoridad', desc: 'Perfil de enlaces entrantes, anclas, enlaces tóxicos que conviene desautorizar y oportunidades de menciones y backlinks de calidad.' },
+  { icon: '#i-globe', title: 'SEO local', desc: 'Perfil de empresa en Google, consistencia de nombre, dirección y teléfono, reseñas y presencia en el paquete local de tu ciudad.' },
+  { icon: '#i-trending', title: 'GEO y acceso de bots de IA', desc: 'Si GPTBot, PerplexityBot y los crawlers de IA pueden leer tu sitio, si tu contenido es citable y si el esquema ayuda a que los modelos te entiendan.' },
+  { icon: '#i-bar-chart', title: 'Medición y analítica', desc: 'Configuración de Search Console y analítica, eventos de conversión y si estás midiendo lo que de verdad mueve el negocio.' },
+];
+
+const faqs = [
+  { q: '¿Qué incluye una auditoría SEO?', a: 'Una auditoría SEO revisa seis frentes: el estado técnico del sitio (rastreo, indexación, velocidad), el contenido y la optimización on-page, el perfil de enlaces y autoridad, el SEO local, la medición con Search Console y analítica, y el acceso de los bots de IA (GEO). El resultado es un diagnóstico claro de qué está frenando tu posicionamiento y una lista priorizada de qué arreglar primero.' },
+  { q: '¿Qué es una auditoría SEO con IA (GEO)?', a: 'Es la parte de la auditoría que revisa tu visibilidad en buscadores de inteligencia artificial. Comprobamos si bots como GPTBot y PerplexityBot pueden acceder a tu sitio, si tu contenido está estructurado para ser citado por ChatGPT, Perplexity, Gemini y los AI Overviews, y si los datos estructurados ayudan a que los modelos entiendan tu marca. Muchos sitios bloquean a estos bots sin saberlo y se vuelven invisibles para la IA.' },
+  { q: '¿En cuánto tiempo entregan la auditoría?', a: 'Depende del tamaño del sitio y de la profundidad acordada. Una auditoría de un sitio mediano suele tomar entre una y dos semanas. Antes de empezar te decimos el alcance y el plazo concretos para tu caso.' },
+  { q: '¿Qué recibo al final?', a: 'Un documento con los hallazgos ordenados por impacto y esfuerzo, no una lista cruda de errores. Priorizamos qué arreglar primero, explicamos por qué importa cada punto y dejamos un plan de acción que tu equipo o el nuestro puede ejecutar.' },
+  { q: '¿La auditoría incluye la implementación de los arreglos?', a: 'La auditoría es el diagnóstico. La implementación se puede hacer después, ya sea con tu equipo siguiendo el plan o con nosotros ejecutándolo como parte de la consultoría. Lo acordamos según lo que necesites.' },
+  { q: '¿Cómo solicito mi auditoría?', a: 'Agenda una llamada corta. Revisamos tu sitio por encima, entendemos tu mercado y te decimos el alcance y el plazo. A partir de ahí arrancamos el diagnóstico completo.' },
+];
+
+const pageTitle = 'Auditoría SEO: qué revisamos | Clicroot';
+const pageDesc = 'Auditoría SEO (y GEO) de tu sitio: técnico, contenido, enlaces, local, acceso de bots de IA y medición. Diagnóstico priorizado para Colombia y México. Solicítala.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://clicroot.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Auditoría SEO', 'item': 'https://clicroot.com/auditoria-seo/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'Auditoría SEO',
+      'name': 'Auditoría SEO y GEO',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': ['CO', 'MX'],
+      'availableLanguage': ['Spanish', 'English'],
+      'description': 'Auditoría SEO y GEO de tu sitio: estado técnico, contenido, enlaces, SEO local, acceso de bots de IA y medición, con un diagnóstico priorizado.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang}>
+  <Nav lang={lang} t={tf} anchorBase="/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Ruta de navegación">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <a href="/servicios-seo">Servicios SEO</a>
+        <span aria-hidden="true">/</span>
+        <span>Auditoría SEO</span>
+      </nav>
+      <div class="lp-eyebrow">Auditoría SEO · Colombia y México</div>
+      <h1 class="lp-title">Auditoría SEO (y GEO) de tu sitio.</h1>
+      <p class="lp-lead">El diagnóstico que va antes de invertir en contenido o enlaces. Revisamos qué frena tu posicionamiento, desde lo técnico hasta el acceso de los bots de IA, y salimos con una lista priorizada de qué arreglar primero.</p>
+      <div class="lp-actions">
+        <a href="/#contact" class="btn-primary">Solicita tu auditoría</a>
+        <a href="#revisamos" class="btn-outline">Qué revisamos</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definición</div>
+        <h2 class="section-title">¿Qué es una auditoría SEO?</h2>
+      </div>
+      <p class="lp-def">Una auditoría SEO es una revisión completa de tu sitio que identifica qué está frenando su posicionamiento en Google y, cada vez más, en los buscadores de IA. Examina el estado técnico, el contenido, los enlaces, el SEO local, la medición y el acceso de los bots de inteligencia artificial, y entrega un diagnóstico priorizado: no una lista cruda de errores, sino qué arreglar primero y por qué.</p>
+    </div>
+  </section>
+
+  <section class="section services-section" id="revisamos">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Qué revisamos</div>
+        <h2 class="section-title">Una auditoría transparente, frente por frente.</h2>
+        <p class="section-subtitle">Esto es lo que miramos en cada sitio. Sin cajas negras: sabes exactamente qué cubre el diagnóstico.</p>
+      </div>
+      <div class="services-grid">
+        {checks.map((c) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={c.icon} /></svg>
+            </div>
+            <h3>{c.title}</h3>
+            <p>{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-def-section" id="entregable">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Qué recibes</div>
+        <h2 class="section-title">Un diagnóstico priorizado, no una lista de errores.</h2>
+      </div>
+      <p class="faq-a" style="max-width:820px; font-size:1.05rem;">Al final entregamos los hallazgos ordenados por impacto y esfuerzo, con un plan de acción claro de qué arreglar primero. Si los arreglos cruzan a la parte técnica, conectan directo con el <a href="/seo-tecnico" class="lp-inline-link" style="display:inline;">SEO técnico</a>; y la auditoría es el punto de partida natural del resto de los <a href="/servicios-seo" class="lp-inline-link" style="display:inline;">servicios SEO</a>. La implementación la puede ejecutar tu equipo siguiendo el plan, o nosotros como parte de la <a href="/consultoria-seo" class="lp-inline-link" style="display:inline;">consultoría</a>.</p>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Quién la hace</div>
+          <h2 class="section-title">La revisa un consultor senior, con nombre.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>La auditoría la hacen <strong>Felipe Gallo</strong> y <strong>JC Espinosa</strong>, consultores de SEO y visibilidad en IA con experiencia en mercados de Colombia, México y Estados Unidos. No es un reporte automático que escupe una herramienta: es un diagnóstico con criterio, donde lo que importa es decidir qué mueve la aguja y qué no.</p>
+          <p class="lp-note"><span class="lp-note-kicker">GEO incluido</span> Revisamos también si los bots de IA pueden leer y citar tu sitio, algo que la mayoría de auditorías todavía ignora.</p>
+          <a href="/#cases" class="lp-inline-link">Ver casos y resultados →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Preguntas frecuentes</div>
+        <h2 class="section-title">Lo que más nos preguntan.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">Solicita tu auditoría SEO.</h2>
+        <p class="lp-cta-text">Una llamada corta para revisar tu sitio, entender tu mercado y definir el alcance. De ahí arranca el diagnóstico.</p>
+        <a href="/#contact" class="btn-dark">Solicita tu auditoría</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

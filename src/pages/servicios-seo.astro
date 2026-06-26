@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t as translate } from '../i18n/utils';
+
+const lang = 'es';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', href: '/seo-tecnico', title: 'SEO técnico', desc: 'Rastreo, indexación, velocidad y arquitectura. Dejamos el sitio en condiciones para que Google y los crawlers de IA lo entiendan sin tropiezos.' },
+  { icon: '#i-bar-chart', href: '/auditoria-seo', title: 'Auditoría SEO', desc: 'El diagnóstico que va primero. Revisamos qué frena tu posicionamiento y salimos con una lista priorizada de qué arreglar y en qué orden.' },
+  { icon: '#i-pen', href: '/consultoria-seo', title: 'Consultoría y estrategia', desc: 'Un consultor senior diseña el plan y lo ejecuta contigo: keywords, contenido y prioridades atadas a ingresos, no a métricas de vanidad.' },
+  { icon: '#i-link', href: '/link-building', title: 'Link building', desc: 'Enlaces y menciones de calidad que construyen autoridad real. Sin granjas de enlaces ni atajos que terminen en una penalización.' },
+  { icon: '#i-globe', href: '/seo-local', title: 'SEO local', desc: 'Apareces en Google Maps y en el paquete local cuando alguien busca cerca, y también en las respuestas locales que dan los asistentes de IA.' },
+  { icon: '#i-trending', href: '/geo-posicionamiento-en-ia', title: 'GEO: visibilidad en IA', desc: 'Optimizamos tu marca para que ChatGPT, Perplexity, Gemini y los AI Overviews te citen y te recomienden cuando un comprador pregunta.' },
+];
+
+const included = [
+  'Auditoría técnica del sitio: rastreo, indexación, velocidad y datos estructurados.',
+  'Investigación de palabras clave y mapa de intención de búsqueda por página.',
+  'Contenido y optimización on-page que responde lo que la gente busca de verdad.',
+  'Construcción de autoridad con enlaces y menciones de calidad.',
+  'SEO local para Google Maps y el paquete local de tu ciudad.',
+  'GEO: preparar el sitio para ser citado por buscadores de IA (acceso de bots, esquema, contenido extraíble).',
+  'Medición y reporte de tráfico, posiciones e ingresos atribuibles.',
+];
+
+const faqs = [
+  { q: '¿Qué incluye un servicio de SEO?', a: 'Un servicio de SEO completo cubre seis frentes: SEO técnico (que el sitio sea rastreable y rápido), contenido y optimización on-page, construcción de autoridad con enlaces, SEO local, medición de resultados y, cada vez más, GEO, que es la optimización para que los buscadores de inteligencia artificial te citen. No todos los proyectos necesitan los seis a la vez: la auditoría define por dónde empezar.' },
+  { q: '¿Cuál es la diferencia entre una agencia SEO y un consultor SEO?', a: 'Una agencia suele tener más manos para ejecutar a gran escala y reparte el trabajo entre varios perfiles. Un consultor te da criterio senior y foco, y trabajas directo con quien toma las decisiones. En Clicroot combinamos las dos cosas: consultores que diseñan la estrategia y la ejecutan, sin un ejecutivo de cuenta de por medio.' },
+  { q: '¿Por dónde conviene empezar?', a: 'Casi siempre por la auditoría SEO. Antes de invertir en contenido o enlaces hay que saber qué está frenando el sitio: un problema técnico, una arquitectura confusa, contenido que no responde la intención de búsqueda. El diagnóstico evita gastar esfuerzo en el frente equivocado.' },
+  { q: '¿El SEO incluye optimización para inteligencia artificial (GEO)?', a: 'En Clicroot sí. Además del SEO clásico para Google, optimizamos tu marca para ser citada en ChatGPT, Perplexity, Gemini y los AI Overviews. A eso se le llama GEO (generative engine optimization) y va incluido en la estrategia, porque cada vez más compradores preguntan a un asistente de IA antes de ver un resultado de Google.' },
+  { q: '¿En cuánto tiempo se ven resultados?', a: 'El SEO es acumulativo. Las correcciones técnicas y los quick wins pueden mover posiciones en semanas; construir autoridad y rankear términos competidos toma de tres a seis meses o más. Te damos expectativas honestas desde la primera llamada, sin prometer primeros lugares de la noche a la mañana.' },
+  { q: '¿Trabajan en Colombia y México?', a: 'Sí. Operamos en Colombia y México, en español, y también en inglés para mercados angloparlantes. La estrategia se adapta al mercado y al idioma en el que tus clientes buscan.' },
+];
+
+const pageTitle = 'Servicios SEO en Colombia y México | Clicroot';
+const pageDesc = 'Servicios SEO: técnico, local, contenidos, link building y GEO (visibilidad en IA) para empresas en Colombia y México. Consultores senior. Agenda una llamada.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://clicroot.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Servicios SEO', 'item': 'https://clicroot.com/servicios-seo/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'Servicios SEO',
+      'name': 'Servicios SEO y GEO',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': ['CO', 'MX'],
+      'availableLanguage': ['Spanish', 'English'],
+      'description': 'Servicios SEO para empresas en Colombia y México: SEO técnico, auditoría, consultoría, link building, SEO local y GEO (visibilidad en buscadores de IA).',
+      'hasOfferCatalog': {
+        '@type': 'OfferCatalog',
+        'name': 'Servicios SEO',
+        'itemListElement': services.map((s) => ({
+          '@type': 'Offer',
+          'itemOffered': { '@type': 'Service', 'name': s.title, 'url': `https://clicroot.com${s.href}/` },
+        })),
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang}>
+  <Nav lang={lang} t={tf} anchorBase="/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Ruta de navegación">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span>Servicios SEO</span>
+      </nav>
+      <div class="lp-eyebrow">Servicios SEO · Colombia y México</div>
+      <h1 class="lp-title">Servicios SEO: técnico, local, contenidos y autoridad.</h1>
+      <p class="lp-lead">Un solo equipo cubre todo lo que tu posicionamiento necesita, desde la base técnica hasta la visibilidad en buscadores de IA. Empezamos por el diagnóstico y ejecutamos lo que mueve el negocio, con consultores senior y resultados medibles.</p>
+      <div class="lp-actions">
+        <a href="/#contact" class="btn-primary">Agenda una llamada</a>
+        <a href="#servicios" class="btn-outline">Ver servicios</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definición</div>
+        <h2 class="section-title">¿Qué incluye el SEO?</h2>
+      </div>
+      <p class="lp-def">El SEO agrupa todo el trabajo que hace que un sitio aparezca primero cuando la gente busca: la base técnica para que Google y los bots de IA lo entiendan, el contenido que responde la intención de búsqueda, los enlaces que construyen autoridad, el posicionamiento local y la medición de resultados. A eso hoy se suma el GEO, que prepara tu marca para ser citada por ChatGPT, Perplexity, Gemini y los AI Overviews.</p>
+    </div>
+  </section>
+
+  <section class="section services-section" id="servicios">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Qué hacemos</div>
+        <h2 class="section-title">Seis servicios, una estrategia conectada.</h2>
+        <p class="section-subtitle">Cada servicio resuelve una parte del problema. Se potencian al combinarse, y la auditoría define el orden.</p>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <a class="service-card" href={svc.href}>
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+            <span class="lp-inline-link">Ver el servicio →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-def-section" id="incluye">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Qué incluye</div>
+        <h2 class="section-title">Lo que cubre un proyecto de SEO con Clicroot.</h2>
+      </div>
+      <ul class="faq-a" style="max-width:820px; list-style:none; padding:0;">
+        {included.map((item) => (
+          <li style="padding:14px 0; border-top:1px solid var(--card-border); display:flex; gap:14px; align-items:flex-start;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span style="color:var(--text-secondary); line-height:1.7;">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Quién lo hace</div>
+          <h2 class="section-title">Consultores con nombre, no una caja negra.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Clicroot la operan <strong>Felipe Gallo</strong> y <strong>JC Espinosa</strong>, consultores de SEO y visibilidad en IA con experiencia en mercados de Colombia, México y Estados Unidos. Cuando contratas un servicio hablas con ellos, no con un ejecutivo de cuenta que reenvía correos.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Bilingüe</span> Operamos en español e inglés, con la misma estrategia para mercados hispanohablantes y angloparlantes.</p>
+          <a href="/#cases" class="lp-inline-link">Ver casos y resultados →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Preguntas frecuentes</div>
+        <h2 class="section-title">Lo que más nos preguntan.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">¿Por dónde empezamos?</h2>
+        <p class="lp-cta-text">Una llamada de 30 minutos para entender tu sitio, tu mercado y qué servicio te conviene primero. Sin compromiso.</p>
+        <a href="/#contact" class="btn-dark">Agenda una llamada</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

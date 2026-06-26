@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t as translate } from '../i18n/utils';
+
+const lang = 'es';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'SEO técnico', desc: 'Rastreo, indexación, velocidad y arquitectura. La base que Google y los crawlers de IA necesitan para entender tu sitio.' },
+  { icon: '#i-pen', title: 'Contenido y on-page', desc: 'Páginas que responden la intención real de búsqueda y que los modelos de IA pueden citar con claridad, en español y, si exportas, también en inglés.' },
+  { icon: '#i-link', title: 'Autoridad y link building', desc: 'Enlaces y menciones de calidad que construyen autoridad real, sin atajos que terminen en una penalización.' },
+  { icon: '#i-globe', title: 'SEO local en Medellín', desc: 'Aparece en Google Maps y en las búsquedas con intención de cercanía, de El Poblado a Laureles, donde tu cliente decide.' },
+  { icon: '#i-trending', title: 'GEO: visibilidad en IA', desc: 'Optimizamos tu marca para que ChatGPT, Perplexity, Gemini y los AI Overviews te recomienden cuando alguien pide una empresa en Medellín.' },
+  { icon: '#i-bar-chart', title: 'Medición y reporte', desc: 'Tráfico, posiciones e ingresos atribuibles. Reportamos lo que mueve el negocio, no métricas de vanidad.' },
+];
+
+const faqs = [
+  { q: '¿Cuánto cuesta una agencia SEO en Medellín?', a: 'Depende del alcance. Una auditoría puntual, un acompañamiento mensual o un proyecto de posicionamiento completo tienen precios distintos. Acordamos el alcance por adelantado, sin permanencias forzadas. Agenda una llamada y te damos un rango claro para tu caso.' },
+  { q: '¿En cuánto tiempo se ven resultados en Medellín?', a: 'El SEO es acumulativo. Las correcciones técnicas y los quick wins pueden mover posiciones en semanas. Posicionar términos comerciales toma de tres a seis meses o más, según la autoridad de tu dominio. En Medellín el tope del buscador para varios términos todavía está menos consolidado que en mercados más grandes, así que una estrategia enfocada puede ganar terreno antes. Te damos expectativas honestas desde la primera llamada.' },
+  { q: '¿Atienden empresas de tecnología y startups del ecosistema de Medellín?', a: 'Sí, es buena parte de lo que hacemos. Medellín tiene un ecosistema tech y de startups que crece rápido, y ese tipo de empresa necesita rankear términos de producto y categoría, no solo su marca. Diseñamos la arquitectura de contenido y el SEO técnico para que un producto o SaaS sea encontrado por intención, y para que los buscadores de IA lo describan bien cuando alguien pregunta por una solución.' },
+  { q: '¿Hacen SEO en inglés para empresas que exportan o reciben turismo?', a: 'Sí. Muchas empresas de Medellín venden servicios al exterior o atienden visitantes que buscan en inglés, desde nearshoring y software hasta turismo y bienes raíces. Operamos en español e inglés con la misma estrategia, optimizando contenido y entidad de marca para que te encuentren en ambos idiomas, en Google y en respuestas de IA.' },
+  { q: '¿Qué es GEO y por qué importa para una empresa en Medellín?', a: 'GEO (generative engine optimization) es optimizar tu marca para ser citada por asistentes de IA como ChatGPT, Perplexity, Gemini y los AI Overviews de Google. Cuando un comprador le pide a un asistente una empresa para X servicio en Medellín, recibe una respuesta, no un listado. GEO trabaja para que tu marca esté en esa respuesta, y es parte de cada plan que ejecutamos.' },
+  { q: '¿Consultor SEO o agencia SEO en Medellín: qué me conviene?', a: 'Una agencia grande suele asignar perfiles junior y reportes de plantilla; un consultor te da criterio senior y foco. En Clicroot trabajas directo con los consultores que diseñan y ejecutan la estrategia. Tienes estrategia senior y ejecución real, sin un ejecutivo de cuenta de por medio.' },
+];
+
+const pageTitle = 'Agencia SEO en Medellín: posicionamiento y GEO | Clicroot';
+const pageDesc = 'Agencia SEO en Medellín con consultores senior, no junior. Posicionamiento web en Google y visibilidad en IA (GEO) para empresas, startups y exportadores. Agenda una llamada.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://clicroot.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Agencia SEO en Medellín', 'item': 'https://clicroot.com/agencia-seo-medellin/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'Agencia SEO',
+      'name': 'Agencia SEO en Medellín',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': { '@type': 'City', 'name': 'Medellín, Colombia' },
+      'availableLanguage': ['Spanish', 'English'],
+      'description': 'Agencia SEO en Medellín con consultores senior. Posicionamiento web en Google y visibilidad en buscadores de IA (GEO) para empresas, startups y exportadores con sede o mercado en Medellín.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang}>
+  <Nav lang={lang} t={tf} anchorBase="/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Ruta de navegación">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span>Agencia SEO en Medellín</span>
+      </nav>
+      <div class="lp-eyebrow">Agencia SEO · Medellín, Colombia</div>
+      <h1 class="lp-title">Agencia SEO en Medellín</h1>
+      <p class="lp-lead">Posicionamos tu empresa en Google y en los buscadores de IA, con foco en el ecosistema que define a Medellín: tecnología, exportación de servicios, turismo y bienes raíces. Trabajas directo con los consultores que diseñan y ejecutan la estrategia.</p>
+      <div class="lp-actions">
+        <a href="/#contact" class="btn-primary">Agenda una llamada</a>
+        <a href="#que-es" class="btn-outline">Por qué SEO en Medellín</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Por qué Medellín</div>
+        <h2 class="section-title">El mercado de Medellín tiene su propia lógica.</h2>
+      </div>
+      <p class="lp-def">Medellín dejó de ser solo una plaza local: es un polo de innovación con un ecosistema de startups, software y nearshoring que vende tanto adentro como afuera del país. Eso cambia el SEO. Muchas empresas necesitan rankear por categoría y producto, no solo por su marca, y a menudo en español y en inglés a la vez, porque su comprador puede estar en Medellín, en otra ciudad o en Estados Unidos. A esto se suman el turismo y los bienes raíces, sectores con alta demanda de búsqueda y mucha intención de cercanía. La ventaja es que el tope del buscador para varios términos todavía no está tan consolidado como en plazas más grandes, así que una estrategia enfocada gana terreno antes.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Qué hacemos</div>
+        <h2 class="section-title">Una estrategia completa, de la técnica a la IA.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Quién lo hace</div>
+          <h2 class="section-title">Consultores con nombre, no una caja negra.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Clicroot la operan <strong>Felipe Gallo</strong> y <strong>JC Espinosa</strong>, consultores de SEO y visibilidad en IA con trabajo en marcas de Colombia, México y Estados Unidos. Cuando contratas la agencia hablas con ellos, los que toman las decisiones, no con un ejecutivo de cuenta que reenvía correos.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Bilingüe por diseño</span> Operamos en español e inglés con la misma estrategia, clave para una empresa de Medellín que también vende fuera del país.</p>
+          <a href="/#cases" class="lp-inline-link">Ver casos y resultados →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Preguntas frecuentes</div>
+        <h2 class="section-title">Lo que más nos preguntan en Medellín.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Más servicios</div>
+          <h2 class="section-title">SEO en otras plazas y a fondo.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Si quieres entender el alcance completo del servicio, revisa nuestra <a href="/consultoria-seo" class="lp-inline-link">consultoría SEO</a>. Y si tu mercado también está en la capital, tenemos una página para <a href="/agencia-seo-bogota" class="lp-inline-link">agencia SEO en Bogotá</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">¿Hablamos de tu proyecto en Medellín?</h2>
+        <p class="lp-cta-text">Una llamada de 30 minutos para entender tu sitio, tu mercado y si encajamos. Sin compromiso.</p>
+        <a href="/#contact" class="btn-dark">Agenda una llamada</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t as translate } from '../i18n/utils';
+
+const lang = 'es';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'SEO técnico', desc: 'Rastreo, indexación, velocidad y arquitectura. La base que Google y los crawlers de IA necesitan para entender tu sitio.' },
+  { icon: '#i-pen', title: 'Contenido y on-page', desc: 'Páginas que responden la intención real de quien busca en Bogotá y que los modelos de IA pueden citar sin ambigüedad.' },
+  { icon: '#i-link', title: 'Autoridad y link building', desc: 'Enlaces y menciones de calidad, varias de medios y directorios colombianos, para construir autoridad sin atajos que terminen en penalización.' },
+  { icon: '#i-globe', title: 'SEO local en Bogotá', desc: 'Aparece en Google Maps y en el paquete local por localidad, de Chapinero a Usaquén, justo donde tu cliente decide.' },
+  { icon: '#i-trending', title: 'GEO: visibilidad en IA', desc: 'Optimizamos tu marca para que ChatGPT, Perplexity, Gemini y los AI Overviews te recomienden cuando alguien pide una empresa en Bogotá.' },
+  { icon: '#i-bar-chart', title: 'Medición y reporte', desc: 'Tráfico, posiciones e ingresos atribuibles. Reportamos lo que mueve el negocio, no métricas de vanidad.' },
+];
+
+const faqs = [
+  { q: '¿Cuánto cuesta una agencia SEO en Bogotá?', a: 'Depende del alcance. Una auditoría puntual, un acompañamiento mensual o un proyecto de posicionamiento completo tienen precios distintos. En Bogotá la puja de Google Ads para términos comerciales es alta, así que a mediano plazo el SEO suele rendir más que pagar por cada clic. Acordamos el alcance por adelantado, sin permanencias forzadas. Agenda una llamada y te damos un rango claro para tu caso.' },
+  { q: '¿En cuánto tiempo se ven resultados en Bogotá?', a: 'El SEO es acumulativo. Las correcciones técnicas y los quick wins pueden mover posiciones en semanas. Posicionar términos comerciales disputados en una plaza grande como Bogotá toma de tres a seis meses o más, según la autoridad de tu dominio y la del sector. Te damos expectativas honestas desde la primera llamada, no promesas de primera página en 30 días.' },
+  { q: '¿Trabajan SEO local por localidades de Bogotá?', a: 'Sí. Para un negocio con sede o cobertura por zonas (Chapinero, Usaquén, Chicó, el centro) configuramos el perfil de Google Business, la consistencia de nombre, dirección y teléfono, y el contenido por barrio o localidad, de modo que aparezcas en el paquete local y en las búsquedas con intención de cercanía.' },
+  { q: '¿Qué es GEO y por qué importa para una empresa en Bogotá?', a: 'GEO (generative engine optimization) es optimizar tu marca para ser citada por asistentes de IA como ChatGPT, Perplexity, Gemini y los AI Overviews de Google. Cuando un comprador en Bogotá le pide a ChatGPT una empresa para X servicio, no ve un listado de Google: ve una respuesta. GEO trabaja para que tu marca aparezca en esa respuesta. Es parte de cada plan que ejecutamos.' },
+  { q: '¿Consultor SEO o agencia SEO en Bogotá: qué me conviene?', a: 'Una agencia grande suele asignar perfiles junior y reportes de plantilla; un consultor te da criterio senior y foco. En Clicroot trabajas directo con los consultores que diseñan y ejecutan la estrategia, sin un ejecutivo de cuenta de por medio. Combinas las dos cosas: criterio senior y ejecución real.' },
+  { q: '¿Atienden empresas fuera de Bogotá?', a: 'Sí. Operamos desde Colombia para todo el país y también para México y Estados Unidos, en español e inglés. Si estás en otra ciudad colombiana podemos ayudarte igual; si buscas Medellín en concreto, tenemos una página dedicada a esa plaza.' },
+];
+
+const pageTitle = 'Agencia SEO en Bogotá: posicionamiento y GEO | Clicroot';
+const pageDesc = 'Agencia SEO en Bogotá con consultores senior, no junior. Posicionamiento web en Google y visibilidad en IA (GEO) para empresas en Bogotá. Agenda una llamada.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://clicroot.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Agencia SEO en Bogotá', 'item': 'https://clicroot.com/agencia-seo-bogota/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'Agencia SEO',
+      'name': 'Agencia SEO en Bogotá',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': { '@type': 'City', 'name': 'Bogotá, Colombia' },
+      'availableLanguage': ['Spanish', 'English'],
+      'description': 'Agencia SEO en Bogotá con consultores senior. Posicionamiento web en Google y visibilidad en buscadores de IA (GEO) para empresas con sede o mercado en Bogotá.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang}>
+  <Nav lang={lang} t={tf} anchorBase="/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Ruta de navegación">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span>Agencia SEO en Bogotá</span>
+      </nav>
+      <div class="lp-eyebrow">Agencia SEO · Bogotá, Colombia</div>
+      <h1 class="lp-title">Agencia SEO en Bogotá</h1>
+      <p class="lp-lead">Posicionamos tu empresa en Google y en los buscadores de IA en la plaza más competida de Colombia. Trabajas directo con los consultores que diseñan y ejecutan la estrategia, con resultados medibles y sin métricas de vanidad.</p>
+      <div class="lp-actions">
+        <a href="/#contact" class="btn-primary">Agenda una llamada</a>
+        <a href="#que-es" class="btn-outline">Por qué SEO en Bogotá</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Por qué Bogotá</div>
+        <h2 class="section-title">El SEO en Bogotá compite distinto.</h2>
+      </div>
+      <p class="lp-def">Bogotá concentra la mayor demanda de búsqueda comercial del país y, con ella, la competencia más dura: aquí están las casas matrices, las empresas de servicios y el grueso de la inversión en Google Ads, con un costo por clic alto en muchos términos comerciales. Eso vuelve al posicionamiento orgánico y a la visibilidad en IA una apuesta más rentable a mediano plazo. La oportunidad real está en la intención local: quien busca "cerca de mí" o por localidad ya casi decidió comprar, y ahí se gana con SEO local y contenido por zona, no solo con términos genéricos.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Qué hacemos</div>
+        <h2 class="section-title">Una estrategia completa, de la técnica a la IA.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Quién lo hace</div>
+          <h2 class="section-title">Consultores con nombre, no una caja negra.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Clicroot la operan <strong>Felipe Gallo</strong> y <strong>JC Espinosa</strong>, consultores de SEO y visibilidad en IA con trabajo en marcas de Colombia, México y Estados Unidos. Cuando contratas la agencia hablas con ellos, los que toman las decisiones, no con un ejecutivo de cuenta que reenvía correos.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Local y bilingüe</span> Conocemos el mercado bogotano y operamos en español e inglés, útil si tu empresa vende también fuera de Colombia.</p>
+          <a href="/#cases" class="lp-inline-link">Ver casos y resultados →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Preguntas frecuentes</div>
+        <h2 class="section-title">Lo que más nos preguntan en Bogotá.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Más servicios</div>
+          <h2 class="section-title">SEO en otras plazas y a fondo.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Si quieres entender el alcance completo del servicio, revisa nuestra <a href="/consultoria-seo" class="lp-inline-link">consultoría SEO</a>. Y si tu mercado también está en la otra gran ciudad del país, tenemos una página para <a href="/agencia-seo-medellin" class="lp-inline-link">agencia SEO en Medellín</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">¿Hablamos de tu proyecto en Bogotá?</h2>
+        <p class="lp-cta-text">Una llamada de 30 minutos para entender tu sitio, tu mercado y si encajamos. Sin compromiso.</p>
+        <a href="/#contact" class="btn-dark">Agenda una llamada</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>
