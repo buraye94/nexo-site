@@ -4,6 +4,7 @@ import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
 import { t as translate } from '../../../i18n/utils';
 import { getCollection } from 'astro:content';
+import { esToEn } from '../../../i18n/blog-slugs';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -21,6 +22,8 @@ const lang = 'es';
 const tf = (key: string) => translate(lang, key);
 const slug = post.slug.replace('es/', '');
 const url = `https://clicroot.com/es/blog/${slug}/`;
+const altSlug = esToEn[slug];
+const alternateUrl = altSlug ? `/en/blog/${altSlug}/` : undefined;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -50,7 +53,7 @@ const schema = {
 };
 ---
 
-<Layout title={`${post.data.title} | clicroot`} description={post.data.description} lang={lang}>
+<Layout title={`${post.data.title} | clicroot`} description={post.data.description} lang={lang} alternateUrl={alternateUrl}>
   <Nav lang={lang} t={tf} anchorBase="/" />
 
   <article class="blog-post">
