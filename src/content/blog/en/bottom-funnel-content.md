@@ -1,13 +1,13 @@
 ---
 title: "Why Bottom-of-Funnel Content Beats Blog Posts for ROI"
-description: "Most businesses start with blog content. Here's why that's backwards — and what to do instead."
+description: "Most businesses start with blog content. Here's why that's backwards, and what to do instead."
 date: 2026-02-01
 lang: en
 emoji: "📊"
 tags: ["content-strategy", "roi"]
 ---
 
-Most businesses start their SEO journey by publishing blog posts. It feels natural — create content, get traffic, convert visitors.
+Most businesses start their SEO journey by publishing blog posts. It feels natural: create content, get traffic, convert visitors.
 
 But there's a fundamental problem with this approach: blog traffic is mostly top-of-funnel. These visitors are researching, not buying.
 

@@ -13,7 +13,7 @@ This is a costly mistake.
 
 ## Regional Differences Matter
 
-The way people search in Colombia is fundamentally different from how they search in Mexico, Argentina, or Spain. Not just in vocabulary — in intent, in the platforms they trust, and in the competitive landscape.
+The way people search in Colombia is fundamentally different from how they search in Mexico, Argentina, or Spain. Not just in vocabulary: in intent, in the platforms they trust, and in the competitive landscape.
 
 ## Common Mistakes
 
@@ -27,4 +27,4 @@ The way people search in Colombia is fundamentally different from how they searc
 
 Start with market-specific keyword research. Understand who your competitors are in each target country. Build content that resonates locally, not just linguistically.
 
-This is why bilingual SEO expertise matters — it's not about speaking the language, it's about understanding the market.
+This is why bilingual SEO expertise matters: it's not about speaking the language, it's about understanding the market.

@@ -13,7 +13,7 @@ Este es un error costoso.
 
 ## Las Diferencias Regionales Importan
 
-La forma en que las personas buscan en Colombia es fundamentalmente diferente a cómo buscan en México, Argentina o España. No solo en vocabulario — en intención, en las plataformas que confían, y en el panorama competitivo.
+La forma en que las personas buscan en Colombia es fundamentalmente diferente a cómo buscan en México, Argentina o España. No solo en vocabulario: en intención, en las plataformas que confían, y en el panorama competitivo.
 
 ## Errores Comunes
 

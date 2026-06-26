@@ -17,11 +17,11 @@ A single link from a high-authority, topically relevant site is worth more than 
 
 We focus on three types of link placements:
 
-**Editorial placements** — Getting mentioned in existing, high-traffic articles on authoritative sites. These require genuine value and relationships.
+**Editorial placements:** Getting mentioned in existing, high-traffic articles on authoritative sites. These require genuine value and relationships.
 
-**Strategic guest contributions** — Not generic guest posts, but thoughtful pieces on industry-specific publications that your target audience actually reads.
+**Strategic guest contributions:** Not generic guest posts, but thoughtful pieces on industry-specific publications that your target audience actually reads.
 
-**Resource link building** — Creating genuinely useful tools, data, or guides that naturally attract links from relevant sources.
+**Resource link building:** Creating genuinely useful tools, data, or guides that naturally attract links from relevant sources.
 
 ## The Numbers
 
