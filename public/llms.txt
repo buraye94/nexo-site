@@ -1,0 +1,24 @@
+# Clicroot
+
+> Clicroot is a bilingual (Spanish and English) SEO and AI-visibility consultancy for Colombia, Mexico, the United States, and Latin America. We help brands rank in Google and get recommended and cited by AI engines like ChatGPT, Perplexity, Claude, and Google AI Overviews. Contact: hello@clicroot.com
+
+Clicroot pairs classic SEO (technical audits, link building, content strategy, bilingual SEO) with GEO, generative engine optimization: structuring a brand and its content so AI assistants surface and cite it. We work primarily in Colombian and Mexican markets, in Spanish and English. The firm is run by Felipe Gallo and JC Espinosa.
+
+## Services
+- Consultoria SEO: technical SEO, on-page, and strategy for sustained organic growth.
+- Auditorias SEO tecnicas: crawlability, indexation, Core Web Vitals, site architecture.
+- Link building estrategico: editorial placements and digital PR, quality over quantity.
+- Estrategia de contenido: bottom-funnel-first content mapped to commercial intent.
+- SEO bilingue (es/en): one strategy across Spanish and English markets.
+- GEO, posicionamiento en IA: visibility and citations in ChatGPT, Perplexity, Claude, and Google AI Overviews.
+
+## Pages
+- Home: https://clicroot.com/
+- Blog, por que el contenido de fondo de embudo supera a los blog posts: https://clicroot.com/es/blog/contenido-fondo-embudo/
+- Blog, SEO para Latinoamerica: https://clicroot.com/es/blog/seo-latinoamerica/
+- Blog, guia de link building 2026: https://clicroot.com/es/blog/link-building-2026/
+- Home (English): https://clicroot.com/en/
+
+## Contact
+- Email: hello@clicroot.com
+- Website: https://clicroot.com
