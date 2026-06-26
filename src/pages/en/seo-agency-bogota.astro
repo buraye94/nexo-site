@@ -1,0 +1,172 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { t as translate } from '../../i18n/utils';
+
+const lang = 'en';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'Technical SEO', desc: 'Crawling, indexing, speed and architecture, built to compete in the market with the most search demand in the country. The foundation Google and AI crawlers need to understand your site.' },
+  { icon: '#i-pen', title: 'Content and on-page', desc: 'Pages that answer the real intent of someone searching in Bogotá, written so AI models can cite them without ambiguity.' },
+  { icon: '#i-link', title: 'Authority and link building', desc: 'Quality links and mentions, several from Colombian media and directories, to build authority without shortcuts that end in a penalty.' },
+  { icon: '#i-globe', title: 'Local SEO in Bogotá', desc: 'Show up on Google Maps and in the local pack by district, from Chapinero to Usaquén, right where your customer decides.' },
+  { icon: '#i-trending', title: 'GEO: visibility in AI', desc: 'We optimize your brand so ChatGPT, Perplexity, Gemini and AI Overviews recommend you when someone asks for a company in Bogotá.' },
+  { icon: '#i-bar-chart', title: 'Measurement and reporting', desc: 'Traffic, rankings and attributable revenue, with local-intent tracking by district. We report what moves the business, not vanity metrics.' },
+];
+
+const faqs = [
+  { q: 'How much does an SEO agency in Bogotá cost?', a: 'It depends on scope. A one-off audit, a monthly engagement or a full positioning project all price differently. In Bogotá the Google Ads bidding for commercial terms is high, so over the medium term SEO usually pays off more than paying per click. We agree on scope up front, with no forced lock-in. Book a call and we will give you a clear range for your case.' },
+  { q: 'How long until you see results in Bogotá?', a: 'SEO compounds. Technical fixes and quick wins can move rankings within weeks. Ranking contested commercial terms in a large market like Bogotá takes three to six months or more, depending on your domain authority and the sector. We give honest expectations from the first call, not promises of page one in 30 days.' },
+  { q: 'Do you do local SEO by district in Bogotá?', a: 'Yes. For a business with a location or coverage across zones (Chapinero, Usaquén, Chicó, downtown), we set up the Google Business profile, name, address and phone consistency, and content by neighborhood or district, so you appear in the local pack and in searches with nearby intent.' },
+  { q: 'What is GEO and why does it matter for a company in Bogotá?', a: 'GEO (generative engine optimization) means optimizing your brand to be cited by AI assistants like ChatGPT, Perplexity, Gemini and Google AI Overviews. When a buyer in Bogotá asks ChatGPT for a company for a given service, they do not see a list of Google links: they see an answer. GEO works to put your brand in that answer. It is part of every plan we run.' },
+  { q: 'SEO consultant or SEO agency in Bogotá: which is right for me?', a: 'A large agency tends to assign junior staff and template reports; a consultant gives you senior judgment and focus. At Clicroot you work directly with the consultants who design and execute the strategy, with no account manager in between. You get both: senior judgment and real execution.' },
+  { q: 'Do you work with companies based outside Bogotá?', a: 'Yes. We operate from Colombia for the whole country and also for Mexico and the United States, in Spanish and English. This includes US companies expanding into or hiring in Colombia. If you are in another Colombian city we can still help; and if you specifically want Medellín, we have a page dedicated to that market.' },
+];
+
+const pageTitle = 'SEO Agency in Bogotá: search and AI visibility | Clicroot';
+const pageDesc = 'SEO agency in Bogotá with senior consultants, not juniors. Search positioning on Google and AI visibility (GEO) for companies in Bogotá. Book a call.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://clicroot.com/en/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'SEO Agency in Bogotá', 'item': 'https://clicroot.com/en/seo-agency-bogota/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'SEO Agency',
+      'name': 'SEO Agency in Bogotá',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': { '@type': 'City', 'name': 'Bogotá, Colombia' },
+      'availableLanguage': ['English', 'Spanish'],
+      'description': 'SEO agency in Bogotá with senior consultants. Search positioning on Google and visibility in AI search engines (GEO) for companies based in or selling into Bogotá.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang} alternateUrl="/agencia-seo-bogota/">
+  <Nav lang="en" t={tf} anchorBase="/en/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Breadcrumb">
+        <a href="/en/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>SEO Agency in Bogotá</span>
+      </nav>
+      <div class="lp-eyebrow">SEO Agency · Bogotá, Colombia</div>
+      <h1 class="lp-title">SEO Agency in Bogotá</h1>
+      <p class="lp-lead">We position your company on Google and in AI search engines in the most competitive market in Colombia. You work directly with the consultants who design and execute the strategy, with measurable results and no vanity metrics.</p>
+      <div class="lp-actions">
+        <a href="/en/#contact" class="btn-primary">Book a call</a>
+        <a href="#what-it-is" class="btn-outline">Why SEO in Bogotá</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="what-it-is">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Why Bogotá</div>
+        <h2 class="section-title">SEO in Bogotá competes differently.</h2>
+      </div>
+      <p class="lp-def">Bogotá concentrates the highest commercial search demand in the country and, with it, the toughest competition: this is where the headquarters, the service firms and the bulk of Google Ads spend sit, with a high cost per click on many commercial terms. That makes organic positioning and AI visibility a more profitable bet over the medium term. The real opportunity is local intent: someone searching "near me" or by district has all but decided to buy, and you win there with local SEO and content by zone, not just generic terms.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">What we do</div>
+        <h2 class="section-title">A complete strategy, from the technical to AI.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Who does it</div>
+          <h2 class="section-title">Consultants with names, not a black box.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Clicroot is run by <strong>Felipe Gallo</strong> and <strong>JC Espinosa</strong>, SEO and AI visibility consultants with work for brands in Colombia, Mexico and the United States. When you hire the agency you talk to them, the people who make the decisions, not an account manager forwarding emails.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Local and bilingual</span> We know the Bogotá market and operate in Spanish and English, useful if your company also sells outside Colombia or is expanding in from abroad.</p>
+          <a href="/en/#cases" class="lp-inline-link">See cases and results →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Frequently asked questions</div>
+        <h2 class="section-title">What we get asked most in Bogotá.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">More services</div>
+          <h2 class="section-title">SEO in other markets and in depth.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>If you want to understand the full scope of the service, see our <a href="/en/seo-consulting" class="lp-inline-link">SEO consulting</a>. And if your market is also in the country's other major city, we have a page for <a href="/en/seo-agency-medellin" class="lp-inline-link">SEO agency in Medellín</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">Want to talk about your project in Bogotá?</h2>
+        <p class="lp-cta-text">A 30-minute call to understand your site, your market and whether we are a fit. No commitment.</p>
+        <a href="/en/#contact" class="btn-dark">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/en/" lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

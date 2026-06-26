@@ -1,0 +1,172 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { t as translate } from '../../i18n/utils';
+
+const lang = 'en';
+const tf = (key: string) => translate(lang, key);
+
+const checks = [
+  { icon: '#i-search', title: 'Technical and indexing', desc: 'Crawling, indexing, speed, Core Web Vitals, server errors, canonicals, and site architecture. The foundation nothing else ranks without.' },
+  { icon: '#i-pen', title: 'Content and on-page', desc: 'Whether your pages answer real search intent, titles and metadata, cannibalization between URLs, and content gaps against whoever already ranks.' },
+  { icon: '#i-link', title: 'Links and authority', desc: 'Your inbound link profile, anchors, toxic links worth disavowing, and opportunities for quality mentions and backlinks.' },
+  { icon: '#i-globe', title: 'Local SEO', desc: 'Google Business Profile, name, address, and phone consistency, reviews, and presence in your city map pack.' },
+  { icon: '#i-trending', title: 'GEO and AI bot access', desc: 'Whether GPTBot, PerplexityBot, and AI crawlers can read your site, whether your content is citable, and whether schema helps models understand you.' },
+  { icon: '#i-bar-chart', title: 'Measurement and analytics', desc: 'Search Console and analytics setup, conversion events, and whether you are measuring what actually moves the business.' },
+];
+
+const faqs = [
+  { q: 'What does an SEO audit include?', a: 'An SEO audit reviews six areas: the technical health of the site (crawling, indexing, speed), content and on-page optimization, the link and authority profile, local SEO, measurement with Search Console and analytics, and AI bot access (GEO). The result is a clear diagnosis of what is holding back your rankings and a prioritized list of what to fix first.' },
+  { q: 'What is an SEO audit with AI (GEO)?', a: 'It is the part of the audit that reviews your visibility in AI search engines. We check whether bots like GPTBot and PerplexityBot can access your site, whether your content is structured to be cited by ChatGPT, Perplexity, Gemini, and AI Overviews, and whether structured data helps models understand your brand. Many sites block these bots without realizing it and become invisible to AI.' },
+  { q: 'How long does the audit take?', a: 'It depends on the size of the site and the depth we agree on. An audit of a mid-sized site usually takes one to two weeks. Before we start, we tell you the exact scope and timeline for your case.' },
+  { q: 'What do I get at the end?', a: 'A document with findings ranked by impact and effort. We prioritize what to fix first, explain why each point matters, and leave an action plan your team or ours can execute.' },
+  { q: 'Does the audit include implementing the fixes?', a: 'The audit is the diagnosis. Implementation can happen afterward, either with your team following the plan or with us executing it as part of the consulting engagement. We agree on that based on what you need.' },
+  { q: 'How do I request my audit?', a: 'Book a short call. We review your site at a high level, understand your market, and tell you the scope and timeline. From there we kick off the full diagnosis.' },
+];
+
+const pageTitle = 'SEO Audit: What We Review | Clicroot';
+const pageDesc = 'SEO (and GEO) audit of your site: technical, content, links, local, AI bot access, and measurement. A prioritized diagnosis for the US, Colombia, and Mexico. Request yours.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://clicroot.com/en/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'SEO Services', 'item': 'https://clicroot.com/en/seo-services/' },
+        { '@type': 'ListItem', 'position': 3, 'name': 'SEO Audit', 'item': 'https://clicroot.com/en/seo-audit/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'SEO Audit',
+      'name': 'SEO and GEO Audit',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': ['US', 'CO', 'MX'],
+      'availableLanguage': ['English', 'Spanish'],
+      'description': 'SEO and GEO audit of your site: technical health, content, links, local SEO, AI bot access, and measurement, with a prioritized diagnosis.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang} alternateUrl="/auditoria-seo/">
+  <Nav lang="en" t={tf} anchorBase="/en/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Breadcrumb">
+        <a href="/en/">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="/en/seo-services">SEO Services</a>
+        <span aria-hidden="true">/</span>
+        <span>SEO Audit</span>
+      </nav>
+      <div class="lp-eyebrow">SEO Audit · US, Colombia, Mexico</div>
+      <h1 class="lp-title">SEO (and GEO) audit of your site.</h1>
+      <p class="lp-lead">The diagnosis that comes before you invest in content or links. We review what is holding back your rankings, from the technical layer to AI bot access, and come out with a prioritized list of what to fix first.</p>
+      <div class="lp-actions">
+        <a href="/en/#contact" class="btn-primary">Request your audit</a>
+        <a href="#revisamos" class="btn-outline">What we review</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definition</div>
+        <h2 class="section-title">What is an SEO audit?</h2>
+      </div>
+      <p class="lp-def">An SEO audit is a complete review of your site that identifies what is holding back its rankings in Google and, increasingly, in AI search engines. It examines the technical health, the content, the links, local SEO, measurement, and AI bot access, and delivers a prioritized diagnosis: not a raw list of errors, but what to fix first and why.</p>
+    </div>
+  </section>
+
+  <section class="section services-section" id="revisamos">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">What we review</div>
+        <h2 class="section-title">A transparent audit, area by area.</h2>
+        <p class="section-subtitle">This is what we look at on every site. We put the scope on the table: you know exactly what the diagnosis covers before we start.</p>
+      </div>
+      <div class="services-grid">
+        {checks.map((c) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={c.icon} /></svg>
+            </div>
+            <h3>{c.title}</h3>
+            <p>{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-def-section" id="entregable">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">What you receive</div>
+        <h2 class="section-title">A prioritized diagnosis, not a list of errors.</h2>
+      </div>
+      <p class="faq-a" style="max-width:820px; font-size:1.05rem;">At the end we deliver the findings ranked by impact and effort, with a clear action plan for what to fix first. If the fixes cross into the technical layer, they connect directly to <a href="/en/technical-seo" class="lp-inline-link" style="display:inline;">technical SEO</a>; and the audit is the natural starting point for the rest of our <a href="/en/seo-services" class="lp-inline-link" style="display:inline;">SEO services</a>. Implementation can be run by your team following the plan, or by us as part of the <a href="/en/seo-consulting" class="lp-inline-link" style="display:inline;">consulting engagement</a>.</p>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Who does it</div>
+          <h2 class="section-title">A senior consultant runs it, with a name.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>The audit is done by <strong>Felipe Gallo</strong> and <strong>JC Espinosa</strong>, SEO and AI visibility consultants with experience across the US, Colombia, and Mexico. It is not an automated report a tool spits out: it is a diagnosis with judgment, where what matters is deciding what moves the needle and what does not.</p>
+          <p class="lp-note"><span class="lp-note-kicker">GEO included</span> We also check whether AI bots can read and cite your site, something few audits review yet.</p>
+          <a href="/en/#cases" class="lp-inline-link">See cases and results →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Frequently asked questions</div>
+        <h2 class="section-title">What buyers ask us most.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">Request your SEO audit.</h2>
+        <p class="lp-cta-text">A short call to review your site, understand your market, and define the scope. The diagnosis starts from there.</p>
+        <a href="/en/#contact" class="btn-dark">Request your audit</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/en/" lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

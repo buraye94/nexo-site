@@ -1,0 +1,173 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { t as translate } from '../../i18n/utils';
+
+const lang = 'en';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'Technical SEO', desc: 'Crawling, indexing, speed and architecture, at the level a technical buyer who knows a well-built site will expect. The foundation Google and AI crawlers need to understand your site.' },
+  { icon: '#i-pen', title: 'Content and on-page', desc: 'Pages that answer what your Guadalajara customer is really looking for, written so AI models can cite you.' },
+  { icon: '#i-link', title: 'Authority and link building', desc: 'Quality links and mentions, valuable in a software and startup ecosystem like Guadalajara’s, that build domain authority without shortcuts that end in a penalty.' },
+  { icon: '#i-globe', title: 'Local SEO', desc: 'Show up on Google Maps and in local searches across the Guadalajara metro area, where your customer decides.' },
+  { icon: '#i-trending', title: 'GEO: visibility in AI', desc: 'We optimize your brand so ChatGPT, Perplexity, Gemini and Google AI Overviews recommend you when a buyer in the tech sector is evaluating providers.' },
+  { icon: '#i-bar-chart', title: 'Measurement and reporting', desc: 'Rankings, organic traffic and attributable revenue, with the data clarity a market used to product and software expects. We report what moves the business, not vanity metrics.' },
+];
+
+const faqs = [
+  { q: 'What does an SEO agency in Guadalajara do?', a: 'An SEO agency in Guadalajara works to get your business showing up when people in the metro area search Google for what you offer. That covers local SEO (Google Maps, local searches), technical SEO and content. At Clicroot we add GEO: we also optimize so ChatGPT, Perplexity and Google AI Overviews cite you.' },
+  { q: 'Do you serve companies in Zapopan, Tlaquepaque or Tonalá?', a: 'Yes. We work for businesses across the entire Guadalajara metro area, including Zapopan, San Pedro Tlaquepaque, Tonalá and Tlajomulco. Local SEO is tuned to the area where you want to win customers, not to a single municipality.' },
+  { q: 'Does SEO work for a technology or software company in Guadalajara?', a: 'Very much. Guadalajara is one of the strongest technology and software hubs in the country, and in that sector the buyer researches online before deciding. If a startup or a buyer looks for a solution and you do not show up, your competitor does. SEO puts you in the search and GEO puts you in the AI answer that technical profile consults every day.' },
+  { q: 'What is GEO and why do you include it?', a: 'GEO (generative engine optimization) is optimizing your brand for AI search engines. When someone asks ChatGPT for a provider in Guadalajara, they see the AI’s answer, not a Google listing. For a product or a SaaS, it also matters that the answer describes what you do well, not just that it names you. We work that precision alongside classic SEO.' },
+  { q: 'How much does SEO cost in Guadalajara?', a: 'It depends on the scope and the type of project: positioning a SaaS by category and product is not priced the same as a local service business. We work by audit, monthly engagement or full project, with the scope agreed up front and no forced lock-in. Book a call and we will give you a clear range.' },
+  { q: 'How long until I see results?', a: 'SEO compounds. Technical fixes and quick wins can move rankings within weeks; building authority and ranking competitive terms takes three to six months or more. In several local Guadalajara categories the organic competition still leaves room, and that context tends to favor a focused strategy. We give you honest expectations from the first call.' },
+];
+
+const pageTitle = 'SEO Agency in Guadalajara + GEO | Clicroot';
+const pageDesc = 'SEO agency in Guadalajara with senior consultants. Local SEO and AI visibility (GEO) for companies across the metro area. Book a call.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://clicroot.com/en/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'SEO Agency in Guadalajara', 'item': 'https://clicroot.com/en/seo-agency-guadalajara/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'SEO Agency',
+      'name': 'SEO and GEO Agency in Guadalajara',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': 'Guadalajara, Mexico',
+      'availableLanguage': ['Spanish', 'English'],
+      'description': 'SEO agency in Guadalajara with senior consultants. Local SEO and visibility in AI search engines (GEO) for companies across the metro area.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang} alternateUrl="/agencia-seo-guadalajara/">
+  <Nav lang="en" t={tf} anchorBase="/en/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Breadcrumb">
+        <a href="/en/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>SEO Agency in Guadalajara</span>
+      </nav>
+      <div class="lp-eyebrow">SEO + GEO Agency · Guadalajara</div>
+      <h1 class="lp-title">SEO Agency in Guadalajara</h1>
+      <p class="lp-lead">Guadalajara concentrates a large share of the country’s software and startups, and there the customer researches online before deciding. We position you on Google and in AI search engines like ChatGPT, Perplexity and Gemini, with senior consultants who design and execute, and measurable results.</p>
+      <div class="lp-actions">
+        <a href="/en/#contact" class="btn-primary">Book a call</a>
+        <a href="#que-es" class="btn-outline">What we do</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definition</div>
+        <h2 class="section-title">What does an SEO agency in Guadalajara do?</h2>
+      </div>
+      <p class="lp-def">An SEO agency in Guadalajara works to get your business showing up when people in the metro area search Google for what you offer, from local SEO on Google Maps to content and the technical side of the site. Clicroot adds GEO: we optimize your brand so it also appears when someone asks ChatGPT, Perplexity or Gemini for a Guadalajara provider. In a city that concentrates technology and software, that technical buyer already consults AI as a first step, and we want it to find you there.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">What we do</div>
+        <h2 class="section-title">SEO and GEO for the Guadalajara market.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Why Clicroot</div>
+          <h2 class="section-title">A tech city deserves SEO with judgment.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Guadalajara’s software and startup ecosystem understands technology, so it spots anyone who improvises right away. Clicroot is run by <strong>Felipe Gallo</strong> and <strong>JC Espinosa</strong>, SEO and AI visibility consultants with experience in Mexico, Colombia and the United States. You work directly with them, with a measurable approach and no fluff.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Technical profile</span> In a market where so many buyers are technical profiles, visibility in AI is not a trend: it is where they are already searching. We combine SEO and GEO to cover both fronts.</p>
+          <a href="/en/#cases" class="lp-inline-link">See cases and results →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Frequently asked questions</div>
+        <h2 class="section-title">What buyers in Guadalajara ask us most.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Coverage</div>
+          <h2 class="section-title">Beyond Guadalajara.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>We serve the whole country. If your market spans other cities, we have dedicated pages for <a href="/en/seo-agency-monterrey" class="lp-inline-link">SEO in Monterrey</a> and the national strategy in our <a href="/en/seo-agency-mexico" class="lp-inline-link">SEO agency in Mexico</a>.</p>
+          <p>To see in depth how we combine diagnosis, execution and measurement, take a look at our <a href="/en/seo-consulting" class="lp-inline-link">SEO consulting</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">Shall we talk about your project?</h2>
+        <p class="lp-cta-text">A 30-minute call to understand your site, your market in Guadalajara and whether we are a fit. No obligation.</p>
+        <a href="/en/#contact" class="btn-dark">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/en/" lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

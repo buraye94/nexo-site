@@ -1,0 +1,173 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { t as translate } from '../../i18n/utils';
+
+const lang = 'en';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'Technical SEO', desc: 'Crawling, indexing, speed and architecture, tuned to hold up under nationwide search volume. The foundation Google and AI crawlers need to understand your site.' },
+  { icon: '#i-pen', title: 'Content and on-page', desc: 'Pages built around what people in Mexico actually search for, written so AI models can cite you.' },
+  { icon: '#i-link', title: 'Authority and link building', desc: 'Quality links and mentions, several from Mexican media and directories, that build domain authority without shortcuts that end in a penalty.' },
+  { icon: '#i-globe', title: 'Local SEO', desc: 'Show up on Google Maps and in local AI answers across Mexico City, Monterrey, Guadalajara and the rest of the country.' },
+  { icon: '#i-trending', title: 'GEO: visibility in AI', desc: 'We optimize your brand so ChatGPT, Perplexity, Gemini and Google AI Overviews recommend you when someone asks for providers.' },
+  { icon: '#i-bar-chart', title: 'Measurement and reporting', desc: 'Rankings, organic traffic and attributable revenue at the national level and by city. We report what moves the business, not vanity metrics.' },
+];
+
+const faqs = [
+  { q: 'What does an SEO agency in Mexico do?', a: 'An SEO agency in Mexico audits your site, your market and your local competition, then runs a strategy so your business shows up when people search on Google from the country. At Clicroot we add GEO: we also optimize so ChatGPT, Perplexity and Google AI Overviews cite you, because more and more buyers ask AI before they search on Google.' },
+  { q: 'Do you work across all of Mexico or only in Mexico City?', a: 'We work for the whole country. We serve businesses in Mexico City, Monterrey, Guadalajara and other markets, and we design the local strategy around where your customers are. SEO is run remotely, so your company location does not limit the reach.' },
+  { q: 'What is GEO and why do you include it?', a: 'GEO (generative engine optimization) is the practice of optimizing your brand for AI search engines. At a national scale that means your brand entity is well described and cited when someone in any part of the country asks ChatGPT, Perplexity or Google AI Overviews for a provider. We work that layer alongside classic SEO.' },
+  { q: 'SEO consultant or SEO agency: which is right for me in Mexico?', a: 'A large agency has more hands for high-volume execution; a consultant gives you senior judgment and focus. At Clicroot you work directly with the consultants who design the strategy, with no account manager in between. It is the balance between an agency’s muscle and a consultant’s closeness.' },
+  { q: 'How much does SEO cost in Mexico?', a: 'It depends on the scope and how broad your market is: a campaign focused on one city does not cost the same as a strategy for several markets across the country. We work by project, audit or monthly engagement, with the scope agreed up front and no forced lock-in. Book a call and we will give you a clear range.' },
+  { q: 'How long until I see results?', a: 'SEO compounds. Technical fixes and quick wins can move rankings within weeks. Generic national-reach terms are the most contested and take three to six months or more; terms tied to a specific city usually arrive sooner. We give you honest expectations from the first call.' },
+];
+
+const pageTitle = 'SEO Agency in Mexico + GEO | Clicroot';
+const pageDesc = 'SEO agency in Mexico with senior consultants. Google rankings and AI visibility (GEO) for companies in Mexico City, Monterrey and Guadalajara. Book a call.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://clicroot.com/en/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'SEO Agency in Mexico', 'item': 'https://clicroot.com/en/seo-agency-mexico/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'SEO Agency',
+      'name': 'SEO and GEO Agency in Mexico',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': 'Mexico',
+      'availableLanguage': ['Spanish', 'English'],
+      'description': 'SEO agency in Mexico with senior consultants. Google rankings and visibility in AI search engines (GEO) for companies in Mexico City, Monterrey and Guadalajara.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang} alternateUrl="/agencia-seo-mexico/">
+  <Nav lang="en" t={tf} anchorBase="/en/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Breadcrumb">
+        <a href="/en/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>SEO Agency in Mexico</span>
+      </nav>
+      <div class="lp-eyebrow">SEO + GEO Agency · Mexico</div>
+      <h1 class="lp-title">SEO Agency in Mexico</h1>
+      <p class="lp-lead">We position your brand on Google and in AI search engines, ChatGPT, Perplexity, Gemini and Google AI Overviews, with a strategy built for the volume and diversity of the Mexican market. You work directly with senior consultants who design and execute, not with a black box.</p>
+      <div class="lp-actions">
+        <a href="/en/#contact" class="btn-primary">Book a call</a>
+        <a href="#que-es" class="btn-outline">What we do</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definition</div>
+        <h2 class="section-title">What is an SEO agency in Mexico?</h2>
+      </div>
+      <p class="lp-def">It is the one that connects three fronts into a single strategy: the technical side of the site, the content that answers searcher intent and the authority that makes you trustworthy in Google’s eyes. At Clicroot we add a fourth front, GEO, so your brand also shows up when artificial intelligence answers. Today many buying journeys start with a question to ChatGPT instead of a traditional list of results, and that is a channel we work from day one.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">What we do</div>
+        <h2 class="section-title">SEO and GEO, from the technical layer to AI.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Why Clicroot</div>
+          <h2 class="section-title">Consultants with names, not an account executive.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>SEO in Mexico is competitive. There are agencies with years in the market, and beating them head-on takes judgment, not promises. Clicroot is run by <strong>Felipe Gallo</strong> and <strong>JC Espinosa</strong>, SEO and AI visibility consultants with experience in Mexico, Colombia and the United States. When you hire us you talk to them, not to a middleman forwarding emails.</p>
+          <p class="lp-note"><span class="lp-note-kicker">The difference</span> We work Google rankings and visibility in AI answers within a single plan. GEO adoption in Mexico is still early, and starting now leaves room to gain ground while the channel matures.</p>
+          <a href="/en/#cases" class="lp-inline-link">See cases and results →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Frequently asked questions</div>
+        <h2 class="section-title">What buyers in Mexico ask us most.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Coverage</div>
+          <h2 class="section-title">Across the whole country.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>We operate for businesses across all of Mexico. If your market is in a specific city, we have dedicated pages for <a href="/en/seo-agency-monterrey" class="lp-inline-link">SEO in Monterrey</a> and <a href="/en/seo-agency-guadalajara" class="lp-inline-link">SEO in Guadalajara</a>, and we serve Mexico City and the rest of the country from the national strategy.</p>
+          <p>Want the detail of how we work? Take a look at our <a href="/en/seo-consulting" class="lp-inline-link">SEO consulting</a> and how we combine diagnosis, execution and measurement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">Shall we talk about your project?</h2>
+        <p class="lp-cta-text">A 30-minute call to understand your site, your market in Mexico and whether we are a fit. No obligation.</p>
+        <a href="/en/#contact" class="btn-dark">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/en/" lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

@@ -1,0 +1,176 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { t as translate } from '../../i18n/utils';
+
+const lang = 'en';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'Audit of your link profile', desc: 'We review the backlinks you already have, surface toxic links you inherited, and measure your real authority against whoever is beating you in the SERP.' },
+  { icon: '#i-globe', title: 'Prospecting by relevance, not volume', desc: 'We look for sites in your industry and your markets, across the US, Colombia, and Mexico, where a link makes editorial sense. Ten links that matter outweigh a hundred that do not.' },
+  { icon: '#i-pen', title: 'Content that earns the link', desc: 'Earning editorial links takes something worth linking to: data, guides, resources. We create it, then we get it in front of the right people.' },
+  { icon: '#i-link', title: 'Outreach with a name and a face', desc: 'We write to real editors and authors, one at a time. No blog networks, no link farms, no schemes that Google penalizes sooner or later.' },
+  { icon: '#i-trending', title: 'Brand mentions for AI', desc: 'Mentions, with a link or without one, feed your entity authority. That is what ChatGPT, Perplexity, and AI Overviews read when they decide who to cite.' },
+  { icon: '#i-bar-chart', title: 'Report of links earned', desc: 'We show you every link earned, the site it came from, and how your domain authority moves. No vague promises about "rankings".' },
+];
+
+const faqs = [
+  { q: 'What is link building?', a: 'Link building is the process of getting other websites to link to yours. Each link works as a vote of confidence: Google reads it as a signal that, if relevant pages point to you, your content deserves to rank higher. Done well, it builds domain authority sustainably. Done poorly, with bought or artificial links, it exposes your site to a penalty.' },
+  { q: 'What is domain authority and why does it matter?', a: 'Domain authority is an estimate of how much credibility your site has in the eyes of search engines, based largely on the quantity and quality of the links pointing to it. It is not an official Google metric, but it is a useful comparative indicator. The more authority you build with legitimate links, the easier it becomes to rank for competitive terms.' },
+  { q: 'Do you use PBNs or buy backlinks?', a: 'No. We do not use private blog networks (PBNs), we do not buy link packages, and we do not take part in mass exchange schemes. All of that violates Google guidelines and usually ends in a traffic drop once the algorithm catches it. We work only with editorial links that a site chooses to give you because your content earns it.' },
+  { q: 'How many backlinks do I need?', a: 'There is no magic number, and you should be wary of anyone who promises one. What matters is the relevance and authority of the linking site, not the count. A single link from a publication in your industry can be worth more than fifty links from irrelevant directories. We set the goal based on your real competition in the SERP you want to win.' },
+  { q: 'Does link building help AI cite me?', a: 'Yes, indirectly. AI models like ChatGPT and Perplexity lean on a brand\'s authority and mentions to decide who to recommend. A mention in a source those models treat as trustworthy raises the odds that your brand shows up in their answers. That is why we work on links and brand mentions at the same time.' },
+  { q: 'How long until I see results?', a: 'A link does not pay off overnight. Google needs to crawl it, weigh it, and recalculate your authority, and that takes weeks. A link building campaign starts moving your positions around the second or third month and compounds over time. We give you honest expectations from the first call, not shortcuts.' },
+];
+
+const pageTitle = 'Ethical Link Building Services | Clicroot';
+const pageDesc = 'Ethical link building that builds real domain authority, with no PBNs and no shortcuts that get you penalized. Editorial backlinks and brand mentions for the US, Colombia, and Mexico. Book a call.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://clicroot.com/en/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Link Building', 'item': 'https://clicroot.com/en/link-building/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'Link Building',
+      'name': 'Link Building and Domain Authority',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': ['US', 'CO', 'MX'],
+      'availableLanguage': ['English', 'Spanish'],
+      'description': 'Ethical link building for companies in the US, Colombia, and Mexico. Editorial backlinks and brand mentions that build domain authority without schemes that get you penalized.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang} alternateUrl="/link-building/">
+  <Nav lang="en" t={tf} anchorBase="/en/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Breadcrumb">
+        <a href="/en/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>Link Building</span>
+      </nav>
+      <div class="lp-eyebrow">Link building · US, Colombia &amp; Mexico</div>
+      <h1 class="lp-title">Ethical Link Building That Builds Real Authority</h1>
+      <p class="lp-lead">We earn links that an editor decides to give you because your content deserves them, not because someone paid for them. No PBNs, no link farms, no shortcuts that end in a Google penalty. Domain authority that survives the next update.</p>
+      <div class="lp-actions">
+        <a href="/en/#contact" class="btn-primary">Book a call</a>
+        <a href="#que-es" class="btn-outline">How we work</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definition</div>
+        <h2 class="section-title">What is link building?</h2>
+      </div>
+      <p class="lp-def">Link building is the process of getting other websites to link to yours. Each link from a relevant site works as a vote of confidence: it tells Google your content is trustworthy and deserves to rank higher in the results. Done with judgment, it is one of the strongest levers for building domain authority. Done with shortcuts, buying links or using artificial networks, it is the fastest way to earn a penalty.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">How we work</div>
+        <h2 class="section-title">Links earned, not bought.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Why ethical</div>
+          <h2 class="section-title">The cheap shortcut is the expensive one.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>The industry is full of "500 backlinks for X" packages. Almost all of them come from networks Google already knows, and when the algorithm catches them, your traffic drops from one day to the next. Cleaning up that damage costs more than doing it right from the start.</p>
+          <p>At Clicroot, <strong>Felipe Gallo</strong> and <strong>JC Espinosa</strong> work every campaign by hand: prospecting by relevance, content that earns the link, and one-to-one outreach. It is slower, and it is the only method that keeps working after the next core update.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Authority for AI</span> We work on links and brand mentions at the same time, because the same signal that helps you rank in Google is what makes ChatGPT and Perplexity cite you.</p>
+          <a href="/en/#cases" class="lp-inline-link">See cases and results →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Frequently asked questions</div>
+        <h2 class="section-title">What people ask us most.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Where it fits</div>
+          <h2 class="section-title">Link building does not work alone.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Links accelerate what is already well built. If your site has technical problems or your content does not answer search intent, no backlink fixes that. That is why link building is one piece inside a broader strategy.</p>
+          <p>It is part of our SEO consulting and our full SEO services, alongside technical SEO, on-page content, and AI visibility. Not sure where to start? We define it on a call and tell you what moves the needle most first.</p>
+          <a href="/en/seo-consulting" class="lp-inline-link">See the full SEO consulting →</a>
+          <a href="/en/seo-services" class="lp-inline-link">See all SEO services →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">Ready to build your authority?</h2>
+        <p class="lp-cta-text">A 30-minute call to review your current link profile and see where the opportunity is. No obligation.</p>
+        <a href="/en/#contact" class="btn-dark">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/en/" lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

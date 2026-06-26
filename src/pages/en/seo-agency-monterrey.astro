@@ -1,0 +1,173 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { t as translate } from '../../i18n/utils';
+
+const lang = 'en';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'Technical SEO', desc: 'Crawling, indexing, speed and architecture, with the rigor industrial catalogs and B2B sites in Monterrey expect. The foundation Google and AI crawlers need to understand your site.' },
+  { icon: '#i-pen', title: 'Content and on-page', desc: 'Pages that answer what your Monterrey buyer is really looking for, written so AI models can cite you.' },
+  { icon: '#i-link', title: 'Authority and link building', desc: 'Quality links and mentions, relevant to manufacturing and business-to-business sectors, that build domain authority without shortcuts that end in a penalty.' },
+  { icon: '#i-globe', title: 'Local SEO', desc: 'Show up on Google Maps and in "near me" searches across the Monterrey metro area, right where your buyer decides.' },
+  { icon: '#i-trending', title: 'GEO: visibility in AI', desc: 'We optimize your brand so ChatGPT, Perplexity, Gemini and Google AI Overviews recommend you when an industrial buyer is evaluating providers.' },
+  { icon: '#i-bar-chart', title: 'Measurement and reporting', desc: 'Rankings, organic traffic and attributable revenue, with a focus on the B2B leads that move an operation in Monterrey. We report what moves the business, not vanity metrics.' },
+];
+
+const faqs = [
+  { q: 'What does an SEO agency in Monterrey do?', a: 'An SEO agency in Monterrey works to get your business showing up when people in the metro area search Google for what you offer. That includes local SEO (Google Maps, "near me" searches), technical SEO and content. At Clicroot we add GEO: we also optimize so ChatGPT, Perplexity and Google AI Overviews cite you.' },
+  { q: 'Do you serve companies in San Pedro, Apodaca or Guadalupe?', a: 'Yes. We work for businesses across the entire Monterrey metro area, from San Pedro Garza García to Apodaca, San Nicolás, Guadalupe or Santa Catarina. Local SEO is tuned to the area where you want to win customers, not to a single municipality.' },
+  { q: 'Why invest in SEO in a market as industrial as Monterrey?', a: 'Monterrey concentrates industry, manufacturing and B2B, and there the buying decision almost always starts with a search. If a buyer looks for a provider and you do not show up, your competitor does. SEO puts you in that search; GEO also puts you in the AI answer that buyer consults more and more.' },
+  { q: 'What is GEO and why do you include it?', a: 'GEO (generative engine optimization) is optimizing your brand for AI search engines. In Monterrey’s B2B market, where the buyer researches thoroughly before reaching out, more and more of that research runs through ChatGPT, Perplexity or Google AI Overviews instead of a Google listing. We work to get your brand into that answer, on top of classic SEO.' },
+  { q: 'How much does SEO cost in Monterrey?', a: 'It depends on your sector and the scope: a B2B project with an extensive catalog is not priced the same as a local service business. We work by audit, monthly engagement or full project, with the scope agreed up front and no forced lock-in. Book a call and we will give you a clear range for your case.' },
+  { q: 'How long until I see results?', a: 'SEO compounds. Technical fixes and quick wins can move rankings within weeks; consolidating commercial terms for the city usually takes several months, depending on your domain’s authority and the sector’s. We give you honest expectations from the first call.' },
+];
+
+const pageTitle = 'SEO Agency in Monterrey + GEO | Clicroot';
+const pageDesc = 'SEO agency in Monterrey with senior consultants. Local SEO, Google Maps and AI visibility (GEO) for companies across the metro area. Book a call.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://clicroot.com/en/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'SEO Agency in Monterrey', 'item': 'https://clicroot.com/en/seo-agency-monterrey/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'SEO Agency',
+      'name': 'SEO and GEO Agency in Monterrey',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': 'Monterrey, Mexico',
+      'availableLanguage': ['Spanish', 'English'],
+      'description': 'SEO agency in Monterrey with senior consultants. Local SEO, Google Maps and visibility in AI search engines (GEO) for companies across the metro area.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang} alternateUrl="/agencia-seo-monterrey/">
+  <Nav lang="en" t={tf} anchorBase="/en/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Breadcrumb">
+        <a href="/en/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>SEO Agency in Monterrey</span>
+      </nav>
+      <div class="lp-eyebrow">SEO + GEO Agency · Monterrey</div>
+      <h1 class="lp-title">SEO Agency in Monterrey</h1>
+      <p class="lp-lead">Monterrey runs on industry, manufacturing and B2B, and almost every buying decision starts with a search. We put you in that search on Google and, increasingly, in the AI answer your buyer consults. Senior consultants who design and execute, with measurable results.</p>
+      <div class="lp-actions">
+        <a href="/en/#contact" class="btn-primary">Book a call</a>
+        <a href="#que-es" class="btn-outline">What we do</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definition</div>
+        <h2 class="section-title">What does an SEO agency in Monterrey do?</h2>
+      </div>
+      <p class="lp-def">An SEO agency in Monterrey works to get your business showing up when people in the metro area search Google for what you offer, from local SEO on Google Maps to content and the technical side of the site. Clicroot adds GEO, a layer still emerging in the city, so your brand also appears when a buyer asks ChatGPT, Perplexity or Gemini for a Monterrey provider. In a market so oriented toward industry and B2B, being on both sides helps the person who makes the purchase find you.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">What we do</div>
+        <h2 class="section-title">SEO and GEO for the Monterrey market.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Why Clicroot</div>
+          <h2 class="section-title">The Monterrey field is still open.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>In several Monterrey sectors the organic competition, GEO especially, is still taking shape, and that context tends to give a focused strategy room to gain ground. Clicroot is run by <strong>Felipe Gallo</strong> and <strong>JC Espinosa</strong>, SEO and AI visibility consultants with experience in Mexico, Colombia and the United States. You talk to them directly.</p>
+          <p class="lp-note"><span class="lp-note-kicker">B2B and industry</span> A large share of Monterrey’s economy is manufacturing and services to businesses, where the buyer researches before reaching out. There, winning the search and the AI answer carries more weight than anywhere else.</p>
+          <a href="/en/#cases" class="lp-inline-link">See cases and results →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Frequently asked questions</div>
+        <h2 class="section-title">What buyers in Monterrey ask us most.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Coverage</div>
+          <h2 class="section-title">Beyond Monterrey.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>We work for the whole country. If your market extends to other cities, we have dedicated pages for <a href="/en/seo-agency-guadalajara" class="lp-inline-link">SEO in Guadalajara</a> and the national strategy in our <a href="/en/seo-agency-mexico" class="lp-inline-link">SEO agency in Mexico</a>.</p>
+          <p>To understand in depth how we combine diagnosis, execution and measurement, take a look at our <a href="/en/seo-consulting" class="lp-inline-link">SEO consulting</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">Shall we talk about your project?</h2>
+        <p class="lp-cta-text">A 30-minute call to understand your site, your market in Monterrey and whether we are a fit. No obligation.</p>
+        <a href="/en/#contact" class="btn-dark">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/en/" lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

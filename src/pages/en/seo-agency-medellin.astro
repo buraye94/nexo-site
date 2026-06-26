@@ -1,0 +1,172 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { t as translate } from '../../i18n/utils';
+
+const lang = 'en';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'Technical SEO', desc: 'Crawling, indexing, speed and architecture, built for a product or SaaS that has to rank by category, not just by its brand name. The foundation Google and AI crawlers need to understand your site.' },
+  { icon: '#i-pen', title: 'Content and on-page', desc: 'Pages that answer real search intent and that AI models can cite clearly, in English and, if you sell abroad, in Spanish too.' },
+  { icon: '#i-link', title: 'Authority and link building', desc: 'Quality links and mentions, including from media and references that carry weight for a brand selling inside and outside the country, with no shortcuts that end in a penalty.' },
+  { icon: '#i-globe', title: 'Local SEO in Medellín', desc: 'Show up on Google Maps and in searches with nearby intent, from El Poblado to Laureles, where your customer decides.' },
+  { icon: '#i-trending', title: 'GEO: visibility in AI', desc: 'We optimize your brand so ChatGPT, Perplexity, Gemini and AI Overviews recommend you when someone asks for a company in Medellín.' },
+  { icon: '#i-bar-chart', title: 'Measurement and reporting', desc: 'Traffic, rankings and attributable revenue. We report what moves the business, not vanity metrics.' },
+];
+
+const faqs = [
+  { q: 'How much does an SEO agency in Medellín cost?', a: 'It depends on scope. A one-off audit, a monthly engagement or a full positioning project all price differently. We agree on scope up front, with no forced lock-in. Book a call and we will give you a clear range for your case.' },
+  { q: 'How long until you see results in Medellín?', a: 'SEO compounds. Technical fixes and quick wins can move rankings within weeks. Ranking commercial terms takes three to six months or more, depending on your domain authority. In Medellín the top of the results for several terms is still less consolidated than in larger markets, so a focused strategy can gain ground sooner. We give honest expectations from the first call.' },
+  { q: 'Do you work with tech companies and startups in the Medellín ecosystem?', a: 'Yes, it is a good part of what we do. Medellín has a fast-growing tech and startup ecosystem, and that kind of company needs to rank product and category terms, not just its brand. We design the content architecture and technical SEO so a product or SaaS gets found by intent, and so AI search engines describe it well when someone asks for a solution.' },
+  { q: 'Do you do SEO in English for companies that export or serve nearshoring clients?', a: 'Yes. Many companies in Medellín sell services abroad or serve clients and visitors who search in English, from nearshoring and software to tourism and real estate. This includes US companies that hire or build teams in Medellín. We operate in English and Spanish with the same strategy, optimizing content and brand entity so you get found in both languages, on Google and in AI answers.' },
+  { q: 'What is GEO and why does it matter for a company in Medellín?', a: 'GEO (generative engine optimization) means optimizing your brand to be cited by AI assistants like ChatGPT, Perplexity, Gemini and Google AI Overviews. When a buyer asks an assistant for a company for a given service in Medellín, they get an answer, not a list. GEO works to put your brand in that answer, and it is part of every plan we run.' },
+  { q: 'SEO consultant or SEO agency in Medellín: which is right for me?', a: 'In an ecosystem as technical as Medellín, the difference shows: a large agency tends to rotate junior staff across your account, while with a consultant the judgment that designs the strategy is the same one that executes it. At Clicroot you work directly with the people who make the decisions, with no account manager in between, and that shortens the path between what gets decided and what gets done.' },
+];
+
+const pageTitle = 'SEO Agency in Medellín: search and AI visibility | Clicroot';
+const pageDesc = 'SEO agency in Medellín with senior consultants, not juniors. Search positioning on Google and AI visibility (GEO) for companies, startups and exporters. Book a call.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://clicroot.com/en/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'SEO Agency in Medellín', 'item': 'https://clicroot.com/en/seo-agency-medellin/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'SEO Agency',
+      'name': 'SEO Agency in Medellín',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': { '@type': 'City', 'name': 'Medellín, Colombia' },
+      'availableLanguage': ['English', 'Spanish'],
+      'description': 'SEO agency in Medellín with senior consultants. Search positioning on Google and visibility in AI search engines (GEO) for companies, startups and exporters based in or selling into Medellín.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang} alternateUrl="/agencia-seo-medellin/">
+  <Nav lang="en" t={tf} anchorBase="/en/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Breadcrumb">
+        <a href="/en/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>SEO Agency in Medellín</span>
+      </nav>
+      <div class="lp-eyebrow">SEO Agency · Medellín, Colombia</div>
+      <h1 class="lp-title">SEO Agency in Medellín</h1>
+      <p class="lp-lead">We position your company on Google and in AI search engines, focused on the ecosystem that defines Medellín: technology, service exports, tourism and real estate. You work directly with the consultants who design and execute the strategy.</p>
+      <div class="lp-actions">
+        <a href="/en/#contact" class="btn-primary">Book a call</a>
+        <a href="#what-it-is" class="btn-outline">Why SEO in Medellín</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="what-it-is">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Why Medellín</div>
+        <h2 class="section-title">The Medellín market has its own logic.</h2>
+      </div>
+      <p class="lp-def">Medellín is no longer just a local market: it is an innovation hub with a startup, software and nearshoring ecosystem that sells both inside and outside the country. That changes SEO. Many companies need to rank by category and product, not just by their brand, and often in Spanish and English at once, because their buyer may be in Medellín, in another city or in the United States. Add tourism and real estate, sectors with high search demand and a lot of nearby intent. The advantage is that the top of the results for several terms is not yet as consolidated as in larger markets, so a focused strategy gains ground sooner.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">What we do</div>
+        <h2 class="section-title">A complete strategy, from the technical to AI.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Who does it</div>
+          <h2 class="section-title">Consultants with names, not a black box.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Clicroot is run by <strong>Felipe Gallo</strong> and <strong>JC Espinosa</strong>, SEO and AI visibility consultants with work for brands in Colombia, Mexico and the United States. When you hire the agency you talk to them, the people who make the decisions, not an account manager forwarding emails.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Bilingual by design</span> We operate in English and Spanish with the same strategy, key for a Medellín company that also sells abroad or serves nearshoring clients.</p>
+          <a href="/en/#cases" class="lp-inline-link">See cases and results →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Frequently asked questions</div>
+        <h2 class="section-title">What we get asked most in Medellín.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">More services</div>
+          <h2 class="section-title">SEO in other markets and in depth.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>If you want to understand the full scope of the service, see our <a href="/en/seo-consulting" class="lp-inline-link">SEO consulting</a>. And if your market is also in the capital, we have a page for <a href="/en/seo-agency-bogota" class="lp-inline-link">SEO agency in Bogotá</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">Want to talk about your project in Medellín?</h2>
+        <p class="lp-cta-text">A 30-minute call to understand your site, your market and whether we are a fit. No commitment.</p>
+        <a href="/en/#contact" class="btn-dark">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/en/" lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

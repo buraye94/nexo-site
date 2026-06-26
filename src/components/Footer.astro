@@ -2,8 +2,22 @@
 interface Props {
   t: (key: string) => any;
   anchorBase?: string;
+  lang?: string;
 }
-const { t, anchorBase = '' } = Astro.props;
+const { t, anchorBase = '', lang = 'es' } = Astro.props;
+const serviceLinks = lang === 'en'
+  ? [
+      { href: '/en/seo-consulting', label: 'SEO Consulting' },
+      { href: '/en/seo-services', label: 'SEO Services' },
+      { href: '/en/seo-audit', label: 'SEO Audit' },
+      { href: '/en/geo-generative-engine-optimization', label: 'GEO: AI visibility' },
+    ]
+  : [
+      { href: '/consultoria-seo', label: 'Consultoría SEO' },
+      { href: '/servicios-seo', label: 'Servicios SEO' },
+      { href: '/auditoria-seo', label: 'Auditoría SEO' },
+      { href: '/geo-posicionamiento-en-ia', label: 'GEO: visibilidad en IA' },
+    ];
 ---
 
 <footer class="footer">
@@ -25,10 +39,7 @@ const { t, anchorBase = '' } = Astro.props;
       </div>
       <div class="footer-col">
         <h4>{t('footer.svcTitle')}</h4>
-        <a href="/consultoria-seo">Consultoría SEO</a>
-        <a href="/servicios-seo">Servicios SEO</a>
-        <a href="/auditoria-seo">Auditoría SEO</a>
-        <a href="/geo-posicionamiento-en-ia">GEO: visibilidad en IA</a>
+        {serviceLinks.map((s) => <a href={s.href}>{s.label}</a>)}
       </div>
       <div class="footer-col">
         <h4>{t('footer.connectTitle')}</h4>

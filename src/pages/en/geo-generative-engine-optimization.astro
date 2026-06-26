@@ -1,0 +1,254 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { t as translate } from '../../i18n/utils';
+
+const lang = 'en';
+const tf = (key: string) => translate(lang, key);
+
+const diffs = [
+  { icon: '#i-search', title: 'Where you compete', desc: 'SEO fights for a spot in the list of ten blue links. GEO fights to be inside the answer the model writes, and to be the source it cites.' },
+  { icon: '#i-pen', title: 'What the engine hands back', desc: 'Classic Google sends you ten results and you choose. An answer engine gives you a single synthesized reply, with two or three brands named and a handful of sources linked.' },
+  { icon: '#i-bar-chart', title: 'What gets measured', desc: 'In SEO you measure position, clicks, and traffic. In GEO you measure mentions, citations, and share of voice: how often you show up in AI answers, and how often relative to your competitors.' },
+  { icon: '#i-link', title: 'What makes you win', desc: 'SEO rewards domain authority and links. GEO adds answer clarity, concrete data, citable sources, and a brand the model recognizes as an entity. They share a foundation. They are not the same thing.' },
+];
+
+const appear = [
+  { icon: '#i-pen', title: 'Answer the question head on', desc: 'Put the direct answer in the first lines, in a sentence the model can lift without rewriting it. Headers that match the real question, clean definitions, concrete data. If your content is easy to cite, it gets cited.' },
+  { icon: '#i-search', title: 'Let the AI crawlers in', desc: 'GPTBot, OAI-SearchBot, PerplexityBot, and Google-Extended need access. Check your robots.txt: block them and you stay out of their index. No crawl, no citation.' },
+  { icon: '#i-link', title: 'Build the brand as an entity', desc: 'Organization schema, named authors with credentials, a consistent NAP, and mentions in sources the models already read. An engine recommends what it recognizes.' },
+  { icon: '#i-globe', title: 'Earn presence where AI feeds', desc: 'Third-party listings, reviews, and the publications a model consults carry as much weight as your own site. Showing up there, with verifiable data, feeds the answer the AI builds about your category.' },
+];
+
+const faqs = [
+  { q: 'What does GEO mean in marketing?', a: 'GEO stands for generative engine optimization. It is the practice of preparing a brand and its content so that AI-based search engines (ChatGPT, Perplexity, Gemini, Google AI Overviews) include it, recommend it, and cite it when someone asks a question. Do not confuse it with geolocation: in this context, GEO means visibility inside artificial intelligence.' },
+  { q: 'Does GEO replace SEO?', a: 'No. GEO is built on top of SEO, it does not replace it. A fast, well-structured site with authority and clear content is still the foundation; without that, AI engines will not cite you either. What changes is the end goal: you no longer only want to rank in a list of links, you also want to be the source the model chooses to write its answer. In practice they are done together.' },
+  { q: 'How do I get ChatGPT to recommend my business?', a: 'Three fronts. First, let its crawlers reach your site (GPTBot and OAI-SearchBot in your robots.txt). Second, publish clear, citable content that answers head on the questions your customers would ask the assistant, with concrete data and sources. Third, build recognition of your brand as an entity: schema, named authors, and mentions on third-party sites the model already consults. There is no button and no payment to get in: you earn it with authority and clarity.' },
+  { q: 'What are Google AI Overviews?', a: 'They are the AI-generated summaries Google shows at the top of many search results: an answer written by its Gemini model, with links to the sources it used. They appear above the traditional organic results and change how people read a search. For a brand, the goal is to be one of the sources cited inside that summary.' },
+  { q: 'How is AI visibility measured?', a: 'With three main metrics: mentions (how often your brand appears in AI answers), citations (how often they link your site as a source), and share of voice (how often you appear relative to your competitors for the same questions). They are tracked with tools such as Ahrefs Brand Radar, by defining a set of real questions your buyers ask and observing which brands and which sources the models return.' },
+  { q: 'Does GEO work for Perplexity and Gemini, or only for ChatGPT?', a: 'It works for all of them. The underlying work (clear and citable content, crawler access, a brand recognizable as an entity, and presence in third-party sources) is the same for ChatGPT, Perplexity, Gemini, Copilot, and AI Overviews. Each engine weighs the signals its own way, but none cites what it cannot understand or cannot crawl. You optimize the fundamentals once and gain surface across several AI engines at the same time.' },
+  { q: 'How long does GEO take to show results?', a: 'It depends on the starting point. Access fixes (robots.txt, schema) show up as soon as the models crawl again, within weeks. But earning mentions and citations in a sustained way depends on authority and on presence in the sources AI consults, and that is cumulative, like SEO: it builds over months, not days. We give honest expectations from the first call.' },
+];
+
+const pageTitle = 'What Is GEO: A Guide to AI Visibility (2026) | Clicroot';
+const pageDesc = 'GEO (generative engine optimization) is optimizing your brand so ChatGPT, Perplexity, Gemini, and Google AI Overviews cite and recommend it. What it is, how it works, and how to appear in AI answers.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://clicroot.com/en/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'GEO: Generative Engine Optimization', 'item': 'https://clicroot.com/en/geo-generative-engine-optimization/' },
+      ],
+    },
+    {
+      '@type': 'Article',
+      'headline': 'What Is GEO (Generative Engine Optimization) and How to Appear in ChatGPT, Perplexity, and AI Answers',
+      'description': 'A guide to GEO (generative engine optimization): what it is, how it differs from SEO, how AI answer engines work, and how to get your brand to appear in ChatGPT, Perplexity, Gemini, and Google AI Overviews.',
+      'inLanguage': 'en',
+      'author': [
+        { '@type': 'Person', 'name': 'Felipe Gallo', 'jobTitle': 'SEO and GEO Consultant', 'worksFor': { '@id': 'https://clicroot.com/#org' } },
+        { '@type': 'Person', 'name': 'JC Espinosa', 'jobTitle': 'SEO and GEO Consultant', 'worksFor': { '@id': 'https://clicroot.com/#org' } },
+      ],
+      'publisher': { '@id': 'https://clicroot.com/#org' },
+      'mainEntityOfPage': { '@type': 'WebPage', '@id': 'https://clicroot.com/en/geo-generative-engine-optimization/' },
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang} alternateUrl="/geo-posicionamiento-en-ia/">
+  <Nav lang="en" t={tf} anchorBase="/en/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Breadcrumb">
+        <a href="/en/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>GEO: Generative Engine Optimization</span>
+      </nav>
+      <div class="lp-eyebrow">GEO · Generative Engine Optimization</div>
+      <h1 class="lp-title">What Is GEO (Generative Engine Optimization) and How to Appear in ChatGPT, Perplexity, and AI Answers.</h1>
+      <p class="lp-lead">More and more buyers no longer search on Google: they ask an assistant. GEO is the discipline that gets that assistant to name your brand. Here we explain what it is, how it works, and what you have to do for AI to cite you.</p>
+      <div class="lp-actions">
+        <a href="#what-is-geo" class="btn-primary">See the definition</a>
+        <a href="/en/#contact" class="btn-outline">Talk to a consultant</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="what-is-geo">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definition</div>
+        <h2 class="section-title">What is GEO?</h2>
+      </div>
+      <p class="lp-def">GEO (generative engine optimization) is the practice of optimizing a brand and its content so that AI answer engines (ChatGPT, Perplexity, Gemini, Google AI Overviews) recommend and cite it. Where SEO works to rank a page in the list of results, GEO works to make your brand the source the model chooses to write its answer. It is the natural evolution of SEO for a world where the first answer no longer comes from a list of links, but from an AI assistant.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">SEO vs GEO</div>
+        <h2 class="section-title">How is GEO different from SEO?</h2>
+        <p class="section-subtitle">They share the technical and authority foundation, but they chase different goals. Here is the difference, point by point.</p>
+      </div>
+      <div class="services-grid">
+        {diffs.map((d) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={d.icon} /></svg>
+            </div>
+            <h3>{d.title}</h3>
+            <p>{d.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">How they work</div>
+          <h2 class="section-title">How do AI answer engines work?</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>An answer engine like ChatGPT, Perplexity, or AI Overviews does not hand you ten links to choose from: it gives you a single written reply. To build it, it retrieves relevant content from the web, synthesizes it with a language model, and, in most cases, links the sources it used.</p>
+          <p>That means you no longer compete only for a position, but for two things at once: that your content gets retrieved as a source, and that the model names you inside the text. The winner is the content the engine understands clearly, trusts, and can attribute to a recognizable brand. That is why GEO insists on direct answers, concrete data, citable sources, and a brand treated as an entity: these are the signals a model needs to cite you with confidence.</p>
+          <p class="lp-note"><span class="lp-note-kicker">In short</span> The engine retrieves, synthesizes, and cites. Your job is to be easy to retrieve, clear to synthesize, and safe to cite.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">The method</div>
+        <h2 class="section-title">How do I get cited in ChatGPT, Perplexity, and Gemini?</h2>
+        <p class="section-subtitle">There is no button and no payment to get in. You earn it on four fronts, and all of them start from the same place: being citable.</p>
+      </div>
+      <div class="services-grid">
+        {appear.map((a) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={a.icon} /></svg>
+            </div>
+            <h3>{a.title}</h3>
+            <p>{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Google and AI</div>
+          <h2 class="section-title">What are Google AI Overviews?</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>AI Overviews are the AI-generated summaries Google places at the top of many searches: an answer written by its Gemini model, accompanied by links to the sources it used. They appear above the usual organic results and, for many queries, they are the first thing (and sometimes the only thing) the user reads.</p>
+          <p>For a brand, the goal stops being only to rank in position one: it becomes <strong>one of the sources cited inside the summary</strong>. The signals that favor it are the same ones GEO is built on: content that answers the intent clearly, concrete data, a clean structure, and recognizable authority. Classic SEO gets you to the page; GEO gets you inside the answer.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Note</span> Google documents AI Overviews as part of its AI search experience. Appearing inside depends on the same quality and authority foundations as the rest of SEO, applied to a citable format.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-def-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Measurement</div>
+        <h2 class="section-title">How is AI visibility measured?</h2>
+      </div>
+      <p class="lp-def">AI visibility is measured with three numbers: mentions (how often your brand appears in the models' answers), citations (how often they link your site as a source), and share of voice (how often you appear relative to your competitors for the same questions). It is tracked by defining a set of real questions your buyers ask and watching, month over month, which brands and which sources ChatGPT, Perplexity, Gemini, and AI Overviews return.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Where the term comes from</div>
+        <h2 class="section-title">The origin of GEO and why it matters.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-q">The concept came out of academic research.</h3>
+          <p class="faq-a">The term generative engine optimization was formalized in 2023 in the research paper titled "GEO: Generative Engine Optimization", the work that introduced the framework for optimizing content for generative engines. That research gave a name to something already happening: search behavior was shifting from lists of links toward AI-written answers, and that called for a different way of thinking about optimization.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">Google brought it to mainstream search with AI Overviews.</h3>
+          <p class="faq-a">In parallel, Google integrated generative answers into search through AI Overviews, bringing this format to a large scale inside Google Search. Between the academic framework and Google's adoption, GEO stopped being a niche idea and became another layer of the visibility work of any serious brand.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">That is why we treat it as a discipline, not a trick.</h3>
+          <p class="faq-a">GEO is not a list of hacks: it is the application of principles of quality, clarity, and authority to a new answer format. At Clicroot we work it with the same rigor as technical and content SEO, because they share foundations. What changes is who you are talking to: no longer only a ranking algorithm, but a model that writes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Who does it</div>
+          <h2 class="section-title">A consultancy that practices the GEO it sells.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Clicroot is run by <strong>Felipe Gallo</strong> and <strong>JC Espinosa</strong>, SEO and AI visibility consultants across Colombia, Mexico, and the United States. We optimize our clients so AI cites them, and we apply the same to our own site: this page is part of the proof. If you found it through an assistant, the method works.</p>
+          <p>We work GEO as part of every strategy, not as a loose add-on: it starts from the same diagnostic of technical SEO, content, and authority, and it is measured with data, with no promises of being the "number one brand".</p>
+          <p class="lp-note"><span class="lp-note-kicker">Next step</span> If you want your brand to appear in AI answers, start with <a href="/en/seo-consulting" class="lp-inline-link">SEO and GEO consulting</a> or look at our <a href="/en/seo-services" class="lp-inline-link">services</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Frequently asked questions</div>
+        <h2 class="section-title">What we get asked most about GEO.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">Want AI to recommend your brand?</h2>
+        <p class="lp-cta-text">A 30-minute call to review your AI visibility and map out a GEO plan for your case. No commitment. Write to us at hello@clicroot.com.</p>
+        <a href="/en/#contact" class="btn-dark">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/en/" lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

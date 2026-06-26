@@ -1,0 +1,176 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { t as translate } from '../../i18n/utils';
+
+const lang = 'en';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'Crawling and indexing', desc: 'We check what Google can actually see and what gets left out: robots.txt, sitemaps, canonicals, redirects and orphan pages. If they cannot crawl you, you do not exist.' },
+  { icon: '#i-trending', title: 'Core Web Vitals and speed', desc: 'LCP, INP and CLS are ranking and experience signals. We diagnose what slows your site down and prioritize what actually moves the metric.' },
+  { icon: '#i-globe', title: 'Site architecture', desc: 'A clear URL and internal-link structure spreads authority and tells Google which pages matter. The order is not aesthetic, it is ranking.' },
+  { icon: '#i-link', title: 'Structured data', desc: 'Well-implemented Schema.org gives your content context. It is what enables rich results, and it is what AI reads to understand what you talk about.' },
+  { icon: '#i-pen', title: 'Access for AI bots', desc: 'GPTBot, PerplexityBot and Google-Extended are the crawlers that feed ChatGPT, Perplexity and AI Overviews. Block them by accident and you erase yourself from the AI map.' },
+  { icon: '#i-bar-chart', title: 'Indexability and maintenance', desc: '404 errors, redirect chains, duplicate content and JavaScript rendering problems. We find it, prioritize it, and close it out.' },
+];
+
+const faqs = [
+  { q: 'What is technical SEO?', a: 'Technical SEO is the work of optimizing a website’s infrastructure so that search engines and AI crawlers can access, understand and index it without obstacles. It is not about the words on your pages, but about how the site is built: speed, architecture, crawling, indexing, structured data and, today, access for the bots that feed AI. It is the foundation that content and links perform on. If that foundation is broken, the rest barely matters.' },
+  { q: 'What are Core Web Vitals?', a: 'Core Web Vitals are a set of metrics Google uses to measure the real experience of a page: LCP (how long the main content takes to load), INP (how quickly the page responds to user interaction) and CLS (how much the layout shifts while it loads). They are confirmed ranking signals, and beyond Google, they decide whether people stay or leave. Fixing them usually returns a lot for the effort it takes, one of the highest-return moves in technical SEO.' },
+  { q: 'What is a technical audit?', a: 'A technical audit is a systematic review of everything that can stop a site from ranking for infrastructure reasons: crawling and indexing errors, speed, architecture, structured data, duplicate content, rendering problems and, in our case, AI bot access too. The output is not an endless list, but a diagnosis prioritized by impact: what to fix first because it moves the needle, and what can wait.' },
+  { q: 'Why does technical SEO affect my AI visibility?', a: 'AI assistants like ChatGPT, Perplexity and Google AI Overviews cannot cite what they cannot read. Their crawlers (GPTBot, PerplexityBot, Google-Extended) need access to your site, and they depend on clean HTML and structured data to understand your content. A site with technical problems (bots blocked in robots.txt, content that only loads with JavaScript, missing schema) can be invisible to AI even if it ranks fine in classic search. Technical SEO is the way in to both.' },
+  { q: 'Should I block or allow AI bots?', a: 'This is a strategic decision, not a technical default, and it is worth making on purpose. Blocking GPTBot or Google-Extended in your robots.txt protects your content from being used to train models, but it also lowers your chance of being cited in their answers. For most brands that want visibility, being cited is a new discovery channel that is worth more than the risk. We evaluate it with you against your goals, instead of applying a generic rule.' },
+  { q: 'Is technical SEO a one-time job or ongoing?', a: 'There is a strong first intervention (the audit and fixing what is critical) and then ongoing maintenance. Sites change: pages get published, platforms get migrated, the CMS gets updated, and each change can introduce a new technical issue. The ideal is to set a solid foundation and review it regularly, especially after any big change to the site. A technically healthy site is an asset to maintain, not a box you check once.' },
+];
+
+const pageTitle = 'Technical SEO: Crawlability, Speed and AI Access | Clicroot';
+const pageDesc = 'Technical SEO so Google and AI crawlers (GPTBot, PerplexityBot, Google-Extended) can crawl, understand and index your site. Core Web Vitals, architecture and structured data for the US, Colombia and Mexico. Book a call.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://clicroot.com/en/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Technical SEO', 'item': 'https://clicroot.com/en/technical-seo/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'Technical SEO',
+      'name': 'Technical SEO and technical audit',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': ['US', 'CO', 'MX'],
+      'availableLanguage': ['English', 'Spanish'],
+      'description': 'Technical SEO for companies in the US, Colombia and Mexico. Crawling, indexing, Core Web Vitals, architecture, structured data and access for AI crawlers.',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang} alternateUrl="/seo-tecnico/">
+  <Nav lang="en" t={tf} anchorBase="/en/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Breadcrumb">
+        <a href="/en/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>Technical SEO</span>
+      </nav>
+      <div class="lp-eyebrow">Technical SEO · United States, Colombia and Mexico</div>
+      <h1 class="lp-title">Technical SEO: The Foundation Your Site and AI Crawlers Need</h1>
+      <p class="lp-lead">However good your content is, it does not rank if Google cannot crawl it, and AI does not cite you if its bots cannot read you. Technical SEO fixes that foundation: crawling, speed, architecture, structured data and access for crawlers like GPTBot and Google-Extended. The part almost nobody reviews, and the part that decides whether you exist in search and in AI answers.</p>
+      <div class="lp-actions">
+        <a href="/en/#contact" class="btn-primary">Book a call</a>
+        <a href="#que-es" class="btn-outline">What we check</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definition</div>
+        <h2 class="section-title">What is technical SEO?</h2>
+      </div>
+      <p class="lp-def">Technical SEO is the work of optimizing a website’s infrastructure so that search engines and AI crawlers can access, understand and index it without obstacles. It is not about the words on your pages, but about how the site is built: speed, architecture, crawling, indexing, structured data and access for the bots that feed AI. It is the foundation that content and links perform on. If that foundation is broken, the rest barely matters.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">What we check</div>
+        <h2 class="section-title">From Core Web Vitals to AI access.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">The missing angle</div>
+          <h2 class="section-title">Almost nobody is optimizing for AI bots.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Most technical audits we see stop at the Core Web Vitals and the sitemap. Useful, but incomplete. They miss the new question: can GPTBot, PerplexityBot and Google-Extended crawl your site, and do they understand what they find?</p>
+          <p>It is a huge blind spot. We have seen sites that, without knowing it, block AI crawlers in their robots.txt, or hide all their content behind JavaScript those bots do not run. The result: invisible to ChatGPT and Perplexity right as those channels start bringing in customers. <strong>Felipe Gallo</strong> and <strong>JC Espinosa</strong> treat AI access as part of technical SEO, not as an extra.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Schema</span> Structured data is the other half: it gives AI the context to understand who you are and what you talk about, and almost no competitor implements it well.</p>
+          <a href="/en/#cases" class="lp-inline-link">See cases and results →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Frequently asked questions</div>
+        <h2 class="section-title">What we get asked the most.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Where it fits</div>
+          <h2 class="section-title">Start by knowing what is broken.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Technical SEO starts with a diagnosis. That is why it goes hand in hand with an audit: first we measure what slows your site down and what blocks the bots, prioritize it by impact, and then fix it. It is also part of our SEO consulting and our full SEO services.</p>
+          <a href="/en/seo-audit" class="lp-inline-link">Start with an SEO audit →</a>
+          <a href="/en/seo-consulting" class="lp-inline-link">See the full SEO consulting →</a>
+          <a href="/en/seo-services" class="lp-inline-link">See all SEO services →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">Should we check your site's foundation?</h2>
+        <p class="lp-cta-text">A 30-minute call to understand your site, your platform and what may be slowing you down in Google and in AI. No obligation.</p>
+        <a href="/en/#contact" class="btn-dark">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/en/" lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>

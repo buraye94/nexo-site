@@ -1,0 +1,178 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { t as translate } from '../../i18n/utils';
+
+const lang = 'en';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-globe', title: 'Google Business Profile', desc: 'We optimize your listing end to end: the right categories, hours, photos, attributes and reviews. This is the piece that decides whether you show up on the map.' },
+  { icon: '#i-search', title: 'Google Maps ranking', desc: 'We work the signals that order the local pack: proximity, relevance and prominence, so you appear when someone searches near you.' },
+  { icon: '#i-pen', title: 'Local pages that rank', desc: 'Content for each city or location with the local intent resolved and consistent NAP data, so Google and AI know exactly where you operate.' },
+  { icon: '#i-star', title: 'Review strategy', desc: 'A simple flow to earn real reviews and respond to them well. Reviews carry weight in local ranking and are the first thing your next customer reads.' },
+  { icon: '#i-trending', title: 'Local AI answers (GEO)', desc: 'When someone asks ChatGPT or Gemini for a good spot nearby, a new map is in play. We optimize your brand to show up there too.' },
+  { icon: '#i-bar-chart', title: 'Per-location measurement', desc: 'Calls, directions, clicks to your site and conversions by location. We report what reaches the front door of the business, not loose impressions.' },
+];
+
+const faqs = [
+  { q: 'What is local SEO?', a: 'Local SEO is the practice of optimizing your online presence so you appear when someone searches for a product or service near their location. Unlike general SEO, its target is Google’s local pack (the map block with three businesses), Google Maps and, increasingly, the answers AI assistants give about nearby places. It rests mostly on your Google Business Profile, the consistency of your contact data and your reviews.' },
+  { q: 'How do I show up first in Google Maps?', a: 'Google orders local results by three factors: proximity (how close you are to the person searching), relevance (how well your business fits the search) and prominence (how known and trusted you are, based on reviews, links and mentions). You cannot control where your customer is, but you can work on relevance and prominence: a complete profile, exact categories, real reviews and a NAP that stays consistent across the web.' },
+  { q: 'What is a Google Business Profile?', a: 'The Google Business Profile (formerly Google My Business) is the free listing that shows your business on the map and in search results: name, address, hours, phone, photos and reviews. It is the foundation of all local SEO. If it is incomplete, miscategorized or full of inconsistent data, it is very hard to appear in the local pack no matter how good the rest of your site is.' },
+  { q: 'What is NAP and why does it matter so much?', a: 'NAP stands for Name, Address, Phone: your business name, address and phone number. When those three details are identical on your site, in your Business Profile and in every directory you appear in, it tells Google you are a real and consistent business. NAP inconsistencies are one of the most common causes of poor local ranking, and almost no one checks for them.' },
+  { q: 'Does local SEO work if I sell in several cities?', a: 'Yes, and that is where the work changes the most. For multiple locations or cities you build one local page per location, each with its own content, its own NAP and, where it applies, its own Business Profile. That way Google understands you operate in each place instead of diluting everything into a single generic page. It is the foundation for competing in each market separately.' },
+  { q: 'How does it affect me when people ask AI for places?', a: 'More and more people ask ChatGPT, Gemini or Perplexity for local recommendations instead of opening Google Maps. Those models build their answers from your web presence, your reviews and your brand mentions. The good news is that the same signals that make you strong in the local pack help you show up in those answers. Optimizing for both worlds at once is what we call GEO.' },
+];
+
+const pageTitle = 'Local SEO Services | Clicroot';
+const pageDesc = 'Local SEO to show up in Google Maps, the local pack and nearby AI answers. Google Business Profile, reviews and per-city ranking across the US, Colombia and Mexico. Book a call.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://clicroot.com/en/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Local SEO', 'item': 'https://clicroot.com/en/local-seo/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'Local SEO',
+      'name': 'Local SEO and Google Maps optimization',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': ['US', 'CO', 'MX'],
+      'availableLanguage': ['English', 'Spanish'],
+      'description': 'Local SEO for businesses across the US, Colombia and Mexico. Google Maps ranking, Google Business Profile optimization and visibility in local AI answers (GEO).',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang} alternateUrl="/seo-local/">
+  <Nav lang="en" t={tf} anchorBase="/en/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Breadcrumb">
+        <a href="/en/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>Local SEO</span>
+      </nav>
+      <div class="lp-eyebrow">Local SEO · US, Colombia and Mexico</div>
+      <h1 class="lp-title">Local SEO: Show Up in Google Maps and Nearby AI Answers</h1>
+      <p class="lp-lead">When someone searches near you, there are two places where you win or lose the customer: the Google Maps local pack and, increasingly, what ChatGPT or Gemini answer when asked for a good spot in the area. We work both. An optimized profile, reviews, consistent data and AI visibility.</p>
+      <div class="lp-actions">
+        <a href="/en/#contact" class="btn-primary">Book a call</a>
+        <a href="#que-es" class="btn-outline">What is included</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definition</div>
+        <h2 class="section-title">What is local SEO?</h2>
+      </div>
+      <p class="lp-def">Local SEO is the practice of optimizing your business to show up when someone searches near their location. Its target is Google’s local pack (that map block with three businesses), Google Maps and AI answers about nearby places. It rests on three things few people handle well together: a well-optimized Google Business Profile, identical contact data across the web and real reviews. It is the difference between your customer finding you or finding the place around the corner.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">What is included</div>
+        <h2 class="section-title">From Google’s map to the AI map.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">The bridge to AI</div>
+          <h2 class="section-title">"Near me" no longer lives only in Maps.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>For years, winning local SEO meant winning the Google Maps local pack. It is still key, but it is no longer everything. There is a generation of customers who open ChatGPT or Gemini and type "recommend me a good place for X near me", and never see a map.</p>
+          <p>What is interesting is that both worlds drink from the same source: your profile, your reviews, your data consistency and your brand mentions. <strong>Felipe Gallo</strong> and <strong>JC Espinosa</strong> design your local SEO so those signals work in both the Google map and the AI answers at once, instead of optimizing for one and leaving the other to chance.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Bilingual</span> We operate in English and Spanish, useful if you serve tourists or customers searching in another language about your area.</p>
+          <a href="/en/#cases" class="lp-inline-link">See cases and results →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Frequently asked questions</div>
+        <h2 class="section-title">What we get asked the most.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Your city</div>
+          <h2 class="section-title">Looking for ranking in a specific city?</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Local SEO is part of our SEO consulting and our full SEO services. And if your market is a specific city, we have dedicated pages with the context of each place, from Bogotá and Medellín in Colombia to Mexico City, Monterrey and Guadalajara in Mexico.</p>
+          <a href="/en/seo-agency-bogota" class="lp-inline-link">SEO agency in Bogotá →</a>
+          <a href="/en/seo-agency-medellin" class="lp-inline-link">SEO agency in Medellín →</a>
+          <a href="/en/seo-agency-mexico" class="lp-inline-link">SEO agency in Mexico →</a>
+          <a href="/en/seo-consulting" class="lp-inline-link">See the full SEO consulting →</a>
+          <a href="/en/seo-services" class="lp-inline-link">See all SEO services →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">Ready to get on the map?</h2>
+        <p class="lp-cta-text">A 30-minute call to review your Business Profile and your local presence, and see where you are losing customers. No strings attached.</p>
+        <a href="/en/#contact" class="btn-dark">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/en/" lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>
