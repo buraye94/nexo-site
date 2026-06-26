@@ -38,6 +38,17 @@ const orgSchema = {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script is:inline>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (t) d.setAttribute('data-theme', t);
+        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) d.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    })();
+  </script>
   <title>{title}</title>
   <meta name="description" content={description}>
 
@@ -68,10 +79,10 @@ const orgSchema = {
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={ogImage}>
 
-  <!-- Fonts: Urbanist, Figtree, Cormorant Garamond, JetBrains Mono -->
+  <!-- Fonts: Outfit, Plus Jakarta Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
@@ -80,12 +91,8 @@ const orgSchema = {
   <slot />
 
   <script>
-    // Theme
+    // Theme toggle (initial theme + .js class are set inline in <head> to avoid FOUC)
     const html = document.documentElement;
-    const stored = localStorage.getItem('theme');
-    if (stored) html.setAttribute('data-theme', stored);
-    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
-
     document.getElementById('themeToggle')?.addEventListener('click', () => {
       const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);

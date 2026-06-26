@@ -155,7 +155,7 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
           {stats.map((stat: any, i: number) => (
             <div class={`stat-card reveal reveal-d${i + 1}`}>
               <div class="stat-number">
-                <span class="counter" data-target={stat.value}>0</span>
+                <span class="counter" data-target={stat.value}>{stat.value}</span>
                 <span class="stat-suffix">{stat.suffix}</span>
               </div>
               <div class="stat-label">{stat.label}</div>
