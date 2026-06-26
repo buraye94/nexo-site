@@ -8,21 +8,21 @@ const lang = 'es';
 const tf = (key: string) => translate(lang, key);
 
 const services = [
-  { icon: '#i-search', title: 'SEO técnico', desc: 'Rastreo, indexación, velocidad y arquitectura. La base que Google y los crawlers de IA necesitan para entender tu sitio.' },
+  { icon: '#i-search', title: 'SEO técnico', desc: 'Rastreo, indexación, velocidad y arquitectura, al nivel que exige un comprador de perfil técnico que sabe leer un sitio bien hecho. La base que Google y los crawlers de IA necesitan para entender tu sitio.' },
   { icon: '#i-pen', title: 'Contenido y on-page', desc: 'Páginas que responden lo que de verdad busca tu cliente tapatío, redactadas para que los modelos de IA puedan citarte.' },
-  { icon: '#i-link', title: 'Autoridad y link building', desc: 'Enlaces y menciones de calidad que construyen autoridad de dominio sin atajos que terminen en una penalización.' },
+  { icon: '#i-link', title: 'Autoridad y link building', desc: 'Enlaces y menciones de calidad, valiosas en un ecosistema de software y startups como el de la ZMG, que construyen autoridad de dominio sin atajos que terminen en una penalización.' },
   { icon: '#i-globe', title: 'SEO local', desc: 'Aparece en Google Maps y en las búsquedas locales de la Zona Metropolitana de Guadalajara, donde decide tu cliente.' },
-  { icon: '#i-trending', title: 'GEO: visibilidad en IA', desc: 'Optimizamos tu marca para que ChatGPT, Perplexity, Gemini y los AI Overviews te recomienden cuando alguien busca proveedores.' },
-  { icon: '#i-bar-chart', title: 'Medición y reporte', desc: 'Posiciones, tráfico orgánico e ingresos atribuibles. Reportamos lo que mueve el negocio, no métricas de vanidad.' },
+  { icon: '#i-trending', title: 'GEO: visibilidad en IA', desc: 'Optimizamos tu marca para que ChatGPT, Perplexity, Gemini y los AI Overviews te recomienden cuando un comprador del sector tech evalúa proveedores.' },
+  { icon: '#i-bar-chart', title: 'Medición y reporte', desc: 'Posiciones, tráfico orgánico e ingresos atribuibles, con la claridad de datos que pide un mercado acostumbrado a producto y software. Reportamos lo que mueve el negocio, no métricas de vanidad.' },
 ];
 
 const faqs = [
   { q: '¿Qué hace una agencia SEO en Guadalajara?', a: 'Una agencia SEO en Guadalajara trabaja para que tu negocio aparezca cuando la gente de la Zona Metropolitana busca en Google lo que tú ofreces. Eso abarca SEO local (Google Maps, búsquedas locales), SEO técnico y contenido. En Clicroot sumamos GEO: optimizamos también para que ChatGPT, Perplexity y los AI Overviews te citen.' },
   { q: '¿Atienden a empresas de Zapopan, Tlaquepaque o Tonalá?', a: 'Sí. Trabajamos para negocios de toda la Zona Metropolitana de Guadalajara, incluidos Zapopan, San Pedro Tlaquepaque, Tonalá y Tlajomulco. El SEO local se ajusta al área donde quieres captar clientes, no a un solo municipio.' },
   { q: '¿Sirve el SEO para una empresa de tecnología o software en Guadalajara?', a: 'Mucho. Guadalajara es uno de los polos de tecnología y software más fuertes del país, y en ese sector el comprador investiga en línea antes de decidir. Si una startup o un comprador busca una solución y no apareces, le apareces a la competencia. El SEO te pone en la búsqueda y el GEO te pone en la respuesta de IA que ese perfil técnico consulta a diario.' },
-  { q: '¿Qué es GEO y por qué lo incluyen?', a: 'GEO (generative engine optimization) es optimizar tu marca para los buscadores de inteligencia artificial. Cuando alguien le pregunta a ChatGPT por un proveedor en Guadalajara, ve la respuesta de la IA, no un listado de Google. Trabajamos para que esa respuesta te incluya, además del SEO clásico. En una ciudad con tanto perfil tech, ese hábito de preguntarle a la IA llegó antes que en otras plazas.' },
-  { q: '¿Cuánto cuesta el posicionamiento web en Guadalajara?', a: 'Depende del alcance: una auditoría, un acompañamiento mensual o un proyecto completo tienen precios distintos. Acordamos el alcance por adelantado, sin permanencias forzadas. Agenda una llamada y te damos un rango claro para tu caso.' },
-  { q: '¿En cuánto tiempo se ven resultados?', a: 'El SEO es acumulativo. Las correcciones técnicas y los quick wins pueden mover posiciones en semanas; construir autoridad y rankear términos competidos toma de tres a seis meses o más. La competencia orgánica local en Guadalajara todavía deja margen, así que los términos de la ciudad suelen moverse antes que los nacionales. Te damos expectativas honestas desde la primera llamada.' },
+  { q: '¿Qué es GEO y por qué lo incluyen?', a: 'GEO (generative engine optimization) es optimizar tu marca para los buscadores de inteligencia artificial. Cuando alguien le pregunta a ChatGPT por un proveedor en Guadalajara, ve la respuesta de la IA, no un listado de Google. Para un producto o un SaaS, además, importa que esa respuesta describa bien lo que haces, no solo que te nombre. Trabajamos esa precisión junto con el SEO clásico.' },
+  { q: '¿Cuánto cuesta el posicionamiento web en Guadalajara?', a: 'Depende del alcance y del tipo de proyecto: posicionar un SaaS por categoría y producto no se cotiza igual que un negocio local de servicios. Trabajamos por auditoría, acompañamiento mensual o proyecto completo, con el alcance acordado por adelantado y sin permanencias forzadas. Agenda una llamada y te damos un rango claro.' },
+  { q: '¿En cuánto tiempo se ven resultados?', a: 'El SEO es acumulativo. Las correcciones técnicas y los quick wins pueden mover posiciones en semanas; construir autoridad y rankear términos competidos toma de tres a seis meses o más. En varias categorías locales de Guadalajara la competencia orgánica aún deja margen, y ese contexto suele favorecer a una estrategia enfocada. Te damos expectativas honestas desde la primera llamada.' },
 ];
 
 const pageTitle = 'Agencia SEO en Guadalajara + GEO | Clicroot';
@@ -71,7 +71,7 @@ const schema = {
       </nav>
       <div class="lp-eyebrow">Agencia SEO + GEO · Guadalajara</div>
       <h1 class="lp-title">Agencia SEO en Guadalajara</h1>
-      <p class="lp-lead">Guadalajara es el polo tech de México, y ahí el cliente investiga en línea antes de decidir. Te posicionamos en Google y en los buscadores de IA como ChatGPT, Perplexity y Gemini, ese hábito que en una ciudad tan tecnológica llegó antes que en el resto. Consultores senior que diseñan y ejecutan, con resultados medibles.</p>
+      <p class="lp-lead">Guadalajara concentra buena parte del software y las startups del país, y ahí el cliente investiga en línea antes de decidir. Te posicionamos en Google y en los buscadores de IA como ChatGPT, Perplexity y Gemini, con consultores senior que diseñan y ejecutan, y resultados medibles.</p>
       <div class="lp-actions">
         <a href="/#contact" class="btn-primary">Agenda una llamada</a>
         <a href="#que-es" class="btn-outline">Qué hacemos</a>

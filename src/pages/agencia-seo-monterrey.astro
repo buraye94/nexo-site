@@ -8,21 +8,21 @@ const lang = 'es';
 const tf = (key: string) => translate(lang, key);
 
 const services = [
-  { icon: '#i-search', title: 'SEO técnico', desc: 'Rastreo, indexación, velocidad y arquitectura. La base que Google y los crawlers de IA necesitan para entender tu sitio.' },
+  { icon: '#i-search', title: 'SEO técnico', desc: 'Rastreo, indexación, velocidad y arquitectura, con el rigor que esperan los catálogos industriales y los sitios B2B regios. La base que Google y los crawlers de IA necesitan para entender tu sitio.' },
   { icon: '#i-pen', title: 'Contenido y on-page', desc: 'Páginas que responden lo que de verdad busca tu cliente regio, redactadas para que los modelos de IA puedan citarte.' },
-  { icon: '#i-link', title: 'Autoridad y link building', desc: 'Enlaces y menciones de calidad que construyen autoridad de dominio sin atajos que terminen en una penalización.' },
+  { icon: '#i-link', title: 'Autoridad y link building', desc: 'Enlaces y menciones de calidad, relevantes para sectores de manufactura y servicio a empresa, que construyen autoridad de dominio sin atajos que terminen en una penalización.' },
   { icon: '#i-globe', title: 'SEO local', desc: 'Aparece en Google Maps y en las búsquedas "cerca de mí" del área metropolitana de Monterrey, justo donde decide tu cliente.' },
-  { icon: '#i-trending', title: 'GEO: visibilidad en IA', desc: 'Optimizamos tu marca para que ChatGPT, Perplexity, Gemini y los AI Overviews te recomienden cuando alguien busca proveedores.' },
-  { icon: '#i-bar-chart', title: 'Medición y reporte', desc: 'Posiciones, tráfico orgánico e ingresos atribuibles. Reportamos lo que mueve el negocio, no métricas de vanidad.' },
+  { icon: '#i-trending', title: 'GEO: visibilidad en IA', desc: 'Optimizamos tu marca para que ChatGPT, Perplexity, Gemini y los AI Overviews te recomienden cuando un comprador industrial evalúa proveedores.' },
+  { icon: '#i-bar-chart', title: 'Medición y reporte', desc: 'Posiciones, tráfico orgánico e ingresos atribuibles, con foco en los leads B2B que mueven una operación regia. Reportamos lo que mueve el negocio, no métricas de vanidad.' },
 ];
 
 const faqs = [
   { q: '¿Qué hace una agencia SEO en Monterrey?', a: 'Una agencia SEO en Monterrey trabaja para que tu negocio aparezca cuando la gente del área metropolitana busca en Google lo que tú ofreces. Eso incluye SEO local (Google Maps, búsquedas "cerca de mí"), SEO técnico y contenido. En Clicroot sumamos GEO: optimizamos también para que ChatGPT, Perplexity y los AI Overviews te citen.' },
   { q: '¿Atienden a empresas de San Pedro, Apodaca o Guadalupe?', a: 'Sí. Trabajamos para negocios de todo el área metropolitana de Monterrey, de San Pedro Garza García a Apodaca, San Nicolás, Guadalupe o Santa Catarina. El SEO local se ajusta a la zona donde quieres captar clientes, no a un solo municipio.' },
   { q: '¿Por qué invertir en SEO en una plaza tan industrial como Monterrey?', a: 'Monterrey concentra industria, manufactura y B2B, y ahí la decisión de compra empieza casi siempre con una búsqueda. Si un comprador busca un proveedor y no apareces, le apareces a tu competencia. El SEO te pone en esa búsqueda; el GEO te pone además en la respuesta de IA que ese comprador consulta cada vez más.' },
-  { q: '¿Qué es GEO y por qué lo incluyen?', a: 'GEO (generative engine optimization) es optimizar tu marca para los buscadores de inteligencia artificial. Cuando alguien le pregunta a ChatGPT por un proveedor en Monterrey, ve la respuesta de la IA, no un listado de Google. Trabajamos para que esa respuesta te incluya, además del SEO clásico.' },
-  { q: '¿Cuánto cuesta el posicionamiento web en Monterrey?', a: 'Depende del alcance: una auditoría, un acompañamiento mensual o un proyecto completo tienen precios distintos. Acordamos el alcance por adelantado, sin permanencias forzadas. Agenda una llamada y te damos un rango claro para tu caso.' },
-  { q: '¿En cuánto tiempo se ven resultados?', a: 'El SEO es acumulativo. Las correcciones técnicas y los quick wins pueden mover posiciones en semanas. La buena noticia para Monterrey es que la competencia orgánica local todavía es baja, así que rankear términos de la ciudad suele ser más rápido que en CDMX. Te damos expectativas honestas desde la primera llamada.' },
+  { q: '¿Qué es GEO y por qué lo incluyen?', a: 'GEO (generative engine optimization) es optimizar tu marca para los buscadores de inteligencia artificial. En el B2B regio, donde el comprador investiga a fondo antes de contactar, cada vez más de esa investigación pasa por ChatGPT, Perplexity o los AI Overviews en lugar de un listado de Google. Trabajamos para que tu marca aparezca en esa respuesta, además del SEO clásico.' },
+  { q: '¿Cuánto cuesta el posicionamiento web en Monterrey?', a: 'Depende de tu sector y del alcance: un proyecto B2B con catálogo extenso no se cotiza igual que un negocio local de servicios. Trabajamos por auditoría, acompañamiento mensual o proyecto completo, con el alcance acordado por adelantado y sin permanencias forzadas. Agenda una llamada y te damos un rango claro para tu caso.' },
+  { q: '¿En cuánto tiempo se ven resultados?', a: 'El SEO es acumulativo. Las correcciones técnicas y los quick wins pueden mover posiciones en semanas; consolidar términos comerciales de la ciudad suele tomar varios meses, según la autoridad de tu dominio y la del sector. Te damos expectativas honestas desde la primera llamada.' },
 ];
 
 const pageTitle = 'Agencia SEO en Monterrey + GEO | Clicroot';
@@ -85,7 +85,7 @@ const schema = {
         <div class="section-label">Definición</div>
         <h2 class="section-title">¿Qué hace una agencia SEO en Monterrey?</h2>
       </div>
-      <p class="lp-def">Una agencia SEO en Monterrey trabaja para que tu negocio aparezca cuando la gente del área metropolitana busca en Google lo que ofreces, desde el SEO local en Google Maps hasta el contenido y la parte técnica del sitio. Clicroot suma una capa que casi nadie en la ciudad está trabajando: el GEO, para que tu marca también aparezca cuando un comprador le pregunta a ChatGPT, Perplexity o Gemini por un proveedor regio. En una plaza tan orientada a la industria y el B2B, estar en ambos lados es la diferencia entre que te encuentren a ti o a tu competencia.</p>
+      <p class="lp-def">Una agencia SEO en Monterrey trabaja para que tu negocio aparezca cuando la gente del área metropolitana busca en Google lo que ofreces, desde el SEO local en Google Maps hasta el contenido y la parte técnica del sitio. Clicroot suma el GEO, una capa todavía emergente en la plaza, para que tu marca también aparezca cuando un comprador le pregunta a ChatGPT, Perplexity o Gemini por un proveedor regio. En un mercado tan orientado a la industria y el B2B, estar en ambos lados ayuda a que te encuentre quien decide la compra.</p>
     </div>
   </section>
 
@@ -117,7 +117,7 @@ const schema = {
           <h2 class="section-title">El terreno regio sigue abierto.</h2>
         </div>
         <div class="lp-why-body">
-          <p>A diferencia de CDMX, la competencia orgánica en Monterrey todavía es ligera, sobre todo en GEO. Eso vuelve la ciudad una de las plazas donde una estrategia bien hecha rinde más rápido. Clicroot la operan <strong>Felipe Gallo</strong> y <strong>JC Espinosa</strong>, consultores de SEO y visibilidad en IA con experiencia en México, Colombia y Estados Unidos. Hablas directo con ellos.</p>
+          <p>En varios sectores de Monterrey la competencia orgánica, sobre todo en GEO, aún se está formando, y ese contexto suele dar margen a una estrategia enfocada para ganar terreno. Clicroot la operan <strong>Felipe Gallo</strong> y <strong>JC Espinosa</strong>, consultores de SEO y visibilidad en IA con experiencia en México, Colombia y Estados Unidos. Hablas directo con ellos.</p>
           <p class="lp-note"><span class="lp-note-kicker">B2B e industria</span> Buena parte del tejido económico regio es manufactura y servicios para empresa, donde el comprador investiga antes de contactar. Ahí ganar la búsqueda y la respuesta de IA pesa más que en cualquier otro lado.</p>
           <a href="/#cases" class="lp-inline-link">Ver casos y resultados →</a>
         </div>
