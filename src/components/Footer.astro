@@ -1,0 +1,46 @@
+---
+interface Props {
+  t: (key: string) => any;
+  anchorBase?: string;
+}
+const { t, anchorBase = '' } = Astro.props;
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">
+          <span class="footer-logo-mark"><img src="/logo.svg" alt="clicroot" width="22" height="22" /></span>
+          clicroot
+        </div>
+        <p class="footer-desc">{t('footer.desc')}</p>
+      </div>
+      <div class="footer-col">
+        <h4>{t('footer.navTitle')}</h4>
+        <a href={`${anchorBase}#services`}>{t('nav.services')}</a>
+        <a href={`${anchorBase}#cases`}>{t('nav.cases')}</a>
+        <a href={`${anchorBase}#blog`}>{t('nav.blog')}</a>
+        <a href={`${anchorBase}#contact`}>{t('nav.contact')}</a>
+      </div>
+      <div class="footer-col">
+        <h4>{t('footer.svcTitle')}</h4>
+        <a href="/consultoria-seo">Consultoría SEO</a>
+        <a href={`${anchorBase}#services`}>{t('footer.techSeo')}</a>
+        <a href={`${anchorBase}#services`}>{t('footer.contentStrategy')}</a>
+        <a href={`${anchorBase}#services`}>{t('footer.bilingualSeo')}</a>
+      </div>
+      <div class="footer-col">
+        <h4>{t('footer.connectTitle')}</h4>
+        <a href="mailto:hello@clicroot.com">hello@clicroot.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">{t('footer.copy')}</span>
+      <span class="footer-status">
+        <span class="status-dot"></span>
+        {t('footer.status')}
+      </span>
+    </div>
+  </div>
+</footer>

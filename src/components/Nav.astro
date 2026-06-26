@@ -2,8 +2,9 @@
 interface Props {
   lang: string;
   t: (key: string) => any;
+  anchorBase?: string;
 }
-const { lang, t } = Astro.props;
+const { lang, t, anchorBase = '' } = Astro.props;
 const otherLang = lang === 'es' ? 'en' : 'es';
 ---
 
@@ -32,10 +33,10 @@ const otherLang = lang === 'es' ? 'en' : 'es';
       clicroot
     </a>
     <ul class="nav-links">
-      <li><a href="#services">{t('nav.services')}</a></li>
-      <li><a href="#results">{t('nav.results')}</a></li>
-      <li><a href="#cases">{t('nav.cases')}</a></li>
-      <li><a href="#blog">{t('nav.blog')}</a></li>
+      <li><a href={`${anchorBase}#services`}>{t('nav.services')}</a></li>
+      <li><a href={`${anchorBase}#results`}>{t('nav.results')}</a></li>
+      <li><a href={`${anchorBase}#cases`}>{t('nav.cases')}</a></li>
+      <li><a href={`${anchorBase}#blog`}>{t('nav.blog')}</a></li>
     </ul>
     <div class="nav-right">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -46,7 +47,7 @@ const otherLang = lang === 'es' ? 'en' : 'es';
         <a class={`lang-btn ${lang === 'en' ? 'active' : ''}`} href="/en/">EN</a>
         <a class={`lang-btn ${lang === 'es' ? 'active' : ''}`} href="/">ES</a>
       </div>
-      <a href="#contact" class="nav-cta">{t('nav.cta')}</a>
+      <a href={`${anchorBase}#contact`} class="nav-cta">{t('nav.cta')}</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -56,11 +57,11 @@ const otherLang = lang === 'es' ? 'en' : 'es';
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose">&times;</button>
-  <a href="#services" onclick="closeMobile()">{t('nav.services')}</a>
-  <a href="#results" onclick="closeMobile()">{t('nav.results')}</a>
-  <a href="#cases" onclick="closeMobile()">{t('nav.cases')}</a>
-  <a href="#blog" onclick="closeMobile()">{t('nav.blog')}</a>
-  <a href="#contact" onclick="closeMobile()">{t('nav.contact')}</a>
+  <a href={`${anchorBase}#services`} onclick="closeMobile()">{t('nav.services')}</a>
+  <a href={`${anchorBase}#results`} onclick="closeMobile()">{t('nav.results')}</a>
+  <a href={`${anchorBase}#cases`} onclick="closeMobile()">{t('nav.cases')}</a>
+  <a href={`${anchorBase}#blog`} onclick="closeMobile()">{t('nav.blog')}</a>
+  <a href={`${anchorBase}#contact`} onclick="closeMobile()">{t('nav.contact')}</a>
   <div style="margin-top:20px; display:flex; gap:12px;">
     <a href="/en/" style="font-size:0.9rem; opacity:0.5;">EN</a>
     <a href="/" style="font-size:0.9rem; opacity:0.5;">ES</a>

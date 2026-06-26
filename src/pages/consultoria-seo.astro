@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t as translate } from '../i18n/utils';
+
+const lang = 'es';
+const tf = (key: string) => translate(lang, key);
+
+const services = [
+  { icon: '#i-search', title: 'SEO técnico', desc: 'Rastreo, indexación, velocidad y arquitectura. La base que Google y los crawlers de IA necesitan para entenderte.' },
+  { icon: '#i-pen', title: 'Contenido y on-page', desc: 'Páginas que responden la intención real de búsqueda y que los modelos de IA pueden citar con claridad.' },
+  { icon: '#i-link', title: 'Autoridad y link building', desc: 'Enlaces y menciones de calidad que construyen autoridad real, sin atajos que terminen en una penalización.' },
+  { icon: '#i-globe', title: 'SEO local', desc: 'Aparece en Google Maps y en las respuestas locales de IA, justo donde están tus clientes.' },
+  { icon: '#i-trending', title: 'GEO: visibilidad en IA', desc: 'Optimizamos tu marca para que ChatGPT, Perplexity, Gemini y los AI Overviews de Google te recomienden y te citen.' },
+  { icon: '#i-bar-chart', title: 'Medición y reporte', desc: 'Tráfico, posiciones e ingresos atribuibles. Reportamos lo que mueve el negocio, no métricas de vanidad.' },
+];
+
+const faqs = [
+  { q: '¿Qué hace un consultor SEO?', a: 'Un consultor SEO analiza tu sitio, tu mercado y a tu competencia para diseñar y ejecutar una estrategia que aumente tu tráfico orgánico y tus ingresos. A diferencia de una agencia que asigna perfiles junior, en una consultoría trabajas directo con el especialista que toma las decisiones.' },
+  { q: '¿Cuánto cuesta una consultoría SEO en Colombia o México?', a: 'Depende del alcance. Una auditoría puntual, un acompañamiento mensual o un proyecto de posicionamiento completo tienen precios distintos. Acordamos el alcance por adelantado, sin permanencias forzadas. Agenda una llamada y te damos un rango claro para tu caso.' },
+  { q: '¿Consultor SEO o agencia SEO: qué me conviene?', a: 'Una agencia suele tener más manos para ejecución a gran escala; un consultor te da criterio senior y foco. En Clicroot combinamos ambas cosas: consultores que diseñan la estrategia y la ejecutan, con resultados medibles.' },
+  { q: '¿Incluye optimización para inteligencia artificial (GEO)?', a: 'Sí. Además del SEO clásico para Google, optimizamos tu marca para ser citada en ChatGPT, Perplexity, Gemini y los AI Overviews. A esto se le llama GEO (generative engine optimization) y es parte de cada consultoría.' },
+  { q: '¿En cuánto tiempo se ven resultados?', a: 'El SEO es acumulativo. Las correcciones técnicas y los quick wins pueden mover posiciones en semanas; construir autoridad y rankear términos competidos toma de tres a seis meses o más. Te damos expectativas honestas desde la primera llamada.' },
+];
+
+const pageTitle = 'Consultoría SEO en Colombia y México | Clicroot';
+const pageDesc = 'Consultoría SEO con consultores senior, no junior. Posicionamiento en Google y visibilidad en IA (GEO) para empresas en Colombia y México. Agenda una llamada.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://clicroot.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Consultoría SEO', 'item': 'https://clicroot.com/consultoria-seo/' },
+      ],
+    },
+    {
+      '@type': 'Service',
+      'serviceType': 'Consultoría SEO',
+      'name': 'Consultoría SEO y GEO',
+      'provider': { '@id': 'https://clicroot.com/#org' },
+      'areaServed': ['CO', 'MX'],
+      'availableLanguage': ['Spanish', 'English'],
+      'description': 'Consultoría SEO con consultores senior para empresas en Colombia y México. Posicionamiento en Google y visibilidad en buscadores de IA (GEO).',
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map((f) => ({
+        '@type': 'Question',
+        'name': f.q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} lang={lang}>
+  <Nav lang={lang} t={tf} anchorBase="/" />
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="lp-breadcrumb" aria-label="Ruta de navegación">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span>Consultoría SEO</span>
+      </nav>
+      <div class="lp-eyebrow">Consultoría SEO · Colombia y México</div>
+      <h1 class="lp-title">Consultoría SEO con consultores senior, no junior.</h1>
+      <p class="lp-lead">Trabajas directo con el especialista que diseña y ejecuta tu estrategia. Posicionamos tu marca en Google y en los buscadores de IA como ChatGPT, Perplexity y Gemini, con resultados medibles y sin métricas de vanidad.</p>
+      <div class="lp-actions">
+        <a href="/#contact" class="btn-primary">Agenda una llamada</a>
+        <a href="#que-es" class="btn-outline">Qué incluye</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section lp-def-section" id="que-es">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Definición</div>
+        <h2 class="section-title">¿Qué es una consultoría SEO?</h2>
+      </div>
+      <p class="lp-def">Una consultoría SEO es un servicio en el que un consultor especializado audita tu sitio web, tu mercado y tu competencia, y diseña una estrategia para que tu negocio aparezca primero cuando tus clientes buscan en Google y, cada vez más, cuando preguntan a asistentes de inteligencia artificial. El consultor no se queda en el diagnóstico: prioriza, ejecuta y mide el impacto en tráfico y en ingresos.</p>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Qué incluye</div>
+        <h2 class="section-title">Una consultoría completa, de la técnica a la IA.</h2>
+      </div>
+      <div class="services-grid">
+        {services.map((svc) => (
+          <div class="service-card">
+            <div class="svc-icon">
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon} /></svg>
+            </div>
+            <h3>{svc.title}</h3>
+            <p>{svc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-why-section">
+    <div class="container">
+      <div class="lp-split">
+        <div class="lp-split-head">
+          <div class="section-label">Quién lo hace</div>
+          <h2 class="section-title">Consultores con nombre y criterio, no una caja negra.</h2>
+        </div>
+        <div class="lp-why-body">
+          <p>Clicroot la operan <strong>Felipe Gallo</strong> y <strong>JC Espinosa</strong>, consultores de SEO y visibilidad en IA con experiencia en mercados de Colombia, México y Estados Unidos. Cuando contratas la consultoría hablas con ellos, no con un ejecutivo de cuenta que reenvía correos.</p>
+          <p class="lp-note"><span class="lp-note-kicker">Bilingüe</span> Operamos en español e inglés, con la misma estrategia para mercados hispanohablantes y angloparlantes.</p>
+          <a href="/#cases" class="lp-inline-link">Ver casos y resultados →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-faq-section">
+    <div class="container">
+      <div class="lp-section-head">
+        <div class="section-label">Preguntas frecuentes</div>
+        <h2 class="section-title">Lo que más nos preguntan.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="container">
+      <div class="lp-cta-inner">
+        <h2 class="section-title">¿Hablamos de tu proyecto?</h2>
+        <p class="lp-cta-text">Una llamada de 30 minutos para entender tu sitio, tu mercado y si encajamos. Sin compromiso.</p>
+        <a href="/#contact" class="btn-dark">Agenda una llamada</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer t={tf} anchorBase="/" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+</Layout>
