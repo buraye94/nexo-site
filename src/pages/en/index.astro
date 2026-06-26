@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
 import { t as translate } from '../../i18n/utils';
 import { getCollection } from 'astro:content';
 
@@ -9,35 +10,70 @@ const tf = (key: string) => translate(lang, key);
 
 const allTestimonials = await getCollection('testimonials');
 const testimonials = allTestimonials.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-
 const allCases = await getCollection('cases');
 const cases = allCases.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-
 const allBlog = await getCollection('blog');
 const blogPosts = allBlog
-  .filter(post => post.data.lang === lang && !post.data.draft)
+  .filter(post => post.data.lang === 'en' && !post.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 
-const services = tf('services.items') as any[];
 const stats = tf('results.stats') as any[];
 const steps = tf('process.steps') as any[];
 const telemetryMsgs = tf('metrics.telemetry') as string[];
-
-const iconMap: Record<string, string> = {
-  search: '#i-search', link: '#i-link', pen: '#i-pen', globe: '#i-globe'
-};
 const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
-const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'];
+
+const clientLogos = [
+  { src: '/logos/leal.png', alt: 'Leal', h: 30 },
+  { src: '/logos/floowi.png', alt: 'Floowi', h: 27 },
+  { src: '/logos/takami.png', alt: 'Takami', h: 23 },
+  { src: '/logos/rmh.png', alt: 'Riviera Maya Haciendas', h: 36 },
+  { src: '/logos/spi.png', alt: 'SPI Americas', h: 28 },
+  { src: '/logos/kyva.png', alt: 'Kyva', h: 30 },
+  { src: '/logos/spotme.png', alt: 'SpotMe', h: 27 },
+  { src: '/logos/envioclick.png', alt: 'Envioclick', h: 25 },
+];
+
+const serviceCards = [
+  { icon: '#i-search', title: 'SEO Consulting', desc: 'Strategy and execution with a senior consultant, not a junior profile.', href: '/en/seo-consulting' },
+  { icon: '#i-globe', title: 'GEO: AI visibility', desc: 'Get ChatGPT, Perplexity, Gemini and the AI Overviews to recommend and cite you.', href: '/en/geo-generative-engine-optimization' },
+  { icon: '#i-pen', title: 'Content and on-page', desc: 'Pages that answer real search intent and that AI can cite.', href: '/en/seo-services' },
+  { icon: '#i-link', title: 'Link building', desc: 'Real authority with quality links, no shortcuts that end in a penalty.', href: '/en/link-building' },
+  { icon: '#i-trending', title: 'Local SEO', desc: 'Show up on Google Maps and in local AI answers, where your customers are.', href: '/en/local-seo' },
+  { icon: '#i-bar-chart', title: 'Technical SEO', desc: 'The foundation Google and AI crawlers need to understand your site.', href: '/en/technical-seo' },
+];
+
+const whyCards = [
+  { title: 'Consultants with names', desc: 'You work directly with Felipe Gallo and JC Espinosa, not an account executive who forwards emails.' },
+  { title: 'SEO and GEO in one strategy', desc: 'We rank you on Google and in the AI engines. Most providers still only do the first.' },
+  { title: 'Bilingual, Spanish and English', desc: 'The same strategy for your markets in Colombia, Mexico and the United States, in both languages.' },
+  { title: 'Results, not vanity metrics', desc: 'We measure traffic, rankings and attributable revenue. We report what moves the business.' },
+  { title: 'Honest expectations', desc: 'No promises of page one in 30 days. We tell you what is achievable and how long it takes.' },
+  { title: 'LatAm focus', desc: 'We understand how your customer searches in Bogota, Mexico City or Monterrey. Regional SEO matters.' },
+];
+
+const faqs = [
+  { q: 'What exactly does Clicroot do?', a: 'We are an SEO and AI visibility (GEO) consultancy. We rank your brand on Google and make AI engines like ChatGPT, Perplexity and Gemini recommend and cite you, in Spanish and English.' },
+  { q: 'Do you work with companies outside Colombia and Mexico?', a: 'Yes. Colombia and Mexico are our core markets, and we also work with companies in the United States and the rest of LatAm that need bilingual SEO.' },
+  { q: 'What is GEO and why should I care?', a: 'GEO (generative engine optimization) is optimizing your brand so AI assistants cite it when they answer. The buyer who asks ChatGPT for the best option never sees a Google result, so winning that citation means winning the lead.' },
+  { q: 'Consultant or agency?', a: 'Both. You get the senior judgment of a consultant with the execution capacity of a team, without the turnover or the vanity reports of a traditional agency.' },
+  { q: 'How long until I see results?', a: 'Technical fixes can move rankings in weeks. Building authority and ranking competitive terms takes three to six months or more. We give you honest expectations from the first call.' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqs.map((f) => ({ '@type': 'Question', 'name': f.q, 'acceptedAnswer': { '@type': 'Answer', 'text': f.a } })),
+};
 ---
 
 <Layout
-  title="SEO Consulting | clicroot"
+  title="SEO and GEO Consulting in Colombia and Mexico | Clicroot"
   description={tf('hero.description')}
   lang={lang}
   alternateUrl="/"
 >
-  <Nav lang={lang} t={tf} />
+  <Nav lang="en" t={tf} />
 
   <!-- HERO -->
   <section class="hero" id="hero">
@@ -54,7 +90,7 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
       <p class="hero-description reveal reveal-d2">{tf('hero.description')}</p>
       <div class="hero-actions reveal reveal-d3">
         <a href="#contact" class="btn-primary">{tf('hero.cta1')}</a>
-        <a href="#results" class="btn-outline">{tf('hero.cta2')}</a>
+        <a href="#services" class="btn-outline">{tf('hero.cta2')}</a>
       </div>
     </div>
     <div class="hero-right">
@@ -72,8 +108,8 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
           </div>
         </div>
         <div class="metric-card mc-2">
-          <div class="mc-icon" style="background:rgba(212,168,83,0.1);">
-            <svg stroke="#D4A853" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-trophy"/></svg>
+          <div class="mc-icon" style="background:rgba(201,162,74,0.12);">
+            <svg stroke="var(--gold)" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-trophy"/></svg>
           </div>
           <div class="mc-value">#1</div>
           <div class="mc-label">{tf('metrics.rankings')}</div>
@@ -94,8 +130,8 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
           </div>
         </div>
         <div class="metric-card mc-4">
-          <div class="mc-icon" style="background:rgba(212,168,83,0.1);">
-            <svg stroke="#D4A853" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
+          <div class="mc-icon" style="background:rgba(201,162,74,0.12);">
+            <svg stroke="var(--gold)" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
           </div>
           <div class="mc-value">98%</div>
           <div class="mc-label">{tf('metrics.retention')}</div>
@@ -104,14 +140,14 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
     </div>
   </section>
 
-  <!-- SOCIAL PROOF -->
-  <section class="social-proof reveal">
+  <!-- LOGO BAND -->
+  <section class="logo-band">
     <div class="container">
-      <div class="social-proof-label">{tf('social.label')}</div>
+      <div class="logo-band-label">Trusted by leading brands</div>
       <div class="marquee-wrapper">
         <div class="logos-track">
-          {[...logos, ...logos].map(name => (
-            <span class="logo-item">{name}</span>
+          {[...clientLogos, ...clientLogos].map((l) => (
+            <img src={l.src} alt={l.alt} height={l.h} style={`height:${l.h}px`} loading="lazy" />
           ))}
         </div>
       </div>
@@ -127,20 +163,21 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
         <p class="section-subtitle">{tf('services.subtitle')}</p>
       </div>
       <div class="services-grid">
-        {services.map((svc: any, i: number) => (
-          <div class={`service-card reveal reveal-d${i + 1}`}>
+        {serviceCards.map((svc, i) => (
+          <a href={svc.href} class={`service-card reveal reveal-d${(i % 4) + 1}`}>
             <div class="svc-icon">
-              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={iconMap[svc.icon] || '#i-search'}/></svg>
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon}/></svg>
             </div>
             <h3>{svc.title}</h3>
             <p>{svc.desc}</p>
-          </div>
+          </a>
         ))}
       </div>
+      <a href="/en/seo-services" class="reveal home-allservices">View all SEO and GEO services →</a>
     </div>
   </section>
 
-  <!-- RESULTS - MANIFESTO + DATA -->
+  <!-- RESULTS -->
   <section class="section results-section" id="results">
     <div class="container">
       <div class="results-inner">
@@ -166,7 +203,7 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
     </div>
   </section>
 
-  <!-- CASES - STICKY STACKING -->
+  <!-- CASES -->
   <section class="section cases-section" id="cases">
     <div class="container">
       <div class="reveal">
@@ -189,6 +226,44 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
                 </div>
               ))}
             </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CLICROOT -->
+  <section class="section why-section" id="why">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Why Clicroot</div>
+        <h2 class="section-title">A consultancy, not a black box.</h2>
+      </div>
+      <div class="why-grid">
+        {whyCards.map((w, i) => (
+          <div class={`why-card reveal reveal-d${(i % 4) + 1}`}>
+            <h3>{w.title}</h3>
+            <p>{w.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process-section" id="process">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">{tf('process.label')}</div>
+        <h2 class="section-title">{tf('process.title')}</h2>
+      </div>
+      <div class="process-timeline">
+        {steps.map((step: any, i: number) => (
+          <div class={`process-step reveal reveal-d${i + 1}`}>
+            <div class="process-dot"></div>
+            <div class="process-number">{step.num}</div>
+            <h3>{step.title}</h3>
+            <p>{step.desc}</p>
           </div>
         ))}
       </div>
@@ -224,20 +299,18 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
     </div>
   </section>
 
-  <!-- PROCESS - VERTICAL TIMELINE -->
-  <section class="section process-section" id="process">
+  <!-- FAQ -->
+  <section class="section lp-faq-section" id="faq">
     <div class="container">
-      <div class="reveal">
-        <div class="section-label">{tf('process.label')}</div>
-        <h2 class="section-title">{tf('process.title')}</h2>
+      <div class="lp-section-head reveal">
+        <div class="section-label">Frequently asked questions</div>
+        <h2 class="section-title">What clients ask us most.</h2>
       </div>
-      <div class="process-timeline">
-        {steps.map((step: any, i: number) => (
-          <div class={`process-step reveal reveal-d${i + 1}`}>
-            <div class="process-dot"></div>
-            <div class="process-number">{step.num}</div>
-            <h3>{step.title}</h3>
-            <p>{step.desc}</p>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
           </div>
         ))}
       </div>
@@ -253,7 +326,7 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
       </div>
       <div class="blog-grid">
         {blogPosts.map((post, i) => (
-          <a href={`/${lang}/blog/${post.slug.replace('en/', '').replace('es/', '')}/`} class={`blog-card reveal reveal-d${i + 1}`}>
+          <a href={`/en/blog/${post.slug.replace('es/', '').replace('en/', '')}/`} class={`blog-card reveal reveal-d${i + 1}`}>
             <div class="blog-card-img">
               <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={blogIcons[i % 3]}/></svg>
             </div>
@@ -291,45 +364,9 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div>
-          <div class="footer-logo">
-            <span class="footer-logo-mark"><img src="/logo.svg" alt="clicroot" width="22" height="22" /></span>
-            clicroot
-          </div>
-          <p class="footer-desc">{tf('footer.desc')}</p>
-        </div>
-        <div class="footer-col">
-          <h4>{tf('footer.navTitle')}</h4>
-          <a href="#services">{tf('nav.services')}</a>
-          <a href="#cases">{tf('nav.cases')}</a>
-          <a href="#blog">{tf('nav.blog')}</a>
-          <a href="#contact">{tf('nav.contact')}</a>
-        </div>
-        <div class="footer-col">
-          <h4>{tf('footer.svcTitle')}</h4>
-          <a href="#services">{tf('footer.techSeo')}</a>
-          <a href="#services">{tf('footer.linkBuilding')}</a>
-          <a href="#services">{tf('footer.contentStrategy')}</a>
-          <a href="#services">{tf('footer.bilingualSeo')}</a>
-        </div>
-        <div class="footer-col">
-          <h4>{tf('footer.connectTitle')}</h4>
-          <a href="mailto:hello@clicroot.com">hello@clicroot.com</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Twitter / X</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">{tf('footer.copy')}</span>
-        <span class="footer-status">
-          <span class="status-dot"></span>
-          {tf('footer.status')}
-        </span>
-      </div>
-    </div>
-  </footer>
+  <Footer t={tf} anchorBase="/en/" lang="en" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
 </Layout>
+</content>
+</invoke>

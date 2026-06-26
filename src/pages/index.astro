@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 import { t as translate } from '../i18n/utils';
 import { getCollection } from 'astro:content';
 
@@ -9,30 +10,65 @@ const tf = (key: string) => translate(lang, key);
 
 const allTestimonials = await getCollection('testimonials');
 const testimonials = allTestimonials.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-
 const allCases = await getCollection('cases');
 const cases = allCases.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-
 const allBlog = await getCollection('blog');
 const blogPosts = allBlog
   .filter(post => post.data.lang === lang && !post.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 
-const services = tf('services.items') as any[];
 const stats = tf('results.stats') as any[];
 const steps = tf('process.steps') as any[];
 const telemetryMsgs = tf('metrics.telemetry') as string[];
-
-const iconMap: Record<string, string> = {
-  search: '#i-search', link: '#i-link', pen: '#i-pen', globe: '#i-globe'
-};
 const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
-const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'];
+
+const clientLogos = [
+  { src: '/logos/leal.png', alt: 'Leal', h: 30 },
+  { src: '/logos/floowi.png', alt: 'Floowi', h: 27 },
+  { src: '/logos/takami.png', alt: 'Takami', h: 23 },
+  { src: '/logos/rmh.png', alt: 'Riviera Maya Haciendas', h: 36 },
+  { src: '/logos/spi.png', alt: 'SPI Americas', h: 28 },
+  { src: '/logos/kyva.png', alt: 'Kyva', h: 30 },
+  { src: '/logos/spotme.png', alt: 'SpotMe', h: 27 },
+  { src: '/logos/envioclick.png', alt: 'Envioclick', h: 25 },
+];
+
+const serviceCards = [
+  { icon: '#i-search', title: 'Consultoría SEO', desc: 'Estrategia y ejecución con un consultor senior, no un perfil junior.', href: '/consultoria-seo' },
+  { icon: '#i-globe', title: 'GEO: visibilidad en IA', desc: 'Que ChatGPT, Perplexity, Gemini y los AI Overviews te recomienden y te citen.', href: '/geo-posicionamiento-en-ia' },
+  { icon: '#i-pen', title: 'Contenido y on-page', desc: 'Páginas que responden la intención real de búsqueda y que la IA puede citar.', href: '/servicios-seo' },
+  { icon: '#i-link', title: 'Link building', desc: 'Autoridad real con enlaces de calidad, sin atajos que terminen en penalización.', href: '/link-building' },
+  { icon: '#i-trending', title: 'SEO local', desc: 'Aparece en Google Maps y en las respuestas locales de IA, donde están tus clientes.', href: '/seo-local' },
+  { icon: '#i-bar-chart', title: 'SEO técnico', desc: 'La base que Google y los crawlers de IA necesitan para entender tu sitio.', href: '/seo-tecnico' },
+];
+
+const whyCards = [
+  { title: 'Consultores con nombre', desc: 'Trabajas directo con Felipe Gallo y JC Espinosa, no con un ejecutivo de cuenta que reenvía correos.' },
+  { title: 'SEO y GEO en una estrategia', desc: 'Posicionamos en Google y en los buscadores de IA. La mayoría todavía solo hace lo primero.' },
+  { title: 'Bilingüe, español e inglés', desc: 'La misma estrategia para tus mercados en Colombia, México y Estados Unidos, en los dos idiomas.' },
+  { title: 'Resultados, no métricas de vanidad', desc: 'Medimos tráfico, posiciones e ingresos atribuibles. Reportamos lo que mueve el negocio.' },
+  { title: 'Expectativas honestas', desc: 'Sin promesas de primera página en 30 días. Te decimos qué es alcanzable y en cuánto tiempo.' },
+  { title: 'Enfoque LatAm', desc: 'Entendemos cómo busca tu cliente en Bogotá, en CDMX o en Monterrey. El SEO regional importa.' },
+];
+
+const faqs = [
+  { q: '¿Qué hace exactamente Clicroot?', a: 'Somos una consultoría de SEO y visibilidad en IA (GEO). Posicionamos tu marca en Google y hacemos que los buscadores de IA como ChatGPT, Perplexity y Gemini te recomienden y te citen, en español e inglés.' },
+  { q: '¿Trabajan con empresas fuera de Colombia y México?', a: 'Sí. Colombia y México son nuestros mercados principales, y también trabajamos con empresas de Estados Unidos y del resto de LatAm que necesitan SEO bilingüe.' },
+  { q: '¿Qué es GEO y por qué me importa?', a: 'GEO (generative engine optimization) es optimizar tu marca para que los asistentes de IA la citen al responder. El comprador que le pregunta a ChatGPT por la mejor opción nunca ve un resultado de Google, así que ganar esa cita es ganar el lead.' },
+  { q: '¿Consultor o agencia?', a: 'Las dos cosas. Tienes el criterio senior de un consultor con la capacidad de ejecución de un equipo, sin la rotación ni los reportes de vanidad de una agencia tradicional.' },
+  { q: '¿En cuánto tiempo se ven resultados?', a: 'Las correcciones técnicas pueden mover posiciones en semanas. Construir autoridad y rankear términos competidos toma de tres a seis meses o más. Te damos expectativas honestas desde la primera llamada.' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqs.map((f) => ({ '@type': 'Question', 'name': f.q, 'acceptedAnswer': { '@type': 'Answer', 'text': f.a } })),
+};
 ---
 
 <Layout
-  title="Consultoría SEO | clicroot"
+  title="Consultoría SEO y GEO en Colombia y México | Clicroot"
   description={tf('hero.description')}
   lang={lang}
   alternateUrl="/en/"
@@ -54,7 +90,7 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
       <p class="hero-description reveal reveal-d2">{tf('hero.description')}</p>
       <div class="hero-actions reveal reveal-d3">
         <a href="#contact" class="btn-primary">{tf('hero.cta1')}</a>
-        <a href="#results" class="btn-outline">{tf('hero.cta2')}</a>
+        <a href="#services" class="btn-outline">{tf('hero.cta2')}</a>
       </div>
     </div>
     <div class="hero-right">
@@ -72,8 +108,8 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
           </div>
         </div>
         <div class="metric-card mc-2">
-          <div class="mc-icon" style="background:rgba(212,168,83,0.1);">
-            <svg stroke="#D4A853" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-trophy"/></svg>
+          <div class="mc-icon" style="background:rgba(201,162,74,0.12);">
+            <svg stroke="var(--gold)" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-trophy"/></svg>
           </div>
           <div class="mc-value">#1</div>
           <div class="mc-label">{tf('metrics.rankings')}</div>
@@ -94,8 +130,8 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
           </div>
         </div>
         <div class="metric-card mc-4">
-          <div class="mc-icon" style="background:rgba(212,168,83,0.1);">
-            <svg stroke="#D4A853" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
+          <div class="mc-icon" style="background:rgba(201,162,74,0.12);">
+            <svg stroke="var(--gold)" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
           </div>
           <div class="mc-value">98%</div>
           <div class="mc-label">{tf('metrics.retention')}</div>
@@ -104,14 +140,14 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
     </div>
   </section>
 
-  <!-- SOCIAL PROOF -->
-  <section class="social-proof reveal">
+  <!-- LOGO BAND -->
+  <section class="logo-band">
     <div class="container">
-      <div class="social-proof-label">{tf('social.label')}</div>
+      <div class="logo-band-label">Marcas que confían en Clicroot</div>
       <div class="marquee-wrapper">
         <div class="logos-track">
-          {[...logos, ...logos].map(name => (
-            <span class="logo-item">{name}</span>
+          {[...clientLogos, ...clientLogos].map((l) => (
+            <img src={l.src} alt={l.alt} height={l.h} style={`height:${l.h}px`} loading="lazy" />
           ))}
         </div>
       </div>
@@ -127,21 +163,21 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
         <p class="section-subtitle">{tf('services.subtitle')}</p>
       </div>
       <div class="services-grid">
-        {services.map((svc: any, i: number) => (
-          <div class={`service-card reveal reveal-d${i + 1}`}>
+        {serviceCards.map((svc, i) => (
+          <a href={svc.href} class={`service-card reveal reveal-d${(i % 4) + 1}`}>
             <div class="svc-icon">
-              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={iconMap[svc.icon] || '#i-search'}/></svg>
+              <svg fill="none" stroke-linecap="round" stroke-linejoin="round"><use href={svc.icon}/></svg>
             </div>
             <h3>{svc.title}</h3>
             <p>{svc.desc}</p>
-          </div>
+          </a>
         ))}
       </div>
-      <a href="/servicios-seo" class="reveal" style="display:inline-block; margin-top:36px; font-family:var(--font-mono); font-size:0.85rem; font-weight:600; letter-spacing:0.02em; color:var(--accent); text-decoration:none;">Ver todos los servicios SEO y GEO →</a>
+      <a href="/servicios-seo" class="reveal home-allservices">Ver todos los servicios SEO y GEO →</a>
     </div>
   </section>
 
-  <!-- RESULTS - MANIFESTO + DATA -->
+  <!-- RESULTS -->
   <section class="section results-section" id="results">
     <div class="container">
       <div class="results-inner">
@@ -167,7 +203,7 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
     </div>
   </section>
 
-  <!-- CASES - STICKY STACKING -->
+  <!-- CASES -->
   <section class="section cases-section" id="cases">
     <div class="container">
       <div class="reveal">
@@ -190,6 +226,44 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
                 </div>
               ))}
             </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CLICROOT -->
+  <section class="section why-section" id="why">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Por qué Clicroot</div>
+        <h2 class="section-title">Una consultoría, no una caja negra.</h2>
+      </div>
+      <div class="why-grid">
+        {whyCards.map((w, i) => (
+          <div class={`why-card reveal reveal-d${(i % 4) + 1}`}>
+            <h3>{w.title}</h3>
+            <p>{w.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process-section" id="process">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">{tf('process.label')}</div>
+        <h2 class="section-title">{tf('process.title')}</h2>
+      </div>
+      <div class="process-timeline">
+        {steps.map((step: any, i: number) => (
+          <div class={`process-step reveal reveal-d${i + 1}`}>
+            <div class="process-dot"></div>
+            <div class="process-number">{step.num}</div>
+            <h3>{step.title}</h3>
+            <p>{step.desc}</p>
           </div>
         ))}
       </div>
@@ -225,20 +299,18 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
     </div>
   </section>
 
-  <!-- PROCESS - VERTICAL TIMELINE -->
-  <section class="section process-section" id="process">
+  <!-- FAQ -->
+  <section class="section lp-faq-section" id="faq">
     <div class="container">
-      <div class="reveal">
-        <div class="section-label">{tf('process.label')}</div>
-        <h2 class="section-title">{tf('process.title')}</h2>
+      <div class="lp-section-head reveal">
+        <div class="section-label">Preguntas frecuentes</div>
+        <h2 class="section-title">Lo que más nos preguntan.</h2>
       </div>
-      <div class="process-timeline">
-        {steps.map((step: any, i: number) => (
-          <div class={`process-step reveal reveal-d${i + 1}`}>
-            <div class="process-dot"></div>
-            <div class="process-number">{step.num}</div>
-            <h3>{step.title}</h3>
-            <p>{step.desc}</p>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3 class="faq-q">{f.q}</h3>
+            <p class="faq-a">{f.a}</p>
           </div>
         ))}
       </div>
@@ -292,45 +364,7 @@ const logos = ['Leal.co', 'SpotMe', 'Floowi', 'Haciendas', 'Cheaf', 'EnvioClick'
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div>
-          <div class="footer-logo">
-            <span class="footer-logo-mark"><img src="/logo.svg" alt="clicroot" width="22" height="22" /></span>
-            clicroot
-          </div>
-          <p class="footer-desc">{tf('footer.desc')}</p>
-        </div>
-        <div class="footer-col">
-          <h4>{tf('footer.navTitle')}</h4>
-          <a href="#services">{tf('nav.services')}</a>
-          <a href="#cases">{tf('nav.cases')}</a>
-          <a href="#blog">{tf('nav.blog')}</a>
-          <a href="#contact">{tf('nav.contact')}</a>
-        </div>
-        <div class="footer-col">
-          <h4>{tf('footer.svcTitle')}</h4>
-          <a href="/consultoria-seo">Consultoría SEO</a>
-          <a href="/servicios-seo">Servicios SEO</a>
-          <a href="/auditoria-seo">Auditoría SEO</a>
-          <a href="/geo-posicionamiento-en-ia">GEO: visibilidad en IA</a>
-        </div>
-        <div class="footer-col">
-          <h4>{tf('footer.connectTitle')}</h4>
-          <a href="mailto:hello@clicroot.com">hello@clicroot.com</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Twitter / X</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">{tf('footer.copy')}</span>
-        <span class="footer-status">
-          <span class="status-dot"></span>
-          {tf('footer.status')}
-        </span>
-      </div>
-    </div>
-  </footer>
+  <Footer t={tf} anchorBase="/" lang="es" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
 </Layout>
