@@ -43,10 +43,7 @@ const schema = {
       'datePublished': post.data.date.toISOString().split('T')[0],
       'inLanguage': 'en',
       'mainEntityOfPage': url,
-      'author': [
-        { '@type': 'Person', 'name': 'Felipe Gallo' },
-        { '@type': 'Person', 'name': 'JC Espinosa' },
-      ],
+      'author': { '@type': 'Organization', 'name': 'Clicroot' },
       'publisher': { '@id': 'https://clicroot.com/#org' },
     },
   ],
