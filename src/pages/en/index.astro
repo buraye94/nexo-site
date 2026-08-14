@@ -23,17 +23,6 @@ const steps = tf('process.steps') as any[];
 const telemetryMsgs = tf('metrics.telemetry') as string[];
 const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
 
-const clientLogos = [
-  { src: '/logos/leal.png', alt: 'Leal', h: 30 },
-  { src: '/logos/floowi.png', alt: 'Floowi', h: 27 },
-  { src: '/logos/takami.png', alt: 'Takami', h: 23 },
-  { src: '/logos/rmh.png', alt: 'Riviera Maya Haciendas', h: 36 },
-  { src: '/logos/spi.png', alt: 'SPI Americas', h: 28 },
-  { src: '/logos/kyva.png', alt: 'Kyva', h: 30 },
-  { src: '/logos/spotme.png', alt: 'SpotMe', h: 27 },
-  { src: '/logos/envioclick.png', alt: 'Envioclick', h: 25 },
-];
-
 const serviceCards = [
   { icon: '#i-search', title: 'SEO Consulting', desc: 'Strategy and execution with a senior consultant, not a junior profile.', href: '/en/seo-consulting' },
   { icon: '#i-globe', title: 'GEO: AI visibility', desc: 'Get ChatGPT, Perplexity, Gemini and the AI Overviews to recommend and cite you.', href: '/en/geo-generative-engine-optimization' },
@@ -140,19 +129,6 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- LOGO BAND -->
-  <section class="logo-band">
-    <div class="container">
-      <div class="logo-band-label">Trusted by leading brands</div>
-      <div class="marquee-wrapper">
-        <div class="logos-track">
-          {[...clientLogos, ...clientLogos].map((l) => (
-            <img src={l.src} alt={l.alt} height={l.h} style={`height:${l.h}px`} loading="lazy" />
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- SERVICES -->
   <section class="section services-section" id="services">

@@ -23,17 +23,6 @@ const steps = tf('process.steps') as any[];
 const telemetryMsgs = tf('metrics.telemetry') as string[];
 const blogIcons = ['#i-bar-chart', '#i-globe', '#i-link'];
 
-const clientLogos = [
-  { src: '/logos/leal.png', alt: 'Leal', h: 30 },
-  { src: '/logos/floowi.png', alt: 'Floowi', h: 27 },
-  { src: '/logos/takami.png', alt: 'Takami', h: 23 },
-  { src: '/logos/rmh.png', alt: 'Riviera Maya Haciendas', h: 36 },
-  { src: '/logos/spi.png', alt: 'SPI Americas', h: 28 },
-  { src: '/logos/kyva.png', alt: 'Kyva', h: 30 },
-  { src: '/logos/spotme.png', alt: 'SpotMe', h: 27 },
-  { src: '/logos/envioclick.png', alt: 'Envioclick', h: 25 },
-];
-
 const serviceCards = [
   { icon: '#i-search', title: 'Consultoría SEO', desc: 'Estrategia y ejecución con un consultor senior, no un perfil junior.', href: '/consultoria-seo' },
   { icon: '#i-globe', title: 'GEO: visibilidad en IA', desc: 'Que ChatGPT, Perplexity, Gemini y los AI Overviews te recomienden y te citen.', href: '/geo-posicionamiento-en-ia' },
@@ -135,20 +124,6 @@ const faqSchema = {
           </div>
           <div class="mc-value">98%</div>
           <div class="mc-label">{tf('metrics.retention')}</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOGO BAND -->
-  <section class="logo-band">
-    <div class="container">
-      <div class="logo-band-label">Marcas que confían en Clicroot</div>
-      <div class="marquee-wrapper">
-        <div class="logos-track">
-          {[...clientLogos, ...clientLogos].map((l) => (
-            <img src={l.src} alt={l.alt} height={l.h} style={`height:${l.h}px`} loading="lazy" />
-          ))}
         </div>
       </div>
     </div>
