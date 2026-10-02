@@ -1,0 +1,26 @@
+---
+// A chapter for page-specific content (definitions, local context, methods).
+interface Props {
+  tone?: 'ink' | 'ink2' | 'paper' | 'paper2';
+  title?: string;
+  intro?: string;
+  id?: string;
+  narrow?: boolean;
+}
+
+const { tone = 'paper', title, intro, id, narrow = false } = Astro.props;
+const toneClass = {
+  ink: 'chapter',
+  ink2: 'chapter chapter--ink2',
+  paper: 'chapter paper',
+  paper2: 'chapter paper paper--2',
+}[tone];
+---
+
+<section class={toneClass} id={id}>
+  <div class:list={['wrap', { narrow }]}>
+    {title && <h2>{title}</h2>}
+    {intro && <p class="chapter__intro">{intro}</p>}
+    <slot />
+  </div>
+</section>

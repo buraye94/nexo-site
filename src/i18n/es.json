@@ -1,99 +1,137 @@
 {
+  "skip": "Saltar al contenido",
   "nav": {
+    "label": "Principal",
     "services": "Servicios",
+    "cities": "Ciudades",
     "results": "Resultados",
-    "cases": "Casos de Éxito",
     "blog": "Blog",
-    "contact": "Contacto",
-    "cta": "Empezar"
+    "cta": "Agenda una llamada",
+    "menu": "Menú",
+    "close": "Cerrar menú",
+    "langSwitch": "EN",
+    "langSwitchLabel": "Ver esta página en inglés"
   },
-  "hero": {
-    "badge": "4.9 en satisfacción de clientes",
-    "title1": "Tráfico Orgánico.",
-    "title2": "Visibilidad en IA.",
-    "title3": "Ingresos Reales.",
+  "offer": {
+    "long": "Diagnóstico gratis de cómo te ven ChatGPT, Gemini y Google en tu categoría.",
+    "cta": "Pedir diagnóstico →",
+    "short": "Diagnóstico IA gratis →",
+    "close": "Cerrar aviso"
+  },
+  "call": {
+    "title": "La primera llamada: 30 minutos, sin compromiso.",
+    "whoTitle": "Quién te atiende.",
+    "whoText": "Un consultor senior de SEO y visibilidad en IA, el mismo que trabajaría tu cuenta. Atendemos marcas en Colombia y México.",
+    "photo": "foto real del equipo (pendiente)",
+    "covers": [
+      "Revisamos qué búsquedas ya podrían traerte clientes",
+      "Te mostramos el tablero real de un cliente",
+      "Te decimos qué haríamos primero, y qué dejaríamos para después",
+      "Un rango de alcance y precio, claro desde el inicio"
+    ]
+  },
+  "form": {
+    "step1": "Paso 1 de 2 · Tu sitio",
+    "step2": "Paso 2 de 2 · Qué buscas",
+    "website": "Sitio web",
+    "email": "Correo de trabajo",
+    "name": "Tu nombre",
+    "need": "Qué necesitas",
+    "needs": {
+      "leads": "Más leads",
+      "diagnostico": "Diagnóstico IA",
+      "auditoria": "Auditoría",
+      "otro": "Otro"
+    },
+    "message": "Mensaje (opcional)",
+    "next": "Siguiente",
+    "send": "Enviar",
+    "sending": "Enviando…",
+    "sendingNote": "No cierres la página, toma unos segundos.",
+    "back": "← Volver al paso 1",
+    "note": "Te responde un consultor senior en un día hábil.",
+    "trap": "No llenes este campo",
+    "errors": {
+      "websiteMissing": "Escribe la dirección de tu sitio.",
+      "websiteInvalid": "Revisa la dirección: le falta el dominio (por ejemplo, tumarca.com).",
+      "emailMissing": "Escribe tu correo de trabajo.",
+      "emailInvalid": "Revisa el correo: parece incompleto (por ejemplo, nombre@empresa.com).",
+      "nameMissing": "Escribe tu nombre.",
+      "needMissing": "Elige qué necesitas.",
+      "server": "No pudimos enviar tu mensaje. Tus datos siguen aquí: inténtalo de nuevo, o escríbenos directo a"
+    },
+    "doneTitle": "Listo, {name}.",
+    "doneText": "Te escribe un consultor senior desde hello@clicroot.com en un día hábil, con dos o tres horarios para la llamada.",
+    "doneDiag": "Si pediste el diagnóstico de IA, en ese correo te confirmamos la fecha de entrega."
+  },
+  "proof": {
+    "before": "Antes de empezar",
+    "after": "Hoy",
+    "unit": "leads/mes",
+    "months": "meses",
+    "illustrative": "cifras ilustrativas",
+    "homeTitle": "Leads desde búsqueda, antes y después.",
+    "homeSub": "Cada fila es un cliente real, con su industria y mercado. Leads por mes, de su propio GA4 y CRM.",
+    "homeSource": "Fuente: GA4 y CRM de cada cliente, leads atribuidos a búsqueda orgánica y respuestas de IA · nombres ocultos por confidencialidad",
+    "cardScoped": "Clientes de {label}: leads por mes",
+    "cardNeutral": "Clientes de Clicroot: leads por mes",
+    "cardSub": "Antes de empezar y hoy, en ventanas de 6 a 12 meses",
+    "cardSource": "Fuente: GA4 y CRM de cada cliente · nombres ocultos"
+  },
+  "landing": {
+    "home": "Inicio",
+    "crumbServices": "Servicios SEO",
+    "ctaSecondary": "Qué incluye",
+    "trust": [
+      "Respuesta en un día hábil",
+      "Sin permanencias forzadas"
+    ],
+    "incluyeTitle": "Lo que recibes, y cuándo.",
+    "faqTitle": "Preguntas frecuentes.",
+    "relatedTitle": "También te puede servir",
+    "pendingTiming": "tiempos por confirmar"
+  },
+  "home": {
+    "title": "Consultoría SEO y GEO en Colombia y México | Clicroot",
     "description": "Consultoría SEO y optimización para modelos de IA. Posiciona tu marca en Google, ChatGPT, Perplexity y Claude. Mercados en inglés y español.",
-    "cta1": "Agenda una Llamada",
-    "cta2": "Ver Resultados"
-  },
-  "metrics": {
-    "traffic": "Tráfico Orgánico",
-    "trafficTrend": "28% este mes",
-    "rankings": "Rankings Alcanzados",
-    "roi": "Retorno de Inversión",
-    "roiTrend": "Promedio anual",
-    "retention": "Retención de Clientes",
-    "telemetry": ["Optimizando visibilidad en IA...", "Indexando contenido estratégico...", "Analizando competencia SERP...", "Rastreando posiciones orgánicas..."]
-  },
-  "social": {
-    "label": "Empresas que confían en nosotros"
-  },
-  "services": {
-    "label": "Nuestros Servicios",
-    "title": "Estrategias SEO que generan resultados.",
-    "subtitle": "Sin tácticas dispersas. Solo 2–3 estrategias de alto impacto ejecutadas con precisión para crecimiento medible.",
-    "items": [
-      { "icon": "search", "title": "Auditorías SEO Técnicas", "desc": "Análisis profundo del sitio identificando correcciones críticas. Rastreabilidad, Core Web Vitals, datos estructurados e indexación." },
-      { "icon": "link", "title": "Link Building Estratégico", "desc": "Calidad sobre cantidad. Colocaciones de alta autoridad en sitios relevantes que construyen autoridad real y tráfico de referencia." },
-      { "icon": "pen", "title": "Estrategia de Contenido", "desc": "Landing pages de fondo de embudo y contenido que captura búsquedas de alta intención y convierte visitantes en clientes." },
-      { "icon": "globe", "title": "SEO Bilingüe", "desc": "Optimización nativa para mercados en inglés y español. Hreflang, keyword research localizado y estrategias por región." }
-    ]
-  },
-  "results": {
-    "label": "Resultados",
-    "title": "Números que hablan más que las palabras.",
-    "manifesto1": "La mayoría optimiza para el algoritmo de hoy.",
-    "manifesto2": "Nosotros optimizamos para el futuro.",
-    "stats": [
-      { "value": 284, "suffix": "%", "label": "Aumento Promedio de Tráfico" },
-      { "value": 12, "suffix": "x", "label": "ROI Promedio" },
-      { "value": 47, "suffix": "+", "label": "Keywords en Top 3" },
-      { "value": 98, "suffix": "%", "label": "Retención de Clientes" }
-    ]
-  },
-  "cases": {
-    "label": "Casos de Éxito",
-    "title": "Resultados reales para negocios reales."
-  },
-  "testimonials": {
-    "label": "Testimonios",
-    "title": "Lo que dicen nuestros clientes."
-  },
-  "process": {
-    "label": "Cómo Trabajamos",
-    "title": "De auditoría a crecimiento en cuatro pasos.",
-    "steps": [
-      { "num": "01", "title": "Descubrimiento", "desc": "Análisis profundo de tu negocio, competidores y oportunidades de mercado." },
-      { "num": "02", "title": "Estrategia", "desc": "Hoja de ruta personalizada con 2–3 estrategias de alto impacto." },
-      { "num": "03", "title": "Ejecución", "desc": "Implementación práctica con instrucciones detalladas y soporte continuo." },
-      { "num": "04", "title": "Crecimiento", "desc": "Reportes mensuales, optimización y escalar lo que funciona." }
-    ]
-  },
-  "blog": {
-    "label": "Del Blog",
-    "title": "Ideas y estrategias.",
-    "readMore": "Leer más"
-  },
-  "contact": {
-    "label": "Empezar",
-    "title": "¿Listo para dominar tu mercado?",
-    "subtitle": "Agenda una llamada estratégica gratuita de 30 minutos. Analizaremos tu SEO actual y te mostraremos exactamente dónde están las oportunidades.",
-    "name": "Nombre",
-    "email": "Email",
-    "website": "URL del Sitio Web",
-    "message": "Cuéntanos sobre tu negocio y objetivos SEO...",
-    "submit": "Enviar Mensaje"
+    "kicker": "Consultoría SEO y GEO · Colombia y México",
+    "h1Before": "SEO que trae ",
+    "h1Accent": "clientes",
+    "h1After": ", y te muestra cuántos.",
+    "lead": "Capturamos la demanda que ya existe para lo que vendes, en Google y en las respuestas de IA. Cada cliente ve sus leads, su visibilidad en IA y sus ingresos en un tablero en vivo.",
+    "cta2": "Ver resultados ↓",
+    "trust": [
+      "Un consultor senior en tu cuenta",
+      "Español e inglés",
+      "Cifras con fuente"
+    ],
+    "dashCaption": "Vista ilustrativa del tablero de un cliente · la captura real, con nombre y dominio ocultos, la reemplaza antes del lanzamiento",
+    "dashPending": "captura real del tablero pendiente",
+    "servicesTitle": "En qué te ayudamos.",
+    "processTitle": "Cómo trabajamos, con lo que vas a recibir.",
+    "artifactPending": "capturas reales de entregables pendientes",
+    "faqTitle": "Preguntas frecuentes."
   },
   "footer": {
-    "desc": "Consultoría SEO estratégica para negocios listos para dominar su mercado. Experiencia bilingüe.",
-    "navTitle": "Navegación",
-    "svcTitle": "Servicios",
-    "connectTitle": "Conectar",
-    "techSeo": "SEO Técnico",
-    "linkBuilding": "Link Building",
-    "contentStrategy": "Estrategia de Contenido",
-    "bilingualSeo": "SEO Bilingüe",
-    "copy": "© 2026 clicroot. Todos los derechos reservados.",
-    "status": "Sistema Operativo"
+    "desc": "Consultoría de SEO y visibilidad en IA para marcas en Colombia, México y Estados Unidos.",
+    "services": "Servicios",
+    "cities": "Ciudades",
+    "company": "Clicroot",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "copy": "© 2026 Clicroot"
+  },
+  "blog": {
+    "title": "Blog de SEO y visibilidad en IA | Clicroot",
+    "description": "Guías sobre SEO, GEO y visibilidad en ChatGPT, Gemini y Google para marcas en Colombia y México.",
+    "kicker": "Blog · SEO y visibilidad en IA",
+    "h1": "Ideas sobre SEO y visibilidad en IA.",
+    "lead": "Guías prácticas para captar la demanda que ya busca lo que vendes, en Google y en los asistentes de IA.",
+    "back": "← Blog",
+    "minRead": "min de lectura",
+    "closeTitle": "¿Quieres esto aplicado a tu sitio?",
+    "closeText": "En una llamada de 30 minutos revisamos qué búsquedas ya podrían traerte clientes.",
+    "closeCta": "Agenda una llamada",
+    "closeService": "Ver"
   }
 }

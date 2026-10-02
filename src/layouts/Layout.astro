@@ -1,13 +1,23 @@
 ---
+import OfferBar from '../components/OfferBar.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t } from '../i18n/utils';
+import { homePath, type Lang } from '../data/pages';
+
 interface Props {
   title: string;
   description: string;
-  lang: string;
+  lang: Lang;
   alternateUrl?: string;
   image?: string;
+  /** Extra JSON-LD nodes for this page (breadcrumb, service, article...). */
+  schema?: Record<string, unknown>[];
+  /** True when this page renders the contact form (#contacto). */
+  hasForm?: boolean;
 }
 
-const { title, description, lang, alternateUrl, image } = Astro.props;
+const { title, description, lang, alternateUrl, image, schema = [], hasForm = false } = Astro.props;
 const alternateLang = lang === 'en' ? 'es' : 'en';
 
 const site = Astro.site ?? new URL('https://clicroot.com');
@@ -16,25 +26,29 @@ const ogImage = new URL(image ?? '/og-default.png', site).href;
 const altAbsolute = alternateUrl ? new URL(alternateUrl, site).href : undefined;
 const xDefault = lang === 'es' ? canonical : (altAbsolute ?? canonical);
 const ogLocale = lang === 'es' ? 'es_CO' : 'en_US';
+const contactHref = hasForm ? '#contacto' : `${homePath(lang)}#contacto`;
 
 const orgSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://clicroot.com/#org",
-  "name": "Clicroot",
-  "url": "https://clicroot.com/",
-  "logo": new URL('/logo.svg', site).href,
-  "image": ogImage,
-  "description": description,
-  "email": "hello@clicroot.com",
-  "serviceType": ["SEO Consulting", "Generative Engine Optimization", "AI Visibility"],
-  "areaServed": ["CO", "MX", "US", "ES"],
-  "availableLanguage": ["Spanish", "English"]
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': 'https://clicroot.com/#org',
+  name: 'Clicroot',
+  url: 'https://clicroot.com/',
+  logo: new URL('/logo.svg', site).href,
+  image: ogImage,
+  description,
+  email: 'hello@clicroot.com',
+  serviceType: ['SEO Consulting', 'Generative Engine Optimization', 'AI Visibility'],
+  areaServed: ['CO', 'MX', 'US', 'ES'],
+  availableLanguage: ['Spanish', 'English'],
 };
+const pageSchema = schema.length
+  ? { '@context': 'https://schema.org', '@graph': schema }
+  : null;
 ---
 
 <!DOCTYPE html>
-<html lang={lang} data-theme="light">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,26 +56,20 @@ const orgSchema = {
     (function () {
       var d = document.documentElement;
       d.classList.add('js');
-      try {
-        var t = localStorage.getItem('theme');
-        if (t) d.setAttribute('data-theme', t);
-        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) d.setAttribute('data-theme', 'dark');
-      } catch (e) {}
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('motion');
+      try { if (sessionStorage.getItem('offer-closed') === '1') d.classList.add('offer-closed'); } catch (e) {}
     })();
   </script>
   <title>{title}</title>
   <meta name="description" content={description}>
-
-  <!-- Favicon -->
+  <meta name="theme-color" content="#16150F">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-  <!-- Canonical + hreflang -->
   <link rel="canonical" href={canonical}>
   <link rel="alternate" hreflang={lang} href={canonical} />
   {altAbsolute && <link rel="alternate" hreflang={alternateLang} href={altAbsolute} />}
   <link rel="alternate" hreflang="x-default" href={xDefault} />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Clicroot">
   <meta property="og:title" content={title}>
@@ -73,138 +81,121 @@ const orgSchema = {
   <meta property="og:image:alt" content={title}>
   <meta property="og:locale" content={ogLocale}>
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={ogImage}>
 
-  <!-- Fonts: Outfit, Plus Jakarta Sans, JetBrains Mono -->
+  <!-- Only the weights DESIGN.md uses (eng review R15). -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+  {pageSchema && <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />}
 </head>
-<body>
-  <slot />
+<body class="has-sticky">
+  <a class="skip" href="#main">{t(lang, 'skip')}</a>
+  <OfferBar lang={lang} hasForm={hasForm} />
+  <Nav lang={lang} alternateUrl={alternateUrl} contactHref={contactHref} />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer lang={lang} />
+  <div class="sticky-cta"><a class="btn btn--primary" href={contactHref}>{t(lang, 'nav.cta')}</a></div>
 
   <script>
-    // Theme toggle (initial theme + .js class are set inline in <head> to avoid FOUC)
-    const html = document.documentElement;
-    document.getElementById('themeToggle')?.addEventListener('click', () => {
-      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Offer bar: closed for the rest of the visit.
+    document.querySelector('[data-offer-close]')?.addEventListener('click', () => {
+      document.documentElement.classList.add('offer-closed');
+      try { sessionStorage.setItem('offer-closed', '1'); } catch (e) { /* private mode: bar just hides */ }
     });
 
-    // Scroll reveal
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-    // Counter animation
-    const cobs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const c = e.target as HTMLElement;
-          const target = parseInt(c.dataset.target || '0');
-          const start = performance.now();
-          function update(now: number) {
-            const p = Math.min((now - start) / 2000, 1);
-            c.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * target).toString();
-            if (p < 1) requestAnimationFrame(update);
-            else c.textContent = target.toString();
-          }
-          requestAnimationFrame(update);
-          cobs.unobserve(c);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.counter').forEach(c => cobs.observe(c));
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
-        if (href) {
-          const t = document.querySelector(href);
-          if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // Nav morph on scroll
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => nav?.classList.toggle('scrolled', window.scrollY > 40));
-
-    // Mobile menu
-    document.getElementById('hamburger')?.addEventListener('click', () => {
-      document.getElementById('mobileMenu')?.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-    (window as any).closeMobile = () => {
-      document.getElementById('mobileMenu')?.classList.remove('open');
-      document.body.style.overflow = '';
+    // Nav menus: click or Enter opens, Esc or an outside click closes.
+    const toggles = [...document.querySelectorAll<HTMLButtonElement>('[data-menu-toggle]')];
+    const closeAll = (except?: HTMLButtonElement) => {
+      for (const b of toggles) {
+        if (b === except) continue;
+        b.setAttribute('aria-expanded', 'false');
+        document.getElementById(b.getAttribute('aria-controls') || '')?.setAttribute('hidden', '');
+      }
     };
-    document.getElementById('mobileClose')?.addEventListener('click', (window as any).closeMobile);
-
-    // Telemetry typewriter
-    const telEl = document.getElementById('telemetryText');
-    if (telEl) {
-      const msgs = JSON.parse(telEl.dataset.messages || '[]');
-      let mi = 0, ci = 0, typing = true;
-      function tick() {
-        if (!msgs.length) return;
-        if (typing) {
-          telEl!.textContent = msgs[mi].slice(0, ci + 1);
-          ci++;
-          if (ci >= msgs[mi].length) { typing = false; setTimeout(tick, 2000); return; }
-          setTimeout(tick, 45);
-        } else {
-          telEl!.textContent = msgs[mi].slice(0, ci - 1);
-          ci--;
-          if (ci <= 0) { mi = (mi + 1) % msgs.length; typing = true; setTimeout(tick, 400); return; }
-          setTimeout(tick, 25);
-        }
-      }
-      tick();
+    for (const b of toggles) {
+      b.addEventListener('click', () => {
+        const open = b.getAttribute('aria-expanded') === 'true';
+        closeAll(b);
+        b.setAttribute('aria-expanded', String(!open));
+        const panel = document.getElementById(b.getAttribute('aria-controls') || '');
+        if (open) panel?.setAttribute('hidden', '');
+        else panel?.removeAttribute('hidden');
+      });
     }
-
-    // Form
-    document.getElementById('contactForm')?.addEventListener('submit', async e => {
-      e.preventDefault();
-      const btn = document.getElementById('formSubmit') as HTMLButtonElement;
-      const form = e.target as HTMLFormElement;
-      const data = Object.fromEntries(new FormData(form));
-      btn.disabled = true;
-      btn.textContent = '...';
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-        if (res.ok) {
-          btn.textContent = '✓';
-          btn.style.background = 'var(--accent)';
-          btn.style.color = 'white';
-          form.reset();
-        } else {
-          btn.textContent = 'Error';
-          btn.style.background = '#c33';
-          btn.style.color = 'white';
-        }
-      } catch(err) {
-        btn.textContent = 'Error';
-        btn.style.background = '#c33';
-        btn.style.color = 'white';
-      }
-      setTimeout(() => { btn.textContent = btn.dataset.label || 'Send'; btn.style.background = ''; btn.style.color = ''; btn.disabled = false; }, 3000);
+    document.addEventListener('click', (e) => {
+      if (!(e.target as HTMLElement).closest('[data-menu]')) closeAll();
     });
+
+    // Phone sheet.
+    const sheet = document.getElementById('nav-sheet');
+    const menuBtn = document.querySelector<HTMLButtonElement>('[data-sheet-open]');
+    const openSheet = () => {
+      sheet?.removeAttribute('hidden');
+      menuBtn?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      sheet?.querySelector<HTMLElement>('[data-sheet-close]')?.focus();
+    };
+    const closeSheet = () => {
+      if (!sheet || sheet.hasAttribute('hidden')) return;
+      sheet.setAttribute('hidden', '');
+      menuBtn?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      menuBtn?.focus();
+    };
+    menuBtn?.addEventListener('click', openSheet);
+    sheet?.querySelector('[data-sheet-close]')?.addEventListener('click', closeSheet);
+    sheet?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeSheet));
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      const openToggle = toggles.find((b) => b.getAttribute('aria-expanded') === 'true');
+      closeAll();
+      openToggle?.focus();
+      closeSheet();
+    });
+
+    // In-page anchors: smooth only when motion is welcome.
+    document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href')!.slice(1);
+        const target = id ? document.getElementById(id) : null;
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        history.replaceState(null, '', `#${id}`);
+      });
+    });
+
+    // The one authored motion moment: proof bars draw once (design D14).
+    const proofs = document.querySelectorAll<HTMLElement>('[data-proof-draw]');
+    if (!reduceMotion && 'IntersectionObserver' in window && proofs.length) {
+      const io = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const el = entry.target as HTMLElement;
+          requestAnimationFrame(() => {
+            el.classList.remove('is-pending-draw');
+            el.classList.add('is-drawn');
+          });
+          io.unobserve(el);
+        }
+      }, { threshold: 0.35 });
+      proofs.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) return; // already visible: stay drawn
+        el.classList.add('is-pending-draw');
+        io.observe(el);
+      });
+    }
   </script>
 </body>
 </html>

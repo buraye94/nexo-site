@@ -1,0 +1,120 @@
+---
+// Homepage spine (design D5): hero + dashboard, before/after band, services,
+// how we work, first call, FAQ. index.astro and en/index.astro render this.
+import Layout from '../layouts/Layout.astro';
+import Proof from './Proof.astro';
+import NumberedRows, { type RowItem } from './NumberedRows.astro';
+import FirstCall from './FirstCall.astro';
+import Faq from './Faq.astro';
+import { t } from '../i18n/utils';
+import { getPage, type Lang } from '../data/pages';
+import { selectProof } from '../lib/proof';
+import { loadProof } from '../lib/proof-data';
+
+interface Props {
+  lang: Lang;
+  faqs: { q: string; a: string }[];
+}
+
+const { lang, faqs } = Astro.props;
+const h = (key: string) => t(lang, `home.${key}`);
+const p = (key: string) => t(lang, `proof.${key}`);
+const proof = selectProof(await loadProof(lang));
+
+const copy = {
+  es: {
+    services: [
+      { id: 'consultoria', text: 'Priorizamos las búsquedas que ya traen clientes en tu categoría y las trabajamos hasta que conviertan.', link: 'Ver consultoría SEO →' },
+      { id: 'geo', text: 'Que ChatGPT, Gemini y los AI Overviews te nombren cuando alguien pregunta por lo que vendes.', link: 'Ver visibilidad en IA →' },
+      { id: 'auditoria', text: 'Qué frena hoy a tu sitio y qué arreglar primero, en orden de impacto en leads.', link: 'Ver auditoría SEO →' },
+    ],
+    steps: [
+      { title: 'Diagnóstico', text: 'Demanda de tu categoría y lo que hoy frena al sitio. Semana 2.', shot: 'captura real · auditoría priorizada' },
+      { title: 'Estrategia', text: 'Dos o tres frentes, con impacto estimado y orden. Semana 3.', shot: 'captura real · hoja de ruta' },
+      { title: 'Ejecución', text: 'Páginas y cambios en vivo que la IA puede citar. Cada mes.', shot: 'captura real · brief de contenido' },
+      { title: 'Medición', text: 'Leads, visibilidad en IA y búsquedas de marca. Cada semana.', shot: 'captura real · reporte mensual' },
+    ],
+    dash: { leads: 'Leads orgánicos', leadsDelta: '+58% vs. trimestre anterior', ai: 'Visibilidad en IA', aiDelta: '+21 pts en 90 días', brand: 'Búsquedas de marca', brandDelta: 'señal de demanda', queries: 'Consultas que convierten', leadsWord: 'leads' },
+  },
+  en: {
+    services: [
+      { id: 'consultoria', text: 'We prioritize the searches that already bring customers in your category and work them until they convert.', link: 'See SEO consulting →' },
+      { id: 'geo', text: 'Get ChatGPT, Gemini and AI Overviews to name you when someone asks for what you sell.', link: 'See AI visibility →' },
+      { id: 'auditoria', text: 'What is holding your site back today and what to fix first, in order of impact on leads.', link: 'See SEO audit →' },
+    ],
+    steps: [
+      { title: 'Diagnosis', text: 'Demand in your category and what holds the site back today. Week 2.', shot: 'real screenshot · prioritized audit' },
+      { title: 'Strategy', text: 'Two or three fronts, with estimated impact and order. Week 3.', shot: 'real screenshot · roadmap' },
+      { title: 'Execution', text: 'Live pages and changes that AI can cite. Every month.', shot: 'real screenshot · content brief' },
+      { title: 'Measurement', text: 'Leads, AI visibility and branded searches. Every week.', shot: 'real screenshot · monthly report' },
+    ],
+    dash: { leads: 'Organic leads', leadsDelta: '+58% vs. last quarter', ai: 'AI visibility', aiDelta: '+21 pts in 90 days', brand: 'Branded searches', brandDelta: 'demand signal', queries: 'Queries that convert', leadsWord: 'leads' },
+  },
+}[lang];
+
+const services: RowItem[] = copy.services.map((s) => {
+  const page = getPage(s.id);
+  return { title: page[lang].label, text: s.text, href: page[lang].path, linkLabel: s.link };
+});
+const steps: RowItem[] = copy.steps;
+const queries = lang === 'es'
+  ? [['agencia seo bogotá', 27], ['consultoría seo méxico', 19], ['cómo aparecer en chatgpt', 11]]
+  : [['seo agency bogotá', 27], ['seo consulting mexico', 19], ['how to appear in chatgpt', 11]];
+---
+
+<Layout title={h('title')} description={h('description')} lang={lang} alternateUrl={lang === 'es' ? '/en/' : '/'} hasForm>
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="mono kicker">{h('kicker')}</p>
+        <h1>{h('h1Before')}<em>{h('h1Accent')}</em>{h('h1After')}</h1>
+        <p class="lead">{h('lead')}</p>
+        <div class="ctas">
+          <a class="btn btn--primary" href="#contacto">{t(lang, 'nav.cta')}</a>
+          <a class="btn btn--ghost" href="#resultados">{h('cta2')}</a>
+        </div>
+        <ul class="trust">{(h('trust') as string[]).map((x) => <li>{x}</li>)}</ul>
+      </div>
+      <!-- Placeholder until the real masked dashboard screenshot lands (design D2/D4, task T9). -->
+      <figure data-gate="pending" data-gate-reason="captura real del tablero de un cliente para el hero (T9)">
+        <div class="frame">
+          <div class="frame__bar" aria-hidden="true"><span class="frame__dot"></span><span class="frame__dot"></span><span class="frame__dot"></span><span class="frame__url">resultados.clicroot.com/<b>cliente</b></span></div>
+          <div class="dash num">
+            <div class="kpi"><div class="kpi__k">{copy.dash.leads}</div><div class="kpi__v">412</div><div class="kpi__d">{copy.dash.leadsDelta}</div></div>
+            <div class="kpi"><div class="kpi__k">{copy.dash.ai}</div><div class="kpi__v">38%</div><div class="kpi__d">{copy.dash.aiDelta}</div></div>
+            <div class="kpi"><div class="kpi__k">{copy.dash.brand}</div><div class="kpi__v">+34%</div><div class="kpi__d">{copy.dash.brandDelta}</div></div>
+            <div class="dash__wide">
+              <div class="kpi__k" style="margin-bottom:6px">{copy.dash.queries}</div>
+              {queries.map(([q, n]) => <div class="dash__row"><span>{q}</span><span>{n} {copy.dash.leadsWord}</span></div>)}
+            </div>
+          </div>
+        </div>
+        <figcaption class="figcap">{h('dashCaption')} <span class="pending-tag">{h('dashPending')}</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="chapter chapter--ink2" id="resultados">
+    <div class="wrap">
+      <Proof lang={lang} selection={proof} variant="band" title={p('homeTitle')} subtitle={p('homeSub')} source={p('homeSource')} id="resultados-band" />
+    </div>
+  </section>
+
+  <section class="chapter paper" aria-labelledby="servicios-title">
+    <div class="wrap">
+      <h2 id="servicios-title">{h('servicesTitle')}</h2>
+      <NumberedRows items={services} cols={3} />
+    </div>
+  </section>
+
+  <section class="chapter" aria-labelledby="como-title">
+    <div class="wrap">
+      <h2 id="como-title">{h('processTitle')}</h2>
+      <NumberedRows items={steps} cols={4} />
+    </div>
+  </section>
+
+  <FirstCall lang={lang} />
+
+  <Faq title={h('faqTitle')} faqs={faqs} />
+</Layout>
