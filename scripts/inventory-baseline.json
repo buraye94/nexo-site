@@ -1,0 +1,1348 @@
+{
+  "/agencia-seo-bogota/": {
+    "title": "Agencia SEO en Bogotá: posicionamiento y GEO | Clicroot",
+    "description": "Agencia SEO en Bogotá con consultores senior, no junior. Posicionamiento web en Google y visibilidad en IA (GEO) para empresas en Bogotá. Agenda una llamada.",
+    "canonical": "https://clicroot.com/agencia-seo-bogota/",
+    "hreflang": {
+      "es": "https://clicroot.com/agencia-seo-bogota/",
+      "en": "https://clicroot.com/en/seo-agency-bogota/",
+      "x-default": "https://clicroot.com/agencia-seo-bogota/"
+    },
+    "h2": [
+      "El SEO en Bogotá compite distinto.",
+      "Una estrategia completa, de la técnica a la IA.",
+      "Consultores senior, no una caja negra.",
+      "Lo que más nos preguntan en Bogotá.",
+      "SEO en otras plazas y a fondo.",
+      "¿Hablamos de tu proyecto en Bogotá?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/agencia-seo-guadalajara/": {
+    "title": "Agencia SEO en Guadalajara + GEO | Clicroot",
+    "description": "Agencia SEO en Guadalajara con consultores senior. Posicionamiento web local y visibilidad en IA (GEO) para empresas de la Zona Metropolitana. Agenda una llamada.",
+    "canonical": "https://clicroot.com/agencia-seo-guadalajara/",
+    "hreflang": {
+      "es": "https://clicroot.com/agencia-seo-guadalajara/",
+      "en": "https://clicroot.com/en/seo-agency-guadalajara/",
+      "x-default": "https://clicroot.com/agencia-seo-guadalajara/"
+    },
+    "h2": [
+      "¿Qué hace una agencia SEO en Guadalajara?",
+      "SEO y GEO para el mercado tapatío.",
+      "La ciudad tech merece SEO con criterio.",
+      "Lo que más nos preguntan en Guadalajara.",
+      "Más allá de Guadalajara.",
+      "¿Hablamos de tu proyecto?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/agencia-seo-medellin/": {
+    "title": "Agencia SEO en Medellín: posicionamiento y GEO | Clicroot",
+    "description": "Agencia SEO en Medellín con consultores senior, no junior. Posicionamiento web en Google y visibilidad en IA (GEO) para empresas, startups y exportadores. Agenda una llamada.",
+    "canonical": "https://clicroot.com/agencia-seo-medellin/",
+    "hreflang": {
+      "es": "https://clicroot.com/agencia-seo-medellin/",
+      "en": "https://clicroot.com/en/seo-agency-medellin/",
+      "x-default": "https://clicroot.com/agencia-seo-medellin/"
+    },
+    "h2": [
+      "El mercado de Medellín tiene su propia lógica.",
+      "Una estrategia completa, de la técnica a la IA.",
+      "Consultores senior, no una caja negra.",
+      "Lo que más nos preguntan en Medellín.",
+      "SEO en otras plazas y a fondo.",
+      "¿Hablamos de tu proyecto en Medellín?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/agencia-seo-mexico/": {
+    "title": "Agencia SEO en México + GEO | Clicroot",
+    "description": "Agencia SEO en México con consultores senior. Posicionamiento en Google y visibilidad en IA (GEO) para empresas en CDMX, Monterrey y Guadalajara. Agenda una llamada.",
+    "canonical": "https://clicroot.com/agencia-seo-mexico/",
+    "hreflang": {
+      "es": "https://clicroot.com/agencia-seo-mexico/",
+      "en": "https://clicroot.com/en/seo-agency-mexico/",
+      "x-default": "https://clicroot.com/agencia-seo-mexico/"
+    },
+    "h2": [
+      "¿Qué es una agencia SEO en México?",
+      "SEO y GEO, de la técnica a la IA.",
+      "Consultores senior, no un ejecutivo de cuenta.",
+      "Lo que más nos preguntan en México.",
+      "En todo el país.",
+      "¿Hablamos de tu proyecto?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/agencia-seo-monterrey/": {
+    "title": "Agencia SEO en Monterrey + GEO | Clicroot",
+    "description": "Agencia SEO en Monterrey con consultores senior. Posicionamiento web local, Google Maps y visibilidad en IA (GEO) para empresas del área metropolitana. Agenda una llamada.",
+    "canonical": "https://clicroot.com/agencia-seo-monterrey/",
+    "hreflang": {
+      "es": "https://clicroot.com/agencia-seo-monterrey/",
+      "en": "https://clicroot.com/en/seo-agency-monterrey/",
+      "x-default": "https://clicroot.com/agencia-seo-monterrey/"
+    },
+    "h2": [
+      "¿Qué hace una agencia SEO en Monterrey?",
+      "SEO y GEO para el mercado regio.",
+      "El terreno regio sigue abierto.",
+      "Lo que más nos preguntan en Monterrey.",
+      "Más allá de Monterrey.",
+      "¿Hablamos de tu proyecto?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/auditoria-seo/": {
+    "title": "Auditoría SEO: qué revisamos | Clicroot",
+    "description": "Auditoría SEO (y GEO) de tu sitio: técnico, contenido, enlaces, local, acceso de bots de IA y medición. Diagnóstico priorizado para Colombia y México. Solicítala.",
+    "canonical": "https://clicroot.com/auditoria-seo/",
+    "hreflang": {
+      "es": "https://clicroot.com/auditoria-seo/",
+      "en": "https://clicroot.com/en/seo-audit/",
+      "x-default": "https://clicroot.com/auditoria-seo/"
+    },
+    "h2": [
+      "¿Qué es una auditoría SEO?",
+      "Una auditoría transparente, frente por frente.",
+      "Un diagnóstico priorizado, no una lista de errores.",
+      "La revisa un consultor senior, no una herramienta.",
+      "Lo que más nos preguntan.",
+      "Solicita tu auditoría SEO."
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/consultoria-seo/": {
+    "title": "Consultoría SEO en Colombia y México | Clicroot",
+    "description": "Consultoría SEO con consultores senior, no junior. Posicionamiento en Google y visibilidad en IA (GEO) para empresas en Colombia y México. Agenda una llamada.",
+    "canonical": "https://clicroot.com/consultoria-seo/",
+    "hreflang": {
+      "es": "https://clicroot.com/consultoria-seo/",
+      "en": "https://clicroot.com/en/seo-consulting/",
+      "x-default": "https://clicroot.com/consultoria-seo/"
+    },
+    "h2": [
+      "¿Qué es una consultoría SEO?",
+      "Una consultoría completa, de la técnica a la IA.",
+      "Consultores senior, no una caja negra.",
+      "Lo que más nos preguntan.",
+      "¿Hablamos de tu proyecto?"
+    ],
+    "faqCount": 5,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/en/blog/ai-powered-seo/": {
+    "title": "AI-Powered SEO: What It Really Means | clicroot",
+    "description": "AI speeds up the work of SEO. It does not replace strategy. What automates well, what still needs human judgment, and where consulting fits in.",
+    "canonical": "https://clicroot.com/en/blog/ai-powered-seo/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/ai-powered-seo/",
+      "es": "https://clicroot.com/es/blog/seo-con-inteligencia-artificial/",
+      "x-default": "https://clicroot.com/es/blog/seo-con-inteligencia-artificial/"
+    },
+    "h2": [
+      "What AI does well in SEO",
+      "What it does not replace, and will not anytime soon",
+      "Where AI is genuinely the field: GEO",
+      "How we work it"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/bottom-funnel-content/": {
+    "title": "Why Bottom-of-Funnel Content Beats Blog Posts for ROI | clicroot",
+    "description": "Most businesses start with blog content. Here's why that's backwards, and what to do instead.",
+    "canonical": "https://clicroot.com/en/blog/bottom-funnel-content/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/bottom-funnel-content/",
+      "es": "https://clicroot.com/es/blog/contenido-fondo-embudo/",
+      "x-default": "https://clicroot.com/es/blog/contenido-fondo-embudo/"
+    },
+    "h2": [
+      "The Bottom-of-Funnel Advantage",
+      "What This Looks Like in Practice",
+      "The Strategy"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/content-marketing-seo/": {
+    "title": "Content Marketing for SEO: Content That Ranks and That AI Cites | clicroot",
+    "description": "Content no longer competes only for the top of Google. It competes to be the source that ChatGPT, Perplexity, and AI summaries cite.",
+    "canonical": "https://clicroot.com/en/blog/content-marketing-seo/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/content-marketing-seo/",
+      "es": "https://clicroot.com/es/blog/marketing-de-contenidos-seo/",
+      "x-default": "https://clicroot.com/es/blog/marketing-de-contenidos-seo/"
+    },
+    "h2": [
+      "What kind of content ranks today?",
+      "What is this “content that AI cites” thing?",
+      "Is writing for SEO the same as writing for AI?",
+      "Where do I start with my content?"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/google-ai-overviews/": {
+    "title": "What Are Google AI Overviews and How to Appear in Them | clicroot",
+    "description": "The generated answer box that sits above the regular results. What it is, where it pulls information from, and how to get your site cited inside it.",
+    "canonical": "https://clicroot.com/en/blog/google-ai-overviews/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/google-ai-overviews/",
+      "es": "https://clicroot.com/es/blog/ai-overviews-google/",
+      "x-default": "https://clicroot.com/es/blog/ai-overviews-google/"
+    },
+    "h2": [
+      "What exactly is an AI Overview",
+      "Where Google pulls the information from",
+      "How to get your site to appear in an AI Overview",
+      "What you do not control, and why that is fine"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/how-to-appear-in-chatgpt/": {
+    "title": "How to Appear in ChatGPT (and Why It Matters for Your Business) | clicroot",
+    "description": "ChatGPT no longer just chats: it recommends brands, products, and providers. This is the practical guide to getting your business into its answers.",
+    "canonical": "https://clicroot.com/en/blog/how-to-appear-in-chatgpt/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/how-to-appear-in-chatgpt/",
+      "es": "https://clicroot.com/es/blog/como-aparecer-en-chatgpt/",
+      "x-default": "https://clicroot.com/es/blog/como-aparecer-en-chatgpt/"
+    },
+    "h2": [
+      "How Does ChatGPT Decide Which Brands to Mention?",
+      "Let the AI Crawlers Into Your Site",
+      "Write So the Answer Is Easy to Extract",
+      "Build Mentions Where the Model Will Read Them",
+      "Structured Data: Help the Model Understand You",
+      "Does This Replace Traditional SEO?"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/how-to-rank-website/": {
+    "title": "How to Rank a Website on Google (Step by Step) | clicroot",
+    "description": "A clear path to climbing in Google: what to check first, what content to create, and how to tell if it is working.",
+    "canonical": "https://clicroot.com/en/blog/how-to-rank-website/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/how-to-rank-website/",
+      "es": "https://clicroot.com/es/blog/como-posicionar-pagina-web/",
+      "x-default": "https://clicroot.com/es/blog/como-posicionar-pagina-web/"
+    },
+    "h2": [
+      "Where do I start if I have never done SEO?",
+      "What makes a page climb in the rankings?",
+      "How much content do I need, and what kind?",
+      "How do I know if it is working?",
+      "The most common mistake"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/link-building-2026/": {
+    "title": "The 2026 Link Building Playbook: Quality Over Quantity | clicroot",
+    "description": "Fewer links, higher authority. How we build link profiles that actually move the needle.",
+    "canonical": "https://clicroot.com/en/blog/link-building-2026/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/link-building-2026/",
+      "es": "https://clicroot.com/es/blog/link-building-2026/",
+      "x-default": "https://clicroot.com/es/blog/link-building-2026/"
+    },
+    "h2": [
+      "What Works Now",
+      "Our Approach",
+      "The Numbers"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/optimize-for-perplexity-gemini/": {
+    "title": "How to Optimize Your Brand for Perplexity and Gemini | clicroot",
+    "description": "ChatGPT is not the only engine recommending brands. Perplexity cites live and Gemini powers Google's summaries. Here is what each one rewards.",
+    "canonical": "https://clicroot.com/en/blog/optimize-for-perplexity-gemini/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/optimize-for-perplexity-gemini/",
+      "es": "https://clicroot.com/es/blog/optimizar-para-perplexity-gemini/",
+      "x-default": "https://clicroot.com/es/blog/optimizar-para-perplexity-gemini/"
+    },
+    "h2": [
+      "Why Is Perplexity Different?",
+      "And Gemini? Where Does It Show Up?",
+      "What Do the Two Have in Common?",
+      "Where Should You Focus on Each One?",
+      "Structured Data Helps With Both",
+      "The Full Picture"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/seo-and-ai/": {
+    "title": "SEO and AI: How Artificial Intelligence Is Changing Search | clicroot",
+    "description": "AI changed how people search and how Google answers. Here is what still works in SEO, what changed, and what GEO adds on top.",
+    "canonical": "https://clicroot.com/en/blog/seo-and-ai/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/seo-and-ai/",
+      "es": "https://clicroot.com/es/blog/seo-e-inteligencia-artificial/",
+      "x-default": "https://clicroot.com/es/blog/seo-e-inteligencia-artificial/"
+    },
+    "h2": [
+      "What Actually Changed in Google’s Results?",
+      "Did Traditional SEO Stop Working?",
+      "What Did Change: From Ranking to Being Cited",
+      "How Do You Write So AI Understands You?",
+      "So What Does GEO Add?",
+      "Where Should You Start?"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/seo-latin-america/": {
+    "title": "SEO for Latin America: What Most Agencies Get Wrong | clicroot",
+    "description": "Colombia isn't Spain. Mexico isn't Argentina. Regional keyword strategies matter more than you think.",
+    "canonical": "https://clicroot.com/en/blog/seo-latin-america/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/seo-latin-america/",
+      "es": "https://clicroot.com/es/blog/seo-latinoamerica/",
+      "x-default": "https://clicroot.com/es/blog/seo-latinoamerica/"
+    },
+    "h2": [
+      "Regional Differences Matter",
+      "Common Mistakes",
+      "The Right Approach"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/seo-strategy/": {
+    "title": "How to Build an SEO Strategy That Actually Works | clicroot",
+    "description": "An SEO strategy is not a list of keywords. It is deciding who you want to attract, which pages get you there, and in what order you go after them.",
+    "canonical": "https://clicroot.com/en/blog/seo-strategy/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/seo-strategy/",
+      "es": "https://clicroot.com/es/blog/estrategia-seo/",
+      "x-default": "https://clicroot.com/es/blog/estrategia-seo/"
+    },
+    "h2": [
+      "What makes an SEO strategy good or bad?",
+      "Where does a strategy begin?",
+      "How long does it take to see results?",
+      "How do you keep a strategy alive over time?",
+      "What almost nobody does well"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/technical-seo-guide/": {
+    "title": "Technical SEO: A Practical Guide So Google and AI Understand Your Site | clicroot",
+    "description": "A practical technical SEO guide: crawling, indexing, Core Web Vitals, structured data, and AI bot access so your site is understood and cited.",
+    "canonical": "https://clicroot.com/en/blog/technical-seo-guide/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/technical-seo-guide/",
+      "es": "https://clicroot.com/es/blog/seo-tecnico-guia/",
+      "x-default": "https://clicroot.com/es/blog/seo-tecnico-guia/"
+    },
+    "h2": [
+      "Crawling: letting bots reach your content",
+      "Indexing: getting your pages into Google’s index",
+      "Core Web Vitals: making your site load fast and well",
+      "Structured data: making content readable without ambiguity",
+      "AI bot access: letting models read you",
+      "Where to start"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/what-is-link-building/": {
+    "title": "What Is Link Building and How to Do It Right | clicroot",
+    "description": "What link building is, why links still matter in SEO, and how to build authority with white-hat methods that Google does not penalize.",
+    "canonical": "https://clicroot.com/en/blog/what-is-link-building/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/what-is-link-building/",
+      "es": "https://clicroot.com/es/blog/que-es-link-building/",
+      "x-default": "https://clicroot.com/es/blog/que-es-link-building/"
+    },
+    "h2": [
+      "Why do links still matter?",
+      "What makes a link good?",
+      "What is white-hat link building?",
+      "What should you avoid to stay out of penalties?",
+      "What does a healthy strategy look like?"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/what-is-local-seo/": {
+    "title": "What Is Local SEO and How to Show Up in Google Maps | clicroot",
+    "description": "How local SEO works, what the local pack is, and what to do so your business appears in Google Maps when someone searches near you.",
+    "canonical": "https://clicroot.com/en/blog/what-is-local-seo/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/what-is-local-seo/",
+      "es": "https://clicroot.com/es/blog/que-es-seo-local/",
+      "x-default": "https://clicroot.com/es/blog/que-es-seo-local/"
+    },
+    "h2": [
+      "What is the local pack and why does it matter so much?",
+      "What does Google look at to rank a local business?",
+      "What is Google Business Profile and how do you optimize it?",
+      "What is NAP and why is consistency everything?",
+      "How do reviews affect things and what should you do about them?",
+      "Where to start"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/blog/what-is-seo/": {
+    "title": "What Is SEO: A Clear Guide for 2026 | clicroot",
+    "description": "What SEO is in marketing, how it differs from SEM, and how it works now that part of search traffic flows through AI answers. A plain-language explanation.",
+    "canonical": "https://clicroot.com/en/blog/what-is-seo/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/blog/what-is-seo/",
+      "es": "https://clicroot.com/es/blog/que-es-seo/",
+      "x-default": "https://clicroot.com/es/blog/que-es-seo/"
+    },
+    "h2": [
+      "What SEO is in marketing",
+      "What SEO and SEM are, and how they differ",
+      "How SEO works, in parts",
+      "What changed for 2026",
+      "Where to start"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/en/geo-generative-engine-optimization/": {
+    "title": "What Is GEO: A Guide to AI Visibility (2026) | Clicroot",
+    "description": "GEO (generative engine optimization) is optimizing your brand so ChatGPT, Perplexity, Gemini, and Google AI Overviews cite and recommend it. What it is, how it works, and how to appear in AI answers.",
+    "canonical": "https://clicroot.com/en/geo-generative-engine-optimization/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/geo-generative-engine-optimization/",
+      "es": "https://clicroot.com/geo-posicionamiento-en-ia/",
+      "x-default": "https://clicroot.com/geo-posicionamiento-en-ia/"
+    },
+    "h2": [
+      "What is GEO?",
+      "How is GEO different from SEO?",
+      "How do AI answer engines work?",
+      "How do I get cited in ChatGPT, Perplexity, and Gemini?",
+      "What are Google AI Overviews?",
+      "How is AI visibility measured?",
+      "The origin of GEO and why it matters.",
+      "A consultancy that practices the GEO it sells.",
+      "What we get asked most about GEO.",
+      "Want AI to recommend your brand?"
+    ],
+    "faqCount": 7,
+    "schemaTypes": [
+      "Article",
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService"
+    ]
+  },
+  "/en/": {
+    "title": "SEO and GEO Consulting in Colombia and Mexico | Clicroot",
+    "description": "Strategic SEO consulting and AI model optimization. Position your brand on Google, ChatGPT, Perplexity, and Claude. English and Spanish markets.",
+    "canonical": "https://clicroot.com/en/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/",
+      "es": "https://clicroot.com/",
+      "x-default": "https://clicroot.com/"
+    },
+    "h2": [
+      "SEO strategies that drive results.",
+      "Real results for real businesses.",
+      "A consultancy, not a black box.",
+      "From audit to growth in four steps.",
+      "What our clients say.",
+      "What clients ask us most.",
+      "Ideas and strategies.",
+      "Ready to dominate your market?"
+    ],
+    "faqCount": 5,
+    "schemaTypes": [
+      "FAQPage",
+      "ProfessionalService"
+    ]
+  },
+  "/en/link-building/": {
+    "title": "Ethical Link Building Services | Clicroot",
+    "description": "Ethical link building that builds real domain authority, with no PBNs and no shortcuts that get you penalized. Editorial backlinks and brand mentions for the US, Colombia, and Mexico. Book a call.",
+    "canonical": "https://clicroot.com/en/link-building/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/link-building/",
+      "es": "https://clicroot.com/link-building/",
+      "x-default": "https://clicroot.com/link-building/"
+    },
+    "h2": [
+      "What is link building?",
+      "Links earned, not bought.",
+      "The cheap shortcut is the expensive one.",
+      "What people ask us most.",
+      "Link building does not work alone.",
+      "Ready to build your authority?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/en/local-seo/": {
+    "title": "Local SEO Services | Clicroot",
+    "description": "Local SEO to show up in Google Maps, the local pack and nearby AI answers. Google Business Profile, reviews and per-city ranking across the US, Colombia and Mexico. Book a call.",
+    "canonical": "https://clicroot.com/en/local-seo/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/local-seo/",
+      "es": "https://clicroot.com/seo-local/",
+      "x-default": "https://clicroot.com/seo-local/"
+    },
+    "h2": [
+      "What is local SEO?",
+      "From Google’s map to the AI map.",
+      "\"Near me\" no longer lives only in Maps.",
+      "What we get asked the most.",
+      "Looking for ranking in a specific city?",
+      "Ready to get on the map?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/en/seo-agency-bogota/": {
+    "title": "SEO Agency in Bogotá: search and AI visibility | Clicroot",
+    "description": "SEO agency in Bogotá with senior consultants, not juniors. Search positioning on Google and AI visibility (GEO) for companies in Bogotá. Book a call.",
+    "canonical": "https://clicroot.com/en/seo-agency-bogota/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/seo-agency-bogota/",
+      "es": "https://clicroot.com/agencia-seo-bogota/",
+      "x-default": "https://clicroot.com/agencia-seo-bogota/"
+    },
+    "h2": [
+      "SEO in Bogotá competes differently.",
+      "A complete strategy, from the technical to AI.",
+      "Senior consultants, not a black box.",
+      "What we get asked most in Bogotá.",
+      "SEO in other markets and in depth.",
+      "Want to talk about your project in Bogotá?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/en/seo-agency-guadalajara/": {
+    "title": "SEO Agency in Guadalajara + GEO | Clicroot",
+    "description": "SEO agency in Guadalajara with senior consultants. Local SEO and AI visibility (GEO) for companies across the metro area. Book a call.",
+    "canonical": "https://clicroot.com/en/seo-agency-guadalajara/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/seo-agency-guadalajara/",
+      "es": "https://clicroot.com/agencia-seo-guadalajara/",
+      "x-default": "https://clicroot.com/agencia-seo-guadalajara/"
+    },
+    "h2": [
+      "What does an SEO agency in Guadalajara do?",
+      "SEO and GEO for the Guadalajara market.",
+      "A tech city deserves SEO with judgment.",
+      "What buyers in Guadalajara ask us most.",
+      "Beyond Guadalajara.",
+      "Shall we talk about your project?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/en/seo-agency-medellin/": {
+    "title": "SEO Agency in Medellín: search and AI visibility | Clicroot",
+    "description": "SEO agency in Medellín with senior consultants, not juniors. Search positioning on Google and AI visibility (GEO) for companies, startups and exporters. Book a call.",
+    "canonical": "https://clicroot.com/en/seo-agency-medellin/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/seo-agency-medellin/",
+      "es": "https://clicroot.com/agencia-seo-medellin/",
+      "x-default": "https://clicroot.com/agencia-seo-medellin/"
+    },
+    "h2": [
+      "The Medellín market has its own logic.",
+      "A complete strategy, from the technical to AI.",
+      "Senior consultants, not a black box.",
+      "What we get asked most in Medellín.",
+      "SEO in other markets and in depth.",
+      "Want to talk about your project in Medellín?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/en/seo-agency-mexico/": {
+    "title": "SEO Agency in Mexico + GEO | Clicroot",
+    "description": "SEO agency in Mexico with senior consultants. Google rankings and AI visibility (GEO) for companies in Mexico City, Monterrey and Guadalajara. Book a call.",
+    "canonical": "https://clicroot.com/en/seo-agency-mexico/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/seo-agency-mexico/",
+      "es": "https://clicroot.com/agencia-seo-mexico/",
+      "x-default": "https://clicroot.com/agencia-seo-mexico/"
+    },
+    "h2": [
+      "What is an SEO agency in Mexico?",
+      "SEO and GEO, from the technical layer to AI.",
+      "Senior consultants, not an account executive.",
+      "What buyers in Mexico ask us most.",
+      "Across the whole country.",
+      "Shall we talk about your project?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/en/seo-agency-monterrey/": {
+    "title": "SEO Agency in Monterrey + GEO | Clicroot",
+    "description": "SEO agency in Monterrey with senior consultants. Local SEO, Google Maps and AI visibility (GEO) for companies across the metro area. Book a call.",
+    "canonical": "https://clicroot.com/en/seo-agency-monterrey/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/seo-agency-monterrey/",
+      "es": "https://clicroot.com/agencia-seo-monterrey/",
+      "x-default": "https://clicroot.com/agencia-seo-monterrey/"
+    },
+    "h2": [
+      "What does an SEO agency in Monterrey do?",
+      "SEO and GEO for the Monterrey market.",
+      "The Monterrey field is still open.",
+      "What buyers in Monterrey ask us most.",
+      "Beyond Monterrey.",
+      "Shall we talk about your project?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/en/seo-audit/": {
+    "title": "SEO Audit: What We Review | Clicroot",
+    "description": "SEO (and GEO) audit of your site: technical, content, links, local, AI bot access, and measurement. A prioritized diagnosis for the US, Colombia, and Mexico. Request yours.",
+    "canonical": "https://clicroot.com/en/seo-audit/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/seo-audit/",
+      "es": "https://clicroot.com/auditoria-seo/",
+      "x-default": "https://clicroot.com/auditoria-seo/"
+    },
+    "h2": [
+      "What is an SEO audit?",
+      "A transparent audit, area by area.",
+      "A prioritized diagnosis, not a list of errors.",
+      "A senior consultant runs it, not a tool.",
+      "What buyers ask us most.",
+      "Request your SEO audit."
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/en/seo-consulting/": {
+    "title": "SEO Consulting with Senior Consultants | Clicroot",
+    "description": "SEO consulting with senior consultants, not juniors. Google rankings and AI visibility (GEO) for businesses across the US, Colombia, and Mexico. Book a call.",
+    "canonical": "https://clicroot.com/en/seo-consulting/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/seo-consulting/",
+      "es": "https://clicroot.com/consultoria-seo/",
+      "x-default": "https://clicroot.com/consultoria-seo/"
+    },
+    "h2": [
+      "What is SEO consulting?",
+      "Full-scope consulting, from the technical layer to AI.",
+      "Senior consultants with judgment, not a black box.",
+      "What buyers ask us most.",
+      "Want to talk about your project?"
+    ],
+    "faqCount": 5,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/en/seo-services/": {
+    "title": "SEO Services: Technical, Local, Content, and GEO | Clicroot",
+    "description": "SEO services: technical, local, content, link building, and GEO (AI visibility) for businesses across the US, Colombia, and Mexico. Senior consultants. Book a call.",
+    "canonical": "https://clicroot.com/en/seo-services/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/seo-services/",
+      "es": "https://clicroot.com/servicios-seo/",
+      "x-default": "https://clicroot.com/servicios-seo/"
+    },
+    "h2": [
+      "What does SEO include?",
+      "Six services, one connected strategy.",
+      "What an SEO project with Clicroot covers.",
+      "You know who runs your account and why they decide what they decide.",
+      "What buyers ask us most.",
+      "Where do we start?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/en/technical-seo/": {
+    "title": "Technical SEO: Crawlability, Speed and AI Access | Clicroot",
+    "description": "Technical SEO so Google and AI crawlers (GPTBot, PerplexityBot, Google-Extended) can crawl, understand and index your site. Core Web Vitals, architecture and structured data for the US, Colombia and Mexico. Book a call.",
+    "canonical": "https://clicroot.com/en/technical-seo/",
+    "hreflang": {
+      "en": "https://clicroot.com/en/technical-seo/",
+      "es": "https://clicroot.com/seo-tecnico/",
+      "x-default": "https://clicroot.com/seo-tecnico/"
+    },
+    "h2": [
+      "What is technical SEO?",
+      "From Core Web Vitals to AI access.",
+      "Almost nobody is optimizing for AI bots.",
+      "What we get asked the most.",
+      "Start by knowing what is broken.",
+      "Should we check your site's foundation?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/es/blog/ai-overviews-google/": {
+    "title": "Qué son los AI Overviews de Google y cómo aparecer en ellos | clicroot",
+    "description": "El recuadro con la respuesta generada que aparece arriba de los resultados. Qué es, de dónde saca la información y cómo lograr que cite tu sitio.",
+    "canonical": "https://clicroot.com/es/blog/ai-overviews-google/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/ai-overviews-google/",
+      "en": "https://clicroot.com/en/blog/google-ai-overviews/",
+      "x-default": "https://clicroot.com/es/blog/ai-overviews-google/"
+    },
+    "h2": [
+      "Qué es exactamente un AI Overview",
+      "De dónde saca Google la información",
+      "Cómo lograr que tu sitio aparezca en un AI Overview",
+      "Lo que no controlas, y está bien"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/como-aparecer-en-chatgpt/": {
+    "title": "Cómo aparecer en ChatGPT (y por qué le importa a tu negocio) | clicroot",
+    "description": "ChatGPT ya no solo conversa: recomienda marcas, productos y proveedores. Esta es la guía práctica para que tu negocio aparezca en sus respuestas.",
+    "canonical": "https://clicroot.com/es/blog/como-aparecer-en-chatgpt/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/como-aparecer-en-chatgpt/",
+      "en": "https://clicroot.com/en/blog/how-to-appear-in-chatgpt/",
+      "x-default": "https://clicroot.com/es/blog/como-aparecer-en-chatgpt/"
+    },
+    "h2": [
+      "¿ChatGPT cómo decide qué marcas mencionar?",
+      "Deja que los crawlers de IA entren a tu sitio",
+      "Escribe para que la respuesta sea extraíble",
+      "Construye menciones donde el modelo las va a leer",
+      "Datos estructurados: ayuda al modelo a entenderte",
+      "¿Esto reemplaza al SEO tradicional?"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/como-posicionar-pagina-web/": {
+    "title": "Cómo posicionar una página web en Google (guía paso a paso) | clicroot",
+    "description": "Una ruta clara para subir en Google: qué revisar primero, qué contenido crear y cómo medir si está funcionando.",
+    "canonical": "https://clicroot.com/es/blog/como-posicionar-pagina-web/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/como-posicionar-pagina-web/",
+      "en": "https://clicroot.com/en/blog/how-to-rank-website/",
+      "x-default": "https://clicroot.com/es/blog/como-posicionar-pagina-web/"
+    },
+    "h2": [
+      "¿Por dónde empiezo si nunca he hecho SEO?",
+      "¿Qué hace que una página suba en el ranking?",
+      "¿Cuánto contenido necesito y de qué tipo?",
+      "¿Cómo sé si está funcionando?",
+      "El error más común"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/contenido-fondo-embudo/": {
+    "title": "Por Qué el Contenido de Fondo de Embudo Supera los Blog Posts en ROI | clicroot",
+    "description": "La mayoría de negocios empiezan con contenido de blog. Te explicamos por qué es al revés, y qué hacer.",
+    "canonical": "https://clicroot.com/es/blog/contenido-fondo-embudo/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/contenido-fondo-embudo/",
+      "en": "https://clicroot.com/en/blog/bottom-funnel-content/",
+      "x-default": "https://clicroot.com/es/blog/contenido-fondo-embudo/"
+    },
+    "h2": [
+      "La Ventaja del Fondo de Embudo",
+      "La Estrategia"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/estrategia-seo/": {
+    "title": "Cómo construir una estrategia SEO que de verdad funcione | clicroot",
+    "description": "Una estrategia SEO no es una lista de keywords. Es decidir a quién quieres atraer, qué páginas lo logran y en qué orden las atacas.",
+    "canonical": "https://clicroot.com/es/blog/estrategia-seo/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/estrategia-seo/",
+      "en": "https://clicroot.com/en/blog/seo-strategy/",
+      "x-default": "https://clicroot.com/es/blog/estrategia-seo/"
+    },
+    "h2": [
+      "¿Qué hace que una estrategia SEO sea buena o mala?",
+      "¿Por dónde se empieza una estrategia?",
+      "¿Cuánto tiempo toma ver resultados?",
+      "¿Cómo se mantiene una estrategia con el tiempo?",
+      "Lo que casi nadie hace bien"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/link-building-2026/": {
+    "title": "La Guía de Link Building 2026: Calidad Sobre Cantidad | clicroot",
+    "description": "Menos enlaces, mayor autoridad. Cómo construimos perfiles de enlaces que realmente funcionan.",
+    "canonical": "https://clicroot.com/es/blog/link-building-2026/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/link-building-2026/",
+      "en": "https://clicroot.com/en/blog/link-building-2026/",
+      "x-default": "https://clicroot.com/es/blog/link-building-2026/"
+    },
+    "h2": [
+      "Lo Que Funciona Ahora",
+      "Nuestro Enfoque",
+      "Los Números"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/marketing-de-contenidos-seo/": {
+    "title": "Marketing de contenidos para SEO: contenido que rankea y que la IA cita | clicroot",
+    "description": "El contenido ya no compite solo por el top de Google. Compite por ser la fuente que ChatGPT, Perplexity y los resúmenes de IA citan.",
+    "canonical": "https://clicroot.com/es/blog/marketing-de-contenidos-seo/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/marketing-de-contenidos-seo/",
+      "en": "https://clicroot.com/en/blog/content-marketing-seo/",
+      "x-default": "https://clicroot.com/es/blog/marketing-de-contenidos-seo/"
+    },
+    "h2": [
+      "¿Qué tipo de contenido rankea hoy?",
+      "¿Qué es eso de “contenido que la IA cita”?",
+      "¿Es lo mismo escribir para SEO que para IA?",
+      "¿Por dónde empiezo con mi contenido?"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/optimizar-para-perplexity-gemini/": {
+    "title": "Cómo optimizar tu marca para Perplexity y Gemini | clicroot",
+    "description": "ChatGPT no es el único motor que recomienda marcas. Perplexity cita en vivo y Gemini alimenta los resúmenes de Google. Esto es lo que cada uno premia.",
+    "canonical": "https://clicroot.com/es/blog/optimizar-para-perplexity-gemini/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/optimizar-para-perplexity-gemini/",
+      "en": "https://clicroot.com/en/blog/optimize-for-perplexity-gemini/",
+      "x-default": "https://clicroot.com/es/blog/optimizar-para-perplexity-gemini/"
+    },
+    "h2": [
+      "¿Por qué Perplexity es distinto?",
+      "¿Y Gemini? ¿Dónde aparece?",
+      "¿Qué tienen en común los dos?",
+      "¿Dónde poner el esfuerzo en cada uno?",
+      "Los datos estructurados ayudan en los dos",
+      "El panorama completo"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/que-es-link-building/": {
+    "title": "Qué es el link building y cómo hacerlo bien (sin penalizaciones) | clicroot",
+    "description": "Qué es el link building, por qué los enlaces siguen importando en SEO y cómo construir autoridad con métodos white-hat que Google no penaliza.",
+    "canonical": "https://clicroot.com/es/blog/que-es-link-building/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/que-es-link-building/",
+      "en": "https://clicroot.com/en/blog/what-is-link-building/",
+      "x-default": "https://clicroot.com/es/blog/que-es-link-building/"
+    },
+    "h2": [
+      "Por qué los enlaces todavía importan",
+      "Qué hace bueno a un enlace",
+      "Qué es el link building white-hat",
+      "Qué evitar para no caer en penalizaciones",
+      "Cómo se ve una estrategia sana"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/que-es-seo/": {
+    "title": "Qué es el SEO: la guía clara para 2026 | clicroot",
+    "description": "Qué es el SEO en marketing, en qué se diferencia del SEM y cómo funciona hoy que parte del tráfico pasa por respuestas de IA. Una explicación sin tecnicismos.",
+    "canonical": "https://clicroot.com/es/blog/que-es-seo/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/que-es-seo/",
+      "en": "https://clicroot.com/en/blog/what-is-seo/",
+      "x-default": "https://clicroot.com/es/blog/que-es-seo/"
+    },
+    "h2": [
+      "Qué es el SEO en marketing",
+      "Qué es SEO y SEM, y en qué se diferencian",
+      "Cómo funciona el SEO, en partes",
+      "Qué cambió para 2026",
+      "Por dónde empezar"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/que-es-seo-local/": {
+    "title": "Qué es el SEO local y cómo aparecer en Google Maps | clicroot",
+    "description": "Cómo funciona el SEO local, qué es el local pack y qué hacer para que tu negocio aparezca en Google Maps cuando alguien busca cerca de ti.",
+    "canonical": "https://clicroot.com/es/blog/que-es-seo-local/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/que-es-seo-local/",
+      "en": "https://clicroot.com/en/blog/what-is-local-seo/",
+      "x-default": "https://clicroot.com/es/blog/que-es-seo-local/"
+    },
+    "h2": [
+      "Qué es el local pack y por qué importa tanto",
+      "Qué mira Google para rankear un negocio local",
+      "Qué es el Perfil de Negocio de Google y cómo optimizarlo",
+      "Qué es el NAP y por qué la consistencia lo es todo",
+      "Cómo influyen las reseñas y qué hacer con ellas",
+      "Por dónde empezar"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/seo-con-inteligencia-artificial/": {
+    "title": "Consultoría SEO con inteligencia artificial: qué significa de verdad | clicroot",
+    "description": "La IA acelera el trabajo de SEO, no reemplaza la estrategia. Qué se automatiza bien, qué sigue necesitando criterio humano y dónde entra la consultoría.",
+    "canonical": "https://clicroot.com/es/blog/seo-con-inteligencia-artificial/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/seo-con-inteligencia-artificial/",
+      "en": "https://clicroot.com/en/blog/ai-powered-seo/",
+      "x-default": "https://clicroot.com/es/blog/seo-con-inteligencia-artificial/"
+    },
+    "h2": [
+      "Qué hace bien la IA en SEO",
+      "Qué no reemplaza, y no va a reemplazar pronto",
+      "Dónde entra la IA de verdad: GEO",
+      "Cómo lo trabajamos"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/seo-e-inteligencia-artificial/": {
+    "title": "SEO e inteligencia artificial: cómo la IA está cambiando el posicionamiento | clicroot",
+    "description": "La IA cambió cómo se busca y cómo Google responde. Esto es lo que sigue funcionando del SEO, lo que cambió, y qué aporta el GEO.",
+    "canonical": "https://clicroot.com/es/blog/seo-e-inteligencia-artificial/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/seo-e-inteligencia-artificial/",
+      "en": "https://clicroot.com/en/blog/seo-and-ai/",
+      "x-default": "https://clicroot.com/es/blog/seo-e-inteligencia-artificial/"
+    },
+    "h2": [
+      "¿Qué cambió realmente en los resultados de Google?",
+      "¿El SEO de siempre dejó de servir?",
+      "Lo que sí cambió: de posicionar a ser citado",
+      "¿Cómo escribe uno para que la IA lo entienda?",
+      "¿Y qué aporta el GEO?",
+      "¿Por dónde empezar?"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/seo-latinoamerica/": {
+    "title": "SEO para Latinoamérica: Lo Que la Mayoría de Agencias Hacen Mal | clicroot",
+    "description": "Colombia no es España. México no es Argentina. Las estrategias regionales importan más de lo que crees.",
+    "canonical": "https://clicroot.com/es/blog/seo-latinoamerica/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/seo-latinoamerica/",
+      "en": "https://clicroot.com/en/blog/seo-latin-america/",
+      "x-default": "https://clicroot.com/es/blog/seo-latinoamerica/"
+    },
+    "h2": [
+      "Las Diferencias Regionales Importan",
+      "Errores Comunes",
+      "El Enfoque Correcto"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/blog/seo-tecnico-guia/": {
+    "title": "SEO técnico: guía práctica para que Google y la IA entiendan tu sitio | clicroot",
+    "description": "Guía práctica de SEO técnico: rastreo, indexación, Core Web Vitals, datos estructurados y acceso de bots de IA para que tu sitio se entienda y se cite.",
+    "canonical": "https://clicroot.com/es/blog/seo-tecnico-guia/",
+    "hreflang": {
+      "es": "https://clicroot.com/es/blog/seo-tecnico-guia/",
+      "en": "https://clicroot.com/en/blog/technical-seo-guide/",
+      "x-default": "https://clicroot.com/es/blog/seo-tecnico-guia/"
+    },
+    "h2": [
+      "Rastreo: que los bots puedan llegar a tu contenido",
+      "Indexación: que tus páginas entren al índice de Google",
+      "Core Web Vitals: que tu sitio cargue rápido y bien",
+      "Datos estructurados: que el contenido se lea sin ambigüedad",
+      "Acceso de bots de IA: que los modelos puedan leerte",
+      "Por dónde empezar"
+    ],
+    "faqCount": 0,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList",
+      "ProfessionalService"
+    ]
+  },
+  "/es/": {
+    "title": "Redirecting to: /",
+    "description": null,
+    "canonical": "https://clicroot.com/",
+    "hreflang": {},
+    "h2": [],
+    "faqCount": 0,
+    "schemaTypes": []
+  },
+  "/geo-posicionamiento-en-ia/": {
+    "title": "Qué es GEO: guía de posicionamiento en IA (2026) | Clicroot",
+    "description": "GEO (generative engine optimization) es optimizar tu marca para que ChatGPT, Perplexity, Gemini y los AI Overviews de Google la citen y la recomienden. Qué es, cómo funciona y cómo aparecer en las respuestas de IA.",
+    "canonical": "https://clicroot.com/geo-posicionamiento-en-ia/",
+    "hreflang": {
+      "es": "https://clicroot.com/geo-posicionamiento-en-ia/",
+      "en": "https://clicroot.com/en/geo-generative-engine-optimization/",
+      "x-default": "https://clicroot.com/geo-posicionamiento-en-ia/"
+    },
+    "h2": [
+      "¿Qué es GEO?",
+      "¿En qué se diferencia GEO del SEO?",
+      "¿Cómo funcionan los motores de respuesta de IA?",
+      "¿Cómo aparecer en ChatGPT, Perplexity y Gemini?",
+      "¿Qué son los AI Overviews de Google?",
+      "¿Cómo se mide la visibilidad en IA?",
+      "El origen de GEO y por qué importa.",
+      "Una consultoría que practica el GEO que vende.",
+      "Lo que más nos preguntan sobre GEO.",
+      "¿Quieres que la IA recomiende tu marca?"
+    ],
+    "faqCount": 7,
+    "schemaTypes": [
+      "Article",
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService"
+    ]
+  },
+  "/": {
+    "title": "Consultoría SEO y GEO en Colombia y México | Clicroot",
+    "description": "Consultoría SEO y optimización para modelos de IA. Posiciona tu marca en Google, ChatGPT, Perplexity y Claude. Mercados en inglés y español.",
+    "canonical": "https://clicroot.com/",
+    "hreflang": {
+      "es": "https://clicroot.com/",
+      "en": "https://clicroot.com/en/",
+      "x-default": "https://clicroot.com/"
+    },
+    "h2": [
+      "Estrategias SEO que generan resultados.",
+      "Resultados reales para negocios reales.",
+      "Una consultoría, no una caja negra.",
+      "De auditoría a crecimiento en cuatro pasos.",
+      "Lo que dicen nuestros clientes.",
+      "Lo que más nos preguntan.",
+      "Ideas y estrategias.",
+      "¿Listo para dominar tu mercado?"
+    ],
+    "faqCount": 5,
+    "schemaTypes": [
+      "FAQPage",
+      "ProfessionalService"
+    ]
+  },
+  "/link-building/": {
+    "title": "Link building en Colombia y México | Clicroot",
+    "description": "Link building ético que construye autoridad de dominio real, sin PBN ni atajos que penalicen. Backlinks editoriales y menciones de marca para Colombia y México. Agenda una llamada.",
+    "canonical": "https://clicroot.com/link-building/",
+    "hreflang": {
+      "es": "https://clicroot.com/link-building/",
+      "en": "https://clicroot.com/en/link-building/",
+      "x-default": "https://clicroot.com/link-building/"
+    },
+    "h2": [
+      "¿Qué es el link building?",
+      "Enlaces ganados, no comprados.",
+      "El atajo barato es el que sale caro.",
+      "Lo que más nos preguntan.",
+      "El link building no trabaja solo.",
+      "¿Construimos tu autoridad?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/seo-local/": {
+    "title": "SEO local en Colombia y México | Clicroot",
+    "description": "SEO local para aparecer en Google Maps, en el paquete local y en las respuestas de IA cercanas. Perfil de Negocio en Google, reseñas y posicionamiento por ciudad en Colombia y México.",
+    "canonical": "https://clicroot.com/seo-local/",
+    "hreflang": {
+      "es": "https://clicroot.com/seo-local/",
+      "en": "https://clicroot.com/en/local-seo/",
+      "x-default": "https://clicroot.com/seo-local/"
+    },
+    "h2": [
+      "¿Qué es el SEO local?",
+      "Del mapa de Google al mapa de la IA.",
+      "El \"cerca de mí\" ya no vive solo en Maps.",
+      "Lo que más nos preguntan.",
+      "¿Buscas posicionamiento en una ciudad concreta?",
+      "¿Te ponemos en el mapa?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/seo-tecnico/": {
+    "title": "SEO técnico: rastreo, velocidad y arquitectura | Clicroot",
+    "description": "SEO técnico para que Google y los crawlers de IA (GPTBot, PerplexityBot, Google-Extended) puedan rastrear, entender e indexar tu sitio. Core Web Vitals, arquitectura y datos estructurados en Colombia y México.",
+    "canonical": "https://clicroot.com/seo-tecnico/",
+    "hreflang": {
+      "es": "https://clicroot.com/seo-tecnico/",
+      "en": "https://clicroot.com/en/technical-seo/",
+      "x-default": "https://clicroot.com/seo-tecnico/"
+    },
+    "h2": [
+      "¿Qué es el SEO técnico?",
+      "De los Core Web Vitals al acceso de la IA.",
+      "Casi nadie está optimizando para los bots de IA.",
+      "Lo que más nos preguntan.",
+      "Empieza por saber qué está roto.",
+      "¿Revisamos la base de tu sitio?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  },
+  "/servicios-seo/": {
+    "title": "Servicios SEO en Colombia y México | Clicroot",
+    "description": "Servicios SEO: técnico, local, contenidos, link building y GEO (visibilidad en IA) para empresas en Colombia y México. Consultores senior. Agenda una llamada.",
+    "canonical": "https://clicroot.com/servicios-seo/",
+    "hreflang": {
+      "es": "https://clicroot.com/servicios-seo/",
+      "en": "https://clicroot.com/en/seo-services/",
+      "x-default": "https://clicroot.com/servicios-seo/"
+    },
+    "h2": [
+      "¿Qué incluye el SEO?",
+      "Seis servicios, una estrategia conectada.",
+      "Lo que cubre un proyecto de SEO con Clicroot.",
+      "Sabes quién ejecuta tu cuenta y por qué decide lo que decide.",
+      "Lo que más nos preguntan.",
+      "¿Por dónde empezamos?"
+    ],
+    "faqCount": 6,
+    "schemaTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "ProfessionalService",
+      "Service"
+    ]
+  }
+}
