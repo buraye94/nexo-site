@@ -97,7 +97,7 @@ const jsonLd: Record<string, unknown>[] = [
 
   <slot />
 
-  <section class="chapter paper" id="incluye" aria-labelledby="incluye-title">
+  <section class="chapter paper paper--2" id="incluye" aria-labelledby="incluye-title">
     <div class="wrap">
       <h2 id="incluye-title">{l('incluyeTitle')}{!confirmed && <span class="pending-tag">{l('pendingTiming')}</span>}</h2>
       <NumberedRows items={deliverableRows} cols={2} pendingReason={confirmed ? undefined : `tiempos de Qué incluye (${page.deliverables}) sin confirmar (T17)`} />

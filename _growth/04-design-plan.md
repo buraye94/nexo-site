@@ -431,7 +431,7 @@ No change to how alternates are generated. Zero work; the broken pair stays live
 State: approved
 Actual answer: A) A: Check the twin exists (Recommended), answer to D5, 2026-10-02
 Accepted scope: in T15, both blog [slug] templates emit the hreflang alternate only when the twin post exists in the blog collection; the R1 inventory script fails on any hreflang target that doesn't resolve. Writing the missing ES post stays a separate TODO candidate.
-History: none
+History: factual correction 2026-10-02 (build phase): `src/content/blog/es/seo-tecnico-guia.md` DOES exist (15 ES and 15 EN posts; a clean build emits /es/blog/seo-tecnico-guia/). The review's directory listing came from a wrapper that misreports directories, so the broken pair never existed. The approved twin-exists check stays as a cheap guard; no behavior changes.
 
 ### R5: what the landing proof card shows when few clients match the page
 Finding: S5, P2, confidence 8/10, design plan landing template ("proof card: before/after rows filtered to clients of this service or city") and interaction-states row ("Fewer than 3 verified clients: the block shows the ones we have, never padded"); reviewer: plan-eng-review (Claude, main)
@@ -821,8 +821,8 @@ Finding: R4 follow-up, P2, `src/i18n/blog-slugs.ts` reserves `seo-tecnico-guia` 
 Question D17: Write the Spanish version of the technical SEO guide? Options: A) Add to TODOS.md (Recommended), B) Skip, C) Build it in this release.
 State: approved
 Actual answer: C) Build it in this release, answer to D17 (eng review), 2026-10-02
-Accepted scope: new task T21 writes /es/blog/seo-tecnico-guia/ adapted from the EN post (not machine-translated), in the new post template, through text-polish and quality_gate; no TODOS.md entry.
-History: none
+Accepted scope: superseded, see History.
+History: 2026-10-02 (build phase): the Spanish post already exists (see the R4 correction), so T21 is void; the post simply moves to the new template with the rest of the blog.
 
 Approval readiness: PASS. Checked R1 (D3), R2 (D4), R3 (carried from design D5, D7, D24), R4 (D5), R5 (D6), R6 (D7), R7 (D8), R8 (D9), R9 (D10), R10 (D11), R11 (D12), R12 (D14), R13 (D13), R14 (D15), R15 (D16), R16 (D17); carried-forward items cite design decisions D9, D12, D14, D16, D17, D18, D22, D25 and Felipe's standing cleanup rule. All D-numbers in this ledger are the engineering review's own sequence (D1 office hours skipped, D2 structure).
 
@@ -919,7 +919,7 @@ Lane A: T0 → T1 → T2/T3/T4 (shared styles and Layout). Lane B: T5 → T20 (f
   - Surfaced by: Test review → R12 (D14), R13 (D13), R14 (D15)
   - Files: `tests/contact.test.mjs`, `tests/proof.test.mjs`, `tests/pages.test.mjs`, `e2e/lead-capture.spec.ts`, `package.json` (`test`, `e2e`, @playwright/test dev dependency)
   - Verify: `npm test` and `npx playwright test` pass; each contact.js case in the diagram has a test
-- [ ] **T21 (P2, human: ~4h / CC: ~30min)**: Spanish technical SEO guide
+- [x] **T21 (void)**: Spanish technical SEO guide, already exists (R4 correction)
   - Surfaced by: R4 follow-up → R16 (D17)
   - Files: new `src/content/blog/es/seo-tecnico-guia.md`
   - Verify: text-polish and quality_gate exit 0; hreflang pair resolves both ways in the inventory script
@@ -965,6 +965,11 @@ None in this review.
 - Outside voice: Codex unavailable (installed, binary missing; fix: `npm install -g @openai/codex`); native fallback unavailable (background task output tool not in this session); no outside coverage
 - Parallelization: 4 lanes, 4 parallel / 5 sequential steps
 - Lake Score: 8/13 (the most complete option chosen in 8 of 13 coverage choices; the others took a 9/10 option, never a shortcut)
+
+### Build-phase spec notes (2026-10-02)
+- T0 folded into the rewrite: `global.css` and both homepages are replaced wholesale, not refactored, so a separate cleanup commit would only touch code that is deleted anyway.
+- R1 refined: city and service pages keep their localized "what we do" grids (the content-reviewer pass made each city's cards unique), rendered as numbered rows without icons. Only the generic senior-consultant pitch, FAQ headings, closing CTA bands and the interlink sections are replaced; the allowlist lives in `scripts/inventory-replaced.json`. This keeps more content than the approved contract required.
+- Qué incluye renders on paper2 so it stays distinct from a paper section right before it.
 
 ## GSTACK REVIEW REPORT
 
