@@ -82,7 +82,7 @@ html.offer-closed .offer { display: none; }
 /* Nav */
 .site-header { position: relative; z-index: 20; }
 .site-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 84px; }
-.logo { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-display); font-weight: 800; font-size: 22px; text-decoration: none; }
+.logo { display: inline-flex; align-items: center; min-height: 44px; gap: 9px; font-family: var(--font-display); font-weight: 800; font-size: 22px; text-decoration: none; }
 .logo img { width: 24px; height: 24px; }
 .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
 .nav-links > li { position: relative; }
@@ -121,7 +121,7 @@ html.offer-closed .offer { display: none; }
 .crumb { font-size: 14px; color: var(--muted-dark); margin-bottom: 18px; }
 .crumb ol { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
 .crumb li + li::before { content: "/"; margin-right: 6px; }
-.crumb a { color: var(--muted-dark); }
+.crumb a { color: var(--muted-dark); display: inline-flex; align-items: center; min-height: 44px; }
 .crumb [aria-current] { color: #E4DFCE; }
 
 /* Dashboard figure (homepage hero) */
@@ -305,7 +305,7 @@ html.js.motion .proof.is-drawn .proof__bars span { transform: scaleX(1); transit
 .site-footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
 .site-footer h2 { font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-dark); margin-bottom: 8px; }
 .site-footer ul { list-style: none; }
-.site-footer a { display: inline-flex; align-items: center; min-height: 36px; text-decoration: none; color: #D8D3C2; }
+.site-footer a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; color: #D8D3C2; }
 .site-footer a:hover { color: var(--fg); }
 .site-footer__bottom { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--line-dark); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; }
 .sticky-cta { display: none; }

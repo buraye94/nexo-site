@@ -3,12 +3,12 @@ import { t } from '../i18n/utils';
 import { servicePages, cityPages, hubPage, homePath, blogPath, type Lang } from '../data/pages';
 
 interface Props {
-  lang?: Lang;
+  lang: Lang;
   alternateUrl?: string;
-  contactHref?: string;
+  contactHref: string;
 }
 
-const { lang = 'es', alternateUrl, contactHref = '/#contacto' } = Astro.props;
+const { lang, alternateUrl, contactHref } = Astro.props;
 const current = Astro.url.pathname;
 const other: Lang = lang === 'es' ? 'en' : 'es';
 const langHref = alternateUrl ?? homePath(other);

@@ -3,10 +3,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { pages, relatedPages, linkLabel } from '../src/data/pages.ts';
 import { deliverables } from '../src/data/deliverables.ts';
 
-const root = new URL('..', import.meta.url).pathname;
+const root = fileURLToPath(new URL('..', import.meta.url));
 const sourceFor = (path) => {
   const slug = path.replace(/^\/(en\/)?/, '').replace(/\/$/, '');
   return `${root}src/pages/${path.startsWith('/en/') ? 'en/' : ''}${slug}.astro`;

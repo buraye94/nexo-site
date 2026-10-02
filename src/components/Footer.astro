@@ -3,10 +3,10 @@ import { t } from '../i18n/utils';
 import { servicePages, cityPages, hubPage, homePath, blogPath, type Lang } from '../data/pages';
 
 interface Props {
-  lang?: Lang;
+  lang: Lang;
 }
 
-const { lang = 'es' } = Astro.props;
+const { lang } = Astro.props;
 const services = [...servicePages(), hubPage()];
 const cities = cityPages();
 ---

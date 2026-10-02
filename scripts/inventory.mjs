@@ -7,8 +7,9 @@
 // and nothing marked data-gate="pending" (illustrative proof, unconfirmed copy) may ship.
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = new URL('..', import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const DIST = join(ROOT, 'dist');
 const SITE = 'https://clicroot.com';
 const ALLOWED_WEIGHTS = new Set(['400', '500', '600', '700', '800', 'normal', 'bold', 'inherit']);

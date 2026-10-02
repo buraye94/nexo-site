@@ -11,14 +11,3 @@ export function t(lang: string, key: string): any {
   }
   return value ?? key;
 }
-
-export function getLangFromUrl(url: URL): string {
-  const [, lang] = url.pathname.split('/');
-  if (lang === 'es') return 'es';
-  return 'en';
-}
-
-export function getAlternateUrl(url: URL, targetLang: string): string {
-  const currentLang = getLangFromUrl(url);
-  return url.pathname.replace(`/${currentLang}`, `/${targetLang}`);
-}
