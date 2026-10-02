@@ -38,13 +38,13 @@ export const deliverables: Record<ServiceKey, DeliverableSet> = {
       { title: 'Salud técnica del sitio', text: 'Rastreo, indexación, velocidad y arquitectura, revisados página por página donde importa.', meta: 'Entregable: informe técnico · semana 1' },
       { title: 'Contenido, enlaces y SEO local', text: 'Cada frente evaluado contra las búsquedas que de verdad traen clientes.', meta: 'Entregable: diagnóstico por frente · semana 2' },
       { title: 'Acceso de la IA y datos estructurados', text: 'Si ChatGPT, Gemini y Google pueden leer, entender y citar tu sitio.', meta: 'Entregable: revisión GEO · semana 2' },
-      { title: 'Lista priorizada y llamada de entrega', text: 'Qué arreglar primero según su impacto en leads, explicado por el consultor que hizo la auditoría.', meta: 'Entregable: plan de correcciones · semana 3' },
+      { title: 'Lista priorizada y llamada de entrega', text: 'Qué arreglar primero según su impacto en leads, explicado por el consultor que hizo la auditoría.', meta: 'Entregable: plan de correcciones · semana 2' },
     ],
     en: [
       { title: 'Technical health of the site', text: 'Crawling, indexing, speed and architecture, reviewed page by page where it matters.', meta: 'Deliverable: technical report · week 1' },
       { title: 'Content, links and local SEO', text: 'Each area measured against the searches that actually bring customers.', meta: 'Deliverable: diagnosis by area · week 2' },
       { title: 'AI access and structured data', text: 'Whether ChatGPT, Gemini and Google can read, understand and cite your site.', meta: 'Deliverable: GEO review · week 2' },
-      { title: 'Prioritized list and handover call', text: 'What to fix first by its impact on leads, explained by the consultant who ran the audit.', meta: 'Deliverable: fix plan · week 3' },
+      { title: 'Prioritized list and handover call', text: 'What to fix first by its impact on leads, explained by the consultant who ran the audit.', meta: 'Deliverable: fix plan · week 2' },
     ],
   },
   tecnico: {
