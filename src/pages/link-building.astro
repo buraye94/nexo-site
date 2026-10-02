@@ -5,7 +5,7 @@ import NumberedRows from '../components/NumberedRows.astro';
 
 const services = [
   { title: 'Auditoría de tu perfil de enlaces', text: 'Revisamos los backlinks que ya tienes, detectamos enlaces tóxicos heredados y medimos tu autoridad real frente a la de quien te gana en la SERP.' },
-  { title: 'Prospección por relevancia, no por volumen', text: 'Buscamos sitios de tu sector y tu mercado, en Colombia y México, donde un enlace tenga sentido editorial. Diez enlaces que importan pesan más que cien que no.' },
+  { title: 'Prospección por relevancia', text: 'Buscamos sitios de tu sector y tu mercado, en Colombia y México, donde un enlace tenga sentido editorial. Diez enlaces que importan pesan más que cien que no.' },
   { title: 'Contenido que merece el enlace', text: 'Para conseguir enlaces editoriales hace falta algo que valga la pena enlazar: datos, guías, recursos. Lo creamos y luego lo difundimos.' },
   { title: 'Outreach con nombre y cara', text: 'Escribimos a editores y autores reales, uno a uno. Sin redes de blogs, sin granjas de enlaces, sin esquemas que Google sanciona tarde o temprano.' },
   { title: 'Menciones de marca para IA', text: 'Las menciones, con enlace o sin él, alimentan tu autoridad de entidad. Es lo que ChatGPT, Perplexity y los AI Overviews leen para decidir a quién citar.' },
@@ -16,9 +16,9 @@ const faqs = [
   { q: '¿Qué es el link building?', a: 'El link building es el proceso de conseguir que otros sitios web enlacen al tuyo. Cada enlace funciona como un voto de confianza: Google interpreta que, si páginas relevantes te enlazan, tu contenido merece aparecer más arriba. Hecho bien, construye autoridad de dominio de forma sostenible; hecho mal, con enlaces comprados o artificiales, expone tu sitio a una penalización.' },
   { q: '¿Qué es la autoridad de dominio y por qué importa?', a: 'La autoridad de dominio es una estimación de cuánta credibilidad tiene tu sitio a ojos de los buscadores, basada en buena medida en la cantidad y calidad de los enlaces que apuntan hacia él. No es una métrica oficial de Google, pero sí un buen indicador comparativo. Cuanta más autoridad acumulas con enlaces legítimos, más fácil te resulta rankear términos competidos.' },
   { q: '¿Usan PBN o compran backlinks?', a: 'No. No usamos redes privadas de blogs (PBN), no compramos paquetes de enlaces y no participamos en esquemas de intercambio masivo. Todo eso viola las directrices de Google y suele terminar en una caída de tráfico cuando el algoritmo lo detecta. Trabajamos solo con enlaces editoriales que un sitio decide darte porque tu contenido lo merece.' },
-  { q: '¿Cuántos backlinks necesito?', a: 'No existe un número mágico, y desconfía de quien te lo prometa. Lo que importa es la relevancia y la autoridad del sitio que enlaza, no la cantidad. Un enlace desde un medio de tu sector puede valer más que cincuenta enlaces de directorios irrelevantes. Definimos la meta según tu competencia real en la SERP que quieres ganar.' },
+  { q: '¿Cuántos backlinks necesito?', a: 'No existe un número mágico, y desconfía de quien te lo prometa. Lo que importa es la relevancia y la autoridad del sitio que enlaza. Un enlace desde un medio de tu sector puede valer más que cincuenta enlaces de directorios irrelevantes. Definimos la meta según tu competencia real en la SERP que quieres ganar.' },
   { q: '¿El link building sirve para que la IA me cite?', a: 'Sí, de forma indirecta. Los modelos de IA como ChatGPT o Perplexity se apoyan en la autoridad y en las menciones de una marca para decidir a quién recomendar. Una mención en una fuente que esos modelos consideran fiable aumenta la probabilidad de que tu marca aparezca en sus respuestas. Por eso trabajamos enlaces y menciones de marca a la vez.' },
-  { q: '¿En cuánto tiempo se ven resultados?', a: 'El efecto de un enlace no es inmediato. Google necesita rastrearlo, valorarlo y recalcular tu autoridad, y eso toma semanas. Una campaña de link building empieza a moverte posiciones a partir del segundo o tercer mes y compone con el tiempo. Te damos expectativas honestas desde la primera llamada, no atajos.' },
+  { q: '¿En cuánto tiempo se ven resultados?', a: 'El efecto de un enlace no es inmediato. Google necesita rastrearlo, valorarlo y recalcular tu autoridad, y eso toma semanas. Una campaña de link building empieza a moverte posiciones a partir del segundo o tercer mes y compone con el tiempo. Te damos expectativas honestas desde la primera llamada.' },
 ];
 ---
 
@@ -48,7 +48,7 @@ const faqs = [
     </div>
   </Section>
 
-  <Section tone="ink" title="Enlaces ganados, no comprados.">
+  <Section tone="ink" title="Enlaces que se ganan con contenido.">
     <NumberedRows items={services} cols={3} />
   </Section>
 

@@ -7,7 +7,7 @@ const diffs = [
   { title: 'Dónde compites', text: 'El SEO pelea por una posición en la lista de diez enlaces azules. El GEO pelea por estar dentro de la respuesta que el modelo redacta y por ser la fuente que cita.' },
   { title: 'Qué entrega el buscador', text: 'Google clásico te manda diez resultados y tú eliges. Un motor de respuesta te da una sola contestación sintetizada, con dos o tres marcas mencionadas y un puñado de fuentes enlazadas.' },
   { title: 'Qué se mide', text: 'En SEO mides posición, clics y tráfico. En GEO mides menciones, citas y participación de voz: cuántas veces apareces en las respuestas de IA y con qué frecuencia frente a tus competidores.' },
-  { title: 'Qué te hace ganar', text: 'El SEO premia autoridad de dominio y enlaces. El GEO suma a eso claridad de la respuesta, datos concretos, fuentes citables y una marca que el modelo reconoce como entidad. Comparten base, no son lo mismo.' },
+  { title: 'Qué te hace ganar', text: 'El SEO premia autoridad de dominio y enlaces. El GEO suma a eso claridad de la respuesta, datos concretos, fuentes citables y una marca que el modelo reconoce como entidad. Comparten base y cada uno tiene su propio trabajo.' },
 ];
 
 const appear = [
@@ -20,17 +20,17 @@ const appear = [
 const origin = [
   { title: 'El concepto nació en la investigación académica.', text: 'El término generative engine optimization se formalizó en 2023 en el paper de investigación titulado "GEO: Generative Engine Optimization", el trabajo que introdujo el marco para optimizar contenido de cara a los motores generativos. Esa investigación dio nombre a algo que ya estaba ocurriendo: el comportamiento de búsqueda se estaba moviendo de las listas de enlaces hacia las respuestas redactadas por IA, y eso exigía una forma distinta de pensar la optimización.' },
   { title: 'Google lo llevó al buscador masivo con los AI Overviews.', text: 'En paralelo, Google integró respuestas generativas en la búsqueda a través de los AI Overviews, llevando este formato a una escala masiva dentro de la búsqueda de Google. Entre el marco académico y la adopción de Google, el GEO dejó de ser una idea de nicho para convertirse en una capa más del trabajo de visibilidad de cualquier marca seria.' },
-  { title: 'Por eso lo tratamos como una disciplina, no como un truco.', text: 'El GEO no es una lista de hacks: es la aplicación de principios de calidad, claridad y autoridad a un nuevo formato de respuesta. En Clicroot lo trabajamos con el mismo rigor que el SEO técnico y de contenido, porque comparten cimientos. Lo que cambia es a quién le estás hablando: ya no solo a un algoritmo de ranking, sino a un modelo que redacta.' },
+  { title: 'Por eso lo tratamos como una disciplina.', text: 'El GEO aplica principios de calidad, claridad y autoridad a un nuevo formato de respuesta. En Clicroot lo trabajamos con el mismo rigor que el SEO técnico y de contenido, porque comparten cimientos. Lo que cambia es a quién le estás hablando: además del algoritmo de ranking, a un modelo que redacta.' },
 ];
 
 const faqs = [
   { q: '¿Qué significa GEO en marketing?', a: 'GEO son las siglas en inglés de generative engine optimization, optimización para motores generativos. Es la disciplina de preparar una marca y su contenido para que los buscadores basados en IA (ChatGPT, Perplexity, Gemini, los AI Overviews de Google) la incluyan, la recomienden y la citen cuando alguien hace una pregunta. No la confundas con la geolocalización: en este contexto GEO es visibilidad en inteligencia artificial.' },
-  { q: '¿GEO reemplaza al SEO?', a: 'No. El GEO se construye sobre el SEO, no lo sustituye. Un sitio rápido, bien estructurado, con autoridad y contenido claro sigue siendo la base; sin eso, los motores de IA tampoco te citan. Lo que cambia es el objetivo final: ya no solo quieres rankear en una lista de enlaces, también quieres ser la fuente que el modelo elige para redactar su respuesta. En la práctica se trabajan juntos.' },
+  { q: '¿GEO reemplaza al SEO?', a: 'No. El GEO se construye sobre el SEO y lo necesita. Un sitio rápido, bien estructurado, con autoridad y contenido claro sigue siendo la base; sin eso, los motores de IA tampoco te citan. Lo que cambia es el objetivo final: además de rankear en una lista de enlaces, quieres ser la fuente que el modelo elige para redactar su respuesta. En la práctica se trabajan juntos.' },
   { q: '¿Cómo hago que ChatGPT recomiende mi negocio?', a: 'Tres frentes. Primero, deja que sus rastreadores accedan a tu sitio (GPTBot y OAI-SearchBot en tu robots.txt). Segundo, publica contenido claro y citable que responda de frente las preguntas que tus clientes le harían al asistente, con datos concretos y fuentes. Tercero, construye reconocimiento de tu marca como entidad: schema, autores con nombre y menciones en sitios de terceros que el modelo ya consulta. No hay un botón ni un pago para entrar: se gana con autoridad y claridad.' },
   { q: '¿Qué son los AI Overviews de Google?', a: 'Son los resúmenes generados por IA que Google muestra en la parte superior de muchos resultados de búsqueda: una respuesta redactada por su modelo Gemini, con enlaces a las fuentes que usó. Aparecen sobre los resultados orgánicos tradicionales y cambian la forma en que la gente lee una búsqueda. Para una marca, el objetivo es ser una de las fuentes citadas dentro de ese resumen.' },
   { q: '¿Cómo se mide la visibilidad en IA?', a: 'Con tres métricas principales: menciones (cuántas veces aparece tu marca en las respuestas de IA), citas (cuántas veces enlazan tu sitio como fuente) y participación de voz (con qué frecuencia apareces frente a tus competidores ante las mismas preguntas). Se rastrean con herramientas como Ahrefs Brand Radar, definiendo un conjunto de preguntas reales de tus compradores y observando qué marcas y qué fuentes devuelven los modelos.' },
   { q: '¿El GEO sirve para Perplexity y Gemini, o solo para ChatGPT?', a: 'Sirve para todos. El trabajo de fondo (contenido claro y citable, acceso de los rastreadores, marca reconocible como entidad y presencia en fuentes de terceros) es el mismo para ChatGPT, Perplexity, Gemini, Copilot y los AI Overviews. Cada motor pondera las señales a su manera, pero ninguno cita lo que no entiende ni lo que no puede rastrear. Optimizas una vez para los fundamentos y ganas superficie en varios buscadores de IA a la vez.' },
-  { q: '¿Cuánto tarda en notarse el GEO?', a: 'Depende del punto de partida. Los ajustes de acceso (robots.txt, schema) se reflejan en cuanto los modelos vuelven a rastrear, en semanas. Pero ganar menciones y citas de forma sostenida depende de autoridad y de presencia en fuentes que la IA consulta, y eso es acumulativo, como el SEO: se construye en meses, no en días. Te damos expectativas honestas desde la primera llamada.' },
+  { q: '¿Cuánto tarda en notarse el GEO?', a: 'Depende del punto de partida. Los ajustes de acceso (robots.txt, schema) se reflejan en cuanto los modelos vuelven a rastrear, en semanas. Pero ganar menciones y citas de forma sostenida depende de autoridad y de presencia en fuentes que la IA consulta, y eso es acumulativo, como el SEO: se construye mes a mes. Te damos expectativas honestas desde la primera llamada.' },
 ];
 
 const article = {
@@ -61,7 +61,7 @@ const article = {
 >
   <Section tone="paper" title="¿Qué es GEO?" id="que-es" narrow>
     <div class="prose">
-      <p>GEO (generative engine optimization, optimización para motores generativos) es la práctica de optimizar una marca y su contenido para que los motores de respuesta basados en inteligencia artificial (ChatGPT, Perplexity, Gemini, los AI Overviews de Google) la recomienden y la citen. Donde el SEO busca posicionar una página en la lista de resultados, el GEO busca convertir tu marca en la fuente que el modelo elige para redactar su respuesta. Es la evolución natural del SEO para un mundo en el que la primera respuesta ya no la da una lista de enlaces, sino un asistente de IA.</p>
+      <p>GEO (generative engine optimization, optimización para motores generativos) es la práctica de optimizar una marca y su contenido para que los motores de respuesta basados en inteligencia artificial (ChatGPT, Perplexity, Gemini, los AI Overviews de Google) la recomienden y la citen. Donde el SEO busca posicionar una página en la lista de resultados, el GEO busca convertir tu marca en la fuente que el modelo elige para redactar su respuesta. Es la evolución natural del SEO para un mundo en el que la primera respuesta la da cada vez más un asistente de IA.</p>
     </div>
   </Section>
 
@@ -72,7 +72,7 @@ const article = {
   <Section tone="paper" title="¿Cómo funcionan los motores de respuesta de IA?" narrow>
     <div class="prose">
       <p>Un motor de respuesta como ChatGPT, Perplexity o los AI Overviews no te entrega diez enlaces para que elijas: te da una sola contestación redactada. Para armarla, recupera contenido relevante de la web, lo sintetiza con un modelo de lenguaje y, en la mayoría de los casos, enlaza las fuentes que usó.</p>
-      <p>Eso significa que ya no compites solo por una posición, sino por dos cosas a la vez: que tu contenido sea recuperado como fuente y que el modelo te mencione dentro del texto. Gana el contenido que el motor entiende con claridad, en el que confía y que puede atribuir a una marca reconocible. Por eso el GEO insiste en respuestas directas, datos concretos, fuentes citables y una marca tratada como entidad: son las señales que un modelo necesita para citarte con seguridad.</p>
+      <p>Eso significa que compites por dos cosas a la vez: que tu contenido sea recuperado como fuente y que el modelo te mencione dentro del texto. Gana el contenido que el motor entiende con claridad, en el que confía y que puede atribuir a una marca reconocible. Por eso el GEO insiste en respuestas directas, datos concretos, fuentes citables y una marca tratada como entidad: son las señales que un modelo necesita para citarte con seguridad.</p>
       <p class="note"><strong>En corto</strong> El motor recupera, sintetiza y cita. Tu trabajo es ser fácil de recuperar, claro de sintetizar y seguro de citar.</p>
     </div>
   </Section>
@@ -102,7 +102,7 @@ const article = {
   <Section tone="ink" title="Una consultoría que practica el GEO que vende." narrow>
     <div class="prose">
       <p>Clicroot la operan consultores senior de SEO y visibilidad en IA en Colombia, México y Estados Unidos. Optimizamos a nuestros clientes para que la IA los cite, y aplicamos lo mismo a nuestro propio sitio: esta página es parte de la prueba. Si la encontraste a través de un asistente, el método funciona.</p>
-      <p>Trabajamos el GEO como parte de cada estrategia, no como un extra suelto: parte del mismo diagnóstico de SEO técnico, contenido y autoridad, y se mide con datos, sin promesas de "marca número uno".</p>
+      <p>Trabajamos el GEO como parte de cada estrategia: parte del mismo diagnóstico de SEO técnico, contenido y autoridad, y se mide con datos, sin promesas de posiciones garantizadas.</p>
       <p class="note"><strong>Siguiente paso</strong> Si quieres que tu marca aparezca en las respuestas de IA, empieza por la <a href="/consultoria-seo/">consultoría SEO y GEO</a> o revisa nuestros <a href="/servicios-seo/">servicios</a>.</p>
     </div>
   </Section>
