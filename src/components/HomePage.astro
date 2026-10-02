@@ -10,6 +10,8 @@ import { t } from '../i18n/utils';
 import { getPage, type Lang } from '../data/pages';
 import { selectProof } from '../lib/proof';
 import { loadProof } from '../lib/proof-data';
+import { showPending } from '../lib/release';
+import { deliverables } from '../data/deliverables';
 
 interface Props {
   lang: Lang;
@@ -29,10 +31,10 @@ const copy = {
       { id: 'auditoria', text: 'Qué frena hoy a tu sitio y qué arreglar primero, en orden de impacto en leads.', link: 'Ver auditoría SEO →' },
     ],
     steps: [
-      { title: 'Diagnóstico', text: 'Demanda de tu categoría y lo que hoy frena al sitio. Semana 2.', shot: 'captura real · auditoría priorizada' },
-      { title: 'Estrategia', text: 'Dos o tres frentes, con impacto estimado y orden. Semana 3.', shot: 'captura real · hoja de ruta' },
-      { title: 'Ejecución', text: 'Páginas y cambios en vivo que la IA puede citar. Cada mes.', shot: 'captura real · brief de contenido' },
-      { title: 'Medición', text: 'Leads, visibilidad en IA y búsquedas de marca. Cada semana.', shot: 'captura real · reporte mensual' },
+      { title: 'Diagnóstico', text: 'Demanda de tu categoría y lo que hoy frena al sitio.', meta: 'Semana 2', shot: 'captura real · auditoría priorizada' },
+      { title: 'Estrategia', text: 'Dos o tres frentes, con impacto estimado y orden.', meta: 'Semana 3', shot: 'captura real · hoja de ruta' },
+      { title: 'Ejecución', text: 'Páginas y cambios en vivo que la IA puede citar.', meta: 'Cada mes', shot: 'captura real · brief de contenido' },
+      { title: 'Medición', text: 'Leads, visibilidad en IA y búsquedas de marca.', meta: 'Cada semana', shot: 'captura real · reporte mensual' },
     ],
     dash: { leads: 'Leads orgánicos', leadsDelta: '+58% vs. trimestre anterior', ai: 'Visibilidad en IA', aiDelta: '+21 pts en 90 días', brand: 'Búsquedas de marca', brandDelta: 'señal de demanda', queries: 'Consultas que convierten', leadsWord: 'leads' },
   },
@@ -43,10 +45,10 @@ const copy = {
       { id: 'auditoria', text: 'What is holding your site back today and what to fix first, in order of impact on leads.', link: 'See SEO audit →' },
     ],
     steps: [
-      { title: 'Diagnosis', text: 'Demand in your category and what holds the site back today. Week 2.', shot: 'real screenshot · prioritized audit' },
-      { title: 'Strategy', text: 'Two or three fronts, with estimated impact and order. Week 3.', shot: 'real screenshot · roadmap' },
-      { title: 'Execution', text: 'Live pages and changes that AI can cite. Every month.', shot: 'real screenshot · content brief' },
-      { title: 'Measurement', text: 'Leads, AI visibility and branded searches. Every week.', shot: 'real screenshot · monthly report' },
+      { title: 'Diagnosis', text: 'Demand in your category and what holds the site back today.', meta: 'Week 2', shot: 'real screenshot · prioritized audit' },
+      { title: 'Strategy', text: 'Two or three fronts, with estimated impact and order.', meta: 'Week 3', shot: 'real screenshot · roadmap' },
+      { title: 'Execution', text: 'Live pages and changes that AI can cite.', meta: 'Every month', shot: 'real screenshot · content brief' },
+      { title: 'Measurement', text: 'Leads, AI visibility and branded searches.', meta: 'Every week', shot: 'real screenshot · monthly report' },
     ],
     dash: { leads: 'Organic leads', leadsDelta: '+58% vs. last quarter', ai: 'AI visibility', aiDelta: '+21 pts in 90 days', brand: 'Branded searches', brandDelta: 'demand signal', queries: 'Queries that convert', leadsWord: 'leads' },
   },
@@ -57,6 +59,7 @@ const services: RowItem[] = copy.services.map((s) => {
   return { title: page[lang].label, text: s.text, href: page[lang].path, linkLabel: s.link };
 });
 const steps: RowItem[] = copy.steps;
+const timingsConfirmed = deliverables.consultoria.timingConfirmed;
 const queries = lang === 'es'
   ? [['agencia seo bogotá', 27], ['consultoría seo méxico', 19], ['cómo aparecer en chatgpt', 11]]
   : [['seo agency bogotá', 27], ['seo consulting mexico', 19], ['how to appear in chatgpt', 11]];
@@ -64,7 +67,7 @@ const queries = lang === 'es'
 
 <Layout title={h('title')} description={h('description')} lang={lang} alternateUrl={lang === 'es' ? '/en/' : '/'} hasForm>
   <section class="hero">
-    <div class="wrap hero__grid">
+    <div class:list={['wrap', 'hero__grid', { 'hero__grid--single': !showPending }]}>
       <div>
         <p class="mono kicker">{h('kicker')}</p>
         <h1>{h('h1Before')}<em>{h('h1Accent')}</em>{h('h1After')}</h1>
@@ -76,7 +79,7 @@ const queries = lang === 'es'
         <ul class="trust">{(h('trust') as string[]).map((x) => <li>{x}</li>)}</ul>
       </div>
       <!-- Placeholder until the real masked dashboard screenshot lands (design D2/D4, task T9). -->
-      <figure data-gate="pending" data-gate-reason="captura real del tablero de un cliente para el hero (T9)">
+      {showPending && <figure data-gate="pending" data-gate-reason="captura real del tablero de un cliente para el hero (T9)">
         <div class="frame">
           <div class="frame__bar" aria-hidden="true"><span class="frame__dot"></span><span class="frame__dot"></span><span class="frame__dot"></span><span class="frame__url">resultados.clicroot.com/<b>cliente</b></span></div>
           <div class="dash num">
@@ -90,13 +93,19 @@ const queries = lang === 'es'
           </div>
         </div>
         <figcaption class="figcap">{h('dashCaption')} <span class="pending-tag">{h('dashPending')}</span></figcaption>
-      </figure>
+      </figure>}
     </div>
   </section>
 
   <section class="chapter chapter--ink2" id="resultados">
     <div class="wrap">
-      <Proof lang={lang} selection={proof} variant="band" title={p('homeTitle')} subtitle={p('homeSub')} source={p('homeSource')} id="resultados-band" />
+      {proof.rows.length > 0
+        ? <Proof lang={lang} selection={proof} variant="band" title={p('homeTitle')} subtitle={p('homeSub')} source={p('homeSource')} id="resultados-band" />
+        : <div class="narrow">
+            <h2>{h('resultsSoonTitle')}</h2>
+            <p class="chapter__intro">{h('resultsSoonText')}</p>
+            <div class="ctas"><a class="btn btn--primary" href="#contacto">{t(lang, 'nav.cta')}</a></div>
+          </div>}
     </div>
   </section>
 
@@ -110,7 +119,7 @@ const queries = lang === 'es'
   <section class="chapter" aria-labelledby="como-title">
     <div class="wrap">
       <h2 id="como-title">{h('processTitle')}</h2>
-      <NumberedRows items={steps} cols={4} pendingReason="tiempos de Cómo trabajamos sin confirmar, iguales a Qué incluye de consultoría (T17)" />
+      <NumberedRows items={steps} cols={4} hideMeta={!timingsConfirmed && !showPending} pendingReason={!timingsConfirmed && showPending ? 'tiempos de Cómo trabajamos sin confirmar, iguales a Qué incluye de consultoría (T17)' : undefined} />
     </div>
   </section>
 

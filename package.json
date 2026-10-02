@@ -9,8 +9,8 @@
     "preview": "astro preview",
     "test": "node --test \"tests/*.test.mjs\"",
     "e2e": "playwright test",
-    "check": "npm run build && node scripts/inventory.mjs check",
-    "check:preview": "npm run build && node scripts/inventory.mjs check --allow-pending"
+    "check": "astro build && node scripts/inventory.mjs check",
+    "check:preview": "SHOW_PENDING=1 astro build && node scripts/inventory.mjs check --allow-pending"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

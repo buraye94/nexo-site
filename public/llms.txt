@@ -18,6 +18,12 @@ Clicroot pairs classic SEO (technical audits, link building, content strategy, b
 - Blog, SEO para Latinoamerica: https://clicroot.com/es/blog/seo-latinoamerica/
 - Blog, guia de link building 2026: https://clicroot.com/es/blog/link-building-2026/
 - Home (English): https://clicroot.com/en/
+- Consultoria SEO: https://clicroot.com/consultoria-seo/
+- GEO, posicionamiento en IA: https://clicroot.com/geo-posicionamiento-en-ia/
+- Auditoria SEO: https://clicroot.com/auditoria-seo/
+- Servicios SEO: https://clicroot.com/servicios-seo/
+- Blog (ES): https://clicroot.com/es/blog/
+- Blog (EN): https://clicroot.com/en/blog/
 
 ## Contact
 - Email: hello@clicroot.com

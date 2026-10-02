@@ -11,6 +11,7 @@ import { getPage, hubPage, homePath, relatedPages, linkLabel, type Lang } from '
 import { getDeliverables } from '../data/deliverables';
 import { selectProof } from '../lib/proof';
 import { loadProof } from '../lib/proof-data';
+import { showPending } from '../lib/release';
 
 interface Props {
   id: string;
@@ -58,6 +59,8 @@ const proofHeading = proof.scoped
 
 const { rows: deliverableRows, confirmed } = getDeliverables(page.deliverables, lang);
 const related = relatedPages(id);
+const flagTimings = !confirmed && showPending;
+const hideTimings = !confirmed && !showPending;
 
 const h1Parts = h1Accent && h1.includes(h1Accent) ? h1.split(h1Accent) : null;
 
@@ -73,7 +76,7 @@ const jsonLd: Record<string, unknown>[] = [
 
 <Layout title={title} description={description} lang={lang} alternateUrl={page[other].path} schema={jsonLd} hasForm>
   <section class:list={['hero', 'hero--landing', { 'hero--long': h1.length > 70 }]}>
-    <div class="wrap hero__grid">
+    <div class:list={['wrap', 'hero__grid', { 'hero__grid--single': proof.rows.length === 0 }]}>
       <div>
         <nav class="crumb" aria-label={lang === 'es' ? 'Ruta de navegación' : 'Breadcrumb'}>
           <ol>
@@ -99,8 +102,8 @@ const jsonLd: Record<string, unknown>[] = [
 
   <section class="chapter paper paper--2" id="incluye" aria-labelledby="incluye-title">
     <div class="wrap">
-      <h2 id="incluye-title">{l('incluyeTitle')}{!confirmed && <span class="pending-tag">{l('pendingTiming')}</span>}</h2>
-      <NumberedRows items={deliverableRows} cols={2} pendingReason={confirmed ? undefined : `tiempos de Qué incluye (${page.deliverables}) sin confirmar (T17)`} />
+      <h2 id="incluye-title">{l('incluyeTitle')}{flagTimings && <span class="pending-tag">{l('pendingTiming')}</span>}</h2>
+      <NumberedRows items={deliverableRows} cols={2} hideMeta={hideTimings} pendingReason={flagTimings ? `tiempos de Qué incluye (${page.deliverables}) sin confirmar (T17)` : undefined} />
     </div>
   </section>
 

@@ -110,7 +110,9 @@
     "servicesTitle": "En qué te ayudamos.",
     "processTitle": "Cómo trabajamos, con lo que vas a recibir.",
     "artifactPending": "capturas reales de entregables pendientes",
-    "faqTitle": "Preguntas frecuentes."
+    "faqTitle": "Preguntas frecuentes.",
+    "resultsSoonTitle": "Resultados con fuente.",
+    "resultsSoonText": "Aquí solo publicamos cifras verificadas y con permiso de cada cliente. Mientras las sumamos, en la primera llamada te mostramos el tablero real de un cliente, con nombre y dominio ocultos."
   },
   "footer": {
     "desc": "Consultoría de SEO y visibilidad en IA para marcas en Colombia, México y Estados Unidos.",

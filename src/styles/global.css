@@ -111,6 +111,7 @@ html.offer-closed .offer { display: none; }
 /* Hero */
 .hero { padding-top: 36px; padding-bottom: 76px; }
 .hero__grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 52px; align-items: center; }
+.hero__grid--single { grid-template-columns: minmax(0, 820px); }
 .hero h1 { font-size: 58px; line-height: 1.04; margin: 16px 0 22px; }
 .hero h1 em { font-style: normal; color: var(--olive); }
 .hero--landing h1 { font-size: 52px; }
@@ -218,6 +219,7 @@ html.js.motion .proof.is-drawn .proof__bars span { transform: scaleX(1); transit
 /* First call */
 .call { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
 .who { display: grid; grid-template-columns: 112px 1fr; gap: 18px; align-items: center; margin: 22px 0; padding: 16px; border: 1px solid var(--line-dark); border-radius: var(--r-xl); }
+.who--text { grid-template-columns: 1fr; }
 .who__photo { aspect-ratio: 1; border-radius: var(--r-md); background: #2A2920; display: flex; align-items: flex-end; padding: 8px; font-family: var(--font-mono); font-size: 10px; color: var(--muted-dark); overflow: hidden; }
 .who p { font-size: 15px; line-height: 1.5; color: #D2CDBB; }
 .who strong { color: var(--fg); }

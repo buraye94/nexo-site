@@ -2,6 +2,7 @@
 import ContactForm from './ContactForm.astro';
 import { t } from '../i18n/utils';
 import type { Lang } from '../data/pages';
+import { showPending } from '../lib/release';
 
 interface Props {
   lang: Lang;
@@ -15,9 +16,9 @@ const covers = t(lang, 'call.covers') as string[];
   <div class="wrap call">
     <div>
       <h2 id={`call-title-${lang}`}>{t(lang, 'call.title')}</h2>
-      <div class="who">
+      <div class:list={['who', { 'who--text': !showPending }]}>
         <!-- Real team or working-session photo goes here (design D10, task T16). -->
-        <div class="who__photo" data-gate="pending" data-gate-reason="foto real del equipo y datos de Quién te atiende (T16)">{t(lang, 'call.photo')}</div>
+        {showPending && <div class="who__photo" data-gate="pending" data-gate-reason="foto real del equipo y datos de Quién te atiende (T16)">{t(lang, 'call.photo')}</div>}
         <p><strong>{t(lang, 'call.whoTitle')}</strong> {t(lang, 'call.whoText')}</p>
       </div>
       <ul class="covers">{covers.map((c) => <li>{c}</li>)}</ul>

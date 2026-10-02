@@ -1,4 +1,6 @@
 ---
+import { showPending } from '../lib/release';
+
 export interface RowItem {
   title: string;
   text?: string;
@@ -12,27 +14,31 @@ export interface RowItem {
   html?: boolean;
 }
 
+
 interface Props {
   items: RowItem[];
+  /** Hide the mono meta lines (e.g. unconfirmed timings on a production build). */
+  hideMeta?: boolean;
   cols?: 1 | 2 | 3 | 4;
   /** Marks the list as pending (e.g. unconfirmed timings) for the merge gate. */
   pendingReason?: string;
 }
 
-const { items, cols = 2, pendingReason } = Astro.props;
+const { items, cols = 2, pendingReason, hideMeta = false } = Astro.props;
+const withShots = showPending;
 const pad = (n: number) => String(n).padStart(2, '0');
 ---
 
 <ol class:list={['rows', `rows--${cols}`]} {...(pendingReason ? { 'data-gate': 'pending', 'data-gate-reason': pendingReason } : {})}>
   {items.map((item, i) => (
-    <li class:list={['row', { 'row--media': item.shot }]}>
-      {item.shot
+    <li class:list={['row', { 'row--media': item.shot && withShots }]}>
+      {item.shot && withShots
         ? <div class="shot" data-gate="pending" data-gate-reason="captura real del entregable (T9)"><span class="shot__label">{item.shot}</span></div>
         : <span class="row__no" aria-hidden="true">{pad(i + 1)}</span>}
       <div>
         <h3>{item.title}</h3>
         {item.text && (item.html ? <p set:html={item.text} /> : <p>{item.text}</p>)}
-        {item.meta && <p class="row__meta">{item.meta}</p>}
+        {item.meta && !hideMeta && <p class="row__meta">{item.meta}</p>}
         {item.href && <a class="row__link" href={item.href}>{item.linkLabel}</a>}
       </div>
     </li>

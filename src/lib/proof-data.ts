@@ -1,11 +1,14 @@
 import { getCollection } from 'astro:content';
 import type { Lang } from '../data/pages';
 import type { ProofEntry } from './proof';
+import { showPending } from './release';
 
 /** Load the cases collection as language-specific proof entries. */
 export async function loadProof(lang: Lang): Promise<ProofEntry[]> {
   const cases = await getCollection('cases');
-  return cases.map(({ id, data }) => ({
+  // Illustrative entries never reach a production build.
+  const visible = showPending ? cases : cases.filter(({ data }) => data.status === 'verified');
+  return visible.map(({ id, data }) => ({
     id,
     label: lang === 'es' ? data.label_es : data.label_en,
     services: data.services,
