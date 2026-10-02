@@ -114,6 +114,7 @@ html.offer-closed .offer { display: none; }
 .hero h1 { font-size: 58px; line-height: 1.04; margin: 16px 0 22px; }
 .hero h1 em { font-style: normal; color: var(--olive); }
 .hero--landing h1 { font-size: 52px; }
+.hero--long h1 { font-size: 44px; line-height: 1.08; }
 .lead { font-size: 18px; line-height: 1.55; color: #D2CDBB; max-width: 34em; }
 .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .trust { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 24px; list-style: none; font-size: 14px; color: #CFCAB8; }
@@ -327,6 +328,7 @@ html.js.motion .proof.is-drawn .proof__bars span { transform: scaleX(1); transit
   h2 { font-size: 28px; }
   .hero { padding-top: 16px; padding-bottom: 48px; }
   .hero h1 { font-size: 38px; margin: 12px 0 14px; }
+  .hero--long h1 { font-size: 32px; }
   .lead { font-size: 17px; }
   .ctas { flex-direction: column; }
   .ctas .btn { width: 100%; }

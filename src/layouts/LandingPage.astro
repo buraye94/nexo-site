@@ -72,7 +72,7 @@ const jsonLd: Record<string, unknown>[] = [
 ---
 
 <Layout title={title} description={description} lang={lang} alternateUrl={page[other].path} schema={jsonLd} hasForm>
-  <section class="hero hero--landing">
+  <section class:list={['hero', 'hero--landing', { 'hero--long': h1.length > 70 }]}>
     <div class="wrap hero__grid">
       <div>
         <nav class="crumb" aria-label={lang === 'es' ? 'Ruta de navegación' : 'Breadcrumb'}>
