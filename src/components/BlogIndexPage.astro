@@ -1,0 +1,61 @@
+---
+// Blog index (design D24): reading rules, one column of editorial rows, newest first.
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { t } from '../i18n/utils';
+import { blogPath, homePath, type Lang } from '../data/pages';
+import { readingMinutes, formatDate } from '../lib/blog';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const b = (key: string) => t(lang, `blog.${key}`);
+const site = 'https://clicroot.com';
+const posts = (await getCollection('blog', (p) => p.data.lang === lang && !p.data.draft))
+  .sort((a, z) => z.data.date.getTime() - a.data.date.getTime());
+
+const schema = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: lang === 'es' ? 'Inicio' : 'Home', item: `${site}${homePath(lang)}` },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${site}${blogPath(lang)}` },
+    ],
+  },
+  {
+    '@type': 'Blog',
+    name: b('h1'),
+    url: `${site}${blogPath(lang)}`,
+    inLanguage: lang,
+    publisher: { '@id': `${site}/#org` },
+  },
+];
+---
+
+<Layout title={b('title')} description={b('description')} lang={lang} alternateUrl={blogPath(lang === 'es' ? 'en' : 'es')} schema={schema}>
+  <section class="paper post">
+    <div class="wrap">
+      <header class="post__head">
+        <p class="mono" style="color:var(--olive-text)">{b('kicker')}</p>
+        <h1>{b('h1')}</h1>
+        <p class="lead" style="color:var(--body-paper)">{b('lead')}</p>
+      </header>
+      <ul class="blog-list">
+        {posts.map((post) => {
+          const slug = post.slug.replace(`${lang}/`, '');
+          return (
+            <li>
+              <a href={`${blogPath(lang)}${slug}/`}>
+                <h2>{post.data.title}</h2>
+                <p>{post.data.description}</p>
+                <span class="src">{formatDate(post.data.date, lang)} · {readingMinutes(post.body)} {b('minRead')}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+</Layout>
