@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  faqs: { q: string; a: string }[];
+  /** Emit FAQPage JSON-LD from the same array the visible FAQ renders. */
+  schema?: boolean;
+  id?: string;
+}
+
+const { title, faqs, schema = true, id = 'preguntas' } = Astro.props;
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<section class="chapter paper faq" id={id} aria-labelledby={`${id}-title`}>
+  <div class="wrap narrow">
+    <h2 id={`${id}-title`}>{title}</h2>
+    {faqs.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p class="faq__a">{f.a}</p>
+      </details>
+    ))}
+  </div>
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+</section>

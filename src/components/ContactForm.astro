@@ -1,0 +1,203 @@
+---
+import { t } from '../i18n/utils';
+import type { Lang } from '../data/pages';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const f = (key: string) => t(lang, `form.${key}`);
+const needs = ['leads', 'diagnostico', 'auditoria', 'otro'] as const;
+const messages = {
+  errors: f('errors'),
+  sending: f('sending'),
+  send: f('send'),
+  doneTitle: f('doneTitle'),
+};
+---
+
+<form class="cf" data-contact-form data-lang={lang} data-messages={JSON.stringify(messages)} novalidate>
+  <div data-cf-panel>
+    <fieldset data-step="1">
+      <legend class="cf__step">{f('step1')}</legend>
+      <div class="cf__prog" aria-hidden="true"><i class="on"></i><i></i></div>
+      <div class="cf__field">
+        <label for={`cf-website-${lang}`}>{f('website')}</label>
+        <input id={`cf-website-${lang}`} name="website" type="text" inputmode="url" autocomplete="url" required aria-describedby={`cf-website-${lang}-msg`} />
+        <p class="cf__msg" id={`cf-website-${lang}-msg`} aria-live="polite"></p>
+      </div>
+      <div class="cf__field">
+        <label for={`cf-email-${lang}`}>{f('email')}</label>
+        <input id={`cf-email-${lang}`} name="email" type="email" autocomplete="email" required aria-describedby={`cf-email-${lang}-msg`} />
+        <p class="cf__msg" id={`cf-email-${lang}-msg`} aria-live="polite"></p>
+      </div>
+      <div class="cf__actions">
+        <button class="btn btn--primary btn--block" type="button" data-cf-next>{f('next')}</button>
+      </div>
+    </fieldset>
+
+    <fieldset data-step="2" hidden>
+      <legend class="cf__step">{f('step2')}</legend>
+      <div class="cf__prog" aria-hidden="true"><i class="on"></i><i class="on"></i></div>
+      <div class="cf__field">
+        <label for={`cf-name-${lang}`}>{f('name')}</label>
+        <input id={`cf-name-${lang}`} name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby={`cf-name-${lang}-msg`} />
+        <p class="cf__msg" id={`cf-name-${lang}-msg`} aria-live="polite"></p>
+      </div>
+      <fieldset class="cf__field" aria-describedby={`cf-need-${lang}-msg`}>
+        <legend class="cf__legend">{f('need')}</legend>
+        <div class="cf__chips">
+          {needs.map((n, i) => (
+            <label><input type="radio" name="need" value={n} checked={i === 0} /><span>{f(`needs.${n}`)}</span></label>
+          ))}
+        </div>
+        <p class="cf__msg" id={`cf-need-${lang}-msg`} aria-live="polite"></p>
+      </fieldset>
+      <div class="cf__field">
+        <label for={`cf-message-${lang}`}>{f('message')}</label>
+        <textarea id={`cf-message-${lang}`} name="message" maxlength="5000"></textarea>
+      </div>
+      <div class="cf__trap" aria-hidden="true">
+        <label for={`cf-trap-${lang}`}>{f('trap')}</label>
+        <input id={`cf-trap-${lang}`} name="company_fax" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+      <p class="cf__banner" role="alert" data-cf-banner></p>
+      <div class="cf__actions">
+        <button class="btn btn--primary btn--block" type="submit" data-cf-send>{f('send')}</button>
+        <p class="src" data-cf-sending-note hidden>{f('sendingNote')}</p>
+        <button class="cf__back" type="button" data-cf-back>{f('back')}</button>
+      </div>
+    </fieldset>
+    <p class="src cf__note">{f('note')}</p>
+  </div>
+
+  <div class="cf__done" role="status" data-cf-done hidden tabindex="-1">
+    <div class="cf__mark" aria-hidden="true">✓</div>
+    <h3 data-cf-done-title></h3>
+    <p>{f('doneText')}</p>
+    <p data-cf-done-diag hidden>{f('doneDiag')}</p>
+  </div>
+</form>
+
+<script>
+  type Messages = { errors: Record<string, string>; sending: string; send: string; doneTitle: string };
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const SITE_RE = /^(https?:\/\/)?[^\s/.]+(\.[^\s/.]+)+(\/\S*)?$/i;
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('[data-contact-form]')) {
+    const msgs: Messages = JSON.parse(form.dataset.messages || '{}');
+    const lang = form.dataset.lang || 'es';
+    const step1 = form.querySelector<HTMLFieldSetElement>('[data-step="1"]')!;
+    const step2 = form.querySelector<HTMLFieldSetElement>('[data-step="2"]')!;
+    const banner = form.querySelector<HTMLElement>('[data-cf-banner]')!;
+    const sendBtn = form.querySelector<HTMLButtonElement>('[data-cf-send]')!;
+    const sendingNote = form.querySelector<HTMLElement>('[data-cf-sending-note]')!;
+    const field = (name: string) => form.elements.namedItem(name) as HTMLInputElement;
+    let sending = false;
+
+    const setError = (input: HTMLInputElement, message: string) => {
+      const msg = document.getElementById(input.getAttribute('aria-describedby') || '');
+      if (msg) msg.textContent = message;
+      input.setAttribute('aria-invalid', message ? 'true' : 'false');
+    };
+
+    const validators: Record<string, (v: string) => string> = {
+      website: (v) => (!v ? msgs.errors.websiteMissing : SITE_RE.test(v) ? '' : msgs.errors.websiteInvalid),
+      email: (v) => (!v ? msgs.errors.emailMissing : EMAIL_RE.test(v) ? '' : msgs.errors.emailInvalid),
+      name: (v) => (v ? '' : msgs.errors.nameMissing),
+    };
+    const check = (name: string) => {
+      const input = field(name);
+      const error = validators[name](input.value.trim());
+      setError(input, error);
+      return !error;
+    };
+    for (const name of Object.keys(validators)) {
+      field(name).addEventListener('blur', () => {
+        if (field(name).value.trim()) check(name);
+      });
+    }
+
+    const show = (step: 1 | 2) => {
+      step1.hidden = step !== 1;
+      step2.hidden = step !== 2;
+      (step === 1 ? field('website') : field('name')).focus();
+    };
+
+    form.querySelector('[data-cf-next]')!.addEventListener('click', () => {
+      const ok = [check('website'), check('email')].every(Boolean);
+      if (ok) show(2);
+      else form.querySelector<HTMLInputElement>('[aria-invalid="true"]')?.focus();
+    });
+    form.querySelector('[data-cf-back]')!.addEventListener('click', () => show(1));
+
+    const preselect = (value: string) => {
+      const radio = form.querySelector<HTMLInputElement>(`input[name="need"][value="${value}"]`);
+      if (radio) radio.checked = true;
+    };
+    const params = new URLSearchParams(location.search);
+    if (params.get('motivo') === 'diagnostico-ia') preselect('diagnostico');
+    document.querySelectorAll<HTMLAnchorElement>('[data-offer-link][data-same-page="true"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        preselect('diagnostico');
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.getElementById('contacto')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        history.replaceState(null, '', '#contacto');
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (sending) return;
+      banner.textContent = '';
+      if (!check('name')) {
+        field('name').focus();
+        return;
+      }
+      const data = new FormData(form);
+      const payload = {
+        website: String(data.get('website') || '').trim(),
+        email: String(data.get('email') || '').trim(),
+        name: String(data.get('name') || '').trim(),
+        need: String(data.get('need') || ''),
+        message: String(data.get('message') || '').trim(),
+        page: location.pathname,
+        lang,
+        company_fax: String(data.get('company_fax') || ''),
+      };
+      sending = true;
+      sendBtn.disabled = true;
+      sendBtn.setAttribute('aria-disabled', 'true');
+      sendBtn.textContent = msgs.sending;
+      sendingNote.hidden = false;
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.querySelector<HTMLElement>('[data-cf-panel]')!.hidden = true;
+        const done = form.querySelector<HTMLElement>('[data-cf-done]')!;
+        done.querySelector('[data-cf-done-title]')!.textContent = msgs.doneTitle.replace('{name}', payload.name.split(' ')[0]);
+        (done.querySelector('[data-cf-done-diag]') as HTMLElement).hidden = payload.need !== 'diagnostico';
+        done.hidden = false;
+        done.focus();
+      } catch {
+        banner.innerHTML = '';
+        banner.append(`${msgs.errors.server} `);
+        const link = document.createElement('a');
+        link.href = 'mailto:hello@clicroot.com';
+        link.textContent = 'hello@clicroot.com';
+        banner.append(link, '.');
+        sendBtn.disabled = false;
+        sendBtn.removeAttribute('aria-disabled');
+        sendBtn.textContent = msgs.send;
+        sendingNote.hidden = true;
+        sending = false;
+      }
+    });
+  }
+</script>

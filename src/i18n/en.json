@@ -1,99 +1,139 @@
 {
+  "skip": "Skip to content",
   "nav": {
+    "label": "Main",
     "services": "Services",
+    "cities": "Cities",
     "results": "Results",
-    "cases": "Case Studies",
     "blog": "Blog",
-    "contact": "Contact",
-    "cta": "Get Started"
+    "cta": "Book a call",
+    "menu": "Menu",
+    "close": "Close menu",
+    "langSwitch": "ES",
+    "langSwitchLabel": "See this page in Spanish"
   },
-  "hero": {
-    "badge": "4.9 client satisfaction rating",
-    "title1": "Organic Traffic.",
-    "title2": "AI Visibility.",
-    "title3": "Real Revenue.",
+  "offer": {
+    "long": "Free diagnosis of how ChatGPT, Gemini and Google see you in your category.",
+    "cta": "Request the diagnosis →",
+    "short": "Free AI diagnosis →",
+    "close": "Dismiss notice"
+  },
+  "call": {
+    "title": "The first call: 30 minutes, no commitment.",
+    "whoTitle": "Who you talk to.",
+    "whoText": "A senior SEO and AI visibility consultant, the same person who would work on your account. We work with brands in Colombia and Mexico.",
+    "photo": "real team photo (pending)",
+    "covers": [
+      "We review which searches could already bring you customers",
+      "We show you a real client dashboard",
+      "We tell you what we would do first, and what we would leave for later",
+      "A clear range of scope and price from the start"
+    ]
+  },
+  "form": {
+    "step1": "Step 1 of 2 · Your site",
+    "step2": "Step 2 of 2 · What you need",
+    "website": "Website",
+    "email": "Work email",
+    "name": "Your name",
+    "need": "What you need",
+    "needs": {
+      "leads": "More leads",
+      "diagnostico": "AI diagnosis",
+      "auditoria": "Audit",
+      "otro": "Other"
+    },
+    "message": "Message (optional)",
+    "next": "Next",
+    "send": "Send",
+    "sending": "Sending…",
+    "sendingNote": "Keep this page open, it takes a few seconds.",
+    "back": "← Back to step 1",
+    "note": "A senior consultant replies within one business day.",
+    "trap": "Leave this field empty",
+    "errors": {
+      "websiteMissing": "Enter your website address.",
+      "websiteInvalid": "Check the address: it is missing the domain (for example, yourbrand.com).",
+      "emailMissing": "Enter your work email.",
+      "emailInvalid": "Check the email: it looks incomplete (for example, name@company.com).",
+      "nameMissing": "Enter your name.",
+      "needMissing": "Choose what you need.",
+      "server": "We could not send your message. Your details are still here: try again, or write to us directly at"
+    },
+    "doneTitle": "Done, {name}.",
+    "doneText": "A senior consultant will write to you from hello@clicroot.com within one business day, with two or three times for the call.",
+    "doneDiag": "If you asked for the AI diagnosis, that email confirms when you will receive it."
+  },
+  "proof": {
+    "before": "Before we started",
+    "after": "Today",
+    "unit": "leads/mo",
+    "months": "months",
+    "illustrative": "illustrative figures",
+    "homeTitle": "Leads from search, before and after.",
+    "homeSub": "Each row is a real client, with its industry and market. Leads per month, from their own GA4 and CRM.",
+    "homeSource": "Source: each client's GA4 and CRM, leads attributed to organic search and AI answers · names hidden for confidentiality",
+    "cardScoped": "{label} clients: leads per month",
+    "cardNeutral": "Clicroot clients: leads per month",
+    "cardSub": "Before we started and today, over 6 to 12 month windows",
+    "cardSource": "Source: each client's GA4 and CRM · names hidden"
+  },
+  "landing": {
+    "home": "Home",
+    "crumbServices": "SEO Services",
+    "ctaSecondary": "What's included",
+    "trust": [
+      "Reply within one business day",
+      "No forced lock-in"
+    ],
+    "incluyeTitle": "What you get, and when.",
+    "faqTitle": "Frequently asked questions.",
+    "relatedTitle": "You might also need",
+    "pendingTiming": "timings to confirm"
+  },
+  "home": {
+    "title": "SEO and GEO Consulting in Colombia and Mexico | Clicroot",
     "description": "Strategic SEO consulting and AI model optimization. Position your brand on Google, ChatGPT, Perplexity, and Claude. English and Spanish markets.",
-    "cta1": "Book a Call",
-    "cta2": "See Results"
-  },
-  "metrics": {
-    "traffic": "Organic Traffic",
-    "trafficTrend": "28% this month",
-    "rankings": "Rankings Achieved",
-    "roi": "Return on Investment",
-    "roiTrend": "Annual average",
-    "retention": "Client Retention",
-    "telemetry": ["Optimizing AI visibility...", "Indexing strategic content...", "Analyzing SERP competition...", "Tracking organic positions..."]
-  },
-  "social": {
-    "label": "Trusted by leading companies"
-  },
-  "services": {
-    "label": "Our Services",
-    "title": "SEO strategies that drive results.",
-    "subtitle": "No scattered tactics. Just 2–3 high-impact strategies executed with precision for measurable growth.",
-    "items": [
-      { "icon": "search", "title": "Technical SEO Audits", "desc": "Deep site analysis identifying critical fixes. Crawlability, Core Web Vitals, structured data, and indexation." },
-      { "icon": "link", "title": "Strategic Link Building", "desc": "Quality over quantity. High-authority placements on relevant sites that build real authority and referral traffic." },
-      { "icon": "pen", "title": "Content Strategy", "desc": "Bottom-of-funnel landing pages and content that captures high-intent searches and converts visitors into customers." },
-      { "icon": "globe", "title": "Bilingual SEO", "desc": "Native optimization for English and Spanish markets. Hreflang, localized keyword research, and regional strategies." }
-    ]
-  },
-  "results": {
-    "label": "Results",
-    "title": "Numbers that speak louder than words.",
-    "manifesto1": "Most optimize for today's algorithm.",
-    "manifesto2": "We optimize for the future.",
-    "stats": [
-      { "value": 284, "suffix": "%", "label": "Average Traffic Increase" },
-      { "value": 12, "suffix": "x", "label": "Average ROI" },
-      { "value": 47, "suffix": "+", "label": "Keywords in Top 3" },
-      { "value": 98, "suffix": "%", "label": "Client Retention" }
-    ]
-  },
-  "cases": {
-    "label": "Case Studies",
-    "title": "Real results for real businesses."
-  },
-  "testimonials": {
-    "label": "Testimonials",
-    "title": "What our clients say."
-  },
-  "process": {
-    "label": "How We Work",
-    "title": "From audit to growth in four steps.",
-    "steps": [
-      { "num": "01", "title": "Discovery", "desc": "Deep analysis of your business, competitors, and market opportunities." },
-      { "num": "02", "title": "Strategy", "desc": "Personalized roadmap with 2–3 high-impact strategies." },
-      { "num": "03", "title": "Execution", "desc": "Hands-on implementation with detailed instructions and ongoing support." },
-      { "num": "04", "title": "Growth", "desc": "Monthly reports, optimization, and scaling what works." }
-    ]
-  },
-  "blog": {
-    "label": "From the Blog",
-    "title": "Ideas and strategies.",
-    "readMore": "Read more"
-  },
-  "contact": {
-    "label": "Get Started",
-    "title": "Ready to dominate your market?",
-    "subtitle": "Book a free 30-minute strategy call. We'll analyze your current SEO and show you exactly where the opportunities are.",
-    "name": "Name",
-    "email": "Email",
-    "website": "Website URL",
-    "message": "Tell us about your business and SEO goals...",
-    "submit": "Send Message"
+    "kicker": "SEO and GEO consulting · Colombia and Mexico",
+    "h1Before": "SEO that brings ",
+    "h1Accent": "customers",
+    "h1After": ", and shows you how many.",
+    "lead": "We capture the demand that already exists for what you sell, on Google and in AI answers. Every client sees their leads, their AI visibility and their revenue on a live dashboard.",
+    "cta2": "See results ↓",
+    "trust": [
+      "A senior consultant on your account",
+      "Spanish and English",
+      "Figures with a source"
+    ],
+    "dashCaption": "Illustrative view of a client dashboard · the real screenshot, with name and domain hidden, replaces it before launch",
+    "dashPending": "real dashboard screenshot pending",
+    "servicesTitle": "How we help.",
+    "processTitle": "How we work, and what you receive.",
+    "artifactPending": "real deliverable screenshots pending",
+    "faqTitle": "Frequently asked questions.",
+    "resultsSoonTitle": "Results with a source.",
+    "resultsSoonText": "We only publish figures that are verified and approved by each client. While we add them, in the first call we show you a real client dashboard, with name and domain hidden."
   },
   "footer": {
-    "desc": "Strategic SEO consulting for businesses ready to dominate their market. Bilingual expertise.",
-    "navTitle": "Navigation",
-    "svcTitle": "Services",
-    "connectTitle": "Connect",
-    "techSeo": "Technical SEO",
-    "linkBuilding": "Link Building",
-    "contentStrategy": "Content Strategy",
-    "bilingualSeo": "Bilingual SEO",
-    "copy": "© 2026 clicroot. All rights reserved.",
-    "status": "System Operational"
+    "desc": "SEO and AI visibility consulting for brands in Colombia, Mexico and the United States.",
+    "services": "Services",
+    "cities": "Cities",
+    "company": "Clicroot",
+    "blog": "Blog",
+    "contact": "Contact",
+    "copy": "© 2026 Clicroot"
+  },
+  "blog": {
+    "title": "SEO and AI Visibility Blog | Clicroot",
+    "description": "Guides on SEO, GEO and visibility in ChatGPT, Gemini and Google for brands in Latin America and the US.",
+    "kicker": "Blog · SEO and AI visibility",
+    "h1": "Ideas on SEO and AI visibility.",
+    "lead": "Practical guides to capture the demand already searching for what you sell, on Google and in AI assistants.",
+    "back": "← Blog",
+    "minRead": "min read",
+    "closeTitle": "Want this applied to your site?",
+    "closeText": "In a 30-minute call we review which searches could already bring you customers.",
+    "closeCta": "Book a call",
+    "closeService": "See"
   }
 }

@@ -1,0 +1,56 @@
+---
+import { t } from '../i18n/utils';
+import type { Lang } from '../data/pages';
+import type { ProofSelection } from '../lib/proof';
+
+interface Props {
+  lang: Lang;
+  selection: ProofSelection;
+  variant: 'band' | 'card';
+  title: string;
+  subtitle?: string;
+  source: string;
+  id?: string;
+}
+
+const { lang, selection, variant, title, subtitle, source, id } = Astro.props;
+const { rows, pending } = selection;
+const p = (key: string) => t(lang, `proof.${key}`);
+const sign = (n: number) => (n > 0 ? `+${n}` : String(n));
+const headingId = id ? `${id}-title` : undefined;
+---
+
+{rows.length > 0 && (
+  <figure
+    class:list={['proof', `proof--${variant}`]}
+    data-proof-draw
+    aria-labelledby={headingId}
+    {...(pending ? { 'data-gate': 'pending', 'data-gate-reason': 'cifras ilustrativas en la prueba antes/después (T8)' } : {})}
+  >
+    <h2 id={headingId}>{title}{pending && <span class="pending-tag">{p('illustrative')}</span>}</h2>
+    {subtitle && <p class={variant === 'band' ? 'chapter__intro' : 'proof__sub'}>{subtitle}</p>}
+    {variant === 'band' && (
+      <div class="proof__legend" aria-hidden="true">
+        <span><i class="proof__before"></i>{p('before')}</span>
+        <span><i class="proof__after"></i>{p('after')}</span>
+      </div>
+    )}
+    <ul class="proof__rows num">
+      {rows.map((r) => (
+        <li class="proof__row">
+          <span class="proof__label">{r.label}</span>
+          <span class="proof__bars" aria-hidden="true">
+            <span class="proof__before" style={`width:${r.beforeWidth}%`}></span>
+            <span class="proof__after" style={`width:${r.afterWidth}%`}></span>
+          </span>
+          <span class="proof__num">
+            <strong>{`${r.before} → ${r.after}`}</strong>{variant === 'band' && ` ${p('unit')}`}
+            <small>{`${sign(r.pct)}% · ${r.windowMonths} ${p('months')}`}</small>
+            <span class="visually-hidden">{`${p('before')}: ${r.before} ${p('unit')}. ${p('after')}: ${r.after} ${p('unit')}.`}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
+    <figcaption class="src proof__src">{source}</figcaption>
+  </figure>
+)}

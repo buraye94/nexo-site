@@ -1,0 +1,20 @@
+{
+  "label_es": "Fitness · Colombia y México",
+  "label_en": "Fitness · Colombia and Mexico",
+  "services": [
+    "linkbuilding",
+    "consultoria"
+  ],
+  "markets": [
+    "CO",
+    "MX"
+  ],
+  "before": 41,
+  "after": 52,
+  "window_months": 6,
+  "source_es": "GA4 y CRM del cliente",
+  "source_en": "Client's GA4 and CRM",
+  "status": "illustrative",
+  "client_ok": false,
+  "order": 5
+}

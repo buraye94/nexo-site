@@ -1,0 +1,118 @@
+---
+// Shared template for the 24 service and city pages (design D6, eng R1, R2, R5, R9, R10).
+// Page-specific sections go in the default slot, between the hero and "Qué incluye".
+import Layout from './Layout.astro';
+import Proof from '../components/Proof.astro';
+import NumberedRows from '../components/NumberedRows.astro';
+import FirstCall from '../components/FirstCall.astro';
+import Faq from '../components/Faq.astro';
+import { t } from '../i18n/utils';
+import { getPage, hubPage, homePath, relatedPages, linkLabel, type Lang } from '../data/pages';
+import { getDeliverables } from '../data/deliverables';
+import { selectProof } from '../lib/proof';
+import { loadProof } from '../lib/proof-data';
+import { showPending } from '../lib/release';
+
+interface Props {
+  id: string;
+  lang: Lang;
+  /** <title> and meta description: must stay identical to the live page (inventory gate). */
+  title: string;
+  description: string;
+  kicker: string;
+  h1: string;
+  /** Optional word inside the H1 to set in olive. */
+  h1Accent?: string;
+  lead: string;
+  /** Breadcrumb label for this page (defaults to the registry label). */
+  crumbLabel?: string;
+  /** Service JSON-LD fields (serviceType, name, description, areaServed...). */
+  service?: Record<string, unknown>;
+  /** Extra JSON-LD nodes, e.g. the GEO pillar's Article. */
+  schema?: Record<string, unknown>[];
+  faqs: { q: string; a: string }[];
+  faqTitle?: string;
+  /** Heading for the proof card when it matches this page. */
+  proofTitle?: string;
+}
+
+const { id, lang, title, description, kicker, h1, h1Accent, lead, crumbLabel, service, schema = [], faqs, faqTitle, proofTitle } = Astro.props;
+const page = getPage(id);
+const other: Lang = lang === 'es' ? 'en' : 'es';
+const self = page[lang];
+const site = 'https://clicroot.com';
+const l = (key: string) => t(lang, `landing.${key}`);
+const p = (key: string) => t(lang, `proof.${key}`);
+
+// Breadcrumb: services sit under the services hub; cities and the hub sit under home.
+const hub = hubPage();
+const crumbs = [
+  { name: l('home'), path: homePath(lang) },
+  ...(page.family === 'service' ? [{ name: l('crumbServices'), path: hub[lang].path }] : []),
+  { name: crumbLabel ?? self.label, path: self.path },
+];
+
+const proof = selectProof(await loadProof(lang), { service: page.service, city: page.city });
+const proofHeading = proof.scoped
+  ? (proofTitle ?? p('cardScoped').replace('{label}', self.label))
+  : p('cardNeutral');
+
+const { rows: deliverableRows, confirmed } = getDeliverables(page.deliverables, lang);
+const related = relatedPages(id);
+const flagTimings = !confirmed && showPending;
+const hideTimings = !confirmed && !showPending;
+
+const h1Parts = h1Accent && h1.includes(h1Accent) ? h1.split(h1Accent) : null;
+
+const jsonLd: Record<string, unknown>[] = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: `${site}${c.path}` })),
+  },
+  ...(service ? [{ '@type': 'Service', provider: { '@id': `${site}/#org` }, availableLanguage: ['Spanish', 'English'], ...service }] : []),
+  ...schema,
+];
+---
+
+<Layout title={title} description={description} lang={lang} alternateUrl={page[other].path} schema={jsonLd} hasForm>
+  <section class:list={['hero', 'hero--landing', { 'hero--long': h1.length > 70 }]}>
+    <div class:list={['wrap', 'hero__grid', { 'hero__grid--single': proof.rows.length === 0 }]}>
+      <div>
+        <nav class="crumb" aria-label={lang === 'es' ? 'Ruta de navegación' : 'Breadcrumb'}>
+          <ol>
+            {crumbs.map((c, i) => (
+              <li>{i === crumbs.length - 1 ? <span aria-current="page">{c.name}</span> : <a href={c.path}>{c.name}</a>}</li>
+            ))}
+          </ol>
+        </nav>
+        <p class="mono kicker">{kicker}</p>
+        <h1>{h1Parts ? <>{h1Parts[0]}<em>{h1Accent}</em>{h1Parts.slice(1).join(h1Accent)}</> : h1}</h1>
+        <p class="lead">{lead}</p>
+        <div class="ctas">
+          <a class="btn btn--primary" href="#contacto">{t(lang, 'nav.cta')}</a>
+          <a class="btn btn--ghost" href="#incluye">{l('ctaSecondary')}</a>
+        </div>
+        <ul class="trust">{(l('trust') as string[]).map((x) => <li>{x}</li>)}</ul>
+      </div>
+      <Proof lang={lang} selection={proof} variant="card" title={proofHeading} subtitle={p('cardSub')} source={p('cardSource')} id="prueba" />
+    </div>
+  </section>
+
+  <slot />
+
+  <section class="chapter paper paper--2" id="incluye" aria-labelledby="incluye-title">
+    <div class="wrap">
+      <h2 id="incluye-title">{l('incluyeTitle')}{flagTimings && <span class="pending-tag">{l('pendingTiming')}</span>}</h2>
+      <NumberedRows items={deliverableRows} cols={2} hideMeta={hideTimings} pendingReason={flagTimings ? `tiempos de Qué incluye (${page.deliverables}) sin confirmar (T17)` : undefined} />
+    </div>
+  </section>
+
+  <FirstCall lang={lang} />
+
+  <Faq title={faqTitle ?? l('faqTitle')} faqs={faqs} />
+
+  <nav class="wrap related" aria-labelledby="related-title">
+    <h2 id="related-title">{l('relatedTitle')}</h2>
+    <ul>{related.map((r) => <li><a href={r[lang].path}>{linkLabel(r, lang)}</a></li>)}</ul>
+  </nav>
+</Layout>
