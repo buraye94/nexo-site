@@ -119,6 +119,9 @@ function check() {
   const replacedFile = join(ROOT, 'scripts/inventory-replaced.json');
   const baseline = JSON.parse(readFileSync(baselineFile, 'utf8'));
   const replaced = existsSync(replacedFile) ? JSON.parse(readFileSync(replacedFile, 'utf8')) : {};
+  // Sections whose H2 was rewritten (e.g. to remove an "X, no Y" contrast): old text -> new text.
+  const renamedFile = join(ROOT, 'scripts/inventory-renamed.json');
+  const renamed = existsSync(renamedFile) ? JSON.parse(readFileSync(renamedFile, 'utf8')) : {};
   const errors = [];
   const pending = [];
   const files = htmlPages();
@@ -154,7 +157,10 @@ function check() {
     const allowed = new Set(replaced[path] || []);
     for (const h of before.h2) {
       if (allowed.has(h)) continue;
-      if (!now.h2.includes(h)) errors.push(`${path}: unique section dropped: "${h}"`);
+      if (now.h2.includes(h)) continue;
+      const newName = renamed[path] && renamed[path][h];
+      if (newName && now.h2.includes(newName)) continue;
+      errors.push(newName ? `${path}: renamed section missing: "${h}" -> "${newName}"` : `${path}: unique section dropped: "${h}"`);
     }
   }
 
