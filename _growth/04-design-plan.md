@@ -971,6 +971,22 @@ None in this review.
 - R1 refined: city and service pages keep their localized "what we do" grids (the content-reviewer pass made each city's cards unique), rendered as numbered rows without icons. Only the generic senior-consultant pitch, FAQ headings, closing CTA bands and the interlink sections are replaced; the allowlist lives in `scripts/inventory-replaced.json`. This keeps more content than the approved contract required.
 - Qué incluye renders on paper2 so it stays distinct from a paper section right before it.
 
+## Build status (2026-10-02)
+
+Branch `redesign-2-0`, pushed; Cloudflare preview at https://redesign-2-0.nexo-site.pages.dev (sends `x-robots-tag: noindex`). Production (clicroot.com) still serves `dd9d324`; nothing merges to main until Felipe approves.
+
+Done and verified on the branch:
+- T1 design system (DESIGN.md + global.css), T2 motion (no hidden content; bars draw once below the fold), T3 nav + footer from the registry, T4 offer bar, T5 form + hardened endpoint (R7, R8, R11, R13), T6 homepage (ES + EN from one component), T7 LandingPage + all 24 landings, T10 copy (contrast sweep across the 24 pages, quality gate clean), T11 one kicker per page, T12/T13 accessibility and responsive (44px targets, no horizontal scroll at 390 / 768 / 1440), T14 blog index, T15 post template, T17 deliverable copy (timings pending), T18 registry, T19 inventory gate, T20 tests.
+- Checks: `npm run build` (59 pages), `node scripts/inventory.mjs check --allow-pending` passes (24 landings compared to the live baseline, 82 pending items), `npm test` 38/38, `npx playwright test` 16/16, quality gate on all ES landings + homepage passes. Browser QA on the preview: offer bar close persists for the visit, menus open/close with Enter/Esc/outside click, phone sheet focus and Esc, bars draw, blog lists 15 posts per language, endpoint returns 400 / 400 / 500 per contract.
+
+Blocked on Felipe (the merge gate `npm run check` fails until these are done):
+- T22: add RESEND_API_KEY to the Preview environment (Cloudflare → Pages → nexo-site → Settings → Variables and secrets → Preview), then test one real submission on the preview.
+- T8: verified proof clients (before, after, window, OK) to replace the 5 illustrative entries in `src/content/cases/`.
+- T9: real masked dashboard screenshot for the homepage hero and 4 deliverable screenshots for "Cómo trabajamos".
+- T16: team photo and the facts for "Quién te atiende".
+- T17: confirm the timings in `src/data/deliverables.ts` (flip `timingConfirmed` per set) and the homepage steps.
+- Whether the 4 entries in `src/content/testimonials/` are real permitted quotes (not rendered; delete if not).
+
 ## GSTACK REVIEW REPORT
 
 | Review | Trigger | Why | Runs | Status | Findings |
