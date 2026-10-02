@@ -1,0 +1,19 @@
+{
+  "label_es": "Turismo de lujo · México",
+  "label_en": "Luxury travel · Mexico",
+  "services": [
+    "local",
+    "consultoria"
+  ],
+  "markets": [
+    "MX"
+  ],
+  "before": 22,
+  "after": 31,
+  "window_months": 6,
+  "source_es": "GA4 y CRM del cliente",
+  "source_en": "Client's GA4 and CRM",
+  "status": "illustrative",
+  "client_ok": false,
+  "order": 3
+}

@@ -1,0 +1,19 @@
+{
+  "label_es": "Restaurantes · Bogotá",
+  "label_en": "Restaurants · Bogotá",
+  "services": [
+    "local"
+  ],
+  "markets": [
+    "CO"
+  ],
+  "city": "bogota",
+  "before": 30,
+  "after": 40,
+  "window_months": 8,
+  "source_es": "GA4 y CRM del cliente",
+  "source_en": "Client's GA4 and CRM",
+  "status": "illustrative",
+  "client_ok": false,
+  "order": 4
+}

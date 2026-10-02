@@ -1,0 +1,19 @@
+{
+  "label_es": "B2B SaaS · México",
+  "label_en": "B2B SaaS · Mexico",
+  "services": [
+    "consultoria",
+    "geo"
+  ],
+  "markets": [
+    "MX"
+  ],
+  "before": 14,
+  "after": 43,
+  "window_months": 9,
+  "source_es": "GA4 y CRM del cliente",
+  "source_en": "Client's GA4 and CRM",
+  "status": "illustrative",
+  "client_ok": false,
+  "order": 1
+}
