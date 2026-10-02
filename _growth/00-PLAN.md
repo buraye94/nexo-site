@@ -38,7 +38,7 @@ Non-visual, high-leverage, low-risk. Touches astro.config, package.json, public/
 - FLAG for Felipe: the +312% vs 284% traffic conflict and the hero stat claims. Resolve to verifiable numbers before they ship (rule 3). I will not invent these.
 
 ### Phase 2 — Brand / design -> 2.0  [the visual redesign]
-Recolor + retype the homepage (and the shared layout/CSS) to the 2.0 tokens. Keep the dark/paper chapter rhythm, swap the values. Retire neon-lime for muted olive. Apply numbers-that-draw-themselves to the hero stats. Tighten the underdeveloped 4-step process section. Hold for Felipe review before prod deploy.
+Superseded 2026-10-02 by the reviewed design plan in 04-design-plan.md (homepage spine, landing template for the 24 pages, nav, form states, proof rules, DESIGN.md, mobile, accessibility, blog index and post template, 16 build tasks). The earlier version of this phase was a recolor to the 2.0 tokens; build from 04, not from this paragraph. The reveal fix listed in Phase 1 is now task T2 there. Hold for Felipe review before prod deploy.
 
 ### Phase 3 — Content / IA expansion  [what actually ranks]
 Build the pages from 01-keyword-architecture.md, each on the new 2.0 design, each GEO-built (entity clarity, structured Q&A, citable stats, schema). Parallelizable across sub-agents (one page or cluster per agent). Priority order:
