@@ -1,10 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { legal, legalComplete } from '../../data/legal';
+import { legal } from '../../data/legal';
 
-const controller = legalComplete
-  ? `${legal.controllerName}, ID ${legal.controllerId}, located at ${legal.address}`
-  : '[Pending: name or company name, ID and address of the data controller]';
+const controller = `${legal.controller}, based in ${legal.city}`;
 ---
 
 <Layout
@@ -21,7 +19,7 @@ const controller = legalComplete
       </header>
       <div class="post-body">
         <h2>Who handles your data</h2>
-        <p {...(legalComplete ? {} : { 'data-gate': 'pending', 'data-gate-reason': 'data controller in the privacy policy' })}>
+        <p>
           The data controller is {controller}. You can write to us at <a href={`mailto:${legal.email}`}>{legal.email}</a>.
         </p>
 

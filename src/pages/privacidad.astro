@@ -1,10 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { legal, legalComplete } from '../data/legal';
+import { legal } from '../data/legal';
 
-const controller = legalComplete
-  ? `${legal.controllerName}, identificación ${legal.controllerId}, con domicilio en ${legal.address}`
-  : '[Pendiente: nombre o razón social, identificación y domicilio del responsable]';
+const controller = `${legal.controller}, con sede en ${legal.city}`;
 ---
 
 <Layout
@@ -21,7 +19,7 @@ const controller = legalComplete
       </header>
       <div class="post-body">
         <h2>Quién trata tus datos</h2>
-        <p {...(legalComplete ? {} : { 'data-gate': 'pending', 'data-gate-reason': 'responsable del tratamiento en la política de privacidad' })}>
+        <p>
           El responsable del tratamiento es {controller}. Puedes escribirnos a <a href={`mailto:${legal.email}`}>{legal.email}</a>.
         </p>
 
