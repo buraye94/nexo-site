@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { legal, legalComplete } from '../data/legal';
+
+const controller = legalComplete
+  ? `${legal.controllerName}, identificación ${legal.controllerId}, con domicilio en ${legal.address}`
+  : '[Pendiente: nombre o razón social, identificación y domicilio del responsable]';
+---
+
+<Layout
+  title="Política de privacidad y tratamiento de datos | Clicroot"
+  description="Cómo trata Clicroot los datos personales que recibe por su sitio web y su formulario de contacto, y cómo ejercer tus derechos."
+  lang="es"
+  alternateUrl="/en/privacy/"
+>
+  <article class="paper post">
+    <div class="wrap">
+      <header class="post__head">
+        <p class="mono" style="color:var(--olive-text)">Actualizada el {legal.updated}</p>
+        <h1>Política de privacidad y tratamiento de datos</h1>
+      </header>
+      <div class="post-body">
+        <h2>Quién trata tus datos</h2>
+        <p {...(legalComplete ? {} : { 'data-gate': 'pending', 'data-gate-reason': 'responsable del tratamiento en la política de privacidad' })}>
+          El responsable del tratamiento es {controller}. Puedes escribirnos a <a href={`mailto:${legal.email}`}>{legal.email}</a>.
+        </p>
+
+        <h2>Qué datos recibimos</h2>
+        <ul>
+          <li><strong>Formulario de contacto:</strong> nombre, correo, sitio web, lo que necesitas, tu mensaje, la página desde la que escribes y el idioma.</li>
+          <li><strong>Navegación, solo si aceptas las cookies de analítica:</strong> páginas vistas, clics, tipo de dispositivo, ubicación aproximada y la grabación de tu sesión en el sitio. Los campos del formulario se graban ocultos.</li>
+          <li><strong>Si rechazas las cookies:</strong> no guardamos nada en tu navegador. Solo contamos la visita con un identificador temporal que se calcula en el servidor y no permite reconocerte después.</li>
+        </ul>
+
+        <h2>Para qué los usamos</h2>
+        <ul>
+          <li>Responder tu solicitud, preparar la primera llamada y enviarte una propuesta si la pides.</li>
+          <li>Entender cómo se usa el sitio para mejorarlo.</li>
+        </ul>
+        <p>No vendemos tus datos ni los usamos para publicidad de terceros.</p>
+
+        <h2>Con quién los compartimos</h2>
+        <p>Solo con los proveedores que operan el sitio por nosotros, que tratan los datos bajo nuestras instrucciones:</p>
+        <ul>
+          <li><strong>Resend</strong> (Estados Unidos): envía a nuestro correo los mensajes del formulario.</li>
+          <li><strong>PostHog</strong> (Estados Unidos): analítica web y grabación de sesiones, solo si aceptas las cookies.</li>
+          <li><strong>Cloudflare</strong>: aloja el sitio y protege el tráfico.</li>
+        </ul>
+        <p>Estos proveedores guardan los datos en servidores fuera de Colombia, en particular en Estados Unidos. Al enviarnos tus datos autorizas esa transferencia para las finalidades descritas.</p>
+
+        <h2>Cookies</h2>
+        <p>El sitio solo usa las cookies de PostHog, y solo después de que aceptas en el aviso de cookies. Puedes cambiar tu elección cuando quieras desde el enlace "Preferencias de cookies" al pie de cada página.</p>
+
+        <h2>Tus derechos</h2>
+        <p>Puedes conocer, actualizar y corregir tus datos, pedir que los eliminemos, revocar tu autorización y pedir prueba de ella, de acuerdo con la Ley 1581 de 2012 de Colombia. Si escribes desde México, también puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición.</p>
+        <p>Escríbenos a <a href={`mailto:${legal.email}`}>{legal.email}</a> con tu solicitud. Respondemos las consultas en un máximo de 10 días hábiles y los reclamos en un máximo de 15 días hábiles. Si no quedas conforme, puedes acudir a la Superintendencia de Industria y Comercio.</p>
+
+        <h2>Cuánto tiempo los conservamos</h2>
+        <p>Los datos del formulario se conservan mientras dure la conversación comercial o la relación con el cliente, y luego el tiempo que exija la ley. Los datos de analítica se conservan según el plan de retención de PostHog.</p>
+
+        <h2>Cambios a esta política</h2>
+        <p>Si cambiamos esta política, publicamos la nueva versión en esta página con su fecha de actualización.</p>
+      </div>
+    </div>
+  </article>
+</Layout>

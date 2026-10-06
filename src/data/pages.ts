@@ -50,6 +50,7 @@ export const pages: PageEntry[] = [
 
 export const homePath = (lang: Lang) => (lang === 'es' ? '/' : '/en/');
 export const blogPath = (lang: Lang) => (lang === 'es' ? '/es/blog/' : '/en/blog/');
+export const privacyPath = (lang: Lang) => (lang === 'es' ? '/privacidad/' : '/en/privacy/');
 
 export function getPage(id: string): PageEntry {
   const page = pages.find((p) => p.id === id);

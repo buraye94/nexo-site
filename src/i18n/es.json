@@ -62,7 +62,9 @@
     },
     "doneTitle": "Listo, {name}.",
     "doneText": "Te escribe un consultor senior desde hello@clicroot.com en un día hábil, con dos o tres horarios para la llamada.",
-    "doneDiag": "Si pediste el diagnóstico de IA, en ese correo te confirmamos la fecha de entrega."
+    "doneDiag": "Si pediste el diagnóstico de IA, en ese correo te confirmamos la fecha de entrega.",
+    "legal": "Al enviar el formulario autorizas el tratamiento de tus datos para responder tu solicitud, según la",
+    "legalLink": "política de privacidad"
   },
   "proof": {
     "before": "Antes de empezar",
@@ -121,7 +123,9 @@
     "company": "Clicroot",
     "blog": "Blog",
     "contact": "Contacto",
-    "copy": "© 2026 Clicroot"
+    "copy": "© 2026 Clicroot",
+    "privacy": "Política de privacidad",
+    "cookies": "Preferencias de cookies"
   },
   "blog": {
     "title": "Blog de SEO y visibilidad en IA | Clicroot",
@@ -135,5 +139,12 @@
     "closeText": "En una llamada de 30 minutos revisamos qué búsquedas ya podrían traerte clientes.",
     "closeCta": "Agenda una llamada",
     "closeService": "Ver"
+  },
+  "consent": {
+    "label": "Aviso de cookies",
+    "text": "Usamos cookies de PostHog para medir cómo se usa el sitio y grabar sesiones, con los campos del formulario ocultos. Solo se activan si aceptas.",
+    "policy": "Política de privacidad",
+    "accept": "Aceptar",
+    "decline": "Rechazar"
   }
 }

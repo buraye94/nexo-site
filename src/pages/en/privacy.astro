@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { legal, legalComplete } from '../../data/legal';
+
+const controller = legalComplete
+  ? `${legal.controllerName}, ID ${legal.controllerId}, located at ${legal.address}`
+  : '[Pending: name or company name, ID and address of the data controller]';
+---
+
+<Layout
+  title="Privacy Policy | Clicroot"
+  description="How Clicroot handles the personal data it receives through its website and contact form, and how to exercise your rights."
+  lang="en"
+  alternateUrl="/privacidad/"
+>
+  <article class="paper post">
+    <div class="wrap">
+      <header class="post__head">
+        <p class="mono" style="color:var(--olive-text)">Updated {legal.updated}</p>
+        <h1>Privacy policy</h1>
+      </header>
+      <div class="post-body">
+        <h2>Who handles your data</h2>
+        <p {...(legalComplete ? {} : { 'data-gate': 'pending', 'data-gate-reason': 'data controller in the privacy policy' })}>
+          The data controller is {controller}. You can write to us at <a href={`mailto:${legal.email}`}>{legal.email}</a>.
+        </p>
+
+        <h2>What data we receive</h2>
+        <ul>
+          <li><strong>Contact form:</strong> name, email, website, what you need, your message, the page you write from and your language.</li>
+          <li><strong>Browsing, only if you accept analytics cookies:</strong> pages viewed, clicks, device type, approximate location and a recording of your session on the site. Form fields are recorded hidden.</li>
+          <li><strong>If you decline cookies:</strong> nothing is stored in your browser. We only count the visit with a temporary identifier calculated on the server, which cannot recognize you later.</li>
+        </ul>
+
+        <h2>What we use it for</h2>
+        <ul>
+          <li>To answer your request, prepare the first call and send you a proposal if you ask for one.</li>
+          <li>To understand how the site is used and improve it.</li>
+        </ul>
+        <p>We do not sell your data or use it for third-party advertising.</p>
+
+        <h2>Who we share it with</h2>
+        <p>Only with the providers that run the site for us, who process the data under our instructions:</p>
+        <ul>
+          <li><strong>Resend</strong> (United States): delivers form messages to our inbox.</li>
+          <li><strong>PostHog</strong> (United States): web analytics and session recording, only if you accept cookies.</li>
+          <li><strong>Cloudflare</strong>: hosts the site and protects its traffic.</li>
+        </ul>
+        <p>These providers store data on servers outside Colombia, mainly in the United States. By sending us your data you authorize that transfer for the purposes described here.</p>
+
+        <h2>Cookies</h2>
+        <p>The site only uses PostHog cookies, and only after you accept them in the cookie notice. You can change your choice at any time from the "Cookie preferences" link at the bottom of every page.</p>
+
+        <h2>Your rights</h2>
+        <p>You can access, update and correct your data, ask us to delete it, withdraw your authorization and ask for proof of it, under Colombian Law 1581 of 2012. If you write from Mexico, you can also exercise your rights of access, rectification, cancellation and objection.</p>
+        <p>Write to <a href={`mailto:${legal.email}`}>{legal.email}</a> with your request. We answer inquiries within 10 business days and complaints within 15 business days. If you are not satisfied, you can contact Colombia's Superintendence of Industry and Commerce.</p>
+
+        <h2>How long we keep it</h2>
+        <p>Form data is kept for as long as the business conversation or client relationship lasts, and then for as long as the law requires. Analytics data is kept according to PostHog's retention plan.</p>
+
+        <h2>Changes to this policy</h2>
+        <p>If we change this policy, we publish the new version on this page with its update date.</p>
+      </div>
+    </div>
+  </article>
+</Layout>

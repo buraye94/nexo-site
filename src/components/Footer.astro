@@ -1,6 +1,7 @@
 ---
 import { t } from '../i18n/utils';
-import { servicePages, cityPages, hubPage, homePath, blogPath, type Lang } from '../data/pages';
+import { servicePages, cityPages, hubPage, homePath, blogPath, privacyPath, type Lang } from '../data/pages';
+import { posthogEnabled } from '../lib/analytics';
 
 interface Props {
   lang: Lang;
@@ -32,6 +33,8 @@ const cities = cityPages();
           <li><a href={blogPath(lang)}>{t(lang, 'footer.blog')}</a></li>
           <li><a href={`${homePath(lang)}#contacto`}>{t(lang, 'footer.contact')}</a></li>
           <li><a href="mailto:hello@clicroot.com">hello@clicroot.com</a></li>
+          <li><a href={privacyPath(lang)}>{t(lang, 'footer.privacy')}</a></li>
+          {posthogEnabled && <li><a href="#" data-consent-reopen>{t(lang, 'footer.cookies')}</a></li>}
         </ul>
       </div>
     </div>

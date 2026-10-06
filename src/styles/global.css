@@ -259,6 +259,16 @@ html.js.motion .proof.is-drawn .proof__bars span { transform: scaleX(1); transit
 .cf__mark { width: 40px; height: 40px; border-radius: 50%; background: var(--olive); color: var(--ink); display: flex; align-items: center; justify-content: center; font-weight: 800; }
 .cf [hidden] { display: none !important; }
 
+/* Consent banner (PostHog) */
+.consent { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 40; max-width: 760px; margin: 0 auto; background: var(--ink2); border: 1px solid var(--line-dark); border-radius: var(--r-xl); box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.6); }
+.consent[hidden] { display: none; }
+.consent__inner { display: flex; align-items: center; gap: 18px; padding: 16px 18px; }
+.consent__text { font-size: 15px; line-height: 1.5; color: #D2CDBB; }
+.consent__text a { color: var(--olive); font-weight: 600; }
+.consent__actions { display: flex; gap: 10px; flex: none; }
+.cf__legal { margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--muted-dark); }
+.cf__legal a { color: var(--olive); }
+
 /* FAQ */
 .faq details { border-top: 1px solid var(--line-paper); }
 .faq details:last-child { border-bottom: 1px solid var(--line-paper); }
@@ -355,6 +365,9 @@ html.js.motion .proof.is-drawn .proof__bars span { transform: scaleX(1); transit
   .site-footer__grid { grid-template-columns: 1fr; }
   .sticky-cta { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(22, 21, 15, 0.96); border-top: 1px solid var(--line-dark); }
   .sticky-cta .btn { width: 100%; }
+  .consent { left: 8px; right: 8px; bottom: 84px; }
+  .consent__inner { flex-direction: column; align-items: stretch; }
+  .consent__actions .btn { flex: 1; }
   body.has-sticky { padding-bottom: 76px; }
 }
 

@@ -1,6 +1,6 @@
 ---
 import { t } from '../i18n/utils';
-import type { Lang } from '../data/pages';
+import { privacyPath, type Lang } from '../data/pages';
 
 interface Props {
   lang: Lang;
@@ -70,6 +70,7 @@ const messages = {
       </div>
     </fieldset>
     <p class="src cf__note">{f('note')}</p>
+    <p class="cf__legal">{f('legal')} <a href={privacyPath(lang)}>{f('legalLink')}</a>.</p>
   </div>
 
   <div class="cf__done" role="status" data-cf-done hidden tabindex="-1">
@@ -185,6 +186,8 @@ const messages = {
         (done.querySelector('[data-cf-done-diag]') as HTMLElement).hidden = payload.need !== 'diagnostico';
         done.hidden = false;
         done.focus();
+        // Conversion event (no-op when PostHog is not configured or the visitor declined cookies).
+        (window as any).posthog?.capture?.('lead_submitted', { need: payload.need, page: payload.page, lang });
       } catch {
         banner.innerHTML = '';
         banner.append(`${msgs.errors.server} `);

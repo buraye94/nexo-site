@@ -62,7 +62,9 @@
     },
     "doneTitle": "Done, {name}.",
     "doneText": "A senior consultant will write to you from hello@clicroot.com within one business day, with two or three times for the call.",
-    "doneDiag": "If you asked for the AI diagnosis, that email confirms when you will receive it."
+    "doneDiag": "If you asked for the AI diagnosis, that email confirms when you will receive it.",
+    "legal": "By sending the form you authorize us to process your data to answer your request, as described in our",
+    "legalLink": "privacy policy"
   },
   "proof": {
     "before": "Before we started",
@@ -121,7 +123,9 @@
     "company": "Clicroot",
     "blog": "Blog",
     "contact": "Contact",
-    "copy": "© 2026 Clicroot"
+    "copy": "© 2026 Clicroot",
+    "privacy": "Privacy policy",
+    "cookies": "Cookie preferences"
   },
   "blog": {
     "title": "SEO and AI Visibility Blog | Clicroot",
@@ -135,5 +139,12 @@
     "closeText": "In a 30-minute call we review which searches could already bring you customers.",
     "closeCta": "Book a call",
     "closeService": "See"
+  },
+  "consent": {
+    "label": "Cookie notice",
+    "text": "We use PostHog cookies to measure how the site is used and to record sessions, with form fields hidden. They only turn on if you accept.",
+    "policy": "Privacy policy",
+    "accept": "Accept",
+    "decline": "Decline"
   }
 }

@@ -1,0 +1,80 @@
+---
+// PostHog with a consent banner (official "on_reject" pattern):
+// nothing is stored or captured until the visitor decides; accepting turns on cookies and
+// session replay (form inputs masked); declining keeps a cookieless, server-side count.
+import { t } from '../i18n/utils';
+import { posthogKey, posthogHost } from '../lib/analytics';
+import type { Lang } from '../data/pages';
+
+interface Props {
+  lang: Lang;
+  privacyHref: string;
+}
+
+const { lang, privacyHref } = Astro.props;
+const c = (key: string) => t(lang, `consent.${key}`);
+const config = { key: posthogKey, host: posthogHost };
+---
+
+<script is:inline define:vars={{ config }}>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}p||((p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",p.onerror=function(){p=null},(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r));var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],Object.defineProperty(u,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e}}),Object.defineProperty(u.people,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(){return u.toString(1)+".people (stub)"}}),o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init(config.key, {
+    api_host: config.host,
+    defaults: '2026-05-30',
+    cookieless_mode: 'on_reject',
+    person_profiles: 'identified_only',
+    session_recording: { maskAllInputs: true },
+    loaded: function (ph) {
+      window.dispatchEvent(new CustomEvent('clicroot:posthog-ready', { detail: ph }));
+    },
+  });
+</script>
+
+<div class="consent" id="consent" role="region" aria-label={c('label')} hidden>
+  <div class="consent__inner">
+    <p class="consent__text">{c('text')} <a href={privacyHref}>{c('policy')}</a></p>
+    <div class="consent__actions">
+      <button type="button" class="btn btn--ghost btn--sm" data-consent="decline">{c('decline')}</button>
+      <button type="button" class="btn btn--primary btn--sm" data-consent="accept">{c('accept')}</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  type PostHog = {
+    get_explicit_consent_status: () => 'granted' | 'denied' | 'pending';
+    opt_in_capturing: () => void;
+    opt_out_capturing: () => void;
+    clear_opt_in_out_capturing: () => void;
+  };
+  const banner = document.getElementById('consent');
+  let ph: PostHog | null = null;
+
+  const show = () => banner?.removeAttribute('hidden');
+  const hide = () => banner?.setAttribute('hidden', '');
+
+  window.addEventListener('clicroot:posthog-ready', (e) => {
+    ph = (e as CustomEvent<PostHog>).detail;
+    if (ph.get_explicit_consent_status() === 'pending') show();
+  });
+
+  banner?.querySelectorAll<HTMLButtonElement>('[data-consent]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!ph) return;
+      if (btn.dataset.consent === 'accept') ph.opt_in_capturing();
+      else ph.opt_out_capturing();
+      hide();
+    });
+  });
+
+  // Footer "Preferencias de cookies": reopen the choice.
+  document.querySelectorAll<HTMLElement>('[data-consent-reopen]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!ph) return;
+      ph.clear_opt_in_out_capturing();
+      show();
+      banner?.querySelector<HTMLButtonElement>('[data-consent="accept"]')?.focus();
+    });
+  });
+</script>
